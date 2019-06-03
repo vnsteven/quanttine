@@ -5,15 +5,13 @@ one:
   school_type: MyString
   city: MyString
   street_address: MyString
+  billing_address: MyString
   zipcode: MyString
-  phone_number: MyString
-  email: MyString
 
 two:
   name: MyString
   school_type: MyString
   city: MyString
   street_address: MyString
+  billing_address: MyString
   zipcode: MyString
-  phone_number: MyString
-  email: MyString
