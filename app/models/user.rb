@@ -1,8 +1,5 @@
 class User < ApplicationRecord
-<<<<<<< HEAD
 	belongs_to :school, optional: :true
-=======
->>>>>>> development
 	has_one :profile, dependent: :destroy
 	# after_create :welcome_send
   # Include default devise modules. Others available are:
