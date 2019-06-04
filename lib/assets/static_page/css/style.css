@@ -6,11 +6,11 @@ body {
   font-size: 1rem; }
 
 ::-moz-selection {
-  background: #000;
+  background: #D9D9DA;
   color: #fff; }
 
 ::selection {
-  background: #000;
+  background: #D9D9DA;
   color: #fff; }
 
 a {
@@ -297,7 +297,7 @@ h1, h2, h3, h4, h5,
         display: inline-block;
         text-decoration: none !important; }
         .site-navbar .site-navigation .site-menu > li > a:hover {
-          color: #e81050; }
+          color: #57575C; }
     .site-navbar .site-navigation .site-menu .has-children {
       position: relative; }
       .site-navbar .site-navigation .site-menu .has-children > a {

@@ -17,6 +17,17 @@
 */
 
 
+/* MODAL */
+
+
+/* BUTTON */
+
+.btn-primary:focus {
+	background-color: #C61349 !important;
+	border: 1px solid #C61349 !important;
+}
+
+/**/
 
 .show-user {
 	background-image: url(carrot.jpg);
