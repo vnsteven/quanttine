@@ -8,6 +8,7 @@
 
 School.destroy_all
 User.destroy_all
+Profile.destroy_all
 
 2.times do
   School.create!(

@@ -40,9 +40,8 @@ ActiveRecord::Schema.define(version: 2019_06_04_091824) do
     t.string "school_type"
     t.string "city"
     t.string "street_address"
+    t.string "billing_address"
     t.string "zipcode"
-    t.string "phone_number"
-    t.string "email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
