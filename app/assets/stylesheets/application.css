@@ -28,15 +28,31 @@
 
 .show-user {
 	background-image: url(carrot.jpg);
-	background-size: 100%;
+}
+
+.show-user ul li {
+	margin-left: 20px;
 }
 
 .user-info {
-	width: 60%;
-	max-width: 35em;
+	max-width: 40em;
+	min-width: 15em;
 	margin: auto; 
 }
 
 .space {
 	height: 10em;
+}
+
+.user-photo {
+	height: 200px; 
+	width: 100%; 
+	display: block;
+	border: 1px solid #D9D9D9;
+}
+
+.content {
+	margin: auto;
+	text-align: center;
+
 }
