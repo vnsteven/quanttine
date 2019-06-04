@@ -8,6 +8,16 @@ gem 'devise'
 gem 'dotenv-rails'
 gem 'jquery-rails'
 
+# Flexible authentication solution for Rails with Warden
+gem 'devise', '~> 4.6', '>= 4.6.2'
+# Autoload dotenv in Rails
+gem 'dotenv-rails', '~> 2.7', '>= 2.7.2'
+# Faker, a port of Data::Faker from Perl, is used to easily generate fake data: names, addresses, phone numbers, etc.
+gem 'faker', '~> 1.9', '>= 1.9.3'
+# TablePrint turns objects into nicely formatted columns for easy reading. Works great in rails console, works on pure ruby objects, autodetects columns, lets you traverse ActiveRecord associations. Simple, powerful.
+gem 'table_print', '~> 1.5', '>= 1.5.6'
+>>>>>>> development
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.3'
 # Use postgresql as the database for Active Record
