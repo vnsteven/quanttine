@@ -1,8 +1,3 @@
-<%= render 'devise/registrations/edit' %>
-
-<%= render 'devise/registrations/new' %>
-<%= render 'devise/sessions/new' %>
-
 <!-- Page Wrapper -->
 <div id="wrapper">
 	
@@ -81,11 +76,6 @@
 	<div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
 		<div class="bg-white py-2 collapse-inner rounded">
 			<h6 class="collapse-header">Login Screens:</h6>
-			<%= link_to 'Sign up', new_user_registration_path, class: "collapse-item", 'data-toggle' => "modal", 'data-target' => "#modalSignup" %>
-
-			<%= link_to 'Log in', new_user_session_path, class: "collapse-item", 'data-toggle' => "modal", 'data-target' => "#modalLogin" %>
-
-			<%= link_to 'Edit', edit_user_registration_path, class: "collapse-item", 'data-toggle' => "modal", 'data-target' => "#modalEdit" %>
 			<div class="collapse-divider"></div>
 			<h6 class="collapse-header">Other Pages:</h6>
 			<a class="collapse-item" href="404.html">404 Page</a>

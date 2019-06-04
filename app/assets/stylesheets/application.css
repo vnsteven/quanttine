@@ -10,14 +10,12 @@
 * files in this directory. Styles in this file should be added after the last require_* statement.
 * It is generally better to create a new file per style scope.
 *
-*= require assets/static_page/css/bootstrap.min
+*= require assets/static_page/css/bootstrap/bootstrap
 *= require assets/static_page/css/jquery-ui
-*= require assets/static_page/css/owl.carousel.min
 *= require assets/static_page/css/owl.theme.default.min
 *= require assets/static_page/css/owl.theme.default.min
 *= require assets/static_page/css/jquery.fancybox.min
 *= require assets/static_page/css/bootstrap-datepicker
-*= require assets/static_page/fonts/flaticon/font/flaticon
 *= require assets/static_page/css/aos
 *= require assets/static_page/css/style
 
