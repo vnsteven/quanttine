@@ -13,12 +13,20 @@
       <div class="col-12 col-md-10 d-none d-xl-block">
         <nav class="site-navigation position-relative text-right" role="navigation">
 
+          <% if user_signed_in? %>
+          <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
+            <li><%= link_to 'Profile', user_path(params[:id])%></li>
+          </ul>
+
+          <% else %>
+
           <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
             <li><a href="/dashboard" class="nav-link">Dashboard</a></li>
             <li><%= link_to 'Sign up', new_user_registration_path, class: "collapse-item", 'data-toggle' => "modal", 'data-target' => "#modalSignup" %></li>
             <li><%= link_to 'Log in', new_user_session_path, class: "collapse-item", 'data-toggle' => "modal", 'data-target' => "#modalLogin" %></li>
             <li><%= link_to 'Edit', edit_user_registration_path, class: "collapse-item", 'data-toggle' => "modal", 'data-target' => "#modalEdit" %></li>
           </ul>
+          <% end %>
         </nav>
       </div>
     </div>
