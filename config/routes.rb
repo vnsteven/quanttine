@@ -10,7 +10,7 @@ Rails.application.routes.draw do
     resources :dashboard
   end
 
-  resources :users, only: [:show, :index]
+  resources :users, only: [:show, :edit]
 
   devise_for :admins
 
