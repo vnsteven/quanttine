@@ -16,15 +16,21 @@ Profile.destroy_all
 #   )
 # end
 
+2.times do
+  School.create!(
+  )
+end
+
 10.times do
   User.create!(
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
     email: Faker::Internet.email,
     password: "password",
-    school_id: School.all.sample.id
   )
   Profile.create!(
-    user_id: User.all.sample.id
+    user_id: User.all.sample.id,
+    school_id: School.all.sample.id
+
   )
 end
