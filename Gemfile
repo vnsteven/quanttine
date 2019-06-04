@@ -16,7 +16,6 @@ gem 'dotenv-rails', '~> 2.7', '>= 2.7.2'
 gem 'faker', '~> 1.9', '>= 1.9.3'
 # TablePrint turns objects into nicely formatted columns for easy reading. Works great in rails console, works on pure ruby objects, autodetects columns, lets you traverse ActiveRecord associations. Simple, powerful.
 gem 'table_print', '~> 1.5', '>= 1.5.6'
->>>>>>> development
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.3'
