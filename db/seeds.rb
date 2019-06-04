@@ -10,7 +10,7 @@ User.destroy_all
 Profile.destroy_all
 School.destroy_all
 Admin.destroy_all
-
+Preference.destroy_all
 
 2.times do
   School.create!(
@@ -26,15 +26,28 @@ end
 end
 
 10.times do
-  User.create!(
+  user = User.create!(
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
     email: Faker::Internet.email,
     password: "password",
   )
   Profile.create!(
-    user_id: User.all.sample.id,
+    user_id: user.id,
     school_id: School.all.sample.id
+  )
+end
 
+20.times do
+  Preference.create!(
+    name: Faker::Food.fruits,
+    category: ["diet", "allergy"].sample
+  )
+end
+
+20.times do
+  JoinTableProfilePreference.create!(
+    profile_id: Profile.all.sample.id,
+    preference_id: Preference.all.sample.id
   )
 end
