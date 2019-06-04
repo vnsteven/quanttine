@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   
   devise_for :users
   devise_for :admins
+  # resources :users, only: [:show, :edit]
 
   resources :users, only: [:show, :edit] do
     resources :dashboard, only: [:index]
@@ -12,7 +13,6 @@ Rails.application.routes.draw do
     resources :dashboard, only: [:index]
   end
 
-  resources :users, only: [:show, :edit]
 
 ##### FACEBOOK CONNECT #####
 # devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }, controllers: { registrations: "registrations" }
