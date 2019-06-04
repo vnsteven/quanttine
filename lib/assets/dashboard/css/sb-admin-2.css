@@ -24,7 +24,7 @@
   --white: #fff;
   --gray: #858796;
   --gray-dark: #5a5c69;
-  --primary: #4e73df;
+  --primary: #5E36D9;
   --secondary: #858796;
   --success: #1cc88a;
   --info: #36b9cc;
@@ -587,7 +587,7 @@ pre code {
 }
 
 .container-fluid {
-  width: 100%;
+  width: 85%;
   padding-right: 0.75rem;
   padding-left: 0.75rem;
   margin-right: auto;
@@ -6915,7 +6915,7 @@ a.close.disabled {
 }
 
 .bg-primary {
-  background-color: #4e73df !important;
+  background-color: #717EA5 !important;
 }
 
 a.bg-primary:hover, a.bg-primary:focus,
@@ -10579,10 +10579,11 @@ a:focus {
   display: flex;
 }
 
+
 #wrapper #content-wrapper {
-  background-color: #f8f9fc;
   width: 100%;
   overflow-x: hidden;
+  
 }
 
 #wrapper #content-wrapper #content {
@@ -10685,9 +10686,9 @@ a:focus {
 }
 
 .bg-gradient-primary {
-  background-color: #4e73df;
+  background-color: #93190F;
   background-image: -webkit-gradient(linear, left top, left bottom, color-stop(10%, #4e73df), to(#224abe));
-  background-image: linear-gradient(180deg, #4e73df 10%, #224abe 100%);
+  background-image: linear-gradient(180deg, #93190F 10%, #B23D34 100%);
   background-size: cover;
 }
 
@@ -10727,16 +10728,16 @@ a:focus {
 }
 
 .bg-gradient-light {
-  background-color: #f8f9fc;
+  background-color: #E5E6E8;
   background-image: -webkit-gradient(linear, left top, left bottom, color-stop(10%, #f8f9fc), to(#c2cbe5));
-  background-image: linear-gradient(180deg, #f8f9fc 10%, #c2cbe5 100%);
+  background-image: linear-gradient(180deg, #E5E6E8 10%, #B4B9C8 100%);
   background-size: cover;
 }
 
 .bg-gradient-dark {
-  background-color: #5a5c69;
-  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(10%, #5a5c69), to(#373840));
-  background-image: linear-gradient(180deg, #5a5c69 10%, #373840 100%);
+  background-color: #27313A;
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(10%, #27313A), to(#373840));
+  background-image: linear-gradient(180deg, #27313A 10%, #27313A 100%);
   background-size: cover;
 }
 
@@ -11135,6 +11136,7 @@ a:focus {
 .sidebar .nav-item .nav-link span {
   font-size: 0.65rem;
   display: block;
+  color: #F6F3F3; 
 }
 
 .sidebar .nav-item.active .nav-link {
@@ -11446,7 +11448,7 @@ a:focus {
 }
 
 .sidebar-dark .sidebar-brand {
-  color: #fff;
+  color: #181111;
 }
 
 .sidebar-dark hr.sidebar-divider {
@@ -11604,10 +11606,18 @@ a:focus {
   content: '\f105';
 }
 
-.chart-area {
+.lunch-card{
   position: relative;
-  height: 10rem;
+  height: 20rem;
   width: 100%;
+  text-align: center;
+  display: flex;
+  align-items: center;
+}
+
+.lunch-pic {
+  width: 23em;
+  margin-right: 20px;
 }
 
 @media (min-width: 768px) {
