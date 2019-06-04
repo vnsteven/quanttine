@@ -1,14 +1,40 @@
-<nav class="site-navbar py-4 js-sticky-header site-navbar-target navbar-fixed-top banner" role="banner">
-  <%= render 'devise/registrations/edit' %>
-  <%= render 'devise/registrations/new' %>
-  <%= render 'devise/sessions/new' %>
+<header class="site-navbar py-4 js-sticky-header site-navbar-target" role="banner">
 
-  <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
-    <li><%= link_to 'Dashboard', dashboard_index_path %></li>
-    <li><%= link_to 'Sign up', new_user_registration_path, class: "collapse-item", 'data-toggle' => "modal", 'data-target' => "#modalSignup" %></li>
-    <li><%= link_to 'Log in', new_user_session_path, class: "collapse-item", 'data-toggle' => "modal", 'data-target' => "#modalLogin" %></li>
-    <li><%= link_to 'Edit', edit_user_registration_path, class: "collapse-item", 'data-toggle' => "modal", 'data-target' => "#modalEdit" %></li>
-  </ul>
-</nav>
+	<div class="container">
+		<div class="row align-items-center">
 
+			<div class="col-6 col-xl-2">
+				<h1 class="mb-0 site-logo">Quanttine</h1>
+			</div>
 
+			<div class="col-12 col-md-10 d-none d-xl-block">
+				<nav class="site-navigation position-relative text-right" role="navigation">
+
+					<ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
+						<% if user_signed_in? %>
+						<li class="nav-item">
+							<%= link_to "Log out", destroy_user_session_path, :class => "nav-link", :method => :delete %>
+							<%= link_to 'Edit', edit_user_registration_path, class: "nav-link", 'data-toggle' => "modal", 'data-target' => "#modalEdit" %>
+						</li>
+						<% else %>
+						<li class="nav-item">
+							<%= link_to 'Sign up', new_user_registration_path, class: "nav-link", 'data-toggle' => "modal", 'data-target' => "#modalSignup" %>
+						</li>
+						<li class="nav-item">
+							<%= link_to 'Log in', new_user_session_path, class: "nav-link", 'data-toggle' => "modal", 'data-target' => "#modalLogin" %>
+						</li>
+						<% end %>
+					</ul>
+				</nav>
+			</div>
+
+			<%= render 'devise/registrations/new' %>
+			<%= render 'devise/registrations/edit' %>
+			<%= render 'devise/sessions/new' %>
+
+			<div class="col-6 d-inline-block d-xl-none ml-md-0 py-3" style="position: relative; top: 3px;"><a href="#" class="site-menu-toggle js-menu-toggle text-black float-right"><span class="icon-menu h3"></span></a></div>
+
+		</div>
+	</div>
+
+</header>
