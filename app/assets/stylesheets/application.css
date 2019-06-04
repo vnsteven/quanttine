@@ -26,12 +26,6 @@
 *= require_self
 */
 
-.fixed-top.scrolled {
-  background-color: #79C2AD !important;
-  transition: background-color 200ms linear;
-}
-
-
 
 
 
