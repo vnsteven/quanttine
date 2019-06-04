@@ -19,6 +19,14 @@
 
 /* MODAL */
 
+.modal-footer {
+	display : flex;
+	justify-content : center;
+}
+
+.modal-header {
+	padding-left: 38%;
+}
 
 /* BUTTON */
 
@@ -27,7 +35,7 @@
 	border: 1px solid #C61349 !important;
 }
 
-/**/
+/* SHOW USER */
 
 .show-user {
 	background-image: url(carrot.jpg);
@@ -57,5 +65,4 @@
 .content {
 	margin: auto;
 	text-align: center;
-
 }
