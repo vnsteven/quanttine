@@ -10,7 +10,7 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require assets/js/sb-admin-2
+//= require assets/dashboard/js/sb-admin-2
 //= require rails-ujs
 //= require activestorage
 //= require_tree .
