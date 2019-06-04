@@ -5,6 +5,7 @@ ruby '2.5.1'
 
 #Other gems:
 gem 'jquery-rails'
+gem 'better_errors'
 
 # Flexible authentication solution for Rails with Warden
 gem 'devise', '~> 4.6', '>= 4.6.2'
