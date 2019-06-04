@@ -6,18 +6,22 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-# School.destroy_all
 User.destroy_all
 Profile.destroy_all
+School.destroy_all
+Admin.destroy_all
 
-# 2.times do
-#   School.create!(
-
-#   )
-# end
 
 2.times do
   School.create!(
+  )
+end
+
+5.times do
+  Admin.create!(
+    email: Faker::Internet.email,
+    password: "password",
+    school_id: School.all.sample.id
   )
 end
 
