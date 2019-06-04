@@ -8,6 +8,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   devise :omniauthable, omniauth_providers: %i[facebook]
 
+
   def welcome_send
   	UserMailer.welcome_email(self).deliver_now
   end
