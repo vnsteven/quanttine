@@ -1,18 +1,18 @@
 Rails.application.routes.draw do
   root 'home#index'
   devise_for :users
+  devise_for :admins
 
-  resources :users do
+  resources :users, only: [:show, :edit] do
     resources :dashboard
   end
 
-  resources :admins do
+  resources :admins, only: [:show, :edit] do
     resources :dashboard
   end
 
   resources :users, only: [:show, :edit]
 
-  devise_for :admins
 
 ##### FACEBOOK CONNECT #####
 # devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }, controllers: { registrations: "registrations" }
