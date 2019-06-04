@@ -10,7 +10,26 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+//= require assets/static_page/js/jquery-3.3.1.min
+//= require assets/static_page/js/jquery-migrate-3.0.1.min
+//= require assets/static_page/js/jquery-ui
+//= require assets/static_page/js/popper.min
+//= require assets/static_page/js/bootstrap.min
+//= require assets/static_page/js/owl.carousel.min
+//= require assets/static_page/js/jquery.stellar.min
+//= require assets/static_page/js/jquery.countdown.min
+//= require assets/static_page/js/bootstrap-datepicker.min
+//= require assets/static_page/js/jquery.easing.1.3
+//= require assets/static_page/js/aos
+//= require assets/static_page/js/jquery.fancybox.min
+//= require assets/static_page/js/jquery.sticky
+//= require assets/static_page/js/main
+
+//= require jquery/jquery
+//= require bootstrap/js/bootstrap.bundle
+//= require jquery-easing/jquery.easing
+//= require assets/js/sb-admin-2
 //= require rails-ujs
 //= require activestorage
-//= require turbolinks
 //= require_tree .
+
