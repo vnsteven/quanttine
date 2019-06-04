@@ -2,8 +2,11 @@ Rails.application.routes.draw do
   root 'home#index'
   resources :dashboard
   resources :user, only: [:show]
+
+
   devise_for :admins
 
+  devise_for :users, controllers: { registrations: "registrations" }
 
 ##### FACEBOOK CONNECT #####
 devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
