@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_04_125509) do
+ActiveRecord::Schema.define(version: 2019_06_04_152305) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,6 +28,22 @@ ActiveRecord::Schema.define(version: 2019_06_04_125509) do
     t.index ["email"], name: "index_admins_on_email", unique: true
     t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
     t.index ["school_id"], name: "index_admins_on_school_id"
+  end
+
+  create_table "join_table_profile_preferences", force: :cascade do |t|
+    t.bigint "profile_id"
+    t.bigint "preference_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["preference_id"], name: "index_join_table_profile_preferences_on_preference_id"
+    t.index ["profile_id"], name: "index_join_table_profile_preferences_on_profile_id"
+  end
+
+  create_table "preferences", force: :cascade do |t|
+    t.string "name"
+    t.integer "category"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "profiles", force: :cascade do |t|
