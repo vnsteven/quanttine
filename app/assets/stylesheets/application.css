@@ -26,4 +26,17 @@
 
 
 
+.show-user {
+	background-image: url(carrot.jpg);
+	background-size: 100%;
+}
 
+.user-info {
+	width: 60%;
+	max-width: 35em;
+	margin: auto; 
+}
+
+.space {
+	height: 10em;
+}
