@@ -1,20 +1,16 @@
-<div class="video-container">
-	<div class="banner">
-		<%= image_tag "https://images.pexels.com/photos/2170317/pexels-photo-2170317.jpeg?auto=format%2Ccompress&cs=tinysrgb&dpr=2&h=750&w=1260", style:"height: 100vh; width: 100%;" %>
-	</div>
-</div>
-
-<div class="site-blocks-cover overlay" style="background-image: url()" data-aos="fade" id="home-section">
+<div class="site-blocks-cover overlay" style="background-image: url(https://images.pexels.com/photos/2161650/pexels-photo-2161650.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500);" data-aos="fade" id="home-section">
 	<div class="container">
 		<div class="row align-items-center justify-content-center">
+
+
 			<div class="col-md-6 mt-lg-5 text-center">
-				<h1>We Are The Best Consulting Agency</h1>
+				<h1>L'application contre le gaspillage alimentaire</h1>
 				<p class="mb-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam assumenda ea quo cupiditate facere deleniti fuga officia.</p>
 				<div>
-					<a href="#" class="btn btn-primary mr-2 mb-2">Get Started</a>
+					<%= link_to 'Start now', new_user_session_path, class: "btn btn-primary mr-2 mb-2", 'data-toggle' => "modal", 'data-target' => "#modalLogin" %>
 				</div>
 			</div>
+
 		</div>
 	</div>
-</div>  
-
+</div>
