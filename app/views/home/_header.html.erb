@@ -1,3 +1,8 @@
+
+<%= render 'devise/registrations/new' %>
+<%= render 'devise/sessions/new' %>
+
+
 <header class="site-navbar py-4 js-sticky-header site-navbar-target" role="banner">
 
 	<div class="container">
@@ -13,13 +18,17 @@
 					<ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
 						<% if user_signed_in? %>
 						<li class="nav-item">
+							<% if current_admin %>
+							<%= link_to "Dashboard", admin_dashboard_index_path(current_admin.id), :class => "nav-link" %>
+							<% elsif current_user %>
 							<%= link_to "Dashboard", user_dashboard_index_path(current_user.id), :class => "nav-link" %>
+							<% end %>
 						</li>
 						<li class="nav-item">
 							<%= link_to "Log out", destroy_user_session_path, :class => "nav-link", :method => :delete %>
 						</li>
 						<li class="nav-item">
-							<%= link_to 'Edit', edit_user_registration_path, class: "nav-link", 'data-toggle' => "modal", 'data-target' => "#modalEdit" %>
+							<%= link_to 'Profile', user_path(current_user.id), class: "nav-link" %>
 						</li>
 						<% else %>
 						<li class="nav-item">
