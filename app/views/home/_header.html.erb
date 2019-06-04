@@ -15,7 +15,7 @@
 
           <% if user_signed_in? %>
           <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
-            <li><%= link_to 'Profile', user_path(params[:id])%></li>
+            <li><%= link_to 'Profile', user_path(current_user.id)%></li>
           </ul>
 
           <% else %>
