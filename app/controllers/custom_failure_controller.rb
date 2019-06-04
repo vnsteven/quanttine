@@ -3,7 +3,6 @@ class CustomFailureController < Devise::FailureApp
      new_user_session_url(:subdomain => 'secure')
   end
 
-  # You need to override respond to eliminate recall
   def respond
     if http_auth?
       http_auth
