@@ -1,6 +1,14 @@
 Rails.application.routes.draw do
   root 'home#index'
-  resources :dashboard
+
+  resources :users do
+    resources :dashboard
+  end
+
+  resources :admins do
+    resources :dashboard
+  end
+
   resources :user, only: [:show, :index]
 
   devise_for :admins

@@ -19,9 +19,9 @@
 						<% if user_signed_in? %>
 						<li class="nav-item">
 							<% if current_admin %>
-							<%= link_to "Dashboard", dashboard_index_path, :class => "nav-link" %>
+							<%= link_to "Dashboard", admin_dashboard_index_path(current_admin.id), :class => "nav-link" %>
 							<% elsif current_user %>
-							<%= link_to "Dashboard",  user_index_path, :class => "nav-link" %>
+							<%= link_to "Dashboard", user_dashboard_index_path(current_user.id), :class => "nav-link" %>
 							<% end %>
 						</li>
 						<li class="nav-item">
@@ -50,4 +50,8 @@
 
 		</div>
 	</div>
+
+	<%= render 'helpers/flash' %> 
+
 </header>
+
