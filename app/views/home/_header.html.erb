@@ -13,7 +13,12 @@
 					<ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
 						<% if user_signed_in? %>
 						<li class="nav-item">
+							<%= link_to "Dashboard", dashboard_index_path, :class => "nav-link" %>
+						</li>
+						<li class="nav-item">
 							<%= link_to "Log out", destroy_user_session_path, :class => "nav-link", :method => :delete %>
+						</li>
+						<li class="nav-item">
 							<%= link_to 'Edit', edit_user_registration_path, class: "nav-link", 'data-toggle' => "modal", 'data-target' => "#modalEdit" %>
 						</li>
 						<% else %>
