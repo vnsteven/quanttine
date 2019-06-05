@@ -240,3 +240,55 @@
   }
 
 }
+
+/* PROFILES : INDEX.HTML */
+.user-title {
+  font-family: 'Raleway', sans-serif;
+  text-align: center;
+  font-size: 4.5em;
+}
+
+.user-title-2 {
+  font-family: 'Raleway', sans-serif;
+  text-align: center;
+  font-size: 1.5em;
+}
+
+
+.user-main{
+  width: 70%;
+  margin: auto;
+}
+
+.user-cards {
+  height: 40em;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.card {
+  border: none;
+  width: 21rem;
+  height: 27em;
+  text-align: center;
+  transition-duration: 0.5s;
+
+}
+
+.card:hover {
+  box-shadow: 6px 6px 6px #919191;
+  border: solid 1px #F7F7F7;
+  width: 22rem;
+  height: 28em;
+  transition-duration: 0.5s;
+}
+
+.photo-card {;
+  height: 47%;
+}
+
+.card-title {
+  font-family: 'Raleway', sans-serif;
+  font-weight: bold;
+}
