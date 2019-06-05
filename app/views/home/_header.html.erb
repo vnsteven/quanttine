@@ -14,10 +14,7 @@
 						<% if user_signed_in? || admin_signed_in? %>
 						<% if current_admin %>
 						<li class="nav-item">
-							<%= link_to "Dashboard", admin_dashboard_index_path(current_admin.id), :class => "nav-link" %>
-						</li>
-						<li class="nav-item">
-							<%= link_to 'Profile', admin_path(current_admin.id), class: "nav-link" %>
+							<%= link_to "Dashboard", admin_path(current_admin.id), :class => "nav-link" %>
 						</li>
 						<li class="nav-item">
 							<%= link_to "Se déconnecter", destroy_admin_session_path, class: "nav-link", :method => :delete %>

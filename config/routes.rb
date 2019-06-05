@@ -3,15 +3,12 @@ Rails.application.routes.draw do
 
   devise_for :users, path: 'users'
   devise_for :admins, path: 'admins'
-  # resources :users, only: [:show, :edit]
 
   resources :users, only: [:index, :show] do
-	resources :profiles
+    resources :profiles
   end
 
-  resources :admins, only: [:show, :edit] do
-    resources :dashboard, only: [:index]
-  end
+  resources :admins, only: [:show, :index]
 
 end
 

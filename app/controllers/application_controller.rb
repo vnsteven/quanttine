@@ -12,7 +12,7 @@ class ApplicationController < ActionController::Base
     if resource.class == User
       "/users/#{current_user.id}/profiles" 
     elsif resource.class == Admin
-      "/admins/1/dashboard"
+      "/admins/#{current_admin.id}"
     end
   end
 end
