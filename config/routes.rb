@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
   root 'home#index'
 
-  devise_for :users
-  devise_for :admins
+  devise_for :users, path: 'users'
+  devise_for :admins, path: 'admins'
   # resources :users, only: [:show, :edit]
 
   resources :users, only: [:show, :edit] do
