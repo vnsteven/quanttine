@@ -272,7 +272,7 @@
   align-items: center;
 }
 
-.card {
+#options {
   border: none;
   width: 21rem;
   height: 27em;
@@ -281,7 +281,7 @@
 
 }
 
-.card:hover {
+#options:hover {
   box-shadow: 6px 6px 6px #919191;
   border: solid 1px #F7F7F7;
   width: 22rem;
