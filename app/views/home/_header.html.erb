@@ -4,7 +4,7 @@
 		<div class="row align-items-center">
 
 			<div class="col-6 col-xl-2">
-				<h2 class="mb-0 site-logo text-white">Quanttine</h2>
+				<h2 class="mb-0 site-logo text-white d-flex">Quanttine</h2>
 			</div>
 
 			<div class="col-12 col-md-10 d-none d-xl-block">
@@ -12,43 +12,49 @@
 
 					<ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
 						<% if user_signed_in? || admin_signed_in? %>
+						<% if current_admin %>
 						<li class="nav-item">
-							<% if current_admin %>
-							<%= link_to "Dashboard", admin_dashboard_index_path(current_admin.id), :class => "nav-link" %>
-							<% elsif current_user %>
-							<%= link_to "Dashboard",  user_profiles_path(current_user.id), :class => "nav-link" %>
-							<% end %>
+							<%= link_to "Dashboard", admin_path(current_admin.id), :class => "nav-link" %>
+						</li>
+						<li class="nav-item">
+							<%= link_to "Se déconnecter", destroy_admin_session_path, class: "nav-link", :method => :delete %>
+						</li>
+						<% elsif current_user %>
+						<li class="nav-item">
+							<%= link_to "Profile",  user_profiles_path(current_user.id), :class => "nav-link" %>
 						</li>
 						<li class="nav-item">
 							<%= link_to "Se déconnecter", destroy_user_session_path, class: "nav-link", :method => :delete %>
 						</li>
-						<li class="nav-item">
-							<%= link_to 'Profile', user_profile_path(current_user.id, @profile.id), class: "nav-link" %>
-						</li>
-						<% else %>
-						<li class="nav-item">
-							<%= link_to "S'inscrire", new_user_registration_path, class: "nav-link", 'data-toggle' => "modal", 'data-target' => "#modalSignup" %>
-						</li>
-						<li class="nav-item">
-							<%= link_to 'Élève', new_user_session_path, class: "nav-link", 'data-toggle' => "modal", 'data-target' => "#modalLogin" %>
-						</li>
-						<li class="nav-item">
-							<%= link_to 'Administrateur', new_admin_session_path, class: "nav-link", 'data-toggle' => "modal", 'data-target' => "#modalLogin" %>
-						</li>
 						<% end %>
-					</ul>
-				</nav>
-			</div>
+					</li>
 
-			<%= render 'devise/registrations/new' %>
-			<%= render 'devise/sessions/new' %>
-
-			<div class="col-6 d-inline-block d-xl-none ml-md-0 py-3" style="position: relative; top: 3px;"><a href="#" class="site-menu-toggle js-menu-toggle text-black float-right"><span class="icon-menu h3"></span></a></div>
-
-		</div>
+				</li>
+				<% else %>
+				<li class="nav-item">
+					<%= link_to "S'inscrire en tant qu'élève", new_user_registration_path, class: "nav-link", 'data-toggle' => "modal", 'data-target' => "#modalSignup" %>
+				</li>
+				<li class="nav-item">
+					<%= link_to 'Élève', new_user_session_path, class: "nav-link", 'data-toggle' => "modal", 'data-target' => "#modalLogin" %>
+				</li>
+				<li class="nav-item">
+					<%= link_to 'Admin', new_admin_session_path, class: "nav-link", 'data-toggle' => "modal", 'data-target' => "#modalAdmin" %>
+				</li>
+				<% end %>
+			</ul>
+		</nav>
 	</div>
 
-	<%= render 'helpers/flash' %> 
+	<%= render 'profiles/registrations/new' %>
+	<%= render 'profiles/sessions/new' %>
+	<%= render 'admins/sessions/new' %>
+
+	<div class="col-6 d-inline-block d-xl-none ml-md-0 py-3" style="position: relative; top: 3px;"><a href="#" class="site-menu-toggle js-menu-toggle text-black float-right"><span class="icon-menu h3"></span></a></div>
+
+</div>
+</div>
+
+<%= render 'helpers/flash' %>
 
 </header>
 

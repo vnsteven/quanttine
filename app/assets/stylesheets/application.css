@@ -34,6 +34,13 @@
 	border: 1px solid #C61349 !important;
 }
 
+/* BANNER */
+
+.site-blocks-cover {
+  background-image: url(banner-video.mp4);
+  width: 100%;
+}
+
 /* SHOW USER */
 
 .show-user {
@@ -47,7 +54,7 @@
 .user-info {
 	max-width: 40em;
 	min-width: 15em;
-	margin: auto; 
+	margin: auto;
 }
 
 .space {
@@ -55,8 +62,8 @@
 }
 
 .user-photo {
-	height: 200px; 
-	width: 100%; 
+	height: 200px;
+	width: 100%;
 	display: block;
 	border: 1px solid #D9D9D9;
 }
@@ -65,8 +72,6 @@
 	margin: auto;
 	text-align: center;
 }
-
-/* FOOTER */
 
 /* FOOTER */
 
@@ -241,6 +246,41 @@
 
 }
 
+/*BANNER ITEMS*/
+
+.banner-title{
+  text-shadow: 5px 5px #e81050;
+}
+
+.banner-text{
+  font-weight: bold !important;
+  font-size: 1.2em !important;
+}
+
+.student-button{
+  position: absolute;
+  float: left;
+}
+
+.kitchen-button{
+  float: right;
+}
+
+/*LANDING PAGE CONTENT*/
+
+.fa-drafting-compass, .fa-sign-language, .fa-hand-holding-heart {
+  color: #e81050 !important;
+}
+
+.title-content{
+  color: #78C2AD !important;
+}
+
+/* MENU OF THE DAY - FORM */
+#menu-of-the-day-wrapper{
+
+}
+
 /* PROFILES : INDEX.HTML */
 .user-title {
   font-family: 'Raleway', sans-serif;
@@ -267,7 +307,7 @@
   align-items: center;
 }
 
-.card-user {
+#options {
   border: none;
   width: 21rem;
   height: 27em;
@@ -276,7 +316,7 @@
 
 }
 
-.card-user:hover {
+#options:hover {
   box-shadow: 6px 6px 6px #919191;
   border: solid 1px #F7F7F7;
   width: 22rem;
