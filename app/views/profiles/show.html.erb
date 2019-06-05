@@ -21,14 +21,15 @@
     <p class="">Choisis tes préférences alimentaires ci-dessous: elles seront transmises à ta cantine.</p>
   </div>
 
-<%= form_tag({ controller: "join_table_profile_preferences", action: "update"}, method: "patch") do %>
-  <%= check_box_tag('pref', value=Preference.first.id, checked= false) %> <%= label_tag(Preference.first.name) %> <br/>
-  <%= check_box_tag('pref', value= Preference.last.id, checked= false) %> <%= label_tag(Preference.last.name) %> <br/>
-  <br/>
-  <%= submit_tag("Submit") %>
+<%= form_for user_profile_path(@user.id, @profile.id, method: "patch", action: "update") do |f| %>
+<%= f.collection_check_boxes(:preference_ids, @preferences.order(:name), :id, :name) do |b| %>
+<%= b.label(class:"profile_preference") {b.check_box + b.text} %> <br>
+<% end %>
+<%= f.submit "Envoyer" %>
 <% end %>
 
- 
+
+
   <div class="card-body">
     <%= link_to "Editer", edit_user_registration_path, class: "card-link", 'data-toggle' => "modal", 'data-target' => "#modalEdit" %>
     <a href="#" class="card-link">Choisir mon menu</a>

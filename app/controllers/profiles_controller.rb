@@ -1,7 +1,8 @@
 class ProfilesController < ApplicationController
 	def index
-		@user = User.find(params[:user_id])
+		@user = User.find(current_user.id)
 		@profile = Profile.find_by(user_id: current_user.id)
+		@preference = Preference.new
 	end
 
   def show
@@ -9,5 +10,28 @@ class ProfilesController < ApplicationController
     @profile = Profile.find_by(user_id: current_user.id)
 
     @preferences = Preference.all
+
   end
+
+
+	def update
+		@profile = Profile.find_by(user_id: current_user.id)
+		@profile.update(profile_parameters)
+	end
+
+	def edit
+
+	end
+
+	private
+
+	def profile_parameters
+		params.require(:profiles).permit(
+			preference_ids: []
+		)
+
+	end
+
+
+
 end
