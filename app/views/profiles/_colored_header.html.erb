@@ -11,34 +11,34 @@
 				<nav class="site-navigation position-relative text-right" role="navigation">
 
 					<ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
-						<% if user_signed_in? %>
+						<% if user_signed_in? || admin_signed_in? %>
+						<% if current_admin %>
 						<li class="nav-item">
-							<% if current_admin %>
 							<%= link_to "Dashboard", admin_dashboard_index_path(current_admin.id), :class => "nav-link" %>
-							<% elsif current_user %>
-							<%= link_to "Menus",  user_profiles_path(current_user.id), :class => "nav-link" %>
-							<% end %>
 						</li>
 						<li class="nav-item">
-							<%= link_to "Log out", destroy_user_session_path, class: "nav-link", :method => :delete %>
+							<%= link_to 'Profile', admin_path(current_admin.id), class: "nav-link" %>
 						</li>
 						<li class="nav-item">
-							<%= link_to 'Profile', user_profile_path(current_user.id, @profile.id), class: "nav-link" %>
+							<%= link_to "Se déconnecter", destroy_admin_session_path, class: "nav-link", :method => :delete %>
 						</li>
-						<% else %>
+						<% elsif current_user %>
 						<li class="nav-item">
-							<%= link_to 'Sign up', new_user_registration_path, class: "nav-link", 'data-toggle' => "modal", 'data-target' => "#modalSignup" %>
+							<%= link_to "Profile",  user_profile_path(current_user.id, @profile.id), :class => "nav-link" %>
 						</li>
 						<li class="nav-item">
-							<%= link_to 'Log in', new_user_session_path, class: "nav-link", 'data-toggle' => "modal", 'data-target' => "#modalLogin" %>
+							<%= link_to "Se déconnecter", destroy_user_session_path, class: "nav-link", :method => :delete %>
 						</li>
+						<% end %>
 						<% end %>
 					</ul>
 				</nav>
 			</div>
 
-			<%= render 'devise/registrations/new' %>
-			<%= render 'devise/sessions/new' %>
+			<%= render 'profiles/registrations/new' %>
+			<%= render 'profiles/sessions/new' %>
+			<%= render 'admins/sessions/new' %>
+
 
 			<div class="col-6 d-inline-block d-xl-none ml-md-0 py-3" style="position: relative; top: 3px;"><a href="#" class="site-menu-toggle js-menu-toggle text-black float-right"><span class="icon-menu h3"></span></a></div>
 
