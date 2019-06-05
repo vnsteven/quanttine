@@ -1,0 +1,51 @@
+<header class="site-navbar py-4 js-sticky-header site-navbar-target colored-navbar" style="background-color: #ea484f" role="banner">
+
+	<div class="container">
+		<div class="row align-items-center">
+
+			<div class="col-6 col-xl-2">
+				<h2 class="mb-0 site-logo text-white">Quanttine</h2>
+			</div>
+
+			<div class="col-12 col-md-10 d-none d-xl-block">
+				<nav class="site-navigation position-relative text-right" role="navigation">
+
+					<ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
+						<% if user_signed_in? || admin_signed_in? %>
+						<% if current_admin %>
+						<li class="nav-item">
+							<%= link_to "Dashboard", admin_dashboard_index_path(current_admin.id), :class => "nav-link" %>
+						</li>
+						<li class="nav-item">
+							<%= link_to 'Profile', admin_path(current_admin.id), class: "nav-link" %>
+						</li>
+						<li class="nav-item">
+							<%= link_to "Se déconnecter", destroy_admin_session_path, class: "nav-link", :method => :delete %>
+						</li>
+						<% elsif current_user %>
+						<li class="nav-item">
+							<%= link_to "Profile",  user_profile_path(current_user.id, @profile.id), :class => "nav-link" %>
+						</li>
+						<li class="nav-item">
+							<%= link_to "Se déconnecter", destroy_user_session_path, class: "nav-link", :method => :delete %>
+						</li>
+						<% end %>
+						<% end %>
+					</ul>
+				</nav>
+			</div>
+
+			<%= render 'profiles/registrations/new' %>
+			<%= render 'profiles/sessions/new' %>
+			<%= render 'admins/sessions/new' %>
+
+
+			<div class="col-6 d-inline-block d-xl-none ml-md-0 py-3" style="position: relative; top: 3px;"><a href="#" class="site-menu-toggle js-menu-toggle text-black float-right"><span class="icon-menu h3"></span></a></div>
+
+		</div>
+	</div>
+
+	<%= render 'helpers/flash' %> 
+
+</header>
+
