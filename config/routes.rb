@@ -3,7 +3,6 @@ Rails.application.routes.draw do
 
   devise_for :users
   devise_for :admins
-  # resources :users, only: [:show, :edit]
 
   resources :users, only: [:index, :show] do
 	resources :profiles
@@ -21,3 +20,4 @@ end
 # devise_scope :users do
 #   delete 'sign_out', :to => 'devise/sessions#destroy', :as => :destroy_user_session
 # end
+
