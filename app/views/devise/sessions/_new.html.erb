@@ -6,21 +6,22 @@
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
       </div>
 
-
       <div class="modal-body">
 
         <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 
         <div class="form-inputs">
           <div class="field">
-            <%= f.label :email %><br />
-            <%= f.email_field :email, class: "form-control", autofocus: true, autocomplete: "email" %>
+            <%= f.email_field :email, class: "form-control", autofocus: true, autocomplete: "email", placeholder: "Email" %>
           </div>
 
+          <br />
+
           <div class="field">
-            <%= f.label :password %><br />
-            <%= f.password_field :password, class: "form-control", autocomplete: "current-password" %>
+            <%= f.password_field :password, class: "form-control", autocomplete: "current-password", placeholder: "Password" %>
           </div>
+          
+          <br />
 
           <% if devise_mapping.rememberable? %>
           <div class="field custom-control custom-checkbox">
@@ -28,8 +29,10 @@
             <%= f.label :remember_me, class: "custom-control-label" %>
           </div>
           <% end %>
-          <%= link_to "Mot de passe oublié", new_user_password_path %>
 
+          <br />
+
+          <%= link_to "Mot de passe oublié ?", new_user_password_path, class: "text-black" %>
         </div>
 
       </div>
@@ -39,9 +42,8 @@
           <%= f.submit "Log in", class: "btn btn-primary" %>
         </div>
         <% end %>
-
-
       </div>
     </div>
   </div>
 </div>
+
