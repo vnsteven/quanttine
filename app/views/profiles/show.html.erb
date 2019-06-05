@@ -22,9 +22,9 @@
   </div>
 
 <%= form_tag({ controller: "join_table_profile_preferences", action: "update"}, method: "patch") do %>
-<% @preferences.each do |pref| %>
-  <%= check_box_tag(:pref, value="1", checked= false) %> <%= label_tag(pref.name) %> <br/>
-  <% end %> <br/>
+  <%= check_box_tag('pref', value=Preference.first.id, checked= false) %> <%= label_tag(Preference.first.name) %> <br/>
+  <%= check_box_tag('pref', value= Preference.last.id, checked= false) %> <%= label_tag(Preference.last.name) %> <br/>
+  <br/>
   <%= submit_tag("Submit") %>
 <% end %>
 
