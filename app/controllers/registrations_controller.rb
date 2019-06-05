@@ -2,6 +2,6 @@ class RegistrationsController < Devise::RegistrationsController
   protected
 
   def after_sign_up_path_for(resource)
-    "/dashboard"
+    "/users/#{current_user.id}/profiles"
   end
 end
