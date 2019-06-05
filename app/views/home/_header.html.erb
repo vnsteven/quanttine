@@ -11,7 +11,7 @@
 				<nav class="site-navigation position-relative text-right" role="navigation">
 
 					<ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
-						<% if user_signed_in? || admin_signed_in? %>
+						<% if admin_signed_in? %>
 						<li class="nav-item">
 							<% if current_admin %>
 							<%= link_to "Dashboard", admin_dashboard_index_path(current_admin.id), :class => "nav-link" %>
@@ -27,7 +27,7 @@
 						</li>
 						<% else %>
 						<li class="nav-item">
-							<%= link_to "S'inscrire", new_user_registration_path, class: "nav-link", 'data-toggle' => "modal", 'data-target' => "#modalSignup" %>
+							<%= link_to "S'inscrire en tant qu'élève", new_user_registration_path, class: "nav-link", 'data-toggle' => "modal", 'data-target' => "#modalSignup" %>
 						</li>
 						<li class="nav-item">
 							<%= link_to 'Élève', new_user_session_path, class: "nav-link", 'data-toggle' => "modal", 'data-target' => "#modalLogin" %>
