@@ -32,20 +32,23 @@
 						<li class="nav-item">
 							<%= link_to 'Log in', new_user_session_path, class: "nav-link", 'data-toggle' => "modal", 'data-target' => "#modalLogin" %>
 						</li>
+						<li class="nav-item">
+							<%= link_to 'Log in', new_admin_session_path, class: "nav-link" %>
+						</li>
 						<% end %>
 					</ul>
 				</nav>
 			</div>
 
-			<%= render 'devise/registrations/new' %>
-			<%= render 'devise/sessions/new' %>
+			<%= render 'users/registrations/new' %>
+			<%= render 'users/sessions/new' %>
 
 			<div class="col-6 d-inline-block d-xl-none ml-md-0 py-3" style="position: relative; top: 3px;"><a href="#" class="site-menu-toggle js-menu-toggle text-black float-right"><span class="icon-menu h3"></span></a></div>
 
 		</div>
 	</div>
 
-	<%= render 'helpers/flash' %> 
+	<%= render 'helpers/flash' %>
 
 </header>
 
