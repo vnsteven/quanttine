@@ -13,6 +13,8 @@ Rails.application.routes.draw do
     resources :dashboard, only: [:index]
   end
 
+end
+
 ##### FACEBOOK CONNECT #####
 # devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }, controllers: { registrations: "registrations" }
 
