@@ -17,23 +17,18 @@
   </div>
   <div class="user-photo" >
   </div>
-  <div class="card-body">
-    <p class="card-text">Choisis tes préférences alimentaires ci-dessous: elles seront transmises à ta cantine.</p>
+  <div class="">
+    <p class="">Choisis tes préférences alimentaires ci-dessous: elles seront transmises à ta cantine.</p>
   </div>
-  <ul class="list-group list-group-flush">
-    <li class="list-group-item form-check">
-    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-    <label class="form-check-label" for="exampleCheck1">Vegétarien</label>
-  </li>
-    <li class="list-group-item form-check">
-    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-    <label class="form-check-label" for="exampleCheck2">Halal</label>
-  </li>
-  <li class="list-group-item form-check">
-    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-    <label class="form-check-label" for="exampleCheck2">Kasher</label>
-  </li>
-  </ul>
+
+<%= form_tag({ controller: "join_table_profile_preferences", action: "update"}, method: "patch") do %>
+<% @preferences.each do |pref| %>
+  <%= check_box_tag(:pref, value="1", checked= false) %> <%= label_tag(pref.name) %> <br/>
+  <% end %> <br/>
+  <%= submit_tag("Submit") %>
+<% end %>
+
+ 
   <div class="card-body">
     <%= link_to "Editer", edit_user_registration_path, class: "card-link", 'data-toggle' => "modal", 'data-target' => "#modalEdit" %>
     <a href="#" class="card-link">Choisir mon menu</a>

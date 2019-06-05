@@ -13,6 +13,8 @@ Rails.application.routes.draw do
     resources :dashboard, only: [:index]
   end
 
+  resources :join_table_profile_preferences, only: [:update]
+
 end
 
 ##### FACEBOOK CONNECT #####
