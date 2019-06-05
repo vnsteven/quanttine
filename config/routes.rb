@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   devise_for :users
   devise_for :admins
-a
+
   resources :users, only: [:index, :show] do
 	resources :profiles
   end
