@@ -34,6 +34,13 @@
 	border: 1px solid #C61349 !important;
 }
 
+/* BANNER */
+
+.site-blocks-cover {
+  background-image: url(banner-video.mp4);
+  width: 100%;
+}
+
 /* SHOW USER */
 
 .show-user {
