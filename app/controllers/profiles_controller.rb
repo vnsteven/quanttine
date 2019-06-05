@@ -2,15 +2,12 @@ class ProfilesController < ApplicationController
 	def index
 		@user = User.find(current_user.id)
 		@profile = Profile.find_by(user_id: current_user.id)
-		@preference = Preference.new
 	end
 
-  def show
+  def edit
     @user = User.find(params[:user_id])
-    @profile = Profile.find_by(user_id: current_user.id)
-
+    @profile = Profile.find(params[:id])
     @preferences = Preference.all
-
   end
 
 
@@ -19,14 +16,10 @@ class ProfilesController < ApplicationController
 		@profile.update(profile_parameters)
 	end
 
-	def edit
-
-	end
-
 	private
 
 	def profile_parameters
-		params.require(:profiles).permit(
+		params.require(:profile).permit(
 			preference_ids: []
 		)
 

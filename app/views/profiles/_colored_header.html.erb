@@ -24,7 +24,7 @@
 						</li>
 						<% elsif current_user %>
 						<li class="nav-item">
-							<%= link_to "Profile",  user_profile_path(current_user.id, @profile.id), :class => "nav-link" %>
+							<%= link_to "Profile",  edit_user_profile_path(current_user.id, @profile.id), :class => "nav-link" %>
 						</li>
 						<li class="nav-item">
 							<%= link_to "Se déconnecter", destroy_user_session_path, class: "nav-link", :method => :delete %>
@@ -45,7 +45,6 @@
 		</div>
 	</div>
 
-	<%= render 'helpers/flash' %> 
+	<%= render 'helpers/flash' %>
 
 </header>
-
