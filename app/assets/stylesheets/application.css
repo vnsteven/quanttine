@@ -54,13 +54,12 @@
 
 .site-blocks-cover {
   background-image: url(banner-video.mp4);
-  width: 100%;
 }
 
 /* SHOW USER */
 
 .show-user {
-	background-image: url(carrot.jpg);
+	background: url(carrot.jpg);
 }
 
 .show-user ul li {
@@ -70,7 +69,39 @@
 .user-info {
 	max-width: 40em;
 	min-width: 15em;
+  height: 44.6em;
 	margin: auto;
+  border: solid 2px #B0B0B0;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.choice {
+  font-size: 1.1em;
+  width: 18em;
+  margin: auto;
+  text-align: left;
+}
+
+.choice-title {
+  color: #393939;
+}
+
+#envoyer:hover {
+  background-color: #ea484e;
+  color: white;
+}
+
+.send {
+ margin-left: 6em;
+}
+
+.card-body a {
+  color: #FC0440;
+}
+
+.card-body a:hover {
+  text-decoration: underline;
 }
 
 .space {
@@ -262,6 +293,29 @@
 
 }
 
+/* FOOTER FOR OTHER PAGES */
+
+.footer-colored {
+  color: white;
+  background-color: #363636;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 4em;
+}
+
+.footer-content {
+display: flex;
+justify-content: space-between;
+align-items: center;
+width: 90%;
+margin: auto;
+}
+
+.footer-content a {
+  color: white;
+}
+
 /*BANNER ITEMS*/
 
 .banner-title{
@@ -441,3 +495,6 @@
 
 
 
+=======
+}
+>>>>>>> development
