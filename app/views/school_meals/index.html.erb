@@ -19,7 +19,7 @@
 								</tr>
 							</thead>
 							<% @school_meals.each do |school_meal| %>
-							<% unless school_meal.servings == nil %>
+							<% unless school_meal.servings.count == 0 %>
 							<% school_meal.servings.each do |serving| %>
 							<tbody>
 								<tr>					
