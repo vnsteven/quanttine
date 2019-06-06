@@ -1,43 +1,35 @@
-<head>
-	<link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
-</head>
-
-<%= render 'layouts/colored_header' %>
-
-<div class="space"> </div>
-
-<div class="user-main">
-		<h1 class="user-title">Bienvenue sur ton espace Quanttine !</h1>
-		<h6 class="user-title-2">Choisis tes menus quotidiennement et aide ton école à lutter contre le gaspillage alimentaire.</h6>
-
-	<div class="user-cards">
-
-		<div class="card card1" id="options">
-		  <%= image_tag "repas.jpg", class:"photo-card" %>
-		  <div class="card-body">
-		    <h5 class="card-title">Mes menus</h5>
-		    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> <br/>
-		    <a href="#" class="btn btn-primary">Go somewhere</a>
-		  </div>
-		</div>
-
-		<div class="card card1" id="options">
-		  <%= image_tag "cantine.jpg", class:"photo-card" %>
-		  <div class="card-body">
-		    <h5 class="card-title">Mes commandes</h5>
-		    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> <br/>
-		    <a href="#" class="btn btn-primary">Go somewhere</a>
-		  </div>
-		</div>
-
-		<div class="card" id="options">
-		  <%= image_tag "teacher.jpeg", class:"photo-card" %>
-		  <div class="card-body">
-		    <h5 class="card-title">Mes professeurs</h5>
-		    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p><br/>
-		    <a href="#" class="btn btn-primary">Go somewhere</a>
-		  </div>
-		</div>
-
-	</div>
+<div id="wrapper">
+  <%= render 'admins/side_bar' %>
+  <div id="content-wrapper" class="d-flex flex-column">
+    <%= render 'admins/top_bar' %>
+    <%= render 'helpers/flash' %>
+    <div class="container-fluid">
+      <h1 class="h3 mb-2 text-gray-800">Élèves</h1>
+      <div class="card shadow mb-4">
+        <div class="card-header py-3">
+          <h6 class="m-0 font-weight-bold text-primary">Liste</h6>
+        </div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+              <thead>
+                <tr>
+                  <th>Prénom</th>
+                  <th>Nom</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% @profile.each do |profile| %>
+                <tr>
+                  <td><%= profile.user.first_name %></td>
+                  <td><%= profile.user.last_name %></td>
+                </tr>
+                <% end %>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
