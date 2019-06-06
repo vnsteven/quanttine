@@ -1,0 +1,41 @@
+
+<nav class="navbar navbar-expand-lg navbar-dark site-navbar py-4 site-navbar-target  colored-header">
+  <div class="container">
+      <a class="navbar-brand col-6 col-xl-2 site-logo text-white nav-title" href="#">Quanttine</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      <div class="liste-nav position-relative text-right">
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <% if user_signed_in? || admin_signed_in? %>
+                  <% if current_admin %>
+                  <li class="nav-item">
+                    <%= link_to "Dashboard", admin_dashboard_index_path(current_admin.id), :class => "nav-link" %>
+                  </li>
+                  <li class="nav-item active">
+                    <%= link_to 'Profil', admin_path(current_admin.id), class: "nav-link" %>
+                  </li>
+                  <li class="nav-item active">
+                    <%= link_to "Se déconnecter", destroy_admin_session_path, class: "nav-link", :method => :delete %>
+                  </li>
+                  <% elsif current_user %>
+                  <li class="nav-item active">
+                    <%= link_to "Profil",  edit_user_profile_path(current_user.id, @profile.id), :class => "nav-link" %>
+                  </li>
+                  <li class="nav-item active">
+                    <%= link_to "Se déconnecter", destroy_user_session_path, class: "nav-link", :method => :delete %>
+                  </li>
+                  <% end %>
+                <% end %>
+          </ul>
+        </div>
+    </div>
+  </div>
+
+      <%= render 'profiles/registrations/new' %>
+      <%= render 'profiles/sessions/new' %>
+      <%= render 'admins/sessions/new' %>
+
+</nav>
+<%= render 'helpers/flash' %>
