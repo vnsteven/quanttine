@@ -14,14 +14,14 @@
                     <%= link_to "Dashboard", admin_dashboard_index_path(current_admin.id), :class => "nav-link" %>
                   </li>
                   <li class="nav-item active">
-                    <%= link_to 'Profile', admin_path(current_admin.id), class: "nav-link" %>
+                    <%= link_to 'Profil', admin_path(current_admin.id), class: "nav-link" %>
                   </li>
                   <li class="nav-item active">
                     <%= link_to "Se déconnecter", destroy_admin_session_path, class: "nav-link", :method => :delete %>
                   </li>
                   <% elsif current_user %>
                   <li class="nav-item active">
-                    <%= link_to "Profile",  edit_user_profile_path(current_user.id, @profile.id), :class => "nav-link" %>
+                    <%= link_to "Profil",  edit_user_profile_path(current_user.id, @profile.id), :class => "nav-link" %>
                   </li>
                   <li class="nav-item active">
                     <%= link_to "Se déconnecter", destroy_user_session_path, class: "nav-link", :method => :delete %>

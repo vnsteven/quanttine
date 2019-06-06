@@ -54,13 +54,14 @@
 
 .site-blocks-cover {
   background-image: url(banner-video.mp4);
-  width: 100%;
 }
 
 /* SHOW USER */
 
 .show-user {
-	background-image: url(carrot.jpg);
+	background: url(user-background.jpg);
+  background-repeat: no-repeat;
+  background-size: 100%;
 }
 
 .show-user ul li {
@@ -351,4 +352,9 @@
 .card-title {
   font-family: 'Raleway', sans-serif;
   font-weight: bold;
+}
+
+/* FORGOT PASSWORD */
+.forgot {
+  font-size: 3em;
 }
