@@ -27,6 +27,22 @@
 	padding-left: 38%;
 }
 
+/* COLORED NAVBAR */
+.colored-header {
+  background-color: #ea484e;
+  height: 92px;
+  display: flex;
+  align-items: center;
+}
+
+.nav-title {
+  font-size: 1.9em;
+}
+
+.navbar-toggler {
+  color: white;
+}
+
 /* BUTTON */
 
 .btn-primary:focus {
@@ -34,10 +50,16 @@
 	border: 1px solid #C61349 !important;
 }
 
+/* BANNER */
+
+.site-blocks-cover {
+  background-image: url(banner-video.mp4);
+}
+
 /* SHOW USER */
 
 .show-user {
-	background-image: url(carrot.jpg);
+	background: url(carrot.jpg);
 }
 
 .show-user ul li {
@@ -47,7 +69,39 @@
 .user-info {
 	max-width: 40em;
 	min-width: 15em;
+  height: 44.6em;
 	margin: auto;
+  border: solid 2px #B0B0B0;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.choice {
+  font-size: 1.1em;
+  width: 18em;
+  margin: auto;
+  text-align: left;
+}
+
+.choice-title {
+  color: #393939;
+}
+
+#envoyer:hover {
+  background-color: #ea484e;
+  color: white;
+}
+
+.send {
+ margin-left: 6em;
+}
+
+.card-body a {
+  color: #FC0440;
+}
+
+.card-body a:hover {
+  text-decoration: underline;
 }
 
 .space {
@@ -65,8 +119,6 @@
 	margin: auto;
 	text-align: center;
 }
-
-/* FOOTER */
 
 /* FOOTER */
 
@@ -241,6 +293,113 @@
 
 }
 
+/* FOOTER FOR OTHER PAGES */
+
+.footer-colored {
+  color: white;
+  background-color: #363636;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 4em;
+}
+
+.footer-content {
+display: flex;
+justify-content: space-between;
+align-items: center;
+width: 90%;
+margin: auto;
+}
+
+.footer-content a {
+  color: white;
+}
+
+/*BANNER ITEMS*/
+
+.banner-title{
+  text-shadow: 5px 5px #e81050;
+}
+
+.banner-text{
+  font-weight: bold !important;
+  font-size: 1.2em !important;
+}
+
+.student-button{
+  position: absolute;
+  float: left;
+}
+
+.kitchen-button{
+  float: right;
+}
+
+/*LANDING PAGE CONTENT*/
+
+.fa-drafting-compass, .fa-sign-language, .fa-hand-holding-heart {
+  color: #e81050 !important;
+}
+
+.title-content{
+  color: #78C2AD !important;
+}
 
 /* MENU OF THE DAY - FORM */
 
+/* PROFILES : INDEX.HTML */
+.user-title {
+  font-family: 'Raleway', sans-serif;
+  text-align: center;
+  font-size: 4.5em;
+}
+
+.user-title-2 {
+  font-family: 'Raleway', sans-serif;
+  text-align: center;
+  font-size: 1.5em;
+}
+
+
+.user-main{
+  width: 75%;
+  margin: auto;
+}
+
+.user-cards {
+  height: 40em;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+#options {
+  border: none;
+  width: 21rem;
+  min-width: 19rem;
+  height: 27em;
+  text-align: center;
+  transition-duration: 0.5s;
+}
+
+.card1 {
+  margin-right: 15px;
+}
+
+#options:hover {
+  box-shadow: 6px 6px 6px #919191;
+  border: solid 1px #F7F7F7;
+  width: 22rem;
+  height: 28em;
+  transition-duration: 0.5s;
+}
+
+.photo-card {;
+  height: 47%;
+}
+
+.card-title {
+  font-family: 'Raleway', sans-serif;
+  font-weight: bold;
+}

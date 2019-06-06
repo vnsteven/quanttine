@@ -12,6 +12,7 @@
 
 ActiveRecord::Schema.define(version: 2019_06_06_134713) do
 
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -51,6 +52,21 @@ ActiveRecord::Schema.define(version: 2019_06_06_134713) do
     t.index ["school_id"], name: "index_admins_on_school_id"
   end
 
+  create_table "food_supplies", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "join_table_preference_foods", force: :cascade do |t|
+    t.bigint "preference_id"
+    t.bigint "food_supply_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["food_supply_id"], name: "index_join_table_preference_foods_on_food_supply_id"
+    t.index ["preference_id"], name: "index_join_table_preference_foods_on_preference_id"
+  end
+
   create_table "join_table_profile_preferences", force: :cascade do |t|
     t.bigint "profile_id"
     t.bigint "preference_id"
@@ -67,6 +83,16 @@ ActiveRecord::Schema.define(version: 2019_06_06_134713) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "preparing_user_meals", force: :cascade do |t|
+    t.integer "serving_size"
+    t.bigint "user_meal_id"
+    t.bigint "serving_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["serving_id"], name: "index_preparing_user_meals_on_serving_id"
+    t.index ["user_meal_id"], name: "index_preparing_user_meals_on_user_meal_id"
+  end
+
   create_table "profiles", force: :cascade do |t|
     t.bigint "user_id"
     t.datetime "created_at", null: false
@@ -75,6 +101,24 @@ ActiveRecord::Schema.define(version: 2019_06_06_134713) do
     t.boolean "active"
     t.index ["school_id"], name: "index_profiles_on_school_id"
     t.index ["user_id"], name: "index_profiles_on_user_id"
+  end
+
+  create_table "quantities", force: :cascade do |t|
+    t.integer "quantity"
+    t.bigint "school_id"
+    t.bigint "food_supply_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["food_supply_id"], name: "index_quantities_on_food_supply_id"
+    t.index ["school_id"], name: "index_quantities_on_school_id"
+  end
+
+  create_table "school_meals", force: :cascade do |t|
+    t.datetime "date"
+    t.bigint "school_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["school_id"], name: "index_school_meals_on_school_id"
   end
 
   create_table "schools", force: :cascade do |t|
@@ -89,6 +133,23 @@ ActiveRecord::Schema.define(version: 2019_06_06_134713) do
     t.boolean "active"
   end
 
+  create_table "servings", force: :cascade do |t|
+    t.integer "meal_category"
+    t.bigint "school_meal_id"
+    t.bigint "food_supply_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["food_supply_id"], name: "index_servings_on_food_supply_id"
+    t.index ["school_meal_id"], name: "index_servings_on_school_meal_id"
+  end
+
+  create_table "user_meals", force: :cascade do |t|
+    t.bigint "profile_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["profile_id"], name: "index_user_meals_on_profile_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -99,8 +160,6 @@ ActiveRecord::Schema.define(version: 2019_06_06_134713) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "provider"
-    t.string "uid"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
