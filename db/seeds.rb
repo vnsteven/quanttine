@@ -78,7 +78,6 @@ end
 100.times do
   Serving.create!(
     meal_category: rand(1..4),
-    serving_size: rand(1..200),
     food_supply_id: FoodSupply.all.sample.id,
     school_meal_id: SchoolMeal.all.sample.id
   )
@@ -87,5 +86,13 @@ end
 50.times do
   UserMeal.create!(
     profile_id: Profile.all.sample.id
+  )
+end
+
+100.times do
+  PreparingUserMeal.create!(
+    serving_size: rand(1..200),
+    serving_id: Serving.all.sample.id,
+    user_meal_id: UserMeal.all.sample.id
   )
 end
