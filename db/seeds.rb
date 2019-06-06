@@ -38,12 +38,20 @@ end
   )
 end
 
-20.times do
+# 20.times do
+#   Preference.create!(
+#     name: Faker::Food.fruits,
+#     category: ["diet", "allergy"].sample
+#   )
+# end
+
+2.times do 
   Preference.create!(
-    name: Faker::Food.fruits,
-    category: ["diet", "allergy"].sample
-  )
+  name: ["Je ne mange pas de viande", "Je ne mange pas de produits laitiers"].sample,
+  category: ["diet", "allergy"].sample
+)
 end
+
 
 20.times do
   JoinTableProfilePreference.create!(
