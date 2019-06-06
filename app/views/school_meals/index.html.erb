@@ -23,8 +23,8 @@
 							<tbody>
 								<tr>					
 									<td><%= serving.food_supply.name if school_meal.servings != nil %></td>
-									<td><%= serving.meal_category school_meal.servings != nil %></td>
-									<td><%= school_meal.date.strftime("%d-%m-20%y") school_meal.servings != nil %></td>
+									<td><%= serving.meal_category if school_meal.servings != nil %></td>
+									<td><%= school_meal.date.strftime("%d-%m-20%y") if school_meal.servings != nil %></td>
 								</tr>
 							</tbody>
 							<% end %>
