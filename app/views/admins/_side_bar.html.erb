@@ -20,6 +20,7 @@
 		<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
 			<div class="bg-white py-2 collapse-inner rounded">
 				<%= link_to "Liste des menus", admin_school_meals_path(current_admin.id), class: "collapse-item" %>
+				<%= link_to "Créer un menu", new_admin_school_meal_path(current_admin.id), class: "collapse-item" %>
 			</div>
 		</div>
 	</li>
@@ -68,11 +69,33 @@
 		</div>
 	</li>
 
+	<hr class="sidebar-divider">
+
+	<div class="sidebar-heading">
+		Paramètres
+	</div>
+
+	<li class="nav-item">
+		<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseSettings" aria-expanded="true" aria-controls="collapsePages">
+			<i class="fas fa-cog"></i>
+			<span>Compte</span>
+		</a>
+		<div id="collapseSettings" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+			<div class="bg-white py-2 collapse-inner rounded">
+				<%= link_to "Changer d'adresse mail", edit_admin_registration_path, :class => "dropdown-item", 'data-toggle' => "modal", 'data-target' => "#modalEdit" %>
+				<div class="dropdown-divider"></div>
+				<%= link_to "Se déconnecter", destroy_admin_session_path, :class => "dropdown-item", :method => :delete, data: {toggle: "modal", target: "#logoutModal"} %>
+			</div>
+		</div>
+	</li>
+
 	<hr class="sidebar-divider d-none d-md-block">
 
 	<div class="text-center d-none d-md-inline">
 		<button class="rounded-circle border-0" id="sidebarToggle"></button>
 	</div>
+	
+	<%= render 'admins/registrations/edit' %>
 
 </ul>
 
