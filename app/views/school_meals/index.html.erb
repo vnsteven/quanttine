@@ -18,17 +18,17 @@
 									<th>Date</th>
 								</tr>
 							</thead>
-							<% @school_meals.each do |school_meal| %>
-							<% school_meal.servings.each do |serving| %>
 							<tbody>
 								<tr>					
+							<% @school_meals.each do |school_meal| %>
+							<% school_meal.servings.each do |serving| %>
 									<td><%= serving.food_supply.name %></td>
 									<td><%= serving.meal_category %></td>
 									<td><%= school_meal.date.strftime("%d-%m-20%y") %></td>
+							<% end %>
+							<% end %>
 								</tr>
 							</tbody>
-							<% end %>
-							<% end %>
 						</table>
 					</div>
 				</div>
