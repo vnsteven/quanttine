@@ -4,6 +4,8 @@ class ProfilesController < ApplicationController
 		@profile = Profile.find_by(user_id: current_user.id)
 	end
 
+
+
   def edit
     @user = User.find(params[:user_id])
     @profile = Profile.find(params[:id])

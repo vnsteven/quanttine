@@ -1,6 +1,5 @@
 class User < ApplicationRecord
 	has_one :profile, dependent: :destroy
-  has_one_attached :avatar
 	after_create :welcome_send, :create_profile
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable

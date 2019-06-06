@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   devise_for :admins, path: 'admins'
 
   resources :users do
+    resources :avatars, only: [:create]
     resources :profiles
   end
 
@@ -22,5 +23,4 @@ end
 # end
 
 
-end
 
