@@ -8,6 +8,8 @@ gem 'jquery-rails'
 gem 'omniauth-facebook'
 gem 'better_errors'
 
+# Stripe is the easiest way to accept payments online. See https://stripe.com for details.
+gem 'stripe', '~> 4.18', '>= 4.18.1'
 # Flexible authentication solution for Rails with Warden
 gem 'devise', '~> 4.6', '>= 4.6.2'
 # Autoload dotenv in Rails
