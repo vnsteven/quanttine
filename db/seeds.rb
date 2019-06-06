@@ -45,9 +45,9 @@ end
 #   )
 # end
 
-2.times do 
+4.times do 
   Preference.create!(
-  name: ["Je ne mange pas de viande", "Je ne mange pas de produits laitiers"].sample,
+  name: ["Je ne mange pas de viande", "Je ne mange pas de produits laitiers", "Je ne mange pas de porc", "Je ne mange pas de produits marins"].sample,
   category: ["diet", "allergy"].sample
 )
 end
