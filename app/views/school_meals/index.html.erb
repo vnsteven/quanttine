@@ -19,7 +19,6 @@
 								</tr>
 							</thead>
 							<% @school_meals.each do |school_meal| %>
-							<% unless school_meal.servings.count == 0 %>
 							<% school_meal.servings.each do |serving| %>
 							<tbody>
 								<tr>					
@@ -28,7 +27,6 @@
 									<td><%= school_meal.date.strftime("%d-%m-20%y") %></td>
 								</tr>
 							</tbody>
-							<% end %>
 							<% end %>
 							<% end %>
 						</table>
