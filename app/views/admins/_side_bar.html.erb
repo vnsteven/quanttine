@@ -15,15 +15,28 @@
 	<li class="nav-item">
 		<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
 			<i class="fas fa-pen"></i>
-			<span>Menu</span>
+			<span>Menus</span>
 		</a>
 		<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
 			<div class="bg-white py-2 collapse-inner rounded">
-				<%= link_to "Liste", admin_menus_path(current_admin.id), class: "collapse-item" %>
+				<%= link_to "Liste des menus", admin_menus_path(current_admin.id), class: "collapse-item" %>
 				<%= link_to "Créer", new_admin_menu_path(current_admin.id), class:"collapse-item" %> 
 			</div>
 		</div>
 	</li>
+
+	<li class="nav-item">
+		<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseQuantity" aria-expanded="true" aria-controls="collapseQuantity">
+			<i class="fas fa-box"></i>
+			<span>Quantités</span>
+		</a>
+		<div id="collapseQuantity" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+			<div class="bg-white py-2 collapse-inner rounded">
+				<%= link_to "Aliments", admin_path(current_admin.id), class: "collapse-item" %>
+			</div>
+		</div>
+	</li>
+
 
 	<li class="nav-item">
 		<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
@@ -33,7 +46,6 @@
 		<div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
 			<div class="bg-white py-2 collapse-inner rounded">
 				<%= link_to "Liste des élèves", admin_profiles_path(current_admin.id), class: "collapse-item" %>
-				<a class="collapse-item" href="">Editer</a>
 			</div>
 		</div>
 	</li>
@@ -51,8 +63,8 @@
 		</a>
 		<div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
 			<div class="bg-white py-2 collapse-inner rounded">
-				<a class="collapse-item" href="">Alimentation</a>
-				<a class="collapse-item" href="">Avis</a>
+				<%= link_to "Alimentation", "", class: "collapse-item" %>
+				<%= link_to "Avis", "", class: "collapse-item" %>
 			</div>
 		</div>
 	</li>
