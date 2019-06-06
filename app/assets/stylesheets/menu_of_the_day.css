@@ -16,6 +16,8 @@
 .starter-choices, .main-course-choices, .dessert-choices{
   max-width: 30%;
   margin: 10px;
+
+
 }
 
 .meal-detail{
@@ -27,10 +29,18 @@
 }
 
 .meal-description{
+height: 5vh;
 }
 
 .card-text{
   font-size: 1vw;
+}
+
+.card > .card-body > .card-text{
+/*  display: flex;
+  flex-flow: column; nowrap;*/
+  min-height: 10vh;
+  max-height: 15vh;
 }
 
 .meal-image{
