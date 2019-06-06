@@ -138,8 +138,12 @@ ActiveRecord::Schema.define(version: 2019_06_06_131645) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "school_id"
+    t.string "provider"
+    t.string "uid"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.index ["school_id"], name: "index_users_on_school_id"
   end
 
   create_table "views", force: :cascade do |t|
@@ -156,4 +160,5 @@ ActiveRecord::Schema.define(version: 2019_06_06_131645) do
 
   add_foreign_key "admins", "schools"
   add_foreign_key "profiles", "schools"
+  add_foreign_key "users", "schools"
 end
