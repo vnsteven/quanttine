@@ -83,3 +83,9 @@ end
     school_meal_id: SchoolMeal.all.sample.id
   )
 end
+
+50.times do
+  UserMeal.create!(
+    profile_id: Profile.all.sample.id
+  )
+end
