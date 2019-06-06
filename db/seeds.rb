@@ -13,6 +13,7 @@ Admin.destroy_all
 Preference.destroy_all
 FoodSupply.destroy_all
 
+
 2.times do
   School.create!(
   )
@@ -56,5 +57,13 @@ end
 100.times do
   FoodSupply.create!(
     name: Faker::Food.fruits
+  )
+end
+
+200.times do
+  Quantity.create!(
+    quantity: rand(1..1000),
+    school_id: School.all.sample.id,
+    food_supply_id: FoodSupply.all.sample.id
   )
 end
