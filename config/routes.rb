@@ -8,7 +8,9 @@ Rails.application.routes.draw do
     resources :profiles
   end
 
-  resources :admins, only: [:show, :index]
+  resources :admins, only: [:show]
+
+  resources :menus
 
 ##### FACEBOOK CONNECT #####
 # devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }, controllers: { registrations: "registrations" }
