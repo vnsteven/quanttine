@@ -13,9 +13,6 @@
 //= require jquery
 //= require assets/static_page/js/main
 //= require assets/dashboard/js/sb-admin-2
-//= require datatables/jquery.dataTables
-//= require datatables/dataTables.bootstrap4
-//= require assets/dashboard/js/demo/datatables-demo
 //= require rails-ujs
 //= require activestorage
 //= require_tree .

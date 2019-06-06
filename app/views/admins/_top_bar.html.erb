@@ -25,7 +25,7 @@
 			<div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
 				<%= link_to "Profile", admin_path(current_admin.id), :class => "dropdown-item" %>
 			<div class="dropdown-divider"></div>
-			<%= link_to "Log out", destroy_user_session_path, :class => "dropdown-item", :method => :delete, data: {toggle: "modal", target: "#logoutModal"} %>
+			<%= link_to "Log out", destroy_admin_session_path, :class => "dropdown-item", :method => :delete, data: {toggle: "modal", target: "#logoutModal"} %>
 		</div>
 	</li>
 
