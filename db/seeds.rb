@@ -11,6 +11,7 @@ Profile.destroy_all
 School.destroy_all
 Admin.destroy_all
 Preference.destroy_all
+FoodSupply.destroy_all
 
 2.times do
   School.create!(
@@ -38,24 +39,22 @@ end
   )
 end
 
-# 20.times do
-#   Preference.create!(
-#     name: Faker::Food.fruits,
-#     category: ["diet", "allergy"].sample
-#   )
-# end
-
-2.times do 
+2.times do
   Preference.create!(
   name: ["Je ne mange pas de viande", "Je ne mange pas de produits laitiers"].sample,
   category: ["diet", "allergy"].sample
 )
 end
 
-
 20.times do
   JoinTableProfilePreference.create!(
     profile_id: Profile.all.sample.id,
     preference_id: Preference.all.sample.id
+  )
+end
+
+100.times do
+  FoodSupply.create!(
+    name: Faker::Food.fruits
   )
 end
