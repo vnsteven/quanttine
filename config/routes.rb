@@ -8,11 +8,9 @@ Rails.application.routes.draw do
     resources :profiles
   end
 
-  resources :admins, only: [:show]
-
   resources :admins, only: [:show] do
     resources :menus
+    resources :statistics, only: [:index]
     resources :profiles, only: [:index]
   end
-
 end
