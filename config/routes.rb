@@ -10,6 +10,8 @@ Rails.application.routes.draw do
 
   resources :admins, only: [:show]
 
-  resources :menus
+  resources :admins, only: [:show] do
+    resources :menus
+  end
 
 end
