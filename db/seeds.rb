@@ -96,3 +96,10 @@ end
     user_meal_id: UserMeal.all.sample.id
   )
 end
+
+10.times do
+  JoinTablePreferenceFood.create!(
+    preference_id: Preference.all.sample.id,
+    food_supply_id: FoodSupply.all.sample.id
+  )
+end

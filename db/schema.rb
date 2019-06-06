@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_06_124923) do
+ActiveRecord::Schema.define(version: 2019_06_06_131645) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,6 +34,15 @@ ActiveRecord::Schema.define(version: 2019_06_06_124923) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "join_table_preference_foods", force: :cascade do |t|
+    t.bigint "preference_id"
+    t.bigint "food_supply_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["food_supply_id"], name: "index_join_table_preference_foods_on_food_supply_id"
+    t.index ["preference_id"], name: "index_join_table_preference_foods_on_preference_id"
   end
 
   create_table "join_table_profile_preferences", force: :cascade do |t|
