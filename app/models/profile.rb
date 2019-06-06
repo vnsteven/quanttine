@@ -7,8 +7,8 @@ has_many :user_meals, dependent: :destroy
 has_one_attached :avatar
 
 
-def thumbnail
-  self.image.variant(resize: '300x300' )
+def resized_avatar
+  return self.avatar.variant(resize: '200x200!').processed
 end
 
 end
