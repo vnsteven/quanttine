@@ -67,3 +67,10 @@ end
     food_supply_id: FoodSupply.all.sample.id
   )
 end
+
+50.times do
+  SchoolMeal.create!(
+    date: Faker::Date.forward(30),
+    school_id: School.all.sample.id
+  )
+end
