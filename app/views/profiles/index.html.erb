@@ -1,7 +1,3 @@
-<head>
-	<link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
-</head>
-
 <%= render 'layouts/colored_header' %>
 
 <div class="space"> </div>
@@ -13,7 +9,7 @@
 	<div class="user-cards">
 
 		<div class="card card1" id="options">
-		  <%= image_tag "repas.jpg", class:"photo-card" %>
+		  <%= image_tag "tray.jpg", class:"photo-card" %>
 		  <div class="card-body">
 		    <h5 class="card-title">Mes menus</h5>
 		    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> <br/>
@@ -22,7 +18,7 @@
 		</div>
 
 		<div class="card card1" id="options">
-		  <%= image_tag "cantine.jpg", class:"photo-card" %>
+		  <%= image_tag "choice.jpg", class:"photo-card" %>
 		  <div class="card-body">
 		    <h5 class="card-title">Mes commandes</h5>
 		    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> <br/>
@@ -31,11 +27,11 @@
 		</div>
 
 		<div class="card" id="options">
-		  <%= image_tag "teacher.jpeg", class:"photo-card" %>
+		  <%= image_tag "profi.jpg", class:"photo-card" %>
 		  <div class="card-body">
-		    <h5 class="card-title">Mes professeurs</h5>
+		    <h5 class="card-title">Mon profil</h5>
 		    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p><br/>
-		    <a href="#" class="btn btn-primary">Go somewhere</a>
+		    <%= link_to "Mon profil", edit_user_profile_path(current_user.id, @profile.id), class: "btn btn-primary" %>
 		  </div>
 		</div>
 
