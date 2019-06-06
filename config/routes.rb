@@ -12,6 +12,7 @@ Rails.application.routes.draw do
 
   resources :admins, only: [:show] do
     resources :menus
+    resources :profiles, only: [:index]
   end
 
 end
