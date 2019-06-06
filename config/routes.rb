@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   end
 
   resources :admins, only: [:show] do
-    resources :menus
+    resources :school_meals
     resources :statistics, only: [:index]
     resources :profiles, only: [:index]
   end

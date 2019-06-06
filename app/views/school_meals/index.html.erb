@@ -15,18 +15,20 @@
 								<tr>
 									<th>Nom</th>
 									<th>Catégorie</th>
-									<th>Portion</th>
 									<th>Date</th>
 								</tr>
 							</thead>
+							<% @school_meals.each do |school_meal| %>
+							<% school_meal.servings.each do |serving| %>
 							<tbody>
-								<tr>
-									<td>Tiger Nixon</td>
-									<td>System Architect</td>
-									<td>Edinburgh</td>
-									<td>61</td>
+								<tr>					
+									<td><%= serving.food_supply.name %></td>
+									<td><%= serving.meal_category %></td>
+									<td><%= school_meal.date.strftime("%d-%m-20%y") %></td>
 								</tr>
 							</tbody>
+							<% end %>
+							<% end %>
 						</table>
 					</div>
 				</div>
