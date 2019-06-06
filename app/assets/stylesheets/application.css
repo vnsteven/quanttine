@@ -12,7 +12,6 @@
 *
 *= require assets/static_page/css/style
 *= require assets/dashboard/css/sb-admin-2
-*= require datatables/dataTables.bootstrap4
 *= require_tree .
 *= require_self
 */
