@@ -4842,7 +4842,7 @@ input[type="button"].btn-block {
 }
 
 .navbar-dark .navbar-toggler {
-  color: rgba(255, 255, 255, 0.5);
+  color: #FFFFFF !important;
   border-color: rgba(255, 255, 255, 0.1);
 }
 
@@ -4851,7 +4851,7 @@ input[type="button"].btn-block {
 }
 
 .navbar-dark .navbar-text {
-  color: rgba(255, 255, 255, 0.5);
+  color: rgba(255, 255, 255);
 }
 
 .navbar-dark .navbar-text a {

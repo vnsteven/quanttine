@@ -27,6 +27,22 @@
 	padding-left: 38%;
 }
 
+/* COLORED NAVBAR */
+.colored-header {
+  background-color: #ea484e;
+  height: 92px;
+  display: flex;
+  align-items: center;
+}
+
+.nav-title {
+  font-size: 1.9em;
+}
+
+.navbar-toggler {
+  color: white;
+}
+
 /* BUTTON */
 
 .btn-primary:focus {
@@ -296,7 +312,7 @@
 
 
 .user-main{
-  width: 70%;
+  width: 75%;
   margin: auto;
 }
 
@@ -310,10 +326,14 @@
 #options {
   border: none;
   width: 21rem;
+  min-width: 19rem;
   height: 27em;
   text-align: center;
   transition-duration: 0.5s;
+}
 
+.card1 {
+  margin-right: 15px;
 }
 
 #options:hover {
