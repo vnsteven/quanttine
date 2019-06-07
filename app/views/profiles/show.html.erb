@@ -7,13 +7,12 @@
 		<h6 class="user-title-2">Choisis tes menus quotidiennement et aide ton école à lutter contre le gaspillage alimentaire.</h6>
 
 	<div class="user-cards">
-
 		<div class="card card1" id="options">
 		  <%= image_tag "tray.jpg", class:"photo-card" %>
 		  <div class="card-body">
 		    <h5 class="card-title">Mes menus</h5>
 		    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> <br/>
-		    <a href="#" class="btn btn-primary">Go somewhere</a>
+		    <a href="#" class="btn btn-primary" id="bouton-show">Go somewhere</a>
 		  </div>
 		</div>
 
@@ -22,16 +21,16 @@
 		  <div class="card-body">
 		    <h5 class="card-title">Mes commandes</h5>
 		    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> <br/>
-		    <a href="#" class="btn btn-primary">Go somewhere</a>
+		    <a href="#" class="btn btn-primary" id="bouton-show" >Go somewhere</a>
 		  </div>
 		</div>
 
 		<div class="card" id="options">
 		  <%= image_tag "profi.jpg", class:"photo-card" %>
 		  <div class="card-body">
-		    <h5 class="card-title">Mes professeurs</h5>
+		    <h5 class="card-title">Mon profil</h5>
 		    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p><br/>
-		    <a href="#" class="btn btn-primary">Go somewhere</a>
+		    <%= link_to "Mon profil", edit_user_profile_path(@user.id, @profile.id), class: "btn btn-primary", id:"bouton-show" %>
 		  </div>
 		</div>
 
