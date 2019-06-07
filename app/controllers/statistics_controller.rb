@@ -1,5 +1,5 @@
 class StatisticsController < ApplicationController
   def index
-    @preference = User.all
+    @preferences = Preference.all
   end
 end
