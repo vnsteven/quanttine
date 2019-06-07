@@ -8,7 +8,7 @@
 					<% unless user_signed_in? || admin_signed_in? %>
 					
 					<%= link_to 'Côté Élève', new_user_session_path, class: "btn btn-primary btn-lg mr-2 mb-2 banner-button", 'data-toggle' => "modal", 'data-target' => "#modalLogin" %>
-					<%= link_to 'Côté Cuisine', new_admin_session_path, class: "btn btn-primary btn-lg mr-2 mb-2 banner-button", 'data-toggle' => "modal", 'data-target' => "#modalLogin" %>
+					<%= link_to 'Côté École', new_admin_session_path, class: "btn btn-primary btn-lg mr-2 mb-2 banner-button", 'data-toggle' => "modal", 'data-target' => "#modalLogin" %>
 					<% end %>
 				</div>
 			</div>
