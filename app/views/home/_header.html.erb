@@ -31,15 +31,7 @@
 
 				</li>
 				<% else %>
-				<li class="nav-item">
-					<%= link_to "S'inscrire en tant qu'élève", new_user_registration_path, class: "nav-link", 'data-toggle' => "modal", 'data-target' => "#modalSignup" %>
-				</li>
-				<li class="nav-item">
-					<%= link_to 'Élève', new_user_session_path, class: "nav-link", 'data-toggle' => "modal", 'data-target' => "#modalLogin" %>
-				</li>
-				<li class="nav-item">
-					<%= link_to 'Admin', new_admin_session_path, class: "nav-link", 'data-toggle' => "modal", 'data-target' => "#modalAdmin" %>
-				</li>
+					<button class="btn btn-outline-primary btn-lg mr-2 mb-2 navbar-button"><%= link_to "Inscription", new_user_registration_path, 'data-toggle' => "modal", 'data-target' => "#modalSignup" %></button>
 				<% end %>
 			</ul>
 		</nav>
