@@ -6,12 +6,12 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
   :recoverable, :rememberable, :validatable
 
-  # after_create :create_profile
+  after_create :create_profile
 
   private
 
   def create_profile
-    Profile.create!(user_id: self.id) if self.profile.nil?
+    Profile.create!(user_id: self.id) 
   end
 
   def welcome_send

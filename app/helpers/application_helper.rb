@@ -15,4 +15,8 @@ module ApplicationHelper
   def food_supply_list
     FoodSupply.all.map { |food| food.name }.uniq
   end
+
+  def preferences_list(profile)
+    profile.preferences.map { |i| i.name }.join(", ").downcase.capitalize
+  end
 end

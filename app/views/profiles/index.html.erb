@@ -1,9 +1,5 @@
 <div id="wrapper">
 
-<%= render 'layouts/colored_header' %>
-
-
-
   <%= render 'admins/side_bar' %>
 
   <div id="content-wrapper" class="d-flex flex-column">
@@ -23,6 +19,8 @@
                 <tr>
                   <th>Prénom</th>
                   <th>Nom</th>
+                  <th>Email</th>
+                  <th>Préférences</th>
                 </tr>
               </thead>
               <tbody>
@@ -30,6 +28,8 @@
                 <tr>
                   <td><%= profile.user.first_name %></td>
                   <td><%= profile.user.last_name %></td>
+                  <td><%= profile.user.email %></td>
+                  <td><%= preferences_list(profile) %></td>
                 </tr>
                 <% end %>
               </tbody>

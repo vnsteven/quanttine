@@ -40,7 +40,7 @@ class ProfilesController < ApplicationController
 
 
   def authenticate_user
-    unless current_user
+    unless current_user || current_admin
       redirect_to root_path, :notice => "Veuillez vous connecter pour accéder à vos informations."
     end
   end
