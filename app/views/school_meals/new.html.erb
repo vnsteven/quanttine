@@ -10,6 +10,12 @@
 						<h6 class="m-0 font-weight-bold">Créer un nouveau menu</h6>
 					</div>
 					<div class="card-body">
+						<div class="field form-group">
+							<%= form_tag url_for(controller: 'school_meals', action: 'create'), method: 'post' do %>
+							<%= date_field_tag :date %>
+							<%= submit_tag "Envoyer" %>
+							<% end %>
+						</div>
 					</div>
 				</div>
 			</div>
