@@ -1,35 +1,30 @@
-<!-- Topbar -->
 <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
 
-	<!-- Sidebar Toggle (Topbar) -->
 	<button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
 		<i class="fa fa-bars"></i>
 	</button>
 
-	<!-- Topbar Navbar -->
 	<ul class="navbar-nav ml-auto">
 
-		<!-- Nav Item - Search Dropdown (Visible Only XS) -->
 		<li class="nav-item dropdown no-arrow d-sm-none color-w">
 			<a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 			</a>
 		</li>
 
-		<!-- Nav Item - User Information -->
 		<li class="nav-item dropdown no-arrow">
 			<a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 				<span class="mr-2 d-none d-lg-inline text-gray-600 small"><%= current_admin.email %></span>
 				<img class="img-profile rounded-circle" src="https://www.shareicon.net/download/2016/09/01/822751_user_512x512.png">
 			</a>
-			<!-- Dropdown - User Information -->
 			<div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-				<%= link_to "Profile", admin_path(current_admin.id), :class => "dropdown-item" %>
-			<div class="dropdown-divider"></div>
-			<%= link_to "Log out", destroy_user_session_path, :class => "dropdown-item", :method => :delete, data: {toggle: "modal", target: "#logoutModal"} %>
-		</div>
-	</li>
+				<%= link_to "Changer d'adresse mail", edit_admin_registration_path, :class => "dropdown-item", 'data-toggle' => "modal", 'data-target' => "#modalEdit" %>
+				<div class="dropdown-divider"></div>
+				<%= link_to "Se déconnecter", destroy_admin_session_path, :class => "dropdown-item", :method => :delete, data: {toggle: "modal", target: "#logoutModal"} %>
+			</div>
+		</li>
 
-</ul>
+	</ul>
+
+	<%= render 'admins/registrations/edit' %>
 
 </nav>
-<!-- End of Topbar -->

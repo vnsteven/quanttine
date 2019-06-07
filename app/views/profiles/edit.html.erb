@@ -1,40 +1,56 @@
-<body class="show-user">
-<%= render 'layouts/colored_header' %>
-
-  <div class="space"></div>
-
-  <div class="user-info">
-    <div class="card mb-3">
-      <h3 class="card-header">
-        <div class="content"><%=  @user.first_name %> <%= @user.last_name %></div>
-      </h3>
-      <div class="card-body row">
-        <div class="col content">
-          <h5 class="card-title">Elève de : 4B</h5>
-          <h6 class="card-subtitle text-muted">Ecole Boris Vian</h6>
+<body>
+  <%= render 'layouts/colored_header' %>
+  <div class="show-user">
+    <br/> <br/>
+    <div class="user-info">
+      <div class="card mb-3">
+        <h3 class="card-header choice-title"><div class="content" choice-title><%=  @user.first_name %> <%= @user.last_name %></div>
+        </h3>
+        <div class="card-body row">
+          <div class="col content">
+            <h5 class="card-title choice-title">Elève de : 4B</h5>
+            <h6 class="card-subtitle text-muted">Ecole Boris Vian</h6>
+          </div>
+          <div class="col content choice-title">
+            <%= @user.email %>
+          </div>
         </div>
-        <div class="col content">
-          <%= @user.email %>
+        <div class="user-photo" >
+          <% if @profile.avatar.attached? %>
+          <%= form_tag user_avatars_path, multipart: true do %>
+          <%= file_field_tag :avatar %> <br>
+          <%= submit_tag "ajouter une photo de profil" %>
+          <% end %>
+          <%= image_tag @profile.resized_avatar, alt: 'avatar' %>
+          <% else %>
+          <p>=== Il n'y a pas encore d'avatar lié à cet utilisateur ===</p>
+          <%= form_tag user_avatars_path, multipart: true do %>
+          <%= file_field_tag :avatar %> <br>
+          <%= submit_tag "ajouter une photo de profil" %>
+          <% end %>
+          <% end %>
+        </div>
+        <div> <br/>
+          <h5 class="choice-title">Choisis tes préférences alimentaires ci-dessous: elles seront transmises à ta cantine.</h5>
+        </div>
+        <br/>
+        <div class="choice">
+          <%= form_for [@user, @profile] do |f| %>
+          <%= f.collection_check_boxes :preference_ids, @preferences.order(:name), :id, :name do |b| %>
+          <%= b.check_box %> <%= b.label %> <br>
+          <% end %>
+          <%= f.submit "Envoyer", id:"envoyer", class:"btn btn-primary send" %>
+          <% end %>
+        </div>
+        <br/>
+        <div class="card-body">
+          <%= link_to "Editer", edit_user_registration_path, class: "card-link"%>
+          <a href="/users/edit" class="card-link">Choisir mon menu</a>
         </div>
       </div>
-      <div class="user-photo" >
-      </div>
-      <div class="">
-        <p class="">Choisis tes préférences alimentaires ci-dessous: elles seront transmises à ta cantine.</p>
-      </div>
+    </div>
+    <br/><br/><br/><br/><br/>
+  </div>
 
-      <%= form_for [@user, @profile] do |f| %>
-      <%= f.collection_check_boxes :preference_ids, @preferences.order(:name), :id, :name do |b| %>
-      <%= b.check_box %> <%= b.label %> <br>
-      <% end %>
-      <%= f.submit "Envoyer" %>
-      <% end %>
-
-
-      <div class="card-body">
-        <%= link_to "Editer", edit_user_registration_path, class: "card-link", 'data-toggle' => "modal", 'data-target' => "#modalEdit" %>
-        <a href="#" class="card-link">Choisir mon menu</a>
-      </div>
-
-
-    </body>
+  <%= render 'layouts/footer' %>
+</body>

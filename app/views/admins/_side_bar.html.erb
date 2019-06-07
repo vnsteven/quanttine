@@ -1,79 +1,153 @@
-<!-- Sidebar -->
 <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
-	<!-- Sidebar - Brand -->
 	<div class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
 		<div class="sidebar-brand-text mx-3 text-white">Administrateur</div>
 	</div>
 
-	<!-- Divider -->
 	<hr class="sidebar-divider my-0">
 
-		<!-- Divider -->
-		<hr class="sidebar-divider">
+	<hr class="sidebar-divider">
 
-		<!-- Heading -->
-		<div class="sidebar-heading">
-			Gestion
+	<div class="sidebar-heading">
+		Gestion
+	</div>
+
+	<li class="nav-item">
+		<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+			<i class="fas fa-pen"></i>
+			<span>Menus</span>
+		</a>
+		<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+			<div class="bg-white py-2 collapse-inner rounded">
+				<%= link_to "Liste des menus", admin_school_meals_path(current_admin.id), class: "collapse-item" %>
+				<%= link_to "Créer un menu", new_admin_school_meal_path(current_admin.id), class: "collapse-item" %>
+			</div>
 		</div>
+	</li>
 
-		<!-- Nav Item - Pages Collapse Menu -->
-		<li class="nav-item">
-			<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
-				<i class="fas fa-pen"></i>
-				<span>Menu</span>
-			</a>
-			<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-				<div class="bg-white py-2 collapse-inner rounded">
-					<a class="collapse-item" href="">Créer</a>
-					<a class="collapse-item" href="">Editer</a>
-				</div>
+	<li class="nav-item">
+		<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseQuantity" aria-expanded="true" aria-controls="collapseQuantity">
+			<i class="fas fa-box"></i>
+			<span>Quantités</span>
+		</a>
+		<div id="collapseQuantity" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+			<div class="bg-white py-2 collapse-inner rounded">
+				<%= link_to "Aliments", admin_path(current_admin.id), class: "collapse-item" %>
 			</div>
-		</li>
-
-		<!-- Nav Item - Utilities Collapse Menu -->
-		<li class="nav-item">
-			<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
-				<i class="fas fa-graduation-cap"></i>
-				<span>Élèves</span>
-			</a>
-			<div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
-				<div class="bg-white py-2 collapse-inner rounded">
-					<a class="collapse-item" href="">Liste des élèves</a>
-					<a class="collapse-item" href="">Editer les allergies</a>
-				</div>
-			</div>
-		</li>
-
-		<!-- Divider -->
-		<hr class="sidebar-divider">
-
-		<!-- Heading -->
-		<div class="sidebar-heading">
-			Statistiques
 		</div>
+	</li>
 
-		<!-- Nav Item - Pages Collapse Menu -->
-		<li class="nav-item">
-			<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
-				<i class="fas fa-chart-line"></i>
-				<span>Tendances</span>
-			</a>
-			<div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
-				<div class="bg-white py-2 collapse-inner rounded">
-					<a class="collapse-item" href="">Alimentation</a>
-					<a class="collapse-item" href="">Avis</a>
-				</div>
+
+	<li class="nav-item">
+		<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
+			<i class="fas fa-graduation-cap"></i>
+			<span>Élèves</span>
+		</a>
+		<div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+			<div class="bg-white py-2 collapse-inner rounded">
+				<%= link_to "Liste des élèves", admin_profiles_path(current_admin.id), class: "collapse-item" %>
 			</div>
-		</li>
+		</div>
+	</li>
 
-			<!-- Divider -->
-			<hr class="sidebar-divider d-none d-md-block">
+	<hr class="sidebar-divider">
 
-			<!-- Sidebar Toggler (Sidebar) -->
-			<div class="text-center d-none d-md-inline">
-				<button class="rounded-circle border-0" id="sidebarToggle"></button>
+	<div class="sidebar-heading">
+		Statistiques
+	</div>
+
+	<li class="nav-item">
+		<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
+			<i class="fas fa-chart-line"></i>
+			<span>Tendances</span>
+		</a>
+		<div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+			<div class="bg-white py-2 collapse-inner rounded">
+				<%= link_to "Alimentation", admin_statistics_path(current_admin.id), class: "collapse-item" %>
+				<%= link_to "Avis", "", class: "collapse-item" %>
 			</div>
+		</div>
+	</li>
 
-		</ul>
-<!-- End of Sidebar -->
+	<hr class="sidebar-divider">
+
+	<div class="sidebar-heading">
+		Paramètres
+	</div>
+
+	<li class="nav-item">
+		<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseSettings" aria-expanded="true" aria-controls="collapsePages">
+			<i class="fas fa-cog"></i>
+			<span>Compte</span>
+		</a>
+		<div id="collapseSettings" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+			<div class="bg-white py-2 collapse-inner rounded">
+				<%= link_to "Changer d'adresse mail", edit_admin_registration_path, :class => "dropdown-item", 'data-toggle' => "modal", 'data-target' => "#modalEdit" %>
+				<div class="dropdown-divider"></div>
+				<%= link_to "Se déconnecter", destroy_admin_session_path, :class => "dropdown-item", :method => :delete, data: {toggle: "modal", target: "#logoutModal"} %>
+			</div>
+		</div>
+	</li>
+
+	<hr class="sidebar-divider d-none d-md-block">
+
+	<div class="text-center d-none d-md-inline">
+		<button class="rounded-circle border-0" id="sidebarToggle"></button>
+	</div>
+	
+	<%= render 'admins/registrations/edit' %>
+
+</ul>
+
+<script type="text/javascript">
+	(function($) {
+  "use strict"; // Start of use strict
+
+  // Toggle the side navigation
+  $("#sidebarToggle, #sidebarToggleTop").on('click', function(e) {
+  	$("body").toggleClass("sidebar-toggled");
+  	$(".sidebar").toggleClass("toggled");
+  	if ($(".sidebar").hasClass("toggled")) {
+  		$('.sidebar .collapse').collapse('hide');
+  	};
+  });
+
+  // Close any open menu accordions when window is resized below 768px
+  $(window).resize(function() {
+  	if ($(window).width() < 768) {
+  		$('.sidebar .collapse').collapse('hide');
+  	};
+  });
+
+  // Prevent the content wrapper from scrolling when the fixed side navigation hovered over
+  $('body.fixed-nav .sidebar').on('mousewheel DOMMouseScroll wheel', function(e) {
+  	if ($(window).width() > 768) {
+  		var e0 = e.originalEvent,
+  		delta = e0.wheelDelta || -e0.detail;
+  		this.scrollTop += (delta < 0 ? 1 : -1) * 30;
+  		e.preventDefault();
+  	}
+  });
+
+  // Scroll to top button appear
+  $(document).on('scroll', function() {
+  	var scrollDistance = $(this).scrollTop();
+  	if (scrollDistance > 100) {
+  		$('.scroll-to-top').fadeIn();
+  	} else {
+  		$('.scroll-to-top').fadeOut();
+  	}
+  });
+
+  // Smooth scrolling using jQuery easing
+  $(document).on('click', 'a.scroll-to-top', function(e) {
+  	var $anchor = $(this);
+  	$('html, body').stop().animate({
+  		scrollTop: ($($anchor.attr('href')).offset().top)
+  	}, 1000, 'easeInOutExpo');
+  	e.preventDefault();
+  });
+
+})(jQuery); // End of use strict
+</script>
+
