@@ -31,25 +31,7 @@
 
 				</li>
 				<% else %>
-				<div class="dropdown">
-					<button class="dropbtn">S'inscrire</button>
-					<div class="dropdown-content">
-						<!-- **********ATTENTION Y'A DES <a>************* -->
-						<a href="#">Élève</a>
-						<a href="#">École</a>
-						<!-- **********ATTENTION Y'A DES <a>************* -->
-					</div>
-				</div>
-
-				<li class="nav-item">
-					<%= link_to "S'inscrire en tant qu'élève", new_user_registration_path, class: "nav-link", 'data-toggle' => "modal", 'data-target' => "#modalSignup" %>
-				</li>
-				<li class="nav-item">
-					<%= link_to 'Élève', new_user_session_path, class: "nav-link", 'data-toggle' => "modal", 'data-target' => "#modalLogin" %>
-				</li>
-				<li class="nav-item">
-					<%= link_to 'Admin', new_admin_session_path, class: "nav-link", 'data-toggle' => "modal", 'data-target' => "#modalAdmin" %>
-				</li>
+					<button class="navbar-button btn btn-primary btn-lg"><%= link_to "Inscription", new_user_registration_path, 'data-toggle' => "modal", 'data-target' => "#modalSignup" %></button>
 				<% end %>
 			</ul>
 		</nav>
