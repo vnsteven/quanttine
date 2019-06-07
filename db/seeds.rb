@@ -67,12 +67,15 @@ end
 
 i = 1
 50.times do
+  School.all.each do |school|
   SchoolMeal.create!(
     date: Date.current + i,
-    school_id: School.all.sample.id
+    school_id: school.id
   )
+  end
   i += 1
 end
+
 
 100.times do
   Serving.create!(
