@@ -31,4 +31,8 @@ module ApplicationHelper
   def what_users_have_ordered(food_name)
     Serving.all.map { |i| i.food_supply.name }.count(food_name)
   end
+
+  def is_school_of_admin(input)
+    input.school == current_admin.school
+  end
 end

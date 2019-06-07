@@ -26,10 +26,12 @@
               <tbody>
                 <% @profile.each do |profile| %>
                 <tr>
+                  <% if is_school_of_admin(profile) %>
                   <td><%= profile.user.first_name %></td>
                   <td><%= profile.user.last_name %></td>
                   <td><%= profile.user.email %></td>
                   <td><%= preferences_list(profile) %></td>
+                  <% end %>
                 </tr>
                 <% end %>
               </tbody>

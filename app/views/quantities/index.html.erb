@@ -1,0 +1,36 @@
+<div id="wrapper">
+	<%= render 'admins/side_bar' %>
+	<div id="content-wrapper" class="d-flex flex-column">
+		<%= render 'admins/top_bar' %>
+		<%= render 'helpers/flash' %>
+		<div class="container-fluid">
+			<div class="card shadow mb-4">
+				<div class="card-header py-3">
+					<h6 class="m-0 font-weight-bold">Liste des menus</h6>
+				</div>
+				<div class="card-body">
+					<div class="table-responsive">
+						<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+							<thead>
+								<tr>
+									<th>Nom</th>
+									<th>Quantité</th>
+								</tr>
+							</thead>
+							<% @quantities.each do |quantity| %>
+							<tbody>
+								<% if is_school_of_admin(quantity) %>
+								<tr>					
+									<td><%= quantity.food_supply.name %></td>
+									<td><%= quantity.quantity %></td>
+								</tr>
+							</tbody>
+							<% end %>
+							<% end %>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
