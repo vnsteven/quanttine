@@ -421,3 +421,20 @@ margin: auto;
 .forget-password-image{
    background-image: url(/assets/carrot.jpg);
 }
+
+/* EDIT FORM ADMIN */
+.mini-navbar{
+  color: white;
+  background-image: radial-gradient(circle at bottom right, #333a4d, #586689) !important;
+/*  background-image: linear-gradient(to right, #333a4d 60%, #3c579b) !important;
+*/  }
+
+#btn-edit{
+  background-color: #586689 !important;
+  border: transparent;
+}
+
+#btn-edit:hover {
+ color: white;
+border: 1px solid  #586689 !important;
+}
