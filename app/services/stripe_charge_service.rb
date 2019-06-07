@@ -1,4 +1,5 @@
 class StripeChargeService
+  attr_accessor :customer, :charge, :current_admin
 
   def initialize(params, current_admin, amount)
     @stripe_email = params[:stripeEmail]
@@ -6,6 +7,7 @@ class StripeChargeService
     @current_admin = current_admin
     @amount = amount
     @customer = nil
+    @charge = nil
   end
 
   def perform
@@ -23,14 +25,12 @@ class StripeChargeService
   end
 
   def create_charge
-    Stripe::Charge.create(
+    @charge = Stripe::Charge.create(
       customer: @customer.id,
       amount: @amount * 100,
       description: @current_admin.email,
       currency: 'eur'
     )
-    @current_admin.school.update(active: true)
-
   end
 
 end

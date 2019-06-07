@@ -1,4 +1,5 @@
 class StripeSubscriptionService
+attr_accessor :plan, :customer, :subscription, :current_admin
 
   def initialize(params, current_admin, amount)
     @stripe_email = params[:stripeEmail]
@@ -14,6 +15,7 @@ class StripeSubscriptionService
     create_plan
     create_customer
     create_subscription
+
   end
 
   def create_plan
@@ -31,14 +33,13 @@ class StripeSubscriptionService
         email: @stripe_email,
         source: @stripe_token
         })
-        @current_admin.school.update(stripe_customer_id: @customer.id)
   end
 
   def create_subscription
         @subscription = @customer.subscriptions.create(
           plan: @plan
         )
-        @current_admin.school.update(active: true)
   end
+
 
 end
