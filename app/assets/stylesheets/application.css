@@ -140,7 +140,6 @@
 .footer-distributed .footer-right{
   display: inline-block;
   vertical-align: top;
-
 }
 
 /* Footer left */
@@ -395,7 +394,7 @@ margin: auto;
   transition-duration: 0.5s;
 }
 
-.photo-card {;
+.photo-card {
   height: 47%;
 }
 
@@ -409,4 +408,3 @@ margin: auto;
 .forget-password-image{
    background-image: url(/assets/carrot.jpg);
 }
-s
