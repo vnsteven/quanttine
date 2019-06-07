@@ -36,7 +36,7 @@ end
   )
 end
 
-4.times do 
+4.times do
 
   Preference.create!(
   name: ["Je ne mange pas de viande", "Je ne mange pas de produits laitiers", "Je ne mange pas de porc", "Je ne mange pas de produits marins"].sample,
@@ -65,11 +65,13 @@ end
   )
 end
 
+i = 1
 50.times do
   SchoolMeal.create!(
-    date: Faker::Date.forward(30),
+    date: Date.current + i,
     school_id: School.all.sample.id
   )
+  i += 1
 end
 
 100.times do
