@@ -4,6 +4,7 @@
 <br/> <br/>
   <div class="user-info">
     <div class="card mb-3">
+<% if current_user.profile.school != nil %>
       <h3 class="card-header choice-title"><div class="content" choice-title><%=  @user.first_name %> <%= @user.last_name %></div>
         </h3>
         <div class="card-body row">
@@ -34,10 +35,26 @@
           <%= link_to "Editer", edit_user_registration_path, class: "card-link"%>
           <a href="/users/edit" class="card-link">Choisir mon menu</a>
         </div>
+<% else %>        
+        <div> <br/>
+          <h5 class="choice-title">Choisi ton établissement</h5>
+        </div>
+<br/>
+        <div class="choice">
+          <%= form_for [@user, @profile] do |f| %>
+          <%= f.collection_select :school_id, @schools.order(:name), :id, :name %>
+          <%= f.submit "Envoyer", class:"btn btn-primary send" %> 
+          <% end %>
+        </div>
+           <br/>
+        <div class="card-body">
+          <%= link_to "Editer", edit_user_registration_path, class: "card-link"%>
+          <a href="/users/edit" class="card-link">Choisir mon menu</a>
+        </div>
+<% end %>
     </div>
   </div>
 <br/><br/><br/><br/><br/>
 </div>
 
-<%= render 'layouts/footer' %>
 </body>
