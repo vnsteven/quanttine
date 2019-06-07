@@ -27,6 +27,14 @@
 	padding-left: 38%;
 }
 
+/* LOGO */
+
+#logo-navbar {
+  width: 100%;
+  height: 100%;
+}
+
+
 /* COLORED NAVBAR */
 .colored-header {
   background-color: #ea484e;
@@ -50,10 +58,8 @@
 	border: 1px solid #C61349 !important;
 }
 
-#bouton-show:hover {
-  border: 2px solid #FC0042;
-  font-weight: bold;
-}
+/*NAVBAR LANDING PAGE BUTTON*/
+
 
 /* BANNER */
 
@@ -413,3 +419,20 @@ margin: auto;
 .forget-password-image{
    background-image: url(/assets/carrot.jpg);
 }
+<<<<<<< HEAD
+
+
+  /*COMMERCIAL TEXT COLOR*/
+
+.sub-title-home{
+  color: #78C2AD;
+}  
+
+
+
+
+
+
+
+=======
+>>>>>>> development

@@ -12,7 +12,6 @@ class User < ApplicationRecord
 
   def create_profile
     Profile.create!(user_id: self.id)
-    
   end
 
   def welcome_send

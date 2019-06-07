@@ -129,7 +129,7 @@ ActiveRecord::Schema.define(version: 2019_06_06_191300) do
     t.string "zipcode"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.boolean "active", default: false
+    t.boolean "active"
     t.string "stripe_customer_id"
   end
 
