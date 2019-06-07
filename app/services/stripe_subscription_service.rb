@@ -31,12 +31,14 @@ class StripeSubscriptionService
         email: @stripe_email,
         source: @stripe_token
         })
+        @current_admin.school.update(stripe_customer_id: @customer.id)
   end
 
   def create_subscription
         @subscription = @customer.subscriptions.create(
           plan: @plan
         )
+        @current_admin.school.update(active: true)
   end
 
 end

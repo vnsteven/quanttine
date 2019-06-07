@@ -29,6 +29,8 @@ class StripeChargeService
       description: @current_admin.email,
       currency: 'eur'
     )
+    @current_admin.school.update(active: true)
+
   end
 
 end

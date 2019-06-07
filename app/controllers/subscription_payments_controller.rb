@@ -6,8 +6,7 @@ class SubscriptionPaymentsController < ApplicationController
 
   def create
     service = StripeSubscriptionService.new(params, current_admin, 50)
-    service.perform
+    redirect_to admin_path(current_admin) if service.perform
   end
-
 
 end

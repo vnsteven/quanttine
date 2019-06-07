@@ -6,7 +6,7 @@ class ChargePaymentsController < ApplicationController
 
   def create
     service = StripeChargeService.new(params, current_admin, 50)
-    service.perform
+    redirect_to admin_path(current_admin) if service.perform
   end
 
 end
