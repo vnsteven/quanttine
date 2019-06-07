@@ -31,6 +31,16 @@
 
 				</li>
 				<% else %>
+				<div class="dropdown">
+					<button class="dropbtn">S'inscrire</button>
+					<div class="dropdown-content">
+						<!-- **********ATTENTION Y'A DES <a>************* -->
+						<a href="#">Élève</a>
+						<a href="#">École</a>
+						<!-- **********ATTENTION Y'A DES <a>************* -->
+					</div>
+				</div>
+
 				<li class="nav-item">
 					<%= link_to "S'inscrire en tant qu'élève", new_user_registration_path, class: "nav-link", 'data-toggle' => "modal", 'data-target' => "#modalSignup" %>
 				</li>
