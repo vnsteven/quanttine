@@ -3,7 +3,6 @@ class StripeChargeService
   def initialize(params, current_admin, amount)
     @stripe_email = params[:stripeEmail]
     @stripe_token = params[:stripeToken]
-    @order = params[:order_id]
     @current_admin = current_admin
     @amount = amount
     @customer = nil

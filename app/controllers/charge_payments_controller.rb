@@ -6,9 +6,7 @@ class ChargePaymentsController < ApplicationController
 
   def create
     service = StripeChargeService.new(params, current_admin, 50)
-    service.create_customer
-    service.create_charge
-    byebug
+    service.perform
   end
 
 end
