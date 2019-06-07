@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     resources :profiles
   end
 
-
+  devise_for :admins, path: 'admins'
   resources :admins, only: [:show] do
     resources :school_meals
     resources :statistics, only: [:index]
@@ -18,10 +18,3 @@ Rails.application.routes.draw do
   resources :charge_payments, only: [:new, :create]
   resources :subscription_payments, only: [:new, :create]
 end
-
-##### FACEBOOK CONNECT #####
-# devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }, controllers: { registrations: "registrations" }
-
-# devise_scope :users do
-#   delete 'sign_out', :to => 'devise/sessions#destroy', :as => :destroy_user_session
-# end
