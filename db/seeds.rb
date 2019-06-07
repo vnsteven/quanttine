@@ -34,10 +34,6 @@ end
     email: Faker::Internet.email,
     password: "password",
   )
-  Profile.create!(
-    user_id: user.id,
-    school_id: School.all.sample.id
-  )
 end
 
 4.times do 

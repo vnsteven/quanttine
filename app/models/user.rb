@@ -11,7 +11,7 @@ class User < ApplicationRecord
   private
 
   def create_profile
-    Profile.create!(user_id: self.id)
+    Profile.create!(user_id: self.id, school_id: School.all.sample.id)
   end
 
   def welcome_send
