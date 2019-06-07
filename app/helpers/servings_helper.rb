@@ -1,0 +1,2 @@
+module ServingsHelper
+end

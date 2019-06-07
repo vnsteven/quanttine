@@ -13,6 +13,11 @@
 						<div class="field form-group">
 							<%= form_tag url_for(controller: 'school_meals', action: 'create'), method: 'post' do %>
 							<%= date_field_tag :date %>
+							<br /><br />
+							<%= collection_select :meal_category, :meal_name, Serving.all, :meal_category, :meal_category, prompt: "Catégorie" %>
+							<br /><br />
+							<%= collection_select :food_name, :food_id, FoodSupply.all, :id, :name, prompt: "Aliment" %>
+							<br /><br />
 							<%= submit_tag "Envoyer" %>
 							<% end %>
 						</div>

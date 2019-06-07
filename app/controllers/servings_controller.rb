@@ -1,0 +1,2 @@
+class ServingsController < ApplicationController
+end
