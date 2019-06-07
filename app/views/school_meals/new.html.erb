@@ -9,9 +9,20 @@
 					<div class="card-header py-3">
 						<h6 class="m-0 font-weight-bold">Créer un nouveau menu</h6>
 					</div>
-					<div class="card-body">
+					<div class="card-body">					
+						<div class="field form-group">
+							<%= form_tag url_for(controller: 'school_meals', action: 'create'), method: 'post' do %>
+							<%= date_field_tag :date, class: "form-control" %>
+							<br /><br />
+							<%= select_tag :meal_category, options_for_select(serving_list), prompt: "Catégorie", class: "form-control" %>
+							<br />
+							<%= select_tag :food_name, options_for_select(food_supply_list), prompt: "Aliment", class: "form-control" %>
+							<br />
+							<%= submit_tag "Envoyer", class: "btn btn-primary" %>
+							<% end %>
+						</div>
 					</div>
-				</div>
+				</div>				
 			</div>
 		</div>
 	</div>
