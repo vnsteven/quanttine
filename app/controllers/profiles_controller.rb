@@ -1,4 +1,5 @@
 class ProfilesController < ApplicationController
+
 	def index
 		@user = User.find(current_user.id)
 		@profile = Profile.find_by(user_id: current_user.id)
@@ -9,7 +10,6 @@ class ProfilesController < ApplicationController
     @profile = Profile.find(params[:id])
     @preferences = Preference.all
   end
-
 
 	def update
 		@profile = Profile.find_by(user_id: current_user.id)

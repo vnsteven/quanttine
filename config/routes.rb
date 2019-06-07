@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   devise_for :admins, path: 'admins'
   resources :admins, only: [:show, :index]
 
-  resources :payments
-  resources :charge_payments
-  resources :subscription_payments
+  resources :payments, only: [:new]
+  resources :charge_payments, only: [:new, :create]
+  resources :subscription_payments, only: [:new, :create]
 end

@@ -7,16 +7,42 @@ class SubscriptionPaymentsController < ApplicationController
 
   def create
     @amount = 50000000
-    session = Stripe::Checkout::Session.create(
-      payment_method_types: ['card'],
-      subscription_data: {
-        items: [{
-          plan: 'plan_123',
-          }],
-        },
-        success_url: 'https://example.com/success',
-        cancel_url: 'https://example.com/cancel',
-      )
-    end
 
+    plan = Stripe::Plan.create({
+      currency: 'eur',
+      interval: 'month',
+      product: 'prod_FCpLQuB8RMKYsm',
+      nickname: 'plan basique',
+      amount: @amount
+      })
+
+    customer = Stripe::Customer.create({
+      email: params[:stripeEmail],
+      source: params[:stripeToken],
+    })
+
+    subscription = customer.subscriptions.create(
+      plan: plan
+    )
+
+    options = {
+      stripe_id: customer.id,
+      stripe_subscription_id: subscription.id
+    }
+
+    options.merge!(
+      card_last4: params[:card_last4],
+      card_exp_month: params[:card_exp_month],
+      card_exp_year: params[:card_exp_year],
+      card_type: params[:card_brand]
+    )
+
+    redirect_to root_path
+
+  rescue Stripe::CardError => e
+    flash[:error] = e.message
+    byebug
+    redirect_to new_charge_payment_path
   end
+
+end
