@@ -58,10 +58,8 @@
 	border: 1px solid #C61349 !important;
 }
 
-#bouton-show:hover {
-  border: 2px solid #FC0042;
-  font-weight: bold;
-}
+/*NAVBAR LANDING PAGE BUTTON*/
+
 
 /* BANNER */
 
@@ -438,3 +436,9 @@ margin: auto;
  color: white;
 border: 1px solid  #586689 !important;
 }
+
+  /*COMMERCIAL TEXT COLOR*/
+
+.sub-title-home{
+  color: #78C2AD;
+}  
