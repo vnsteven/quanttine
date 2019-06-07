@@ -1,5 +1,8 @@
 class ProfilesController < ApplicationController
-	def index
+  def index
+    @profile = Profile.all
+  end
+	def show
 		@user = User.find(current_user.id)
 		@profile = Profile.find_by(user_id: current_user.id)
 	end
@@ -26,7 +29,4 @@ class ProfilesController < ApplicationController
 		)
 
 	end
-
-
-
 end

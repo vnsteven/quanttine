@@ -9,8 +9,11 @@ Rails.application.routes.draw do
     resources :profiles
   end
 
-  resources :admins, only: [:index, :show, :edit] do
-    resources :dashboard, only: [:index]
+
+  resources :admins, only: [:show] do
+    resources :school_meals
+    resources :statistics, only: [:index]
+    resources :profiles, only: [:index]
   end
 
 end

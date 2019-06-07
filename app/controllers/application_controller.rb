@@ -10,7 +10,7 @@ class ApplicationController < ActionController::Base
 
   def after_sign_in_path_for(resource)
     if resource.class == User
-      "/users/#{current_user.id}/profiles" 
+      "/users/#{current_user.id}/profiles/#{current_user.profile.id}" 
     elsif resource.class == Admin
       "/admins/#{current_admin.id}"
     end
