@@ -17,6 +17,18 @@ module ApplicationHelper
   end
 
   def preferences_list(profile)
-    profile.preferences.map { |i| i.name }.join(", ").downcase.capitalize
+    profile.preferences.map { |preference| preference.name }.join(", ").downcase.capitalize
+  end
+
+  def preferences_categories
+    Preference.all.map { |preference| preference.name }.uniq
+  end
+
+  def preference_count(category)
+    Preference.all.map { |i| i.name }.count(category)
+  end
+
+  def what_users_have_ordered(food_name)
+    Serving.all.map { |i| i.food_supply.name }.count(food_name)
   end
 end
