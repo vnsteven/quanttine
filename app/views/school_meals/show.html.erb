@@ -1,24 +1,29 @@
 <div id="menu-of-the-day-wrapper">
   <h1>Au menu aujourd'hui : </h1>
+
+  <%= form_with model: @user_meals do |f| %>
+
   <br><br>
   <h3>Entrées</h3>
   <div class="category-wrapper">
     <% @starters.each do |starter|%>
     <div class="starter-choices">
       <div class="meal-detail">
-        <label>
-          <input type="radio" name="starters" value="starter-1">
-          <div class="card">
-            <img src="https://cache.marieclaire.fr/data/photo/w1000_ci/5b/avocats-aux-crevettes.jpg" class="meal-image" >
-            <div class="card-body">
-              <h5 class="meal-description card-title"><%= starter.food_supply.name %></h5>
-              <p class="card-text">Des infos présentant le plat et la recette, brievement. Plus d'info sont dispo (AJAAAAX) via le bouton ci-dessous comme les ingrédients et les allergènes présents.</p>
-              <a href="#" class="btn btn-sm btn-primary">Plus d'info</a>
-            </div>
+        <%= f.label "", :value => '#{starter.id}' %>
+        <%= f.radio_button :starters, '#{starter.id}' %>
+        <div class="card">
+          <img src="https://cache.marieclaire.fr/data/photo/w1000_ci/5b/avocats-aux-crevettes.jpg" class="meal-image" >
+          <div class="card-body">
+            <h5 class="meal-description card-title"><%= starter.food_supply.name %></h5>
+            <p class="card-text">Des infos présentant le plat et la recette, brievement. Plus d'info sont dispo (AJAAAAX) via le bouton ci-dessous comme les ingrédients et les allergènes présents.</p>
+            <a href="#" class="btn btn-sm btn-primary">Plus d'info</a>
           </div>
-        </label>
+        </div>
+
       </div>
     </div>
+    <% end %>
+    <%= f.submit "Submit" %>
     <% end %>
   </div>
 
@@ -63,7 +68,5 @@
     </div>
     <% end %>
   </div>
-
-</div>
 </div>
 

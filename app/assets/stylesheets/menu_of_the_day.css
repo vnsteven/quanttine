@@ -51,12 +51,12 @@ height: 5vh;
 
 /*****  FX   *****/
 /* HIDE RADIO */
-[type=radio] {
+/*[type=radio] {
   position: absolute;
   opacity: 0;
   width: 0;
   height: 0;
-}
+}*/
 
 /* IMAGE STYLES */
 [type=radio] + div {

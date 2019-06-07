@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  get 'user_meals/index'
+  get 'user_meals/create'
+  get 'user_meals/edit'
+  get 'user_meals/update'
+  get 'user_meals/destroy'
   root 'home#index'
 
   devise_for :users, path: 'users'
@@ -6,10 +11,12 @@ Rails.application.routes.draw do
 
   resources :users do
     resources :avatars, only: [:create]
-    resources :profiles do 
+    resources :user_meals
+    resources :profiles do
       resources :school_meals, only: [:show]
     end
   end
+
 
 
   resources :admins, only: [:show] do
