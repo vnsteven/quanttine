@@ -9,9 +9,12 @@ class ApplicationController < ActionController::Base
   end
 
   def after_sign_in_path_for(resource)
-    user_profiles_path(current_user) if resource.class == User
-    admin_path(current_admin) if resource.class == Admin && current_admin.school.active == true
-    new_payment_path if resource.class == Admin && current_admin.school.active == false
-
+    if resource.class == User
+      user_profile_path(current_user, current_user.profile)
+    elsif resource.class == Admin && current_admin.school.active == true
+      admin_path(current_admin)
+    elsif resource.class == Admin && current_admin.school.active == false
+      new_payment_path
+    end
   end
 end
