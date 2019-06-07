@@ -50,6 +50,11 @@
 	border: 1px solid #C61349 !important;
 }
 
+#bouton-show:hover {
+  border: 2px solid #FC0042;
+  font-weight: bold;
+}
+
 /* BANNER */
 
 .site-blocks-cover {
