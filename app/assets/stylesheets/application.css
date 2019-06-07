@@ -58,6 +58,11 @@
 	border: 1px solid #C61349 !important;
 }
 
+#bouton-show:hover {
+  border: 2px solid #FC0042;
+  font-weight: bold;
+}
+
 /* BANNER */
 
 .site-blocks-cover {
@@ -148,7 +153,6 @@
 .footer-distributed .footer-right{
   display: inline-block;
   vertical-align: top;
-
 }
 
 /* Footer left */
@@ -355,9 +359,6 @@ margin: auto;
 }
 
 /* MENU OF THE DAY - FORM */
-#menu-of-the-day-wrapper{
-
-}
 
 /* PROFILES : INDEX.HTML */
 .user-title {
@@ -406,7 +407,7 @@ margin: auto;
   transition-duration: 0.5s;
 }
 
-.photo-card {;
+.photo-card {
   height: 47%;
 }
 
@@ -417,45 +418,6 @@ margin: auto;
 
   /*FORGOT PASSWORD ITEMS*/
 
-.forget-password{
-  text-align: center;
-  background-image: url(/assets/carrot.jpg);
-  width: 70%;
-  position: absolute;
-  top:0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-    
-  margin: auto;
-}
-
-.forget-password-container{
-  text-align: center;
-  width: 70%;
-  position: absolute;
-  top: 20%;
-  bottom: 0;
-  left: 0;
-  right: 0;
-    
-  margin: auto;
-}
-
-.forget-password-title{
-  color: #e81050;
-  font-size: 2.6em;
-  font-weight: bolder;
-  text-shadow: 3px 3px black;
-  text-decoration: underline;
-}
-
-.forget-password-text{
-  color: white;
-  font-size: 1.3em;
-  text-shadow: 2px 2px black;
-}
-
-.forget-password-button{
-  height: 2.5em;
+.forget-password-image{
+   background-image: url(/assets/carrot.jpg);
 }
