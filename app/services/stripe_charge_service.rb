@@ -1,6 +1,4 @@
 class StripeChargeService
-  DEFAULT_CURRENCY = 'eur'.freeze
-  attr_accessor :customer
 
   def initialize(params, current_admin, amount)
     @stripe_email = params[:stripeEmail]
@@ -12,6 +10,7 @@ class StripeChargeService
   end
 
   def perform
+    create_customer
     create_charge
   end
 
@@ -21,8 +20,7 @@ class StripeChargeService
       source: @stripe_token,
       description: 'Payment annuel',
     })
-    @current_admin.school.update(stripe_customer_id: customer.id)
-    customer
+    @current_admin.school.update(stripe_customer_id: @customer.id)
   end
 
   def create_charge
@@ -30,7 +28,7 @@ class StripeChargeService
       customer: @customer.id,
       amount: @amount * 100,
       description: @current_admin.email,
-      currency: DEFAULT_CURRENCY
+      currency: 'eur'
     )
   end
 
