@@ -2,8 +2,6 @@ Rails.application.routes.draw do
   root 'home#index'
 
   devise_for :users, path: 'users'
-  devise_for :admins, path: 'admins'
-
   resources :users do
     resources :avatars, only: [:create]
     resources :profiles
@@ -16,6 +14,9 @@ Rails.application.routes.draw do
     resources :profiles, only: [:index]
   end
 
+  resources :payments, only: [:new]
+  resources :charge_payments, only: [:new, :create]
+  resources :subscription_payments, only: [:new, :create]
 end
 
 ##### FACEBOOK CONNECT #####
@@ -24,6 +25,3 @@ end
 # devise_scope :users do
 #   delete 'sign_out', :to => 'devise/sessions#destroy', :as => :destroy_user_session
 # end
-
-
-
