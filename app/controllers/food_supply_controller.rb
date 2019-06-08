@@ -13,4 +13,12 @@ class FoodSupplyController < ApplicationController
       render "new"
     end
   end
+
+  def destroy
+    @food_supply = FoodSupply.find(params[:id])
+    @quantity = Quantity.find_by(food_supply_id: @food_supply.id)
+    @food_supply.destroy
+    @quantity.destroy
+    redirect_to admin_quantities_path(current_admin)
+  end
 end

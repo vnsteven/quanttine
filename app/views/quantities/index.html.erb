@@ -14,6 +14,7 @@
 								<tr>
 									<th>Nom</th>
 									<th>Quantité</th>
+									<th></th>
 								</tr>
 							</thead>
 							<% @quantities.each do |quantity| %>
@@ -22,6 +23,7 @@
 								<tr>					
 									<td><%= quantity.food_supply.name %></td>
 									<td><%= quantity.quantity %></td>
+									<td><%= link_to "", admin_food_supply_path(current_admin, quantity.food_supply.id), method: :delete, class: "fas fa-trash-alt text-secondary"%></td>
 								</tr>
 							</tbody>
 							<% end %>

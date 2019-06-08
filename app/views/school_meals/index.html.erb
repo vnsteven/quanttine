@@ -15,6 +15,7 @@
 									<th>Nom</th>
 									<th>Catégorie</th>
 									<th>Date</th>
+									<th></th>
 								</tr>
 							</thead>
 							<% @school_meals.each do |school_meal| %>
@@ -24,6 +25,7 @@
 									<td><%= serving.food_supply.name %></td>
 									<td><%= serving.meal_category %></td>
 									<td><%= school_meal.date.strftime("%d-%m-20%y") %></td>
+									<td><%= link_to "", admin_serving_path(current_admin, serving), method: :delete, class: "fas fa-trash-alt text-secondary"%></td>
 								</tr>
 							</tbody>
 							<% end %>
