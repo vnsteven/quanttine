@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   resources :admins, only: [:show] do
     resources :school_meals
     resources :user_meals
+    resources :servings, only: [:destroy]
     resources :quantities, only: [:index]
     resources :statistics, only: [:index]
     resources :profiles, only: [:index]
