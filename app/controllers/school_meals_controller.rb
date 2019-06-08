@@ -4,7 +4,7 @@ class SchoolMealsController < ApplicationController
   end
 
   def new
-    @school_meals = SchoolMeal.where(date: )
+    @school_meals = SchoolMeal.where(date: Date.tomorrow)
   end
 
   def create

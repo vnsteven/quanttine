@@ -18,7 +18,7 @@
 							<div class="card-body">
 								<div class="field form-group">
 									<%= form_tag url_for(controller: 'school_meals', action: 'create'), method: 'post' do %>
-									<%= date_field_tag :date, "#{tomorrow}", class: 'form-control'  %>
+									<%= date_field_tag :date, "#{tomorrow}", class: 'form-control', id: "datePicker"  %>
 									<br />
 									<%= select_tag :meal_category, options_for_select(serving_list), prompt: "Catégorie", class: "form-control" %>
 									<br />
