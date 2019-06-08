@@ -1,9 +1,4 @@
 Rails.application.routes.draw do
-  get 'user_meals/index'
-  get 'user_meals/create'
-  get 'user_meals/edit'
-  get 'user_meals/update'
-  get 'user_meals/destroy'
   root 'home#index'
 
   devise_for :users, path: 'users'
@@ -26,13 +21,6 @@ Rails.application.routes.draw do
   end
 
 end
-
-##### FACEBOOK CONNECT #####
-# devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }, controllers: { registrations: "registrations" }
-
-# devise_scope :users do
-#   delete 'sign_out', :to => 'devise/sessions#destroy', :as => :destroy_user_session
-# end
 
 
 
