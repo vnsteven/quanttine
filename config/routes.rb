@@ -12,9 +12,9 @@ Rails.application.routes.draw do
     resources :school_meals
     resources :user_meals
     resources :food_supply
-    resources :servings, only: [:destroy]
-    resources :quantities, only: [:index, :create]
-    resources :statistics, only: [:index]
+    resources :servings
+    resources :quantities
+    resources :statistics
     resources :profiles, only: [:index]
   end
 

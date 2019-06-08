@@ -12,9 +12,9 @@
 					<div class="card-body">
 						<div class="field form-group">
 							<%= form_tag url_for(controller: 'food_supply', action: 'create'), method: 'post' do %>
-							<%= text_field_tag :food_name, "", placeholder: "Nom" ,class: "form-control" %>
+							<%= text_field_tag :food_name, "", placeholder: "Nom", class: "form-control" %>
 							<br />								
-							<%= number_field_tag :quantity, "", placeholder: "Quantité" ,class: "form-control" %>
+							<%= number_field_tag :quantity, "", placeholder: "Quantité",class: "form-control" %>
 							<br />
 							<%= submit_tag "Ajouter", class: "btn btn-primary form-control" %>
 							<% end %>

@@ -16,6 +16,8 @@
 									<th>Nom</th>
 									<th>Commande</th>
 									<th>Catégorie</th>
+									<th>Heure</th>
+									<th>Date</th>
 								</tr>
 							</thead>
 							<% @profiles.each do |profile| %>
@@ -28,6 +30,8 @@
 									<td><%= profile.user.last_name %></td>
 									<td><%= serving.food_supply.name %></td>
 									<td><%= serving.meal_category %></td>
+									<td><%= serving.food_supply.created_at.strftime("%H:%M:%S") %></td>
+									<td><%= serving.food_supply.created_at.strftime("%d-%m-%Y") %></td>
 								</tr>
 								<% end %>
 							</tbody>
