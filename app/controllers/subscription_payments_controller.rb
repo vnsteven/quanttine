@@ -5,19 +5,9 @@ class SubscriptionPaymentsController < ApplicationController
   end
 
   def create
-    service = StripeSubscriptionService.new(params, current_admin, 50)
+    @amount = 50
+    service = StripeSubscriptionService.new(params, @amount, current_admin)
     service.perform
-    redirection(service)
-  end
-  
-  private
-
-  def redirection(service)
-    if service.plan == nil || service.customer == nil || service.subscription == nil
-      redirect_to new_subscription_payment_path
-    else
-      redirect_to admin_path(current_admin)
-    end
   end
 
 end

@@ -6,13 +6,13 @@
       </div>
     <% end %>
     <label class="amount">
-      <span>Amount: <%= @amount %></span>
+      <span>Montant par mois : <%= params[:amount] %> €</span>
     </label>
   </article>
 
   <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
           data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
           data-description="Abonnement mensuel à Quanttine"
-          data-amount="<%= @amount %>"
+          data-amount="<%= params[:amount] %>"
           data-locale="auto"></script>
 <% end %>

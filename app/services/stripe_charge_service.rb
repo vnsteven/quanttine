@@ -1,18 +1,17 @@
 class StripeChargeService
-  attr_accessor :customer, :charge, :current_admin
+  attr_accessor :customer, :charge, :current_admin, :amount
 
   def initialize(params, current_admin, amount)
     @stripe_email = params[:stripeEmail]
     @stripe_token = params[:stripeToken]
     @current_admin = current_admin
     @amount = amount
-    @customer = nil
-    @charge = nil
   end
 
   def perform
     create_customer
     create_charge
+    activate_school_status
   end
 
   def create_customer
@@ -31,6 +30,12 @@ class StripeChargeService
       description: @current_admin.email,
       currency: 'eur'
     )
+  end
+
+  def activate_school_status
+    if self.customer.nil? == false && self.charge.nil? == false
+      @current_admin.school.update(active: true)
+    end
   end
 
 end
