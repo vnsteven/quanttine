@@ -8,6 +8,16 @@ module ApplicationHelper
     end
   end
 
+  def tomorrow
+    today = Time.now + (24 * 60 * 60)
+    return today.strftime("20%y-%m-%d")
+  end  
+
+  def tomorrow_france
+    today = Time.now + (24 * 60 * 60)
+    return today.strftime("%d-%m-20%y")
+  end
+
   def serving_list
     Serving.all.map { |serving| serving.meal_category }.uniq
   end

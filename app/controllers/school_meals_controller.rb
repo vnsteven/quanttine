@@ -3,6 +3,10 @@ class SchoolMealsController < ApplicationController
     @school_meals = SchoolMeal.all.order("date DESC")
   end
 
+  def new
+    @school_meals = SchoolMeal.where(date: )
+  end
+
   def create
     @food_supply = FoodSupply.find_by(name: params[:food_name])
     @school_meals = SchoolMeal.create!(date: params[:date], school_id: current_admin.school_id)
