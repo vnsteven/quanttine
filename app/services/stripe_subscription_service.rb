@@ -1,21 +1,18 @@
 class StripeSubscriptionService
-attr_accessor :plan, :customer, :subscription, :current_admin
+attr_accessor :plan, :customer, :subscription, :amount
 
-  def initialize(params, current_admin, amount)
+  def initialize(params, amount, current_admin)
     @stripe_email = params[:stripeEmail]
     @stripe_token = params[:stripeToken]
-    @current_admin = current_admin
     @amount = amount
-    @customer = nil
-    @plan = nil
-    @subscription = nil
+    @current_admin = current_admin
   end
 
   def perform
     create_plan
     create_customer
     create_subscription
-
+    activate_school_status
   end
 
   def create_plan
@@ -24,7 +21,7 @@ attr_accessor :plan, :customer, :subscription, :current_admin
       interval: 'month',
       product: 'prod_FCpLQuB8RMKYsm',
       nickname: 'plan mensuel basique',
-      amount: @amount
+      amount: @amount * 100
       })
   end
 
@@ -41,5 +38,10 @@ attr_accessor :plan, :customer, :subscription, :current_admin
         )
   end
 
+  def activate_school_status
+    if self.plan.nil? == false && self.customer.nil? == false && self.subscription.nil? == false
+      @current_admin.school.update(active: true)
+    end
+  end
 
 end
