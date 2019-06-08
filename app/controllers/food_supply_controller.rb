@@ -9,6 +9,7 @@ class FoodSupplyController < ApplicationController
     @quantity = Quantity.create!(quantity: params[:quantity], school_id: current_admin.school_id, food_supply_id: @food_supply.id)
     if @quantity.save
       redirect_to new_admin_food_supply_path(current_admin)
+      flash[:success] = "Aliment ajouté"
     else
       render "new"
     end

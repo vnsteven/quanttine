@@ -18,6 +18,7 @@
 									<th>Catégorie</th>
 									<th>Heure</th>
 									<th>Date</th>
+									<th></th>
 								</tr>
 							</thead>
 							<% @profiles.each do |profile| %>
@@ -32,6 +33,7 @@
 									<td><%= serving.meal_category %></td>
 									<td><%= serving.food_supply.created_at.strftime("%H:%M:%S") %></td>
 									<td><%= serving.food_supply.created_at.strftime("%d-%m-%Y") %></td>
+									<td><%= link_to "", admin_user_meal_path(current_admin, meal), method: :delete, class: "fas fa-trash-alt text-secondary"%></td>
 								</tr>
 								<% end %>
 							</tbody>
