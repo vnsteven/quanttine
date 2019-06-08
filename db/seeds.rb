@@ -76,15 +76,6 @@ i = 1
   i += 1
 end
 
-
-# 100.times do
-#   Serving.create!(
-#     meal_category: rand(1..4),
-#     food_supply_id: FoodSupply.all.sample.id,
-#     school_meal_id: SchoolMeal.all.sample.id
-#   )
-# end
-
 # We create servings (starter/main_course/dessert) for each schoolmeal (aka a daily menu for one school)
 SchoolMeal.all.each do |schoolmeal|
   3.times do
