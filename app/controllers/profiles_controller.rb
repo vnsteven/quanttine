@@ -31,10 +31,13 @@ class ProfilesController < ApplicationController
   end
 
   def profile_parameters
-    params.require(:profile).permit(
+    params.require(:profile).permit(:school_id,
       preference_ids: []
-      :school_id
     )
+  end
+
+  def school_parameters
+    params.require(:profile).permit(:school_id)
   end
 
   def authenticate_user
