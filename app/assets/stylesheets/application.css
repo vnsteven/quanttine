@@ -420,6 +420,12 @@ margin: auto;
    background-image: url(/assets/carrot.jpg);
 }
 
+  /*COMMERCIAL TEXT COLOR*/
+
+.sub-title-home{
+  color: #78C2AD;
+}  
+
 /* EDIT FORM ADMIN */
 .mini-navbar{
   color: white;
@@ -437,8 +443,3 @@ margin: auto;
 border: 1px solid  #586689 !important;
 }
 
-  /*COMMERCIAL TEXT COLOR*/
-
-.sub-title-home{
-  color: #78C2AD;
-}  

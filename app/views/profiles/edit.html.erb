@@ -30,6 +30,9 @@
           <% end %>
           <% end %>
         </div>
+        <div class="qr-code">
+          <%= raw @qr.as_html %>
+        </div>
         <div> <br/>
           <h5 class="choice-title">Choisis tes préférences alimentaires ci-dessous: elles seront transmises à ta cantine.</h5>
         </div>
@@ -47,7 +50,7 @@
           <%= link_to "Editer", edit_user_registration_path, class: "card-link"%>
           <a href="/users/edit" class="card-link">Choisir mon menu</a>
         </div>
-        <% else %>        
+        <% else %>
         <div> <br/>
           <h5 class="choice-title">Choisi ton établissement</h5>
         </div>
@@ -55,7 +58,7 @@
         <div class="choice">
           <%= form_for [@user, @profile] do |f| %>
           <%= f.collection_select :school_id, @schools.order(:name), :id, :name %>
-          <%= f.submit "Envoyer", class:"btn btn-primary send" %> 
+          <%= f.submit "Envoyer", class:"btn btn-primary send" %>
           <% end %>
         </div>
         <br/>
@@ -63,11 +66,8 @@
           <%= link_to "Editer", edit_user_registration_path, class: "card-link"%>
           <a href="/users/edit" class="card-link">Choisir mon menu</a>
         </div>
-        <% end %>
-
       </div>
     </div>
     <br/><br/><br/><br/><br/>
   </div>
-  <%= render 'layouts/footer' %>
 </body>
