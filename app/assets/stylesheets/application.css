@@ -443,3 +443,32 @@ margin: auto;
 border: 1px solid  #586689 !important;
 }
 
+/* Style the input container */
+.input-container {
+  display: flex;
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+/* Style the form icons */
+.icon {
+  padding: 10px;
+  background: #586689;
+  color: white;
+  min-width: 50px;
+  text-align: center;
+}
+
+/* Style the input fields */
+.writing {
+border-top-left-radius: 0px !important;
+border-bottom-left-radius: 0px !important;
+}
+
+.input-field:focus {
+  border: 1px solid #C0C0C0;
+}
+
+.form-inputs{
+  box-sizing: border-box;
+}
