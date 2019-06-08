@@ -5,14 +5,11 @@
 		<%= render 'partials/flash' %>
 		<div class="container-fluid">
 			<div class="container-fluid">
-
 				<div class="row">
-
 					<div class="col-lg-6">
-
 						<div class="card shadow mb-4">
 							<div class="card-header py-3">
-								<h6 class="m-0 font-weight-bold">Créer le menu du lendemain</h6>
+								<h6 class="m-0 font-weight-bold">Ajouter au menu du lendemain</h6>
 							</div>
 							<div class="card-body">
 								<div class="field form-group">
@@ -23,12 +20,11 @@
 									<br />
 									<%= select_tag :food_name, options_for_select(food_supply_list), prompt: "Aliment", class: "form-control" %>
 									<br />
-									<%= submit_tag "Envoyer", class: "btn btn-primary form-control" %>
+									<%= submit_tag "Ajouter", class: "btn btn-primary form-control" %>
 									<% end %>
 								</div>
 							</div>
 						</div>
-
 					</div>
 					<div class="col-lg-6">
 
