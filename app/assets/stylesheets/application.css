@@ -473,3 +473,9 @@ border-bottom-left-radius: 0px !important;
 .form-inputs{
   box-sizing: border-box;
 }
+
+/* QR CODE */
+#qr-code {
+  width: 2em;
+  height: 2em;
+}
