@@ -6,6 +6,7 @@ class Profile < ApplicationRecord
   has_many :user_meals, dependent: :destroy
   has_one_attached :avatar
   after_create :attach_qr_code
+  before_destroy :delete_attached_qr_code
 
   def resized_avatar
     return self.avatar.variant(resize: '200x200!').processed
@@ -16,6 +17,11 @@ class Profile < ApplicationRecord
   def attach_qr_code
     QrCodeService.new(self.id).save_as_svg
     Profile.update(qr_code: "qr_codes/#{self.id}.svg")
+  end
+
+  def delete_attached_qr_code
+    path_to_file = "app/assets/images/qr_codes/#{self.id}.svg"
+    File.delete(path_to_file) if File.exist?(path_to_file)
   end
 
 end
