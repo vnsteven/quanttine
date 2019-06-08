@@ -1,1 +1,43 @@
-Profile.first.user_meals.first.servings.first.food_supply
+<div id="wrapper">
+	<%= render 'admins/side_bar' %>
+	<div id="content-wrapper" class="d-flex flex-column">
+		<%= render 'admins/top_bar' %>
+		<div class="container-fluid">
+			<div class="card shadow mb-4">
+				<div class="card-header py-3">
+					<h6 class="m-0 font-weight-bold">Commande des élèves</h6>
+				</div>
+				<div class="card-body">
+					<div class="table-responsive">
+						<table class="table table-bordered" id="quantityTable" width="100%" cellspacing="0">
+							<thead>
+								<tr>
+									<th>Prénom</th>
+									<th>Nom</th>
+									<th>Commande</th>
+									<th>Catégorie</th>
+								</tr>
+							</thead>
+							<% @profiles.each do |profile| %>
+							<% profile.user_meals.each do |meal| %>
+							<% meal.servings.each do |serving| %>
+							<tbody>
+								<% if is_school_of_admin(profile) %>
+								<tr>					
+									<td><%= profile.user.first_name %></td>
+									<td><%= profile.user.last_name %></td>
+									<td><%= serving.food_supply.name %></td>
+									<td><%= serving.meal_category %></td>
+								</tr>
+								<% end %>
+							</tbody>
+							<% end %>
+							<% end %>
+							<% end %>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

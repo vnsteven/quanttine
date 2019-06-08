@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   devise_for :admins, path: 'admins'
   resources :admins, only: [:show] do
     resources :school_meals
+    resources :user_meals
     resources :quantities, only: [:index]
     resources :statistics, only: [:index]
     resources :profiles, only: [:index]
