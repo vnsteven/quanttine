@@ -26,7 +26,7 @@
           <% end %>
 
           <div class="field form-group">
-            <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
+            <%= f.label :new_password %> <i>(leave blank if you don't want to change it)</i><br />
             <div class="input-container">  
               <i class="fas fa-lock icon "></i>         
               <%= f.password_field :password, class: "form-control input-field writing", autocomplete: "new-password" %>
@@ -38,7 +38,7 @@
           </div>
 
           <div class="field form-group">
-            <%= f.label :password_confirmation %><br />
+            <%= f.label :new_password_confirmation %><br />
             <div class="input-container">  
               <i class="fas fa-lock icon "></i>         
               <%= f.password_field :password_confirmation, class: "form-control input-field writing", autocomplete: "new-password" %>
@@ -52,7 +52,7 @@
               <%= f.password_field :current_password, class: "form-control input-field writing", autocomplete: "current-password" %>
             </div>
           </div>
-          
+
         </div>
 
         <div class="modal-footer">

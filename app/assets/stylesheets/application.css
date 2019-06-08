@@ -440,7 +440,8 @@ margin: auto;
 
 #btn-edit:hover {
  color: white;
-border: 1px solid  #586689 !important;
+border: none !important;
+background-color: #37476b !important;
 }
 
 /* Style the input container */
