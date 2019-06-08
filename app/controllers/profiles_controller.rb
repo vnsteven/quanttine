@@ -18,7 +18,6 @@ class ProfilesController < ApplicationController
 
   def update
     @profile.update(profile_parameters)
-    @profile.update(school_parameters)
   end
 
   private
@@ -34,11 +33,8 @@ class ProfilesController < ApplicationController
   def profile_parameters
     params.require(:profile).permit(
       preference_ids: []
+      :school_id
     )
-  end
-
-  def school_parameters
-    params.require(:profile).permit(:school_id)
   end
 
   def authenticate_user
