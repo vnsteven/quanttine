@@ -10,6 +10,8 @@ class SchoolMeal < ApplicationRecord
   def check_meal_date
     if self.date < DateTime.now
       errors.add(:date, message: "la date de création d'un repas ne peut pas être dans le passé")
+    elsif self.date > DateTime.now.nex_year.to_time
+      errors.add(:date, message: "impossible de créer un repas plus d'un an à l'avance")
     end
   end
 
