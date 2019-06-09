@@ -20,7 +20,7 @@
             </div>
             <div class="card-body">
               <div class="chart-area">
-                <%= column_chart (hash_of_what_users_have_ordered) %>
+                <%= column_chart (the_most_ordered_foods) %>
               </div>
             </div>
           </div>
@@ -31,7 +31,7 @@
             </div>
             <div class="card-body">
               <div class="chart-bar">
-                <%= line_chart (hash_of_number_of_orders_per_day) %>
+                <%= line_chart (number_of_orders_per_day) %>
               </div>
             </div>
           </div>
@@ -44,7 +44,7 @@
             </div>
             <div class="card-body">
               <div class="chart-pie pt-2">
-                <%= pie_chart Preference.group(:name).count %>
+                <%= pie_chart (number_of_preferences) %>
               </div>
             </div>
           </div>

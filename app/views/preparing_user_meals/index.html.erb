@@ -24,7 +24,8 @@
 							<% @preparing_user_meals.each do |preparation| %>
 							<tbody>
 								<tr>
-									<%
+									<% 	if preparation.user_meal.profile.school == current_admin.school %>
+
 									<td><%= preparation.user_meal.profile.user.first_name %></td>
 									<td><%= preparation.user_meal.profile.user.last_name %></td>
 									<td><%= preparation.serving.food_supply.name %></td>
@@ -32,6 +33,8 @@
 									<td><%= preparation.user_meal.created_at.strftime("%H:%M:%S") %></td>	
 									<td><%= preparation.user_meal.created_at.strftime("%d-%m-%Y") %></td>
 									<td><%= link_to "", admin_preparing_user_meal_path(current_admin, preparation), method: :delete, class: "fas fa-trash-alt text-secondary"%></td>
+									
+									<% end %>
 								</tr>
 							</tbody>
 							<% end %>
