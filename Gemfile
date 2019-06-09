@@ -11,7 +11,7 @@ gem "aws-sdk-s3", require: false
 gem "font-awesome-rails"
 gem "chartkick"
 gem 'groupdate'
-
+gem 'jquery-datatables-rails'
 
 # rQRCode is a library for encoding QR Codes. The simple interface allows you to create QR Code data structures ready to be displayed in the way you choose.
 gem 'rqrcode', '~> 0.10.1'
