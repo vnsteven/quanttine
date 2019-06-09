@@ -1,7 +1,8 @@
 class StripeSubscriptionService
-attr_accessor :plan, :customer, :subscription, :amount
+attr_accessor :customer, :subscription, :amount
 
   def initialize(params, amount, current_admin)
+    @params = params
     @stripe_email = params[:stripeEmail]
     @stripe_token = params[:stripeToken]
     @amount = amount
@@ -9,20 +10,18 @@ attr_accessor :plan, :customer, :subscription, :amount
   end
 
   def perform
-    create_plan
-    create_customer
+    retrieve_customer
     create_subscription
-    activate_school_status
+    update_payment_information
   end
 
-  def create_plan
-    @plan = Stripe::Plan.create({
-      currency: 'eur',
-      interval: 'month',
-      product: 'prod_FCpLQuB8RMKYsm',
-      nickname: 'plan mensuel basique',
-      amount: @amount * 100
-      })
+  def retrieve_customer
+    if @current_admin.school.stripe_customer_id.nil?
+      create_customer
+    elseexit
+      customer_id = @current_admin.school.stripe_customer_id
+    @customer = Stripe::Customer.retrieve(customer_id)
+    end
   end
 
   def create_customer
@@ -34,14 +33,20 @@ attr_accessor :plan, :customer, :subscription, :amount
 
   def create_subscription
         @subscription = @customer.subscriptions.create(
-          plan: @plan
+          plan: 'plan_FDxpJdgrZDTHzm'
         )
   end
 
-  def activate_school_status
-    if self.plan.nil? == false && self.customer.nil? == false && self.subscription.nil? == false
-      @current_admin.school.update(active: true)
-    end
+  def update_payment_information
+      @current_admin.school.update(
+        active: true,
+        stripe_customer_id: @customer.id
+        )
+  end
+
+  def delete_subscription
+    retrieve_customer
+    @customer.subscriptions.first.delete
   end
 
 end

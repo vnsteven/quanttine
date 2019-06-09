@@ -18,7 +18,7 @@ class StripeChargeService
     @customer = Stripe::Customer.create({
       email: @stripe_email,
       source: @stripe_token,
-      description: 'Payment annuel',
+      description: 'paiement annuel',
     })
     @current_admin.school.update(stripe_customer_id: @customer.id)
   end
