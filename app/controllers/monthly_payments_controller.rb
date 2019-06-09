@@ -11,4 +11,9 @@ class MonthlyPaymentsController < ApplicationController
     service.perform
   end
 
+  def delete
+    service = StripeMonthlySubscriptionService.new(params, current_admin, @amount)
+    service.delete_subscription
+  end
+
 end
