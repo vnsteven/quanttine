@@ -1,4 +1,4 @@
-class StripeSubscriptionService
+class StripeMonthlySubscriptionService
 attr_accessor :customer, :subscription, :amount, :stripe_customer_id
 
   def initialize(params, amount, current_admin)
@@ -32,7 +32,7 @@ attr_accessor :customer, :subscription, :amount, :stripe_customer_id
 
   def create_subscription
         @subscription = @customer.subscriptions.create(
-          plan: 'plan_FDxpJdgrZDTHzm'
+          plan: 'plan_FE0p7PlgEgQI9W'
         )
   end
 
