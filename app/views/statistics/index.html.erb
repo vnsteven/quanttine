@@ -10,56 +10,45 @@
       </div>
       <hr>
 
-      <h5 class="m-0 font-weight">Préférences</h5>
-      <br />
-
       <div class="row">
 
-        <% preferences_categories.each do |category|%>
-        <div class="col-xl-3 col-md-6 mb-4">
-          <div class="card shadow h-100 py-2">
+        <div class="col-xl-8 col-lg-7">
+
+          <!-- Area Chart -->
+          <div class="card shadow mb-4">
+            <div class="card-header py-3">
+              <h6 class="m-0 font-weight-bold">Préférences des élèves</h6>
+            </div>
             <div class="card-body">
-              <div class="row no-gutters align-items-center">
-                <div class="col mr-2">
-                  <div class="text-xs font-weight-bold text-uppercase mb-1"><%= category %></div>
-                  <div class="h5 mb-0 font-weight-bold text-gray-800"><%= preference_count(category) %></div>
-                </div>
-                <div class="col-auto">
-                  <i class="far fa-times-circle fa-2x text-gray-300"></i>
-                </div>
+              <div class="chart-area">
+                <%= pie_chart Preference.group(:name).count %>
               </div>
             </div>
           </div>
-        </div>
-        <% end %>
 
-      </div>
-
-      <hr>
-
-      <h5 class="m-0 font-weight">Aliments</h5>
-      <br />
-
-      <div class="row">
-
-        <% food_supply_list.each do |food_name|%>
-        <div class="col-xl-3 col-md-6 mb-4">
-          <div class="card shadow h-100 py-2">
+          <div class="card shadow mb-4">
+            <div class="card-header py-3">
+              <h6 class="m-0 font-weight-bold">Top 5 des aliments les plus consommés</h6>
+            </div>
             <div class="card-body">
-              <div class="row no-gutters align-items-center">
-                <div class="col mr-2">
-                  <div class="text-xs font-weight-bold text-uppercase mb-1"><%= food_name %></div>
-                  <div class="h5 mb-0 font-weight-bold text-gray-800"><%= what_users_have_ordered(food_name) %></div>
-                </div>
-                <div class="col-auto">
-                  <i class=""></i>
-                </div>
+              <div class="chart-area">
+                <%= column_chart (hash_of_what_users_have_ordered) %>
               </div>
             </div>
           </div>
-        </div>
-        <% end %>
 
+          <div class="card shadow mb-4">
+            <div class="card-header py-3">
+              <h6 class="m-0 font-weight-bold">Top 5 des aliments les plus consommés</h6>
+            </div>
+            <div class="card-body">
+              <div class="chart-area">
+                <%= line_chart (hash_of_what_users_have_ordered) %>
+              </div>
+            </div>
+          </div>
+
+        </div>
       </div>
     </div>
   </div>
