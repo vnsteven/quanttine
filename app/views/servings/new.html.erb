@@ -30,11 +30,11 @@
 
 						<div class="card shadow mb-4">
 							<div class="card-header py-3">
-								<h6 class="m-0 font-weight-bold">Entrée</h6>
+								<h6 class="m-0 font-weight-bold">Entrées</h6>
 							</div>
 							<div class="card-body">
 								<div class="table-responsive">
-									<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+									<table class="table table-bordered" width="100%" cellspacing="0">
 										<thead>
 											<tr>
 												<th>Nom</th>
@@ -42,9 +42,9 @@
 												<th></th>
 											</tr>
 										</thead>
-										<% @school_meals.each do |school_meal| %>
-										<% school_meal.servings.each do |serving| %>
 										<tbody>
+											<% @school_meals.each do |school_meal| %>
+											<% school_meal.servings.each do |serving| %>
 											<tr>												
 												<% if serving.meal_category == "entrée" %>					
 												<td><%= serving.food_supply.name %></td>
@@ -52,9 +52,9 @@
 												<td><%= link_to "", admin_serving_path(current_admin, serving), method: :delete, class: "fas fa-trash-alt text-secondary"%></td>
 												<% end %>
 											</tr>
+											<% end %>
+											<% end %>
 										</tbody>
-										<% end %>
-										<% end %>
 									</table>
 								</div>
 							</div>
@@ -62,11 +62,11 @@
 
 						<div class="card shadow mb-4">
 							<div class="card-header py-3">
-								<h6 class="m-0 font-weight-bold">Plat et acompagnement</h6>
+								<h6 class="m-0 font-weight-bold">Plats et acompagnements</h6>
 							</div>
 							<div class="card-body">
 								<div class="table-responsive">
-									<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+									<table class="table table-bordered" width="100%" cellspacing="0">
 										<thead>
 											<tr>
 												<th>Nom</th>
@@ -74,9 +74,9 @@
 												<th></th>
 											</tr>
 										</thead>
-										<% @school_meals.each do |school_meal| %>
-										<% school_meal.servings.each do |serving| %>
 										<tbody>
+											<% @school_meals.each do |school_meal| %>
+											<% school_meal.servings.each do |serving| %>
 											<tr>
 												<% if serving.meal_category == "plat" || serving.meal_category == "accompagnement" %>					
 												<td><%= serving.food_supply.name %></td>
@@ -84,9 +84,9 @@
 												<td><%= link_to "", admin_serving_path(current_admin, serving), method: :delete, class: "fas fa-trash-alt text-secondary"%></td>
 												<% end %>
 											</tr>
+											<% end %>
+											<% end %>
 										</tbody>
-										<% end %>
-										<% end %>
 									</table>
 								</div>
 							</div>
@@ -94,11 +94,11 @@
 
 						<div class="card shadow mb-4">
 							<div class="card-header py-3">
-								<h6 class="m-0 font-weight-bold">Dessert</h6>
+								<h6 class="m-0 font-weight-bold">Desserts</h6>
 							</div>
 							<div class="card-body">
 								<div class="table-responsive">
-									<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+									<table class="table table-bordered" width="100%" cellspacing="0">
 										<thead>
 											<tr>
 												<th>Nom</th>
@@ -106,9 +106,9 @@
 												<th></th>
 											</tr>
 										</thead>
-										<% @school_meals.each do |school_meal| %>
-										<% school_meal.servings.each do |serving| %>
 										<tbody>
+											<% @school_meals.each do |school_meal| %>
+											<% school_meal.servings.each do |serving| %>
 											<tr>
 												<% if serving.meal_category == "dessert" %>					
 												<td><%= serving.food_supply.name %></td>
@@ -116,9 +116,9 @@
 												<td><%= link_to "", admin_serving_path(current_admin, serving), method: :delete, class: "fas fa-trash-alt text-secondary"%></td>
 												<% end %>
 											</tr>
+											<% end %>
+											<% end %>
 										</tbody>
-										<% end %>
-										<% end %>
 									</table>
 								</div>
 							</div>

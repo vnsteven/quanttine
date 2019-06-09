@@ -21,4 +21,6 @@
 //= require_tree .
 
 
-
+$(document).ready(function() {
+	$('.table').DataTable();
+} );
