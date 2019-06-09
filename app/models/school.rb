@@ -4,4 +4,21 @@ class School < ApplicationRecord
   has_many :quantities, dependent: :destroy
   has_many :food_supplies, through: :quantities
   has_many :school_meals, dependent: :destroy
+
+  validates :name,
+  presence: true,
+  length: { in: 2..100 }
+
+  validates :city,
+  presence: true,
+  length: { in: 2..50 }
+
+  validates :street_address,
+  presence: true,
+  length: { in: 2..100 }
+
+  validates :zipcode,
+  presence: true,
+  length: { in: 2..50 }
+
 end

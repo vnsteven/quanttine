@@ -5,4 +5,9 @@ class FoodSupply < ApplicationRecord
   has_many :school_meals, through: :servings
   has_many :join_table_preference_foods, dependent: :destroy
   has_many :preferences, through: :join_table_preference_foods
+
+  validates :name,
+  presence: true,
+	length: { in: 2..50 }
+
 end
