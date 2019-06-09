@@ -47,7 +47,7 @@
 		<div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
 			<div class="bg-white py-2 collapse-inner rounded">
 				<%= link_to "Liste des élèves", admin_profiles_path(current_admin.id), class: "collapse-item" %>
-				<%= link_to "Commandes des élèves", admin_user_meals_path(current_admin.id), class: "collapse-item" %>
+				<%= link_to "Commandes des élèves", admin_preparing_user_meals_path(current_admin.id), class: "collapse-item" %>
 			</div>
 		</div>
 	</li>

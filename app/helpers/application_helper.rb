@@ -10,7 +10,7 @@ module ApplicationHelper
 
   def tomorrow
     today = Time.now + (24 * 60 * 60)
-    return today.strftime("20%y-%m-%d")
+    return today.strftime("%Y-%m-%d")
   end  
 
   def tomorrow_france
