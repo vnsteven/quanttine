@@ -8,8 +8,6 @@ class FoodSupply < ApplicationRecord
 
   validates :name,
   presence: true,
-	length: { in: 2..100 },
-	format: { with: /\A[a-zA-Z]+\z/,
-		message: "Uniquement des lettres, aucun autre charactère n'est accepté." }
+	length: { in: 2..50 }
 
 end

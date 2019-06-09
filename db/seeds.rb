@@ -15,9 +15,9 @@ FoodSupply.destroy_all
 
 2.times do
   School.create!(
-    name: "#{Faker::Name.name} School",
+    name: "École #{Faker::Name.first_name} #{Faker::Name.last_name}",
     city: Faker::Address.city,
-    street_address: Faker::Address.city,
+    street_address: Faker::Address.street_address,
     zipcode: Faker::Address.zip_code
   )
 end

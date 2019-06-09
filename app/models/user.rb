@@ -8,10 +8,8 @@ class User < ApplicationRecord
   after_create :create_profile
 
 	validates :first_name, :last_name,
-	presence: true,
-	length: { in: 2..50 },
-	format: { with: /\A[a-zA-Z]+\z/,
-		message: "Uniquement des lettres dans ton nom et prénom s'il te plaît" }
+  presence: true,
+	length: { in: 2..50 }
 
   private
 

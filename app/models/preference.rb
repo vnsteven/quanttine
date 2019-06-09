@@ -8,8 +8,6 @@ class Preference < ApplicationRecord
 
   validates :name,
   presence: true,
-  length: { in: 2..100 },
-  format: { with: /\A[a-zA-Z]+\z/,
-		message: "Uniquement des lettres, aucun autres charactère n'est accepté." }
-
+  length: { in: 2..100 }
+  
 end

@@ -11,11 +11,13 @@ class School < ApplicationRecord
 
   validates :city,
   presence: true,
-  length: { in: 2..50 },
-  format: { with: /\A[a-zA-Z]+\z/,
-    message: "Uniquement des lettres" }
+  length: { in: 2..50 }
 
   validates :street_address,
+  presence: true,
+  length: { in: 2..100 }
+
+  validates :zipcode,
   presence: true,
   length: { in: 2..50 }
 
