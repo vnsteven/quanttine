@@ -18,18 +18,18 @@
 									<th></th>
 								</tr>
 							</thead>
-							<% @school_meals.each do |school_meal| %>
-							<% school_meal.servings.each do |serving| %>
 							<tbody>
+								<% @school_meals.each do |school_meal| %>
+								<% school_meal.servings.each do |serving| %>
 								<tr>					
 									<td><%= serving.food_supply.name %></td>
 									<td><%= serving.meal_category %></td>
 									<td><%= school_meal.date.strftime("%d-%m-20%y") %></td>
 									<td><%= link_to "", admin_serving_path(current_admin, serving), method: :delete, class: "fas fa-trash-alt text-secondary"%></td>
 								</tr>
+								<% end %>
+								<% end %>
 							</tbody>
-							<% end %>
-							<% end %>
 						</table>
 					</div>
 				</div>

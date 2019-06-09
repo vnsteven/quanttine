@@ -14,6 +14,7 @@
 //= require Chart.bundle
 //= require jquery
 //= require jquery_ujs
+//= require dataTables/jquery.dataTables
 //= require assets/static_page/js/main
 //= require assets/dashboard/js/sb-admin-2
 //= require rails-ujs
@@ -21,4 +22,6 @@
 //= require_tree .
 
 
-
+$(document).ready(function() {
+	$('.table').DataTable();
+} );
