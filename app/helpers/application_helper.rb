@@ -34,7 +34,7 @@ module ApplicationHelper
     food_name = food_supply_list
     food_count = food_name.map { |name| Serving.all.map { |i| i.food_supply.name }.count(name) }
     hash_food_name_count = food_name.zip(food_count)
-    return hash_food_name_count.sort_by { |key, value| value}.last(5)
+    return hash_food_name_count.sort_by { |key, value| value}.last(10)
   end
 
   def hash_of_number_of_orders_per_day
