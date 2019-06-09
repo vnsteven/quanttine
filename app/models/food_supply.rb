@@ -10,7 +10,6 @@ class FoodSupply < ApplicationRecord
   presence: true,
 	length: { in: 2..100 },
 	format: { with: /\A[a-zA-Z]+\z/,
-		message: "Uniquement des lettres aucun autre charactère n'est accepté." }
-
+		message: "Uniquement des lettres, aucun autre charactère n'est accepté." }
 
 end

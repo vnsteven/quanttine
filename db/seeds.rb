@@ -13,9 +13,12 @@ Admin.destroy_all
 Preference.destroy_all
 FoodSupply.destroy_all
 
-
 2.times do
   School.create!(
+    name: "#{Faker::Name.name} School",
+    city: Faker::Address.city,
+    street_address: Faker::Address.city,
+    zipcode: Faker::Address.zip_code
   )
 end
 
@@ -40,7 +43,7 @@ end
   )
 end
 
-4.times do 
+4.times do
 
   Preference.create!(
   name: ["Je ne mange pas de viande", "Je ne mange pas de produits laitiers", "Je ne mange pas de porc", "Je ne mange pas de produits marins"].sample,
