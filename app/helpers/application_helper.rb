@@ -22,19 +22,25 @@ module ApplicationHelper
     FoodSupply.all.map { |food| food.name }.uniq.sort
   end
 
-  def preferences_list(profile)
-    profile.preferences.map { |preference| preference.name }.join(", ").downcase.capitalize
-  end
-
   def serving_list
     Serving.all.map { |serving| serving.meal_category }.uniq
   end
 
+  def preferences_list(profile)
+    profile.preferences.map { |preference| preference.name }.join(", ").downcase.capitalize
+  end
+
   def hash_of_what_users_have_ordered
-    food_name = FoodSupply.all.map { |food| food.name }.uniq
+    food_name = food_supply_list
     food_count = food_name.map { |name| Serving.all.map { |i| i.food_supply.name }.count(name) }
     hash_food_name_count = food_name.zip(food_count)
     return hash_food_name_count.sort_by { |key, value| value}.last(5)
+  end
+
+  def hash_of_number_of_orders_per_day
+    school_meal_date = Serving.all.map { |serving| serving.school_meal.date }
+    number_of_servings = school_meal_date.map{|number| school_meal_date.count(number)}
+    hash_school_meal_count = school_meal_date.zip(number_of_servings)
   end
 
   def is_school_of_admin(input)

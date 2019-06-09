@@ -14,18 +14,6 @@
 
         <div class="col-xl-8 col-lg-7">
 
-          <!-- Area Chart -->
-          <div class="card shadow mb-4">
-            <div class="card-header py-3">
-              <h6 class="m-0 font-weight-bold">Préférences des élèves</h6>
-            </div>
-            <div class="card-body">
-              <div class="chart-area">
-                <%= pie_chart Preference.group(:name).count %>
-              </div>
-            </div>
-          </div>
-
           <div class="card shadow mb-4">
             <div class="card-header py-3">
               <h6 class="m-0 font-weight-bold">Top 5 des aliments les plus consommés</h6>
@@ -39,16 +27,29 @@
 
           <div class="card shadow mb-4">
             <div class="card-header py-3">
-              <h6 class="m-0 font-weight-bold">Top 5 des aliments les plus consommés</h6>
+              <h6 class="m-0 font-weight-bold">Evolution du nombre de commandes par jour</h6>
             </div>
             <div class="card-body">
-              <div class="chart-area">
-                <%= line_chart (hash_of_what_users_have_ordered) %>
+              <div class="chart-bar">
+                <%= line_chart (hash_of_number_of_orders_per_day) %>
               </div>
             </div>
           </div>
-
         </div>
+
+        <div class="col-xl-4 col-lg-5">
+          <div class="card shadow mb-3 pb-5">
+            <div class="card-header py-6">
+              <h6 class="m-0 font-weight-bold">Préférences des élèves</h6>
+            </div>
+            <div class="card-body">
+              <div class="chart-pie pt-2">
+                <%= pie_chart Preference.group(:name).count %>
+              </div>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
   </div>
