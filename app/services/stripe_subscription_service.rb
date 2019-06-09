@@ -1,5 +1,5 @@
 class StripeSubscriptionService
-attr_accessor :customer, :subscription, :amount
+attr_accessor :customer, :subscription, :amount, :stripe_customer_id
 
   def initialize(params, amount, current_admin)
     @params = params
@@ -7,6 +7,8 @@ attr_accessor :customer, :subscription, :amount
     @stripe_token = params[:stripeToken]
     @amount = amount
     @current_admin = current_admin
+    @school = current_admin.school
+    @stripe_customer_id = current_admin.school.stripe_customer_id
   end
 
   def perform
@@ -16,19 +18,16 @@ attr_accessor :customer, :subscription, :amount
   end
 
   def retrieve_customer
-    if @current_admin.school.stripe_customer_id.nil?
-      create_customer
-    elseexit
-      customer_id = @current_admin.school.stripe_customer_id
-    @customer = Stripe::Customer.retrieve(customer_id)
-    end
-  end
-
-  def create_customer
+    if @stripe_customer_id.nil?
       @customer = Stripe::Customer.create({
         email: @stripe_email,
         source: @stripe_token
         })
+    else
+      @customer = Stripe::Customer.retrieve(
+        @stripe_customer_id
+      )
+    end
   end
 
   def create_subscription
@@ -38,15 +37,20 @@ attr_accessor :customer, :subscription, :amount
   end
 
   def update_payment_information
-      @current_admin.school.update(
+      @school.update(
         active: true,
-        stripe_customer_id: @customer.id
+        stripe_customer_id: @customer.id,
+        stripe_subscription_id: @subscription.id
         )
   end
 
   def delete_subscription
     retrieve_customer
     @customer.subscriptions.first.delete
+    @school.update(
+      active: false,
+      stripe_subscription_id: "cancelled susbscription : #{DateTime.now}"
+    )
   end
 
 end
