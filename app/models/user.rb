@@ -5,8 +5,13 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
   :recoverable, :rememberable, :validatable
-
   after_create :create_profile
+
+	validates :first_name, :last_name,
+	presence: true,
+	length: { in: 2..50 },
+	format: { with: /\A[a-zA-Z]+\z/,
+		message: "Uniquement des lettres dans ton nom et prénom s'il te plaît" }
 
   private
 
