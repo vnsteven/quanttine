@@ -10,9 +10,9 @@ class ServingsController < ApplicationController
   def create
     @food_supply = FoodSupply.find_by(name: params[:food_name])
 
-    if SchoolMeal.find_by(date: params[:date], school_id: current_admin.school_id) != nil
+    if SchoolMeal.find_by(date: params[:date], school_id: current_admin.school_id) == nil
       @school_meal = SchoolMeal.create!(date: params[:date], school_id: current_admin.school_id)
-    else 
+    else
       @school_meal = SchoolMeal.find_by(date: params[:date], school_id: current_admin.school_id)
     end
 
