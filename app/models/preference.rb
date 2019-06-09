@@ -7,6 +7,8 @@ class Preference < ApplicationRecord
   has_many :food_supplies, through: :join_table_preference_foods
 
   validates :name,
+  presence: true,
+  length: { in: 2..100 },
   format: { with: /\A[a-zA-Z]+\z/,
 		message: "Uniquement des lettres, aucun autres charactère n'est accepté." }
 
