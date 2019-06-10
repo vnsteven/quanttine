@@ -1,4 +1,4 @@
-<%= form_tag subscription_payments_path do %>
+<%= form_tag yearly_payments_path do %>
   <article>
     <% if flash[:error].present? %>
       <div id="error_explanation">
@@ -6,13 +6,13 @@
       </div>
     <% end %>
     <label class="amount">
-      <span>Montant par mois : <%= params[:amount] %> €</span>
+      <span>Montant total : <%= @amount %> €</span>
     </label>
   </article>
 
   <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
           data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-          data-description="Abonnement mensuel à Quanttine"
-          data-amount="<%= params[:amount] %>"
+          data-description="S'abonner annuellement à Quanttine"
+          data-amount="<%= @amount * 100 %>"
           data-locale="auto"></script>
 <% end %>
