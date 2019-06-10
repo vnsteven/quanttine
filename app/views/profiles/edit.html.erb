@@ -17,8 +17,8 @@
 				</div> <br/> <br/>
 			<div class="edit-pictures">
 				<div class="user-photo" >
-					<%= image_tag @profile.resized_avatar, alt: 'avatar', class: "avatar" %>
 					<% if @profile.avatar.attached? %>
+					<%= image_tag @profile.resized_avatar, alt: 'avatar', class: "avatar" %>
 						<%= form_tag user_avatars_path, multipart: true do %>
 						<%= file_field_tag :avatar %> <br>
 						<% end %>
