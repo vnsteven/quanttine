@@ -136,10 +136,23 @@ html {
   }
 }
 
-/* SHOW USER */
+/* EDIT USER */
 
-.show-user {
-	background: url(carrot.jpg);
+.profile-edit {
+  height: 90em;
+}
+
+.edit-pictures {
+  display: flex;
+  justify-content: space-around;
+  border-bottom: 1px solid #afafaf;
+  padding-bottom: 20px;
+}
+
+.choice-title {
+  background-image: radial-gradient(circle at bottom right, #D1EED1, #27D16C 60%) !important;
+  font-weight: bold;
+  color: #464444;
 }
 
 .show-user ul li {
@@ -151,9 +164,29 @@ html {
 	min-width: 15em;
   height: 44.6em;
 	margin: auto;
-  border: solid 2px #B0B0B0;
   border-radius: 8px;
   text-align: center;
+}
+
+.big-card:hover {
+  transition-duration: 1000ms;
+  box-shadow: 0 0 14px #8E8E8E;
+
+}
+
+.big-card {
+  transition-duration: 1000ms;
+  border: 1px solid #afafaf;
+  box-shadow: 0 0 10px #cdcdcd;
+}
+
+.user-photo {
+  height: 200px;
+  display: block;
+}
+
+.avatar{
+  border-radius: 50%;
 }
 
 .choice {
@@ -163,13 +196,9 @@ html {
   text-align: left;
 }
 
-.choice-title {
-  color: #393939;
-}
 
 #envoyer:hover {
-  background-color: #ea484e;
-  color: white;
+  border: 1.2px solid #78e478;
 }
 
 .send {
@@ -180,6 +209,12 @@ html {
   color: #4DE377;
 }
 
+.card-body1{
+  border-bottom: 1px solid #afafaf;
+  width: 100%;
+  margin-left: 0px;
+}
+
 .card-body a:hover {
   text-decoration: underline;
 }
@@ -188,19 +223,16 @@ html {
 	height: 10em;
 }
 
-.user-photo {
-	height: 200px;
-	width: 100%;
-	display: block;
-	border: 1px solid #D9D9D9;
-}
-
 .content {
 	margin: auto;
 	text-align: center;
 }
 
 /* FOOTER */
+
+.site-footer {
+ padding: -10px !important;
+}
 
 .footer-distributed{
   position: absolute;
@@ -530,4 +562,10 @@ border-bottom-left-radius: 0px !important;
 
 .form-inputs{
   box-sizing: border-box;
+}
+
+/* QR CODE */
+#qr-code {
+  width: 2em;
+  height: 2em;
 }
