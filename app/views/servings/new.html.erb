@@ -45,13 +45,13 @@
 										<tbody>
 											<% @school_meals.each do |school_meal| %>
 											<% school_meal.servings.each do |serving| %>
-											<tr>												
-												<% if serving.meal_category == "entrée" %>					
+											<% if serving.meal_category == "entrée" %>	
+											<tr id="menu<%= serving.id %>">					
 												<td><%= serving.food_supply.name %></td>
 												<td><%= serving.meal_category %></td>
-												<td><%= link_to "", admin_serving_path(current_admin, serving), method: :delete, class: "fas fa-trash-alt text-secondary"%></td>
-												<% end %>
+												<td><%= link_to "", admin_serving_path(current_admin, serving), method: :delete, remote: true, class: "fas fa-trash-alt text-secondary"%></td>
 											</tr>
+											<% end %>
 											<% end %>
 											<% end %>
 										</tbody>
@@ -77,13 +77,13 @@
 										<tbody>
 											<% @school_meals.each do |school_meal| %>
 											<% school_meal.servings.each do |serving| %>
-											<tr>
-												<% if serving.meal_category == "plat" || serving.meal_category == "accompagnement" %>					
+											<% if serving.meal_category == "plat" || serving.meal_category == "accompagnement" %>
+											<tr id="menu<%= serving.id %>">
 												<td><%= serving.food_supply.name %></td>
 												<td><%= serving.meal_category %></td>
-												<td><%= link_to "", admin_serving_path(current_admin, serving), method: :delete, class: "fas fa-trash-alt text-secondary"%></td>
-												<% end %>
+												<td><%= link_to "", admin_serving_path(current_admin, serving), method: :delete, remote: true, class: "fas fa-trash-alt text-secondary"%></td>
 											</tr>
+											<% end %>
 											<% end %>
 											<% end %>
 										</tbody>
@@ -109,13 +109,13 @@
 										<tbody>
 											<% @school_meals.each do |school_meal| %>
 											<% school_meal.servings.each do |serving| %>
-											<tr>
-												<% if serving.meal_category == "dessert" %>					
+											<% if serving.meal_category == "dessert" %>
+											<tr id="menu<%= serving.id %>">
 												<td><%= serving.food_supply.name %></td>
 												<td><%= serving.meal_category %></td>
-												<td><%= link_to "", admin_serving_path(current_admin, serving), method: :delete, class: "fas fa-trash-alt text-secondary"%></td>
-												<% end %>
+												<td><%= link_to "", admin_serving_path(current_admin, serving), method: :delete, remote: true, class: "fas fa-trash-alt text-secondary"%></td>
 											</tr>
+											<% end %>
 											<% end %>
 											<% end %>
 										</tbody>
