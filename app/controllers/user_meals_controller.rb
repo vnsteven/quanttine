@@ -9,29 +9,23 @@ class UserMealsController < ApplicationController
    @main_courses = @school_meals.servings.where(meal_category: "plat")
    @desserts = @school_meals.servings.where(meal_category: "dessert")
    @sides = @school_meals.servings.where(meal_category: "accompagnement")
-
    @user_meal = UserMeal.new
-puts "ICI CONNECTÉ AVEC #{current_user.profile.id}"
  end
 
  def create
   @profile = current_user.profile
-  @user_meal = UserMeal.create(profile_id: @profile.id)
-  puts "ok user meal créé avec pour id #{@user_meal.id}"
-  PreparingUserMeal.create!(user_meal_id: @user_meal.id, serving_size: 100, serving_id: params(:starter_choice))
-  PreparingUserMeal.create!(user_meal_id: @user_meal.id, serving_size: 100, serving_id: params(:main_course_choice))
-  PreparingUserMeal.create!(user_meal_id: @user_meal.id, serving_size: 100, serving_id: params(:dessert_choice))
-
-  if @user_meal.save
-    puts "CA MARCHEEEEEEEEEEEEEEEEEE"
-  else
-
-    puts "faileeeeeeeeeeeeed"
-  end
-
+  @user_meal = UserMeal.create!(profile_id: @profile.id)
+  PreparingUserMeal.create!(user_meal_id: @user_meal.id, serving_size: 100, serving_id: params[:user_meal][:starter_choice].to_i)
+  PreparingUserMeal.create!(user_meal_id: @user_meal.id, serving_size: 100, serving_id: params[:user_meal][:main_course_choice].to_i)
+  PreparingUserMeal.create!(user_meal_id: @user_meal.id, serving_size: 100, serving_id: params[:user_meal][:dessert_choice].to_i)
+  redirect_to user_meal_path(@user_meal)
 end
 
+def show
+  @profile = current_user.profile
+  @user_meal = @profile.user_meals.last.servings
 
+end
 
 def edit
 end

@@ -1,0 +1,22 @@
+<div id="menu-of-the-day-wrapper">
+
+  <br><br>
+  <h3>Récapitulatif du menu choisi demain :</h3>
+  <div class="category-wrapper">
+    <% @user_meal.each do |serving|%>
+    <div class="starter-choices">
+      <div class="meal-detail">
+          <div class="card">
+            <img src="https://cache.marieclaire.fr/data/photo/w1000_ci/5b/avocats-aux-crevettes.jpg" class="meal-image" >
+            <div class="card-body">
+              <h5 class="meal-description card-title"><%= serving.food_supply.name %></h5>
+              <p class="card-text">Des infos présentant le plat et la recette, brievement. Plus d'info sont dispo (AJAAAAX) via le bouton ci-dessous comme les ingrédients et les allergènes présents.</p>
+              <a href="#" class="btn btn-sm btn-primary">Plus d'info</a>
+            </div>
+          </div>
+      </div>
+    </div>
+    <% end %>
+  </div>
+</div>
+

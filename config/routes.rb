@@ -7,10 +7,13 @@ Rails.application.routes.draw do
   resources :users do
     resources :avatars, only: [:create]
     resources :profiles do
+      resources :user_meals
       resources :school_meals, only: [:show]
     end
   end
-  resources :user_meals
+
+
+
 
 
   resources :admins, only: [:show] do
