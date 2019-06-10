@@ -36,6 +36,27 @@ html {
   background: linear-gradient(180deg, #2BBB67 10%, #33DE79 100%);
 }
 
+.qr-header {
+  background-color: rgba(255, 255, 255, 0.8);
+  text-align: center;
+  margin: auto;
+  margin-top: 8em;
+}
+
+.qr-title{
+  color: #4A4A4A
+}
+
+.qrcode {
+  text-align: center;
+}
+
+.code {
+  min-width: 28em;
+  min-height: 28em;
+  margin-bottom: 10px;
+}
+
 /* NAVBAR */
 
 .fixed-top.scrolled {
@@ -162,6 +183,12 @@ html {
   justify-content: space-around;
   border-bottom: 1px solid #afafaf;
   padding-bottom: 20px;
+  height: 16em;
+}
+
+.qr-link {
+display: flex;
+align-self: center;
 }
 
 .choice-title {
@@ -206,10 +233,12 @@ html {
 
 .icon1{
   padding: 10px;
-  background: #6ed26e;
-  color: white;
+  background: #F8F9FC;
+  color: #4B4B4B;
   min-width: 50px;
   text-align: center;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
 }
 
 .choice {
@@ -671,10 +700,13 @@ background-color: #586689 !important;
 /* Style the form icons */
 .icon {
   padding: 10px;
-  background: #586689;
-  color: white;
+  background: #F8F9FC;
+  color: #4B4B4B;
   min-width: 50px;
   text-align: center;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+
 }
 
 /* Style the input fields */
