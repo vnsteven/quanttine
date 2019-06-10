@@ -56,6 +56,11 @@ html {
   color: #525255 !important;
 }
 
+.title-root:hover {
+  color: blue !important;
+  text-decoration: none;
+}
+
 /* COLORED NAVBAR */
 
 .colored-header {
@@ -550,9 +555,14 @@ margin: auto;
   /*FORGOT PASSWORD ITEMS*/
 
 .forget-password-image{
-   background-image: url(/assets/carrot.jpg);
+  background-image: url(carrot.jpg);
+  height: 27em;
+  width: 24em;
 }
 
+.choice1 {
+  margin-right: 20px;
+}
 
 /* EDIT FORM ADMIN */
 .mini-navbar{
@@ -606,4 +616,10 @@ border-bottom-left-radius: 0px !important;
 #qr-code {
   width: 2em;
   height: 2em;
+}
+
+.frame {
+  border: black 3px solid;
+  width: 70em;
+  height: 30em;
 }
