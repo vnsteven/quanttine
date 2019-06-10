@@ -44,11 +44,7 @@ html {
   border-bottom: 1px solid #f3f3f4 !important;
 }
 
-.nav-link.scrolled {
-  color: #2F312F !important;
-}
-
-.nav-link.scrolled {
+.nav-link-home.scrolled {
   color: #2F312F !important;
 }
 

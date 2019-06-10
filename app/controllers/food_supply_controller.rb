@@ -20,6 +20,9 @@ class FoodSupplyController < ApplicationController
     @quantity = Quantity.find_by(food_supply_id: @food_supply.id)
     @food_supply.destroy
     @quantity.destroy
-    redirect_to admin_quantities_path(current_admin)
+    respond_to do |format|
+      format.html { redirect_to admin_quantities_path(current_admin) }
+      format.js { }
+    end
   end
 end

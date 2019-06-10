@@ -12,5 +12,10 @@ class SchoolMealsController < ApplicationController
     @desserts = @school_meals.servings.where(meal_category: "dessert")
     @sides = @school_meals.servings.where(meal_category: "accompagnement")
 
+  def destroy
+    @school_meal = SchoolMeal.find_by(date: Date.tomorrow)
+    @school_meal.destroy if @school_meal != nil
+    redirect_to new_admin_serving_path(current_admin)
+    flash[:success] = "Menu supprimé"
   end
 end
