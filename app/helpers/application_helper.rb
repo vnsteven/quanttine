@@ -16,4 +16,8 @@ module ApplicationHelper
   def is_school_of_admin(input)
     input.school == current_admin.school
   end
+
+  def school_meal
+    SchoolMeal.where(date: Date.tomorrow)
+  end
 end

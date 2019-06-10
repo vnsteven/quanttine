@@ -4,53 +4,9 @@
     <%= render 'admins/top_bar' %>
     <%= render 'partials/flash' %>
     <div class="container-fluid">
-
-      <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800">Tendances</h1>
-      </div>
-      <hr>
-
-      <div class="row">
-
-        <div class="col-xl-8 col-lg-7">
-
-          <div class="card shadow mb-4">
-            <div class="card-header py-3">
-              <h6 class="m-0 font-weight-bold">Top 10 des aliments les plus consommés</h6>
-            </div>
-            <div class="card-body">
-              <div class="chart-area">
-                <%= column_chart (the_most_ordered_foods) %>
-              </div>
-            </div>
-          </div>
-
-          <div class="card shadow mb-4">
-            <div class="card-header py-3">
-              <h6 class="m-0 font-weight-bold">Evolution du nombre de commandes par jour</h6>
-            </div>
-            <div class="card-body">
-              <div class="chart-bar">
-                <%= line_chart (number_of_orders_per_day) %>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-xl-4 col-lg-5">
-          <div class="card shadow mb-3 pb-5">
-            <div class="card-header py-6">
-              <h6 class="m-0 font-weight-bold">Préférences des élèves</h6>
-            </div>
-            <div class="card-body">
-              <div class="chart-pie pt-2">
-                <%= pie_chart (number_of_preferences) %>
-              </div>
-            </div>
-          </div>
-        </div>
-
-      </div>
+      <%= render 'cards' %>
+      <%= render 'graphics' %>
     </div>
   </div>
 </div>
+
