@@ -2,7 +2,7 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h2 id="login-title">Log in</h2>
+        <h2 id="login-title">S'identifier</h2>
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
       </div>
 
@@ -31,7 +31,7 @@
           <% if devise_mapping_admin.rememberable? %>
           <div class="field custom-control custom-checkbox">
             <%= f.check_box :remember_me, class: "custom-control-input" %>
-            <%= f.label :remember_me, class: "custom-control-label" %>
+            <%= f.label :remember_me, 'Se souvenir de moi', class: "custom-control-label" %>
           </div>
           <% end %>
 
@@ -44,7 +44,7 @@
 
       <div class="modal-footer">
         <div class="form-actions">
-          <%= f.submit "Log in", class: "btn btn-primary" %>
+          <%= f.submit "S'identifier", class: "btn btn-primary" %>
         </div>
         <% end %>
       </div>
