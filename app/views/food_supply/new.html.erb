@@ -1,0 +1,27 @@
+<div id="wrapper">
+	<%= render 'admins/side_bar' %>
+	<div id="content-wrapper" class="d-flex flex-column">
+		<%= render 'admins/top_bar' %>
+		<%= render 'partials/flash' %>
+		<div class="container-fluid">
+			<div class="container">
+				<div class="card shadow mb-4">
+					<div class="card-header py-3">
+						<h6 class="m-0 font-weight-bold">Ajouter un aliment en stock</h6>
+					</div>
+					<div class="card-body">
+						<div class="field form-group">
+							<%= form_tag url_for(controller: 'food_supply', action: 'create'), method: 'post' do %>
+							<%= text_field_tag :food_name, "", placeholder: "Nom", class: "form-control" %>
+							<br />								
+							<%= number_field_tag :quantity, "", placeholder: "Quantité",class: "form-control" %>
+							<br />
+							<%= submit_tag "Ajouter", class: "btn btn-primary form-control" %>
+							<% end %>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

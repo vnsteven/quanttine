@@ -5,8 +5,11 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
   :recoverable, :rememberable, :validatable
-
   after_create :create_profile
+
+	validates :first_name, :last_name,
+  presence: true,
+	length: { in: 2..50 }
 
   private
 

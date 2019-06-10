@@ -13,12 +13,11 @@ class ProfilesController < ApplicationController
   def edit
     @preferences = Preference.all
     @schools = School.all
-    @qr = RQRCode::QRCode.new(@profile.to_json)
+    @qr = QrCodeService.new(@profile.id)
   end
 
   def update
     @profile.update(profile_parameters)
-    @profile.update(school_parameters)
   end
 
   private
@@ -32,7 +31,7 @@ class ProfilesController < ApplicationController
   end
 
   def profile_parameters
-    params.require(:profile).permit(
+    params.require(:profile).permit(:school_id,
       preference_ids: []
     )
   end

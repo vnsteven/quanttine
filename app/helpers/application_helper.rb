@@ -8,15 +8,12 @@ module ApplicationHelper
     end
   end
 
-  def serving_list
-    Serving.all.map { |serving| serving.meal_category }.uniq
-  end
+  def tomorrow
+    today = Time.now + (24 * 60 * 60)
+    return today.strftime("%Y-%m-%d")
+  end  
 
-  def food_supply_list
-    FoodSupply.all.map { |food| food.name }.uniq
-  end
-
-  def preferences_list(profile)
-    profile.preferences.map { |i| i.name }.join(", ").downcase.capitalize
+  def is_school_of_admin(input)
+    input.school == current_admin.school
   end
 end

@@ -9,9 +9,11 @@ Rails.application.routes.draw do
 
   devise_for :admins, path: 'admins'
   resources :admins, only: [:show] do
-    resources :school_meals
+    resources :preparing_user_meals
+    resources :food_supply
     resources :servings
-    resources :statistics, only: [:index]
+    resources :quantities
+    resources :statistics
     resources :profiles, only: [:index]
   end
 
