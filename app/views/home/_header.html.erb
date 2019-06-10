@@ -4,7 +4,7 @@
 		<div class="row align-items-center">
 
 			<div class="col-6 col-xl-2">
-				<h2 class="mb-0 site-logo text-white d-flex text-uppercase" id="quant">Quant<b><span class="text-primary">tine.</span></b></h2>
+			<h2 class="mb-0 site-logo text-white d-flex text-uppercase" id="quant">Quant<b><span class="text-primary">tine.</span></b></h2>
 			</div>
 
 			<div class="col-12 col-md-10 d-none d-xl-block">
@@ -14,28 +14,28 @@
 						<% if user_signed_in? || admin_signed_in? %>
 						<% if current_admin %>
 						<li class="nav-item">
-							<%= link_to "Dashboard", admin_path(current_admin.id), :class => "nav-link btn btn-outline-primary" %>
+							<%= link_to "Dashboard", admin_path(current_admin.id), :class => "nav-link btn btn-outline-primary nav-link-home" %>
 						</li>
 						<li class="nav-item">
-							<%= link_to "Se déconnecter", destroy_admin_session_path, class: "nav-link", :method => :delete %>
+							<%= link_to "Se déconnecter", destroy_admin_session_path, class: "nav-link nav-link-home", :method => :delete %>
 						</li>
 						<% elsif current_user %>
 						<li class="nav-item">
-							<%= link_to "Profil",  user_profile_path(current_user.id,current_user.profile.id), :class => "nav-link btn btn-outline-primary" %>
+							<%= link_to "Profil",  user_profile_path(current_user.id,current_user.profile.id), :class => "nav-link btn btn-outline-primary nav-link-home" %>
 						</li>
 						<li class="nav-item">
-							<%= link_to "Se déconnecter", destroy_user_session_path, class: "nav-link", :method => :delete %>
+							<%= link_to "Se déconnecter", destroy_user_session_path, class: "nav-link nav-link-home", :method => :delete %>
 						</li>
 						<% end %>
 						<% else %>
 						<li class="nav-item">
-							<%= link_to "Créer un compte", new_user_registration_path, class: "nav-link btn btn-outline-primary", 'data-toggle' => "modal", 'data-target' => "#modalSignup" %>
+							<%= link_to "Créer un compte", new_user_registration_path, class: "nav-link btn btn-outline-primary nav-link-home", 'data-toggle' => "modal", 'data-target' => "#modalSignup" %>
 						</li>
 						<li class="nav-item">
-							<%= link_to 'Élève', new_user_session_path, class: "nav-link", 'data-toggle' => "modal", 'data-target' => "#modalLogin" %>
+							<%= link_to 'Élève', new_user_session_path, class: "nav-link nav-link-home", 'data-toggle' => "modal", 'data-target' => "#modalLogin" %>
 						</li>
 						<li class="nav-item">
-							<%= link_to 'Admin', new_admin_session_path, class: "nav-link", 'data-toggle' => "modal", 'data-target' => "#modalAdmin" %>
+							<%= link_to 'Admin', new_admin_session_path, class: "nav-link nav-link-home", 'data-toggle' => "modal", 'data-target' => "#modalAdmin" %>
 						</li>
 						<% end %>
 

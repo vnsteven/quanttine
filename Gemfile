@@ -13,14 +13,14 @@ gem "chartkick"
 gem 'groupdate'
 gem 'jquery-datatables-rails', '~> 3.4.0'
 
-# Get an SVG into your view and then style it with CSS.
-gem 'inline_svg', '~> 1.4'
+
 # Combine 'pry' with 'byebug'. Adds 'step', 'next', 'finish', 'continue' and 'break' commands to control execution.
 gem 'pry-byebug', '~> 3.7'
 # rQRCode is a library for encoding QR Codes. The simple interface allows you to create QR Code data structures ready to be displayed in the way you choose.
 gem 'rqrcode', '~> 0.10.1'
 # Stripe is the easiest way to accept payments online. See https://stripe.com for details.
 gem 'stripe', '~> 4.18', '>= 4.18.1'
+
 # Flexible authentication solution for Rails with Warden
 gem 'devise', '~> 4.6', '>= 4.6.2'
 # Autoload dotenv in Rails

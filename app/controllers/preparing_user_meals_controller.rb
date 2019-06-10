@@ -6,7 +6,9 @@ class PreparingUserMealsController < ApplicationController
   def destroy
     @preparation = PreparingUserMeal.find(params[:id])
     @preparation.destroy
-    redirect_to admin_preparing_user_meals_path(current_admin)
-    flash[:success] = "Commande supprimée"
+    respond_to do |format|
+      format.html { redirect_to admin_preparing_user_meals_path(current_admin) }
+      format.js { }
+    end
   end
 end

@@ -5,6 +5,11 @@
 	</div>
 
 	<hr class="sidebar-divider my-0">
+	<hr class="sidebar-divider">
+	<li class="nav-item pb-2">
+		<%= link_to "Tableau de bord", admin_path(current_admin), class: "nav-link" %>
+	</li>
+
 
 	<hr class="sidebar-divider">
 
@@ -48,24 +53,6 @@
 			<div class="bg-white py-2 collapse-inner rounded">
 				<%= link_to "Liste des élèves", admin_profiles_path(current_admin.id), class: "collapse-item" %>
 				<%= link_to "Commandes des élèves", admin_preparing_user_meals_path(current_admin.id), class: "collapse-item" %>
-			</div>
-		</div>
-	</li>
-
-	<hr class="sidebar-divider">
-
-	<div class="sidebar-heading">
-		Statistiques
-	</div>
-
-	<li class="nav-item">
-		<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
-			<i class="fas fa-chart-line"></i>
-			<span>Tendances</span>
-		</a>
-		<div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
-			<div class="bg-white py-2 collapse-inner rounded">
-				<%= link_to "Alimentation", admin_statistics_path(current_admin.id), class: "collapse-item" %>
 			</div>
 		</div>
 	</li>
