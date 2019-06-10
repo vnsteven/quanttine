@@ -138,12 +138,21 @@ html {
 
 /* EDIT USER */
 
+.profile-edit {
+  height: 90em;
+}
+
 .edit-pictures {
   display: flex;
   justify-content: space-around;
+  border-bottom: 1px solid #afafaf;
+  padding-bottom: 20px;
 }
 
 .choice-title {
+  background-image: radial-gradient(circle at bottom right, #D1EED1, #27D16C) !important;
+  font-weight: bold;
+  color: #6E6E6E;
 }
 
 .show-user ul li {
@@ -155,9 +164,14 @@ html {
 	min-width: 15em;
   height: 44.6em;
 	margin: auto;
-  border: solid 2px #B0B0B0;
   border-radius: 8px;
   text-align: center;
+}
+
+.big-card {
+  border: 1px solid #afafaf;
+  box-shadow: 6px 6px 10px #CDCDCD;
+  box-shadow: 0 0 10px #cdcdcd;
 }
 
 .user-photo {
@@ -176,9 +190,6 @@ html {
   text-align: left;
 }
 
-.choice-title {
-  color: #393939;
-}
 
 #envoyer:hover {
   background-color: #ea484e;
@@ -213,6 +224,10 @@ html {
 }
 
 /* FOOTER */
+
+.site-footer {
+ padding: -10px !important;
+}
 
 .footer-distributed{
   position: absolute;
