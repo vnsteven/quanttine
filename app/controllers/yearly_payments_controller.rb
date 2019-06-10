@@ -7,12 +7,12 @@ class YearlyPaymentsController < ApplicationController
 
   def create
     @amount = 1000
-    service = StripeYearlySubscriptionService.new(params, @amount, current_admin)
+    service = StripeYearlySubscriptionService.new(params, current_admin)
     service.perform
   end
 
   def update
-    service = StripeYearlySubscriptionService.new(params, @amount, current_admin)
+    service = StripeYearlySubscriptionService.new(params, current_admin)
     service.unsubscribe
   end
 

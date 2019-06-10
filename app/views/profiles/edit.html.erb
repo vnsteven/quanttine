@@ -14,7 +14,7 @@
 					<div class="col content">
 						<%= @user.email %>
 					</div>
-				</div> <br/> <br/>
+				</div> <br/>
 			<div class="edit-pictures">
 				<div class="user-photo" >
 					<% if @profile.avatar.attached? %>
@@ -30,9 +30,8 @@
 					<% end %>
 					<% end %>
 				</div>
-				<div >
-					<%= image_tag @profile.qr_code %>
-				</div>
+					<%= link_to 'Voir mon QR code', edit_user_registration_path, class:"qr-link btn btn-outline-secondary", 'data-toggle' => "modal", 'data-target' => "#qr_code" %>
+
 			</div>
 					<br/>
 				<div>
@@ -57,6 +56,7 @@
 		</div>
 		<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 	</div>
+	<%= render 'qrcode' %>
 	<%= render 'profiles/registrations/edit' %>
 	<%= render 'home/footer' %>
 </body>
