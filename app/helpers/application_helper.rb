@@ -13,7 +13,7 @@ module ApplicationHelper
     return today.strftime("%Y-%m-%d")
   end  
 
-  def is_school_of_admin(input)
-    input.school == current_admin.school
+  def school_meal
+    SchoolMeal.where(date: Date.tomorrow)
   end
 end

@@ -10,8 +10,8 @@
     <% @starters.each do |starter|%>
     <div class="starter-choices">
      <%= f.label :starter_choice, "", :value => starter.id do %>
-     <%= f.radio_button :starter_choice, starter.id %>
      <div class="meal-detail">
+      <%= f.radio_button :starter_choice, starter.id %>
       <div class="card">
         <img src="https://cache.marieclaire.fr/data/photo/w1000_ci/5b/avocats-aux-crevettes.jpg" class="meal-image" >
         <div class="card-body">
@@ -21,8 +21,8 @@
         </div>
       </div>
     </div>
+    <% end %>
   </div>
-  <% end %>
   <% end %>
 </div>
 
@@ -30,8 +30,8 @@
 <div class="category-wrapper">
   <% @main_courses.each do |main_course|%>
   <div class="main-course-choices">
+    <%= f.label :main_course_choice, "", :value => main_course.id do %>
     <div class="meal-detail">
-      <%= f.label :main_course %>
       <%= f.radio_button :main_course_choice, main_course.id %>
       <div class="card">
         <img src="https://cache.marieclaire.fr/data/photo/w1000_ci/5b/avocats-aux-crevettes.jpg" class="meal-image" >
@@ -42,6 +42,7 @@
         </div>
       </div>
     </div>
+    <% end %>
   </div>
   <% end %>
 </div>
@@ -50,8 +51,8 @@
 <div class="category-wrapper">
   <% @desserts.each do |dessert|%>
   <div class="dessert-choices">
+    <%= f.label :dessert_choice, "", :value => dessert.id do %>
     <div class="meal-detail">
-      <%= f.label :dessert %>
       <%= f.radio_button :dessert_choice, dessert.id %>
       <div class="card">
         <img src="https://keldelice-assets.s3.amazonaws.com/attachments/photos/565822/original/oeuf-mayonnaise_2.jpg?1285186398" class="meal-image" >
@@ -62,11 +63,14 @@
         </div>
       </div>
     </div>
+    <% end %>
   </div>
   <% end %>
 </div>
 
-<%= f.submit "Submit" %>
+<div class="text-center">
+  <%= f.submit "Valider !", class: "btn btn-primary" %>
+</div>
 <% end %>
 </div>
 <br><br><br><br>
