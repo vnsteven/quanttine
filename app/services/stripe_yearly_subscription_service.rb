@@ -1,11 +1,8 @@
 class StripeYearlySubscriptionService
-attr_accessor :customer, :subscription, :amount, :stripe_customer_id
+  attr_accessor :customer, :subscription, :stripe_customer_id, :params, :stripe_token
 
-  def initialize(params, amount, current_admin)
+  def initialize(params, current_admin)
     @params = params
-    @stripe_email = params[:stripeEmail]
-    @stripe_token = params[:stripeToken]
-    @amount = amount
     @current_admin = current_admin
     @school = current_admin.school
     @stripe_customer_id = current_admin.school.stripe_customer_id
@@ -20,38 +17,38 @@ attr_accessor :customer, :subscription, :amount, :stripe_customer_id
   def retrieve_customer
     if @stripe_customer_id.nil?
       @customer = Stripe::Customer.create({
-        email: @stripe_email,
-        source: @stripe_token
+        email: @params[:stripeEmail],
+        source: @params[:stripeToken]
         })
     else
-      @customer = Stripe::Customer.retrieve(
-        @stripe_customer_id
-      )
+        @customer = Stripe::Customer.retrieve(
+          @stripe_customer_id
+        )
     end
   end
 
-  def create_subscription
-        @subscription = @customer.subscriptions.create(
-          plan: 'plan_FE0oYwqfIjoLUc'
-        )
-  end
+    def create_subscription
+      @subscription = @customer.subscriptions.create(
+        plan: 'plan_FE0p7PlgEgQI9W'
+      )
+    end
 
-  def unsubscribe
+    def update_payment_information
       @school.update(
         active: true,
         stripe_customer_id: @customer.id,
         stripe_subscription_id: @subscription.id,
-        stripe_plan_id: 'plan_FE0oYwqfIjoLUc'
-        )
-  end
+        stripe_plan_id: 'plan_FE0p7PlgEgQI9W'
+      )
+    end
 
-  def delete_subscription
-    retrieve_customer
-    @customer.subscriptions.first.delete
-    @school.update(
-      active: false,
-      stripe_subscription_id: "cancelled susbscription : #{DateTime.now}"
-    )
-  end
+    def unsubscribe
+      retrieve_customer
+      @customer.subscriptions.first.delete
+      @school.update(
+        active: false,
+        stripe_subscription_id: "cancelled susbscription : #{DateTime.now}",
+      )
+    end
 
-end
+  end

@@ -22,6 +22,15 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Alert */
+
+.alert {
+  position: fixed;
+  top: 60px;
+  right: 20px;
+  width: 20%;
+  z-index:9999; 
+}
 
 /* MODAL */
 
@@ -34,6 +43,27 @@ html {
 	padding-left: 38%;
   color: white;
   background: linear-gradient(180deg, #2BBB67 10%, #33DE79 100%);
+}
+
+.qr-header {
+  background-color: rgba(255, 255, 255, 0.8);
+  text-align: center;
+  margin: auto;
+  margin-top: 8em;
+}
+
+.qr-title{
+  color: #4A4A4A
+}
+
+.qrcode {
+  text-align: center;
+}
+
+.code {
+  min-width: 28em;
+  min-height: 28em;
+  margin-bottom: 10px;
 }
 
 /* NAVBAR */
@@ -60,10 +90,16 @@ html {
 /* COLORED NAVBAR */
 
 .colored-header {
-  background-color: #4DE377;
+  background-color: transparent;
   height: 92px;
   display: flex;
-  align-items: center;
+  justify-content: space-around;
+  box-shadow: 4px 4px 10px #C0C0C0;
+}
+
+.colored-header a{
+  color: #6ed26e !important;
+  margin-right: 5px; 
 }
 
 .nav-title {
@@ -72,6 +108,10 @@ html {
 
 .navbar-toggler {
   color: white;
+}
+
+#quant1{
+  color: #5D5D5D !important;
 }
 
 /* BUTTON */
@@ -148,6 +188,12 @@ html {
   justify-content: space-around;
   border-bottom: 1px solid #afafaf;
   padding-bottom: 20px;
+  height: 16em;
+}
+
+.qr-link {
+display: flex;
+align-self: center;
 }
 
 .choice-title {
@@ -164,7 +210,7 @@ html {
 	max-width: 40em;
 	min-width: 15em;
   height: 44.6em;
-	margin: auto;
+  margin: auto;
   border-radius: 8px;
   text-align: center;
 }
@@ -192,10 +238,12 @@ html {
 
 .icon1{
   padding: 10px;
-  background: #6ed26e;
-  color: white;
+  background: #F8F9FC;
+  color: #4B4B4B;
   min-width: 50px;
   text-align: center;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
 }
 
 .choice {
@@ -242,7 +290,7 @@ html {
 }
 
 .card-link {
-margin-left: 30px;
+  margin-left: 30px;
 }
 
 .space {
@@ -539,14 +587,14 @@ margin-left: 30px;
   }
 }
 
-  .contact-us-submit{
-    background-color: #33DE79;
-    color: white;
-    border-color: white;
-    width: 7em;
-    height: 2em;
-    border-radius: 10px;
-  }
+.contact-us-submit{
+  background-color: #33DE79;
+  color: white;
+  border-color: white;
+  width: 7em;
+  height: 2em;
+  border-radius: 10px;
+}
 
 /* MENU OF THE DAY - FORM */
 
@@ -624,6 +672,10 @@ margin-left: 30px;
   margin-right: 20px;
 }
 
+.btn-outline-primary {
+  font-weight: bold;
+}
+
 /* EDIT FORM ADMIN */
 .mini-navbar{
   color: white;
@@ -639,8 +691,8 @@ margin-left: 30px;
 
 #btn-edit1:hover {
  color: white;
-border: none !important;
-background-color: #586689 !important;
+ border: none !important;
+ background-color: #586689 !important;
 }
 
 /* Style the input container */
@@ -653,10 +705,13 @@ background-color: #586689 !important;
 /* Style the form icons */
 .icon {
   padding: 10px;
-  background: #586689;
-  color: white;
+  background: #F8F9FC;
+  color: #4B4B4B;
   min-width: 50px;
   text-align: center;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+
 }
 
 /* Style the input fields */
