@@ -152,7 +152,7 @@ html {
 .choice-title {
   background-image: radial-gradient(circle at bottom right, #D1EED1, #27D16C 60%) !important;
   font-weight: bold;
-  color: #464444;
+  color: white;
 }
 
 .show-user ul li {
@@ -189,6 +189,14 @@ html {
   border-radius: 50%;
 }
 
+.icon1{
+  padding: 10px;
+  background: #6ed26e;
+  color: white;
+  min-width: 50px;
+  text-align: center;
+}
+
 .choice {
   font-size: 1.1em;
   width: 18em;
@@ -196,13 +204,26 @@ html {
   text-align: left;
 }
 
-
 #envoyer:hover {
   border: 1.2px solid #78e478;
 }
 
 .send {
- margin-left: 6em;
+ margin-left: 6em; 
+}
+
+.send1:hover {
+  border: 1px solid #6ed26e !important;
+}
+
+.end-button{
+  display: flex;
+  justify-content: flex-end;  
+}
+
+.unhappy {
+  margin-top: 5px;
+  margin-right: 8px;
 }
 
 .card-body a {
@@ -219,6 +240,10 @@ html {
   text-decoration: underline;
 }
 
+.card-link {
+margin-left: 30px;
+}
+
 .space {
 	height: 10em;
 }
@@ -227,6 +252,13 @@ html {
 	margin: auto;
 	text-align: center;
 }
+
+.edit-title{ 
+  color: white;
+  background-image: radial-gradient(circle at bottom right, #333a4d, #586689) !important;
+}
+
+
 
 /* FOOTER */
 
