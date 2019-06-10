@@ -8,11 +8,6 @@ module ApplicationHelper
     end
   end
 
-  def tomorrow
-    today = Time.now + (24 * 60 * 60)
-    return today.strftime("%Y-%m-%d")
-  end  
-
   def school_meal
     SchoolMeal.where(date: Date.tomorrow)
   end

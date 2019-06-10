@@ -37,7 +37,7 @@
       <div class="card-body">
         <div class="row no-gutters align-items-center">
           <div class="col mr-2">
-            <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Nombre de menus</div>
+            <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Nombre de plats</div>
             <div class="row no-gutters align-items-center">
               <div class="col-auto">
                 <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800"><%= number_of_servings %></div>
@@ -56,17 +56,23 @@
     <div class="card border-left-warning shadow h-100 py-2">
       <div class="card-body">
         <div class="row no-gutters align-items-center">
+          <% if is_tomorrow_menu_done? == true %>
           <div class="col mr-2">
             <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Menu de demain</div>
-            <div class="h5 mb-0 font-weight-bold text-gray-800"><%= is_tomorrow_menu_done? %></div>
+            <div class="h5 mb-0 font-weight-bold text-gray-800">Fait</div>
           </div>
           <div class="col-auto">
-            <% if is_tomorrow_menu_done? == "A faire" %>
             <i class="fas fa-times fa-2x text-gray-300"></i>
-            <% else %>
-            <i class="fas fa-check fa-2x text-gray-300"></i>
-            <% end %>
           </div>
+          <% else %>
+          <div class="col mr-2">
+            <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Menu de demain</div>
+            <div class="h5 mb-0 font-weight-bold text-gray-800" id="todo">A faire</div>
+          </div>
+          <div class="col-auto">
+            <i class="fas fa-times fa-2x text-gray-300"></i>
+          </div>
+          <% end %>
         </div>
       </div>
     </div>

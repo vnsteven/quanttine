@@ -22,6 +22,32 @@ html {
   scroll-behavior: smooth;
 }
 
+/* BLINK ANIMATION CARD ADMIN DASHBOARD */
+
+#todo {
+  animation-name: blink;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  -webkit-animation:blink 1200ms infinite; 
+}
+
+@keyframes blink {
+  from {
+    color:#D90929;
+  }
+  to {
+    color:#FD7D72;
+  }
+}
+@-webkit-keyframes blink {
+  from {
+    color:#D90929;
+  }
+  to {
+    color:#FD7D72;
+  }
+}
+
 /* Alert */
 
 .alert {
