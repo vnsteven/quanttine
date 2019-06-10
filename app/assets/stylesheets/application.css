@@ -452,11 +452,11 @@ margin-left: 30px;
 }
 
 .footer-content {
-display: flex;
-justify-content: space-between;
-align-items: center;
-width: 90%;
-margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
+  margin: auto;
 }
 
 .footer-content a {
@@ -487,6 +487,70 @@ margin: auto;
 .title-content{
   color: #858796 !important;
 }
+
+/* CONTACT US FORM LANDING PAGE*/
+
+.contact-us-title{
+  text-align: center;
+}
+
+#text-field{
+  height: 50%;
+  font-style: italic;
+}
+
+.contact_us_form{
+  text-align: center;
+  border: 2px solid;
+  border-color: #33DE79;
+  margin-left: 20%;
+  margin-right: 20%;
+  display: flex;
+  flex-flow: row wrap;
+  box-shadow: 5px 5px 5px #D9D9DA;
+}
+
+.input-info{
+  text-align: left;
+  padding: 3em;
+}
+
+.input-text{
+  padding: 3em; 
+}
+
+.input-style{
+  color: #999999;
+}
+
+@media (max-width: 800px) {
+  .contact_us_form {
+    margin: 10px 0;
+    padding: 50px;
+  }
+
+  .input-info {
+    flex-direction: column;
+    align-items: stretch;
+    text-align: center;
+    padding: 10px;
+  }
+
+  .input-text {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 10px;
+  }
+}
+
+  .contact-us-submit{
+    background-color: #33DE79;
+    color: white;
+    border-color: white;
+    width: 7em;
+    height: 2em;
+    border-radius: 10px;
+  }
 
 /* MENU OF THE DAY - FORM */
 
@@ -552,7 +616,7 @@ margin: auto;
   font-weight: bold;
 }
 
-  /*FORGOT PASSWORD ITEMS*/
+/*FORGOT PASSWORD ITEMS*/
 
 .forget-password-image{
   background-image: url(carrot.jpg);
@@ -601,8 +665,8 @@ background-color: #586689 !important;
 
 /* Style the input fields */
 .writing {
-border-top-left-radius: 0px !important;
-border-bottom-left-radius: 0px !important;
+  border-top-left-radius: 0px !important;
+  border-bottom-left-radius: 0px !important;
 }
 
 .input-field:focus {
