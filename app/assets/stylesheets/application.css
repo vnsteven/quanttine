@@ -628,6 +628,10 @@ margin-left: 30px;
   margin-right: 20px;
 }
 
+.btn-outline-primary {
+  font-weight: bold;
+}
+
 /* EDIT FORM ADMIN */
 .mini-navbar{
   color: white;

@@ -1,2 +1,46 @@
-<h1>Abonnez-vous à Quanttine pour accéder à votre tableau de bord et proposer de bons repas à vos élèves</h1>
-<p><%= link_to "S'abonner à Quanttine", new_payment_path %></p>
+
+<head>
+	<meta charset="utf-8">
+	<link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">	
+	<%= stylesheet_link_tag    'application' %>
+	<%= javascript_include_tag 'application' %>
+</head>
+
+<body class="bg-gradient-primary forget-password">
+	<div class="container">
+		<div class="row justify-content-center">
+
+			<div class="col-xl-10 col-lg-12 col-md-9">
+
+				<div class="card o-hidden border-0 shadow-lg my-5">
+					<div class="card-body p-0">
+						<!-- Nested Row within Card Body -->
+						<div class="row">
+							<div class="col-lg-6 d-none d-lg-block forget-password-image"></div>
+							<div class="col-lg-6">
+								<div class="p-5">
+									<div class="text-center">
+<h1>Votre abonnement est terminé !</h1>		<br/>																	
+<p>Abonnez-vous à Quanttine pour accéder à votre tableau de bord et proposer de bons repas à vos élèves</p>
+<p><%= link_to "S'abonner à Quanttine", new_payment_path, class:"btn btn-outline-primary" %></p>
+
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+	<!-- Bootstrap core JavaScript-->
+	<script src="vendor/jquery/jquery.min.js"></script>
+	<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+	<!-- Core plugin JavaScript-->
+	<script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+	<!-- Custom scripts for all pages-->
+	<script src="js/sb-admin-2.min.js"></script>
+
+</body>
