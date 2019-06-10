@@ -15,6 +15,7 @@
 						<%= @user.email %>
 					</div>
 				</div> <br/> <br/>
+
 				<div class="edit-pictures">
 					<div class="user-photo" >
 						<% if @profile.avatar.attached? %>
@@ -30,31 +31,31 @@
 						<% end %>
 						<% end %>
 					</div>
-					<div class="">
+					<div >
 						<%= image_tag @profile.qr_code %>
 					</div>
-				</div>
-				<br/>
-				<div>
-					<h5 class="choice-title1">Choisis tes préférences alimentaires ci-dessous: elles seront transmises à ta cantine.</h5>
-				</div>
-				<br/>
-				<div class="choice">
-					<%= form_for [@user, @profile] do |f| %>
-					<%= f.collection_check_boxes :preference_ids, @preferences.order(:name), :id, :name do |b| %>
-					<%= b.check_box %> <%= b.label %> <br>
-					<% end %>
-					<%= f.submit "Envoyer", id:"envoyer", class:"btn btn-primary send" %>
-					<% end %>
-				</div>
-				<br/>
-				<div class="card-body">
-					<%= link_to 'Edit', edit_user_registration_path, class: "btn btn-primary btn-lg mr-2 mb-2 banner-button", 'data-toggle' => "modal", 'data-target' => "#modalEdit" %>
-					<a href="/users/edit" class="card-link">Choisir mon menu</a>
+					<br/>
+					<div>
+						<h5 class="choice-title1">Choisis tes préférences alimentaires ci-dessous: elles seront transmises à ta cantine.</h5>
+					</div>
+					<br/>
+					<div class="choice">
+						<%= form_for [@user, @profile] do |f| %>
+						<%= f.collection_check_boxes :preference_ids, @preferences.order(:name), :id, :name do |b| %>
+						<%= b.check_box %> <%= b.label %> <br>
+						<% end %>
+						<%= f.submit "Envoyer", id:"envoyer", class:"btn btn-primary send" %>
+						<% end %>
+					</div>
+					<br/>
+					<div class="card-body">
+						<%= link_to 'Editer', edit_user_registration_path, 'data-toggle' => "modal", 'data-target' => "#modalEdit" %>
+						<a href="/users/edit" class="card-link">Choisir mon menu</a>
+					</div>
 				</div>
 			</div>
+			<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 		</div>
-		<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
-	</div>
-	<%= render 'home/footer' %>
-</body>
+		<%= render 'profiles/registrations/edit' %>
+		<%= render 'home/footer' %>
+	</body>

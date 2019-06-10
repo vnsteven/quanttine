@@ -20,7 +20,7 @@
 		  <%= image_tag "choice.jpg", class:"photo-card" %>
 		  <div class="card-body">
 		    <h5 class="card-title">Mes commandes</h5>
-		    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> <br/>
+		    <p class="card-text text1">Some quick example text to build on the card title and make up the bulk of the card's content.</p> <br/>
 		    <a href="#" class="btn btn-primary" id="bouton-show" >Go somewhere</a>
 		  </div>
 		</div>
@@ -29,10 +29,12 @@
 		  <%= image_tag "profi.jpg", class:"photo-card" %>
 		  <div class="card-body">
 		    <h5 class="card-title">Mon profil</h5>
-		    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p><br/>
+		    <p class="card-text text1">Some quick example text to build on the card title and make up the bulk of the card's content.</p><br/>
 		    <%= link_to "Mon profil", edit_user_profile_path(@user.id, @profile.id), class: "btn btn-primary", id:"bouton-show" %>
 		  </div>
 		</div>
 
 	</div>
 </div>
+<%= render 'home/footer' %>
+

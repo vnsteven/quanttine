@@ -56,6 +56,11 @@ html {
   color: #525255 !important;
 }
 
+.title-root:hover {
+  color: blue !important;
+  text-decoration: none;
+}
+
 /* COLORED NAVBAR */
 
 .colored-header {
@@ -152,7 +157,7 @@ html {
 .choice-title {
   background-image: radial-gradient(circle at bottom right, #D1EED1, #27D16C 60%) !important;
   font-weight: bold;
-  color: #464444;
+  color: white;
 }
 
 .show-user ul li {
@@ -189,6 +194,14 @@ html {
   border-radius: 50%;
 }
 
+.icon1{
+  padding: 10px;
+  background: #6ed26e;
+  color: white;
+  min-width: 50px;
+  text-align: center;
+}
+
 .choice {
   font-size: 1.1em;
   width: 18em;
@@ -196,13 +209,26 @@ html {
   text-align: left;
 }
 
-
 #envoyer:hover {
   border: 1.2px solid #78e478;
 }
 
 .send {
- margin-left: 6em;
+ margin-left: 6em; 
+}
+
+.send1:hover {
+  border: 1px solid #6ed26e !important;
+}
+
+.end-button{
+  display: flex;
+  justify-content: flex-end;  
+}
+
+.unhappy {
+  margin-top: 5px;
+  margin-right: 8px;
 }
 
 .card-body a {
@@ -219,6 +245,10 @@ html {
   text-decoration: underline;
 }
 
+.card-link {
+margin-left: 30px;
+}
+
 .space {
 	height: 10em;
 }
@@ -227,6 +257,13 @@ html {
 	margin: auto;
 	text-align: center;
 }
+
+.edit-title{ 
+  color: white;
+  background-image: radial-gradient(circle at bottom right, #333a4d, #586689) !important;
+}
+
+
 
 /* FOOTER */
 
@@ -483,7 +520,7 @@ margin: auto;
   border: none;
   width: 21rem;
   min-width: 19rem;
-  height: 27em;
+  height: 29em;
   text-align: center;
   transition-duration: 0.5s;
 }
@@ -496,8 +533,14 @@ margin: auto;
   box-shadow: 6px 6px 6px #919191;
   border: solid 1px #F7F7F7;
   width: 22rem;
-  height: 28em;
+  height: 30em;
   transition-duration: 0.5s;
+}
+
+.text1{
+  min-width: 15em;
+  max-width: 15em;
+  margin: auto;
 }
 
 .photo-card {
@@ -512,9 +555,14 @@ margin: auto;
   /*FORGOT PASSWORD ITEMS*/
 
 .forget-password-image{
-   background-image: url(/assets/carrot.jpg);
+  background-image: url(carrot.jpg);
+  height: 27em;
+  width: 24em;
 }
 
+.choice1 {
+  margin-right: 20px;
+}
 
 /* EDIT FORM ADMIN */
 .mini-navbar{
@@ -523,15 +571,16 @@ margin: auto;
 /*  background-image: linear-gradient(to right, #333a4d 60%, #3c579b) !important;
 */  }
 
-#btn-edit{
+#btn-edit1{
   background-color: #586689 !important;
+  color: white;
   border: transparent;
 }
 
-#btn-edit:hover {
+#btn-edit1:hover {
  color: white;
 border: none !important;
-background-color: #37476b !important;
+background-color: #586689 !important;
 }
 
 /* Style the input container */
@@ -568,4 +617,27 @@ border-bottom-left-radius: 0px !important;
 #qr-code {
   width: 2em;
   height: 2em;
+}
+
+.frame {
+  border: black 3px solid;
+  width: 70em;
+  height: 30em;
+}
+
+/* PAYMENTS STRIPE PAGES */
+.payment-card {
+  width: 25%;
+  margin: auto;
+  margin-top: 20em;
+  border: 1px solid #B2AEAE;
+  text-align: center;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+.payment-title {
+  border-bottom: 1px solid #B2AEAE;
+  font-weight: bold;
+  color: #1AD01A;
 }
