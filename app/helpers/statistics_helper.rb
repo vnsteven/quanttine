@@ -19,8 +19,11 @@ module StatisticsHelper
     hash_of_preferences = categories_of_preferences.zip(prefences_count).to_h
   end
 
-  def number_of_students 
-    students = Profile.all.map { |profile| profile if current_admin.school == profile.school }
+  def number_of_students
+    students = Array.new 
+    Profile.all.each do |profile| 
+      students << profile if current_admin.school == profile.school
+    end
     return students.count
   end
 
