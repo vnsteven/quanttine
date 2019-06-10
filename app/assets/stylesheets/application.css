@@ -515,7 +515,7 @@ margin: auto;
   border: none;
   width: 21rem;
   min-width: 19rem;
-  height: 27em;
+  height: 29em;
   text-align: center;
   transition-duration: 0.5s;
 }
@@ -528,8 +528,14 @@ margin: auto;
   box-shadow: 6px 6px 6px #919191;
   border: solid 1px #F7F7F7;
   width: 22rem;
-  height: 28em;
+  height: 30em;
   transition-duration: 0.5s;
+}
+
+.text1{
+  min-width: 15em;
+  max-width: 15em;
+  margin: auto;
 }
 
 .photo-card {
