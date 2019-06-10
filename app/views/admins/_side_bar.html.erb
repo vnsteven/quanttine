@@ -1,7 +1,7 @@
 <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
 	<div class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-		<div class="sidebar-brand-text mx-3 text-white">Administrateur</div>
+		<div class="sidebar-brand-text mx-3 text-white"><%= current_admin.school.school_type %> <%= current_admin.school.name %></div>
 	</div>
 
 	<hr class="sidebar-divider my-0">
@@ -19,8 +19,8 @@
 		</a>
 		<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
 			<div class="bg-white py-2 collapse-inner rounded">
-				<%= link_to "Liste des menus", admin_school_meals_path(current_admin.id), class: "collapse-item" %>
-				<%= link_to "Créer un menu", new_admin_school_meal_path(current_admin.id), class: "collapse-item" %>
+				<%= link_to "Liste des menus", admin_servings_path(current_admin.id), class: "collapse-item" %>
+				<%= link_to "Créer un menu", new_admin_serving_path(current_admin.id), class: "collapse-item" %>
 			</div>
 		</div>
 	</li>
@@ -28,11 +28,12 @@
 	<li class="nav-item">
 		<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseQuantity" aria-expanded="true" aria-controls="collapseQuantity">
 			<i class="fas fa-box"></i>
-			<span>Quantités</span>
+			<span>Stocks</span>
 		</a>
 		<div id="collapseQuantity" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
 			<div class="bg-white py-2 collapse-inner rounded">
-				<%= link_to "Aliments", admin_path(current_admin.id), class: "collapse-item" %>
+				<%= link_to "Liste des aliments", admin_quantities_path(current_admin), class: "collapse-item" %>
+				<%= link_to "Ajouter un aliment", new_admin_food_supply_path(current_admin), class: "collapse-item" %>
 			</div>
 		</div>
 	</li>
@@ -46,6 +47,7 @@
 		<div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
 			<div class="bg-white py-2 collapse-inner rounded">
 				<%= link_to "Liste des élèves", admin_profiles_path(current_admin.id), class: "collapse-item" %>
+				<%= link_to "Commandes des élèves", admin_preparing_user_meals_path(current_admin.id), class: "collapse-item" %>
 			</div>
 		</div>
 	</li>
@@ -64,7 +66,6 @@
 		<div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
 			<div class="bg-white py-2 collapse-inner rounded">
 				<%= link_to "Alimentation", admin_statistics_path(current_admin.id), class: "collapse-item" %>
-				<%= link_to "Avis", "", class: "collapse-item" %>
 			</div>
 		</div>
 	</li>

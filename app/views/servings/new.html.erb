@@ -1,0 +1,131 @@
+<div id="wrapper">
+	<%= render 'admins/side_bar' %>
+	<div id="content-wrapper" class="d-flex flex-column">
+		<%= render 'admins/top_bar' %>
+		<%= render 'partials/flash' %>
+		<div class="container-fluid">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-lg-6">
+						<div class="card shadow mb-4">
+							<div class="card-header py-3">
+								<h6 class="m-0 font-weight-bold">Ajouter au menu <%= Date.tomorrow %></h6>
+							</div>
+							<div class="card-body">
+								<div class="field form-group">
+									<%= form_tag url_for(controller: 'servings', action: 'create'), method: 'post' do %>
+									<%= date_field_tag :date, "#{tomorrow}", class: 'form-control', id: "datePicker"  %>
+									<br />
+									<%= select_tag :meal_category, options_for_select(serving_list), prompt: "Catégorie", class: "form-control" %>
+									<br />
+									<%= select_tag :food_supply, options_for_select(food_supply_list), prompt: "Aliment", class: "form-control" %>
+									<br />
+									<%= submit_tag "Ajouter", class: "btn btn-primary form-control" %>
+									<% end %>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-6">
+
+						<div class="card shadow mb-4">
+							<div class="card-header py-3">
+								<h6 class="m-0 font-weight-bold">Entrées</h6>
+							</div>
+							<div class="card-body">
+								<div class="table-responsive">
+									<table class="table table-bordered" width="100%" cellspacing="0">
+										<thead>
+											<tr>
+												<th>Nom</th>
+												<th>Catégorie</th>
+												<th></th>
+											</tr>
+										</thead>
+										<tbody>
+											<% @school_meals.each do |school_meal| %>
+											<% school_meal.servings.each do |serving| %>
+											<% if serving.meal_category == "entrée" %>	
+											<tr id="menu<%= serving.id %>">					
+												<td><%= serving.food_supply.name %></td>
+												<td><%= serving.meal_category %></td>
+												<td><%= link_to "", admin_serving_path(current_admin, serving), method: :delete, remote: true, class: "fas fa-trash-alt text-secondary"%></td>
+											</tr>
+											<% end %>
+											<% end %>
+											<% end %>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+
+						<div class="card shadow mb-4">
+							<div class="card-header py-3">
+								<h6 class="m-0 font-weight-bold">Plats et acompagnements</h6>
+							</div>
+							<div class="card-body">
+								<div class="table-responsive">
+									<table class="table table-bordered" width="100%" cellspacing="0">
+										<thead>
+											<tr>
+												<th>Nom</th>
+												<th>Catégorie</th>
+												<th></th>
+											</tr>
+										</thead>
+										<tbody>
+											<% @school_meals.each do |school_meal| %>
+											<% school_meal.servings.each do |serving| %>
+											<% if serving.meal_category == "plat" || serving.meal_category == "accompagnement" %>
+											<tr id="menu<%= serving.id %>">
+												<td><%= serving.food_supply.name %></td>
+												<td><%= serving.meal_category %></td>
+												<td><%= link_to "", admin_serving_path(current_admin, serving), method: :delete, remote: true, class: "fas fa-trash-alt text-secondary"%></td>
+											</tr>
+											<% end %>
+											<% end %>
+											<% end %>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+
+						<div class="card shadow mb-4">
+							<div class="card-header py-3">
+								<h6 class="m-0 font-weight-bold">Desserts</h6>
+							</div>
+							<div class="card-body">
+								<div class="table-responsive">
+									<table class="table table-bordered" width="100%" cellspacing="0">
+										<thead>
+											<tr>
+												<th>Nom</th>
+												<th>Catégorie</th>
+												<th></th>
+											</tr>
+										</thead>
+										<tbody>
+											<% @school_meals.each do |school_meal| %>
+											<% school_meal.servings.each do |serving| %>
+											<% if serving.meal_category == "dessert" %>
+											<tr id="menu<%= serving.id %>">
+												<td><%= serving.food_supply.name %></td>
+												<td><%= serving.meal_category %></td>
+												<td><%= link_to "", admin_serving_path(current_admin, serving), method: :delete, remote: true, class: "fas fa-trash-alt text-secondary"%></td>
+											</tr>
+											<% end %>
+											<% end %>
+											<% end %>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

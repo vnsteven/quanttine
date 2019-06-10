@@ -1,7 +1,8 @@
+<%= render 'layouts/colored_header' %>
 <div id="menu-of-the-day-wrapper">
   <h1>Au menu aujourd'hui : </h1>
 
-  <%= form_with model: @user_meal do |f| %>
+  <%= form_with(model: @user_meal, url: [@user, @profile, @user_meal], local: true)  do |f| %>
 
   <br><br>
   <h3>Entrées</h3>
@@ -9,7 +10,7 @@
     <% @starters.each do |starter|%>
     <div class="starter-choices">
       <div class="meal-detail">
-        <label for="">
+        <label for="start_choice">
           <%= f.radio_button :starter_choice, starter.id %>
           <div class="card">
             <img src="https://cache.marieclaire.fr/data/photo/w1000_ci/5b/avocats-aux-crevettes.jpg" class="meal-image" >
@@ -69,3 +70,4 @@
   <% end %>
 </div>
 
+<%= render 'layouts/footer' %>

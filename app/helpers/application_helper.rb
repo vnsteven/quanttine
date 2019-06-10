@@ -7,4 +7,13 @@ module ApplicationHelper
     when 'alert' then "alert-warning"
     end
   end
+
+  def tomorrow
+    today = Time.now + (24 * 60 * 60)
+    return today.strftime("%Y-%m-%d")
+  end  
+
+  def is_school_of_admin(input)
+    input.school == current_admin.school
+  end
 end

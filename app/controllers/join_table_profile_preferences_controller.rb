@@ -1,2 +1,0 @@
-class JoinTableProfilePreferencesController < ApplicationController
-end

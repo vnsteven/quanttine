@@ -8,8 +8,19 @@ gem 'jquery-rails'
 gem 'omniauth-facebook'
 gem 'better_errors'
 gem "aws-sdk-s3", require: false
+gem "font-awesome-rails"
+gem "chartkick"
+gem 'groupdate'
+gem 'jquery-datatables-rails', '~> 3.4.0'
 
-gem 'pry-byebug'
+
+# Combine 'pry' with 'byebug'. Adds 'step', 'next', 'finish', 'continue' and 'break' commands to control execution.
+gem 'pry-byebug', '~> 3.7'
+# rQRCode is a library for encoding QR Codes. The simple interface allows you to create QR Code data structures ready to be displayed in the way you choose.
+gem 'rqrcode', '~> 0.10.1'
+# Stripe is the easiest way to accept payments online. See https://stripe.com for details.
+gem 'stripe', '~> 4.18', '>= 4.18.1'
+
 # Flexible authentication solution for Rails with Warden
 gem 'devise', '~> 4.6', '>= 4.6.2'
 # Autoload dotenv in Rails
@@ -18,6 +29,7 @@ gem 'dotenv-rails', '~> 2.7', '>= 2.7.2'
 gem 'faker', '~> 1.9', '>= 1.9.3'
 # TablePrint turns objects into nicely formatted columns for easy reading. Works great in rails console, works on pure ruby objects, autodetects columns, lets you traverse ActiveRecord associations. Simple, powerful.
 gem 'table_print', '~> 1.5', '>= 1.5.6'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.3'
 # Use postgresql as the database for Active Record

@@ -1,6 +1,6 @@
 class CustomFailureController < Devise::FailureApp
   def redirect_url
-     new_user_session_url(:subdomain => 'secure')
+     new_user_session_url(subdomain: 'secure')
   end
 
   def respond

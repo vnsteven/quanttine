@@ -1,15 +1,11 @@
 <div id="wrapper">
 
-<%= render 'layouts/colored_header' %>
-
-
-
   <%= render 'admins/side_bar' %>
 
   <div id="content-wrapper" class="d-flex flex-column">
 
     <%= render 'admins/top_bar' %>
-    <%= render 'helpers/flash' %>
+    <%= render 'partials/flash' %>
 
     <div class="container-fluid">
       <div class="card shadow mb-4">
@@ -18,19 +14,25 @@
         </div>
         <div class="card-body">
           <div class="table-responsive">
-            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+            <table class="table table-striped table-bordered table-paging" id="dataTable" width="100%" cellspacing="0">
               <thead>
                 <tr>
                   <th>Prénom</th>
                   <th>Nom</th>
+                  <th>Email</th>
+                  <th>Préférences</th>
                 </tr>
               </thead>
               <tbody>
                 <% @profile.each do |profile| %>
+                <% if is_school_of_admin(profile) %>
                 <tr>
                   <td><%= profile.user.first_name %></td>
                   <td><%= profile.user.last_name %></td>
+                  <td><%= link_to "#{profile.user.email}", "mailto:#{profile.user.email}", class: "text-secondary" %></td>
+                  <td><%= preferences_list(profile) %></td>
                 </tr>
+                <% end %>
                 <% end %>
               </tbody>
             </table>

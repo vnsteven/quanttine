@@ -1,6 +1,6 @@
 #menu-of-the-day-wrapper{
   width: 90%;
-  margin: 0 auto;
+  margin: 10px auto;
   display: flex;
   flex-flow: column wrap;
 }
@@ -51,12 +51,12 @@ height: 5vh;
 
 /*****  FX   *****/
 /* HIDE RADIO */
-/*[type=radio] {
+[type=radio] {
   position: absolute;
   opacity: 0;
   width: 0;
   height: 0;
-}*/
+}
 
 /* IMAGE STYLES */
 [type=radio] + div {
