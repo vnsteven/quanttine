@@ -30,8 +30,10 @@ class ServingsController < ApplicationController
   def destroy
     @serving = Serving.find_by(id: params[:id])
     @serving.destroy
-    redirect_to new_admin_serving_path(current_admin)
-    flash[:success] = "Aliment supprimé"
+    respond_to do |format|
+      format.html { redirect_to new_admin_serving_path(current_admin) }
+      format.js { }
+    end
   end
 
   # def edit
