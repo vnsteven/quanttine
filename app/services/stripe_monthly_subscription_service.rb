@@ -1,9 +1,8 @@
 class StripeMonthlySubscriptionService
-attr_accessor :customer, :subscription, :amount, :stripe_customer_id, :params
+  attr_accessor :customer, :subscription, :stripe_customer_id, :params, :stripe_token
 
-  def initialize(params, amount, current_admin)
+  def initialize(params, current_admin)
     @params = params
-    @amount = amount
     @current_admin = current_admin
     @school = current_admin.school
     @stripe_customer_id = current_admin.school.stripe_customer_id
@@ -12,7 +11,7 @@ attr_accessor :customer, :subscription, :amount, :stripe_customer_id, :params
   def perform
     retrieve_customer
     create_subscription
-    unsubscribe
+    update_payment_information
   end
 
   def retrieve_customer
@@ -51,5 +50,5 @@ attr_accessor :customer, :subscription, :amount, :stripe_customer_id, :params
       stripe_subscription_id: "cancelled susbscription : #{DateTime.now}",
     )
   end
-
+  
 end
