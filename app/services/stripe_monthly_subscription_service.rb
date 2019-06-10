@@ -1,10 +1,8 @@
 class StripeMonthlySubscriptionService
-attr_accessor :customer, :subscription, :amount, :stripe_customer_id
+attr_accessor :customer, :subscription, :amount, :stripe_customer_id, :params
 
   def initialize(params, amount, current_admin)
     @params = params
-    @stripe_email = params[:stripeEmail]
-    @stripe_token = params[:stripeToken]
     @amount = amount
     @current_admin = current_admin
     @school = current_admin.school
@@ -20,8 +18,8 @@ attr_accessor :customer, :subscription, :amount, :stripe_customer_id
   def retrieve_customer
     if @stripe_customer_id.nil?
       @customer = Stripe::Customer.create({
-        email: @stripe_email,
-        source: @stripe_token
+        email: @params[:stripeEmail],
+        source: @params[:stripeToken]
         })
     else
       @customer = Stripe::Customer.retrieve(
