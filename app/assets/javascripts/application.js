@@ -14,12 +14,27 @@
 //= require Chart.bundle
 //= require jquery
 //= require jquery_ujs
-//= require assets/static_page/js/main
 //= require assets/dashboard/js/sb-admin-2
+//= require assets/static_page/js/main
 //= require rails-ujs
 //= require activestorage
 //= require_tree .
 
+
+// SCROLL
+
+$(function () {
+	$(document).scroll(function () {
+		var $nav = $(".fixed-top");
+		var $link = $(".nav-link");
+		var $logo = $(".site-logo");
+		$nav.toggleClass('scrolled', $(this).scrollTop() > $("#home-section").height());
+		$link.toggleClass('scrolled', $(this).scrollTop() > $("#home-section").height());
+		$logo.toggleClass('scrolled', $(this).scrollTop() > $("#home-section").height());
+	});
+});
+
+// SIDE BAR DASHBOARD
 
 $(document).ready(function() {
 	$('.table').DataTable();

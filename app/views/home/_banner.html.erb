@@ -2,24 +2,29 @@
 	<div class="container">
 		<div class="row align-items-center justify-content-center">
 			<div class="col-md-6 mt-lg-5 text-center">
-				<h1 class="banner-title"><a href="" class="typewrite text-white" data-period="2000" data-type='[ "Le gaspillage", "Ça te parle ?", "On a la solution !", "Quanttine" ]'>
-					<span class="wrap"></span>
-				</a></h1>
+				<h1 class="banner-title">
+					<a href="" class="typewrite text-white" data-period="2000" data-type='[ "Le gaspillage...", "...alimentaire", "Ça vous parle ?", "On a la solution !"]'>
+						<span class="wrap"></span>
+					</a>
+				</h1>
 				<p class="mb-5 banner-text">Chaque année, les cantines scolaires françaises jettent 150 000 tonnes d'aliments à la poubelle. Ça vous fait grincer des dents ? Nous aussi.</p>
 				<div>
 					<% unless user_signed_in? || admin_signed_in? %>
-					
+
 					<%= link_to 'Côté Élève', new_user_session_path, class: "btn btn-primary btn-lg mr-2 mb-2 banner-button", 'data-toggle' => "modal", 'data-target' => "#modalLogin" %>
 					<%= link_to 'Côté École', new_admin_session_path, class: "btn btn-primary btn-lg mr-2 mb-2 banner-button", 'data-toggle' => "modal", 'data-target' => "#modalAdmin" %>
 					<% end %>
 				</div>
 			</div>
-
 		</div>
 	</div>
 	<%= render 'profiles/sessions/new' %>
 	<%= render 'admins/sessions/new' %>
 </div>
+
+<section id="section05" class="demo">
+	<a href="#value-proposition"><span></span></a>
+</section>
 
 
 
