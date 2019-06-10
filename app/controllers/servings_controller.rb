@@ -4,11 +4,11 @@ class ServingsController < ApplicationController
   end
 
   def new
-    @school_meals = SchoolMeal.where(date: Date.tomorrow).order("created_at ASC")
+    @school_meals = SchoolMeal.where(date: Date.tomorrow)
   end
 
   def create
-    @food_supply = FoodSupply.find_by(name: params[:food_name])
+    @food_supply = FoodSupply.find_by(name: params[:food_supply])
 
     if SchoolMeal.find_by(date: params[:date], school_id: current_admin.school_id) == nil
       @school_meal = SchoolMeal.create!(date: params[:date], school_id: current_admin.school_id)
@@ -16,9 +16,9 @@ class ServingsController < ApplicationController
       @school_meal = SchoolMeal.find_by(date: params[:date], school_id: current_admin.school_id)
     end
 
-    @serving = Serving.create!(meal_category: params[:meal_category], school_meal_id: @school_meal.id, food_supply_id: @food_supply.id)
-    
-    if @serving.save
+    @food_serving = Serving.create!(meal_category: params[:meal_category], school_meal_id: @school_meal.id, food_supply_id: @food_supply.id)
+
+    if @food_serving.save
       redirect_to new_admin_serving_path(current_admin.id)
       flash[:success] = "Aliment ajouté"
     else
