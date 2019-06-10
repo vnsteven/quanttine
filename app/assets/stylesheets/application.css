@@ -64,18 +64,32 @@ html {
 /* COLORED NAVBAR */
 
 .colored-header {
-  background-color: #4DE377;
+  background-color: transparent;
   height: 92px;
   display: flex;
-  align-items: center;
+  justify-content: space-around;
+  box-shadow: 4px 4px 10px #C0C0C0;
+}
+
+.colored-header a{
+  color: #6ed26e !important;
+  margin-right: 5px; 
 }
 
 .nav-title {
   font-size: 1.9em;
 }
 
+.co-nav-item {
+  font-size: 1.4em;
+}
+
 .navbar-toggler {
   color: white;
+}
+
+#quant1{
+  color: #5D5D5D !important;
 }
 
 /* BUTTON */
