@@ -24,6 +24,11 @@
 									<% end %>
 								</div>
 							</div>
+						</div>						
+						<div class="card shadow mb-4">
+							<div class="card-body">
+								<%= link_to "Supprimer le menu", admin_school_meal_path(current_admin, school_meal), class: "btn btn-danger form-control text-white", method: :delete, data: {confirm: "Are you sure?"}  %>
+							</div>
 						</div>
 					</div>
 					<div class="col-lg-6">
