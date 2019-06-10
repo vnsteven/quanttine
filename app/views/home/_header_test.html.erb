@@ -1,0 +1,43 @@
+<nav class="navbar navbar-expand-lg navbar-dark navbar-inner fixed-top">
+  <a class="navbar-brand" href="/"><img id="logo" src="http://www.icone-png.com/png/12/12497.png">
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarColor01">
+    <ul class="navbar-nav ml-auto">
+      <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
+        <% if user_signed_in? || admin_signed_in? %>
+        <% if current_admin %>
+        <li class="nav-item">
+          <%= link_to "Dashboard", admin_path(current_admin.id), :class => "nav-link btn btn-outline-primary nav-link-home" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Se déconnecter", destroy_admin_session_path, class: "nav-link nav-link-home", :method => :delete %>
+        </li>
+        <% elsif current_user %>
+        <li class="nav-item">
+          <%= link_to "Profil",  user_profile_path(current_user.id,current_user.profile.id), :class => "nav-link btn btn-outline-primary nav-link-home" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Se déconnecter", destroy_user_session_path, class: "nav-link nav-link-home", :method => :delete %>
+        </li>
+        <% end %>
+        <% else %>
+        <li class="nav-item">
+          <%= link_to "Créer un compte", new_user_registration_path, class: "nav-link btn btn-outline-primary nav-link-home", 'data-toggle' => "modal", 'data-target' => "#modalSignup" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to 'Élève', new_user_session_path, class: "nav-link nav-link-home", 'data-toggle' => "modal", 'data-target' => "#modalLogin" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to 'Admin', new_admin_session_path, class: "nav-link nav-link-home", 'data-toggle' => "modal", 'data-target' => "#modalAdmin" %>
+        </li>
+        <% end %>
+
+      </ul>
+
+    </ul>
+  </div>
+</nav>
