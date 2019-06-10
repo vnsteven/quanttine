@@ -1,0 +1,21 @@
+<div class="payment-card">
+    <%= form_tag yearly_payments_path do %>
+    <h3 class="payment-title">Vous avez choisi le payement annuel :</h3>
+      <article>
+        <% if flash[:error].present? %>
+          <div id="error_explanation">
+            <p><%= flash[:error] %></p>
+          </div>
+        <% end %>
+        <label class="amount">
+          <span>Montant total : <%= @amount %> €</span>
+        </label>
+      </article>
+
+      <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+              data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+              data-description="S'abonner annuellement à Quanttine"
+              data-amount="<%= @amount * 100 %>"
+              data-locale="auto"></script>
+    <% end %>
+</div>

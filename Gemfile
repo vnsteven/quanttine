@@ -13,6 +13,8 @@ gem "chartkick"
 gem 'groupdate'
 gem 'jquery-datatables-rails', '~> 3.4.0'
 
+# Combine 'pry' with 'byebug'. Adds 'step', 'next', 'finish', 'continue' and 'break' commands to control execution.
+gem 'pry-byebug', '~> 3.7'
 # rQRCode is a library for encoding QR Codes. The simple interface allows you to create QR Code data structures ready to be displayed in the way you choose.
 gem 'rqrcode', '~> 0.10.1'
 # Stripe is the easiest way to accept payments online. See https://stripe.com for details.

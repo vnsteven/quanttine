@@ -56,6 +56,11 @@ html {
   color: #525255 !important;
 }
 
+.title-root:hover {
+  color: blue !important;
+  text-decoration: none;
+}
+
 /* COLORED NAVBAR */
 
 .colored-header {
@@ -136,10 +141,23 @@ html {
   }
 }
 
-/* SHOW USER */
+/* EDIT USER */
 
-.show-user {
-	background: url(carrot.jpg);
+.profile-edit {
+  height: 90em;
+}
+
+.edit-pictures {
+  display: flex;
+  justify-content: space-around;
+  border-bottom: 1px solid #afafaf;
+  padding-bottom: 20px;
+}
+
+.choice-title {
+  background-image: radial-gradient(circle at bottom right, #D1EED1, #27D16C 60%) !important;
+  font-weight: bold;
+  color: white;
 }
 
 .show-user ul li {
@@ -151,8 +169,36 @@ html {
 	min-width: 15em;
   height: 44.6em;
 	margin: auto;
-  border: solid 2px #B0B0B0;
   border-radius: 8px;
+  text-align: center;
+}
+
+.big-card:hover {
+  transition-duration: 1000ms;
+  box-shadow: 0 0 14px #8E8E8E;
+
+}
+
+.big-card {
+  transition-duration: 1000ms;
+  border: 1px solid #afafaf;
+  box-shadow: 0 0 10px #cdcdcd;
+}
+
+.user-photo {
+  height: 200px;
+  display: block;
+}
+
+.avatar{
+  border-radius: 50%;
+}
+
+.icon1{
+  padding: 10px;
+  background: #6ed26e;
+  color: white;
+  min-width: 50px;
   text-align: center;
 }
 
@@ -163,36 +209,48 @@ html {
   text-align: left;
 }
 
-.choice-title {
-  color: #393939;
-}
-
 #envoyer:hover {
-  background-color: #ea484e;
-  color: white;
+  border: 1.2px solid #78e478;
 }
 
 .send {
- margin-left: 6em;
+ margin-left: 6em; 
+}
+
+.send1:hover {
+  border: 1px solid #6ed26e !important;
+}
+
+.end-button{
+  display: flex;
+  justify-content: flex-end;  
+}
+
+.unhappy {
+  margin-top: 5px;
+  margin-right: 8px;
 }
 
 .card-body a {
   color: #4DE377;
 }
 
+.card-body1{
+  border-bottom: 1px solid #afafaf;
+  width: 100%;
+  margin-left: 0px;
+}
+
 .card-body a:hover {
   text-decoration: underline;
 }
 
-.space {
-	height: 10em;
+.card-link {
+margin-left: 30px;
 }
 
-.user-photo {
-	height: 200px;
-	width: 100%;
-	display: block;
-	border: 1px solid #D9D9D9;
+.space {
+	height: 10em;
 }
 
 .content {
@@ -200,7 +258,18 @@ html {
 	text-align: center;
 }
 
+.edit-title{ 
+  color: white;
+  background-image: radial-gradient(circle at bottom right, #333a4d, #586689) !important;
+}
+
+
+
 /* FOOTER */
+
+.site-footer {
+ padding: -10px !important;
+}
 
 .footer-distributed{
   position: absolute;
@@ -451,7 +520,7 @@ margin: auto;
   border: none;
   width: 21rem;
   min-width: 19rem;
-  height: 27em;
+  height: 29em;
   text-align: center;
   transition-duration: 0.5s;
 }
@@ -464,8 +533,14 @@ margin: auto;
   box-shadow: 6px 6px 6px #919191;
   border: solid 1px #F7F7F7;
   width: 22rem;
-  height: 28em;
+  height: 30em;
   transition-duration: 0.5s;
+}
+
+.text1{
+  min-width: 15em;
+  max-width: 15em;
+  margin: auto;
 }
 
 .photo-card {
@@ -480,9 +555,14 @@ margin: auto;
   /*FORGOT PASSWORD ITEMS*/
 
 .forget-password-image{
-   background-image: url(/assets/carrot.jpg);
+  background-image: url(carrot.jpg);
+  height: 27em;
+  width: 24em;
 }
 
+.choice1 {
+  margin-right: 20px;
+}
 
 /* EDIT FORM ADMIN */
 .mini-navbar{
@@ -491,15 +571,16 @@ margin: auto;
 /*  background-image: linear-gradient(to right, #333a4d 60%, #3c579b) !important;
 */  }
 
-#btn-edit{
+#btn-edit1{
   background-color: #586689 !important;
+  color: white;
   border: transparent;
 }
 
-#btn-edit:hover {
+#btn-edit1:hover {
  color: white;
 border: none !important;
-background-color: #37476b !important;
+background-color: #586689 !important;
 }
 
 /* Style the input container */
@@ -530,4 +611,33 @@ border-bottom-left-radius: 0px !important;
 
 .form-inputs{
   box-sizing: border-box;
+}
+
+/* QR CODE */
+#qr-code {
+  width: 2em;
+  height: 2em;
+}
+
+.frame {
+  border: black 3px solid;
+  width: 70em;
+  height: 30em;
+}
+
+/* PAYMENTS STRIPE PAGES */
+.payment-card {
+  width: 25%;
+  margin: auto;
+  margin-top: 20em;
+  border: 1px solid #B2AEAE;
+  text-align: center;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+.payment-title {
+  border-bottom: 1px solid #B2AEAE;
+  font-weight: bold;
+  color: #1AD01A;
 }

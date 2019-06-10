@@ -34,11 +34,13 @@ $(function () {
 	});
 });
 
-// SIDE BAR DASHBOARD
+// TABLE
 
 $(document).ready(function() {
-	$('.table').DataTable();
+	$('.table-paging').DataTable();
 } );
+
+// LANDING PAGE TYPING
 
 var TxtType = function(el, toRotate, period) {
 	this.toRotate = toRotate;

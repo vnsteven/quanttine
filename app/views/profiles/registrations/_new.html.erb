@@ -14,30 +14,45 @@
 
           <div class="field form-group">
             <%= f.label :first_name %><br />
-            <%= f.text_field :first_name, class: "form-control", autofocus: true, autocomplete: "first_name", placeholder: "" %>
+            <div class="input-container">
+              <i class="fas fa-user icon1"></i>
+            <%= f.text_field :first_name, class: "form-control input-field writing", autofocus: true, autocomplete: "first_name", placeholder: "" %>
+          </div>
           </div>  
 
           <div class="field form-group">
             <%= f.label :last_name %><br />
-            <%= f.text_field :last_name, class: "form-control", autocomplete: "last_name", placeholder: ""%>
+            <div class="input-container">
+              <i class="fas fa-user icon1"></i>
+            <%= f.text_field :last_name, class: "form-control input-field writing", autocomplete: "last_name", placeholder: ""%>
+          </div>
           </div>
 
           <div class="field form-group">
             <%= f.label :email %><br />
-            <%= f.email_field :email, class: "form-control", autocomplete: "email", placeholder: "" %>
+            <div class="input-container">
+            <i class="fas fa-at icon1"></i>
+            <%= f.email_field :email, class: "form-control input-field writing", autocomplete: "email", placeholder: "" %>
+          </div>
           </div>          
 
           <div class="field form-group">
             <%= f.label :password %>
+            <div class="input-container">
+              <i class="fas fa-lock icon1"></i>
             <% if @minimum_password_length %>
             <em>(<%= @minimum_password_length %> characters minimum)</em>
             <% end %><br />
-            <%= f.password_field :password, class: "form-control", autocomplete: "new-password" %>
+            <%= f.password_field :password, class: "form-control input-field writing", autocomplete: "new-password" %>
+          </div>
           </div>
 
           <div class="field form-group">
             <%= f.label :password_confirmation %><br />
-            <%= f.password_field :password_confirmation, class: "form-control", autocomplete: "new-password" %>
+            <div class="input-container">
+              <i class="fas fa-lock icon1"></i>
+            <%= f.password_field :password_confirmation, class: "form-control input-field writing", autocomplete: "new-password" %>
+          </div>
           </div>
         </div>
       </div>

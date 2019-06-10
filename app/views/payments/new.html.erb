@@ -1,4 +1,60 @@
-<h1>Souhaitez vous payer mensuellement ou annuellement ?</h1>
-<%= link_to "annuellement", new_charge_payment_path(amount: 600) %>
-<%= link_to "mensuellement", new_subscription_payment_path(amount: 50) %>
-<h2></h2>
+<head>
+	<meta charset="utf-8">
+	<link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">	
+	<%= stylesheet_link_tag    'application' %>
+	<%= javascript_include_tag 'application' %>
+</head>
+
+<body class="bg-gradient-primary forget-password">
+	<div class="container">
+		<div class="row justify-content-center">
+
+			<div class="col-xl-10 col-lg-12 col-md-9">
+
+				<div class="card o-hidden border-0 shadow-lg my-5">
+					<div class="card-body p-0">
+						<!-- Nested Row within Card Body -->
+						<div class="row">
+							<div class="col-lg-6 d-none d-lg-block forget-password-image"></div>
+							<div class="col-lg-6">
+								<div class="p-5">
+									<div class="text-center">
+																			
+
+									<h1><% if current_admin.school.active == false %></h1>
+									<h1>Vous n'êtes pas encore abonné à Quanttine !</h1>  <br/>
+									<h6> Pour vous inscrire, choisissez votre abonnement :</h6> <br/> <BR/>
+									<%= link_to "Annuel", new_yearly_payment_path, class:"btn btn-outline-primary choice1" %>
+									<%= link_to "Mensuel", new_monthly_payment_path, class:"btn btn-outline-primary" %>
+									<% end %>
+
+									<% if current_admin.school.active == true && current_admin.school.stripe_plan_id == 'plan_FE0oYwqfIjoLUc' %>
+									<h1>Vous avez souscrit à un abonnement annuel. Pour vous désabonnez, cliquez ici :</h1>
+									<%= button_to "Se désabonner", yearly_payment_path(current_admin.school.stripe_plan_id),
+									 controller: :yearly_payments, action: :update, method: :patch %>
+									<% elsif current_admin.school.active == true && current_admin.school.stripe_plan_id == 'plan_FE0p7PlgEgQI9W' %>
+									<h1>Vous avez souscrit à un abonnement mensuel. Pour vous désabonnez, cliquez ici :</h1>
+									<%= button_to "Se désabonner", monthly_payment_path(current_admin.school.stripe_plan_id),
+									 controller: :monthly_payments, action: :update, method: :patch %>
+									<% end %>
+						
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+	<!-- Bootstrap core JavaScript-->
+	<script src="vendor/jquery/jquery.min.js"></script>
+	<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+	<!-- Core plugin JavaScript-->
+	<script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+	<!-- Custom scripts for all pages-->
+	<script src="js/sb-admin-2.min.js"></script>
+
+</body>

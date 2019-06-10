@@ -18,6 +18,6 @@ Rails.application.routes.draw do
   end
 
   resources :payments, only: [:new]
-  resources :charge_payments, only: [:new, :create]
-  resources :subscription_payments, only: [:new, :create]
+  resources :monthly_payments, only: [:new, :create, :update]
+  resources :yearly_payments, only: [:new, :create, :update]
 end
