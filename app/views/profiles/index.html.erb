@@ -25,7 +25,7 @@
               </thead>
               <tbody>
                 <% @profile.each do |profile| %>
-                <% if is_school_of_admin(profile) %>
+                <% if profile.school == current_admin.school %>
                 <tr>
                   <td><%= profile.user.first_name %></td>
                   <td><%= profile.user.last_name %></td>

@@ -22,6 +22,15 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Alert */
+
+.alert {
+  position: fixed;
+  top: 60px;
+  right: 20px;
+  width: 20%;
+  z-index:9999; 
+}
 
 /* MODAL */
 
@@ -164,7 +173,7 @@ html {
 	max-width: 40em;
 	min-width: 15em;
   height: 44.6em;
-	margin: auto;
+  margin: auto;
   border-radius: 8px;
   text-align: center;
 }
@@ -242,7 +251,7 @@ html {
 }
 
 .card-link {
-margin-left: 30px;
+  margin-left: 30px;
 }
 
 .space {
@@ -539,14 +548,14 @@ margin-left: 30px;
   }
 }
 
-  .contact-us-submit{
-    background-color: #33DE79;
-    color: white;
-    border-color: white;
-    width: 7em;
-    height: 2em;
-    border-radius: 10px;
-  }
+.contact-us-submit{
+  background-color: #33DE79;
+  color: white;
+  border-color: white;
+  width: 7em;
+  height: 2em;
+  border-radius: 10px;
+}
 
 /* MENU OF THE DAY - FORM */
 
@@ -639,8 +648,8 @@ margin-left: 30px;
 
 #btn-edit1:hover {
  color: white;
-border: none !important;
-background-color: #586689 !important;
+ border: none !important;
+ background-color: #586689 !important;
 }
 
 /* Style the input container */

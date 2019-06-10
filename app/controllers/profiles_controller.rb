@@ -16,7 +16,6 @@ class ProfilesController < ApplicationController
   def edit
     @preferences = Preference.all
     @schools = School.all
-    @qr = QrCodeService.new(@profile.id)
   end
 
   def update

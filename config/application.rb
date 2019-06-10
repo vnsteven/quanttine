@@ -13,6 +13,8 @@ module Quanttine
     config.paths['app/views'] << "app/views/devise"
     config.load_defaults 5.2
     config.i18n.default_locale = :fr
+
+    ActiveStorage::Engine.config.active_storage.content_types_to_serve_as_binary.delete('image/svg+xml')
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded after loading
