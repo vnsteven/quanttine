@@ -20,10 +20,10 @@
 							<tbody>
 								<% @quantities.each do |quantity| %>
 								<% if is_school_of_admin(quantity) %>
-								<tr>					
+								<tr id="quantity<%= quantity.food_supply.id %>">					
 									<td><%= quantity.food_supply.name %></td>
 									<td><%= quantity.quantity %></td>
-									<td><%= link_to "", admin_food_supply_path(current_admin, quantity.food_supply.id), method: :delete, class: "fas fa-trash-alt text-secondary"%></td>
+									<td><%= link_to "", admin_food_supply_path(current_admin, quantity.food_supply.id), method: :delete, remote: true, class: "fas fa-trash-alt text-secondary"%></td>
 								</tr>
 								<% end %>
 								<% end %>

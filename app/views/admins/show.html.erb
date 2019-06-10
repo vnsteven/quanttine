@@ -1,4 +1,3 @@
-<% if current_admin.school.active %>
 <div id="wrapper">
 	<%= render 'side_bar' %>
 	<div id="content-wrapper" class="d-flex flex-column">
@@ -7,6 +6,3 @@
 		<%= render 'content' %>
 	</div>
 </div>
-<% else %>
-<%= render 'unactive' %>
-<% end %>
