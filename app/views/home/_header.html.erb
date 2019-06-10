@@ -27,25 +27,24 @@
 							<%= link_to "Se déconnecter", destroy_user_session_path, class: "nav-link", :method => :delete %>
 						</li>
 						<% end %>
-					</li>
+						<% else %>
+						<li class="nav-item">
+							<%= link_to "Créer un compte", new_user_registration_path, class: "nav-link btn btn-outline-primary", 'data-toggle' => "modal", 'data-target' => "#modalSignup" %>
+						</li>
+						<li class="nav-item">
+							<%= link_to 'Élève', new_user_session_path, class: "nav-link", 'data-toggle' => "modal", 'data-target' => "#modalLogin" %>
+						</li>
+						<li class="nav-item">
+							<%= link_to 'Admin', new_admin_session_path, class: "nav-link", 'data-toggle' => "modal", 'data-target' => "#modalAdmin" %>
+						</li>
+						<% end %>
 
-				</li>
-				<% else %>
-				<li class="nav-item">
-					<%= link_to "Créer un compte", new_user_registration_path, class: "nav-link btn btn-outline-primary", 'data-toggle' => "modal", 'data-target' => "#modalSignup" %>
-				</li>
-				<li class="nav-item">
-					<%= link_to 'Élève', new_user_session_path, class: "nav-link", 'data-toggle' => "modal", 'data-target' => "#modalLogin" %>
-				</li>
-				<li class="nav-item">
-					<%= link_to 'Admin', new_admin_session_path, class: "nav-link", 'data-toggle' => "modal", 'data-target' => "#modalAdmin" %>
-				</li>
-				<% end %>
-			</ul>
-		</nav>
+					</ul>
+				</nav>
+			</div>
+		</div>
 	</div>
-</div>
-
+<%= render 'partials/flash' %>
 </header>
 
 <%= render 'profiles/registrations/new' %>

@@ -10,8 +10,8 @@
 * files in this directory. Styles in this file should be added after the last require_* statement.
 * It is generally better to create a new file per style scope.
 *
-*= require assets/dashboard/css/sb-admin-2
 *= require assets/static_page/css/style
+*= require assets/dashboard/css/sb-admin-2
 *= require_tree .
 *= require_self
 */
@@ -483,11 +483,6 @@ margin: auto;
    background-image: url(/assets/carrot.jpg);
 }
 
-  /*COMMERCIAL TEXT COLOR*/
-
-.sub-title-home{
-  color: #78C2AD;
-}  
 
 /* EDIT FORM ADMIN */
 .mini-navbar{
