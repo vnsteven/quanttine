@@ -1,98 +1,60 @@
 <head>
-
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  <meta name="author" content="">
-
-  <title>SB Admin 2 - Forgot Password</title>
-
-  <!-- Custom fonts for this template-->
-  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-  <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
-
-  <!-- Custom styles for this template-->
-  <link href="css/sb-admin-2.min.css" rel="stylesheet">
-	<title>Quanttine</title>
-	<%= csrf_meta_tags %>
-	<%= csp_meta_tag %>
-
-	<!-- Bootstrap CDN -->
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.10.18/datatables.min.css"/>
-
-	<!-- Font Awesome -->
-	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
-
-	<link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
-	
-
+	<meta charset="utf-8">
+	<link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">	
 	<%= stylesheet_link_tag    'application' %>
 	<%= javascript_include_tag 'application' %>
 </head>
+
 <body class="bg-gradient-primary forget-password">
+	<div class="container">
+		<div class="row justify-content-center">
 
+			<div class="col-xl-10 col-lg-12 col-md-9">
 
+				<div class="card o-hidden border-0 shadow-lg my-5">
+					<div class="card-body p-0">
+						<!-- Nested Row within Card Body -->
+						<div class="row">
+							<div class="col-lg-6 d-none d-lg-block forget-password-image"></div>
+							<div class="col-lg-6">
+								<div class="p-5">
+									<div class="text-center">
+																			
 
+									<h1><% if current_admin.school.active == false %></h1>
+									<h1>Vous n'êtes pas encore abonné à Quanttine !</h1>  <br/>
+									<h6> Pour vous inscrire, choisissez votre abonnement :</h6> <br/> <BR/>
+									<%= link_to "Annuel", new_yearly_payment_path, class:"btn btn-outline-primary choice1" %>
+									<%= link_to "Mensuel", new_monthly_payment_path, class:"btn btn-outline-primary" %>
+									<% end %>
 
+									<% if current_admin.school.active == true && current_admin.school.stripe_plan_id == 'plan_FE0oYwqfIjoLUc' %>
+									<h1>Vous avez souscrit à un abonnement annuel. Pour vous désabonnez, cliquez ici :</h1>
+									<%= button_to "Se désabonner", yearly_payment_path(current_admin.school.stripe_plan_id),
+									 controller: :yearly_payments, action: :update, method: :patch %>
+									<% elsif current_admin.school.active == true && current_admin.school.stripe_plan_id == 'plan_FE0p7PlgEgQI9W' %>
+									<h1>Vous avez souscrit à un abonnement mensuel. Pour vous désabonnez, cliquez ici :</h1>
+									<%= button_to "Se désabonner", monthly_payment_path(current_admin.school.stripe_plan_id),
+									 controller: :monthly_payments, action: :update, method: :patch %>
+									<% end %>
+						
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
 
+			</div>
+		</div>
+	</div>
+	<!-- Bootstrap core JavaScript-->
+	<script src="vendor/jquery/jquery.min.js"></script>
+	<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-  <div class="container">
+	<!-- Core plugin JavaScript-->
+	<script src="vendor/jquery-easing/jquery.easing.min.js"></script>
 
-    <!-- Outer Row -->
-    <div class="row justify-content-center">
-
-      <div class="col-xl-10 col-lg-12 col-md-9">
-
-        <div class="card o-hidden border-0 shadow-lg my-5">
-          <div class="card-body p-0">
-            <!-- Nested Row within Card Body -->
-            <div class="row">
-              <div class="col-lg-6 d-none d-lg-block forget-password-image"></div>
-              <div class="col-lg-6">
-                <div class="p-5">
-                  <div class="text-center">
-                    
-
-<h1><% if current_admin.school.active == false %></h1>
-<h1>Vous n'êtes pas encore abonné à Quanttine !</h1>  <br/>
-<h6> Pour vous inscrire, choisissez votre abonnement :</h6> <br/> <BR/>
-<%= link_to "Annuel", new_yearly_payment_path, class:"btn btn-outline-primary choice1" %>
-<%= link_to "Mensuel", new_monthly_payment_path, class:"btn btn-outline-primary" %>
-<% end %>
-
-<% if current_admin.school.active == true && current_admin.school.stripe_plan_id == 'plan_FE0oYwqfIjoLUc' %>
-<h1>Vous avez souscrit à un abonnement annuel. Pour vous désabonnez, cliquez ici :</h1>
-<%= button_to "Se désabonner", yearly_payment_path(current_admin.school.stripe_plan_id),
- controller: :yearly_payments, action: :update, method: :patch %>
-<% elsif current_admin.school.active == true && current_admin.school.stripe_plan_id == 'plan_FE0p7PlgEgQI9W' %>
-<h1>Vous avez souscrit à un abonnement mensuel. Pour vous désabonnez, cliquez ici :</h1>
-<%= button_to "Se désabonner", monthly_payment_path(current_admin.school.stripe_plan_id),
- controller: :monthly_payments, action: :update, method: :patch %>
-<% end %>
-            
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-      </div>
-
-    </div>
-
-  </div>
-
-  <!-- Bootstrap core JavaScript-->
-  <script src="vendor/jquery/jquery.min.js"></script>
-  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-  <!-- Core plugin JavaScript-->
-  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
-
-  <!-- Custom scripts for all pages-->
-  <script src="js/sb-admin-2.min.js"></script>
+	<!-- Custom scripts for all pages-->
+	<script src="js/sb-admin-2.min.js"></script>
 
 </body>
