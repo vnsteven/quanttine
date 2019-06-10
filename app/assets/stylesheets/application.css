@@ -67,10 +67,14 @@
   background-image: url(banner-video.mp4);
 }
 
-/* SHOW USER */
+/* EDIT USER */
 
-.show-user {
-	background: url(carrot.jpg);
+.edit-pictures {
+  display: flex;
+  justify-content: space-around;
+}
+
+.choice-title {
 }
 
 .show-user ul li {
@@ -85,6 +89,15 @@
   border: solid 2px #B0B0B0;
   border-radius: 8px;
   text-align: center;
+}
+
+.user-photo {
+  height: 200px;
+  display: block;
+}
+
+.avatar{
+  border-radius: 50%;
 }
 
 .choice {
@@ -111,19 +124,18 @@
   color: #FC0440;
 }
 
+.card-body1{
+  border-bottom: 1px solid #afafaf;
+  width: 100%;
+  margin-left: 0px;
+}
+
 .card-body a:hover {
   text-decoration: underline;
 }
 
 .space {
 	height: 10em;
-}
-
-.user-photo {
-	height: 200px;
-	width: 100%;
-	display: block;
-	border: 1px solid #D9D9D9;
 }
 
 .content {
