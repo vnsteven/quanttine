@@ -571,15 +571,16 @@ margin: auto;
 /*  background-image: linear-gradient(to right, #333a4d 60%, #3c579b) !important;
 */  }
 
-#btn-edit{
+#btn-edit1{
   background-color: #586689 !important;
+  color: white;
   border: transparent;
 }
 
-#btn-edit:hover {
+#btn-edit1:hover {
  color: white;
 border: none !important;
-background-color: #37476b !important;
+background-color: #586689 !important;
 }
 
 /* Style the input container */
@@ -622,4 +623,21 @@ border-bottom-left-radius: 0px !important;
   border: black 3px solid;
   width: 70em;
   height: 30em;
+}
+
+/* PAYMENTS STRIPE PAGES */
+.payment-card {
+  width: 25%;
+  margin: auto;
+  margin-top: 20em;
+  border: 1px solid #B2AEAE;
+  text-align: center;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+.payment-title {
+  border-bottom: 1px solid #B2AEAE;
+  font-weight: bold;
+  color: #1AD01A;
 }
