@@ -11,13 +11,12 @@
   flex-flow: row wrap;
   justify-content: space-around;
   height: 85vh;
+  width: 90vw;
 }
 
 .starter-choices, .main-course-choices, .dessert-choices{
   max-width: 30%;
   margin: 10px;
-
-
 }
 
 .meal-detail{
