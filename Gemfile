@@ -13,6 +13,8 @@ gem "chartkick"
 gem 'groupdate'
 gem 'jquery-datatables-rails', '~> 3.4.0'
 
+# Get an SVG into your view and then style it with CSS.
+gem 'inline_svg', '~> 1.4'
 # Combine 'pry' with 'byebug'. Adds 'step', 'next', 'finish', 'continue' and 'break' commands to control execution.
 gem 'pry-byebug', '~> 3.7'
 # rQRCode is a library for encoding QR Codes. The simple interface allows you to create QR Code data structures ready to be displayed in the way you choose.

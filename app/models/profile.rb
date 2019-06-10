@@ -7,6 +7,7 @@ class Profile < ApplicationRecord
   has_one_attached :avatar
   after_create :attach_qr_code
   before_destroy :delete_attached_qr_code
+  has_one_attached :qr_code
 
   def resized_avatar
     return self.avatar.variant(resize: '200x200!').processed
@@ -15,8 +16,7 @@ class Profile < ApplicationRecord
   private
 
   def attach_qr_code
-    QrCodeService.new(self.id).save_as_svg
-    Profile.update(qr_code: "qr_codes/#{self.id}.svg")
+    QrCodeService.new(self).perform
   end
 
   def delete_attached_qr_code
