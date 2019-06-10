@@ -15,47 +15,48 @@
 						<%= @user.email %>
 					</div>
 				</div> <br/> <br/>
-
-				<div class="edit-pictures">
-					<div class="user-photo" >
-						<% if @profile.avatar.attached? %>
-						<%= image_tag @profile.resized_avatar, alt: 'avatar', class: "avatar" %>
+			<div class="edit-pictures">
+				<div class="user-photo" >
+					<% if @profile.avatar.attached? %>
+					<%= image_tag @profile.resized_avatar, alt: 'avatar', class: "avatar" %>
 						<%= form_tag user_avatars_path, multipart: true do %>
 						<%= file_field_tag :avatar %> <br>
 						<% end %>
-						<% else %>
-						<p>=== Il n'y a pas encore d'avatar lié à cet utilisateur ===</p>
-						<%= form_tag user_avatars_path, multipart: true do %>
-						<%= file_field_tag :avatar %> <br>
-						<%= submit_tag "ajouter une photo de profil" %>
-						<% end %>
-						<% end %>
-					</div>
-					<div >
-						<%= image_tag @profile.qr_code %>
-					</div>
-					<br/>
-					<div>
-						<h5 class="choice-title1">Choisis tes préférences alimentaires ci-dessous: elles seront transmises à ta cantine.</h5>
-					</div>
-					<br/>
-					<div class="choice">
-						<%= form_for [@user, @profile] do |f| %>
-						<%= f.collection_check_boxes :preference_ids, @preferences.order(:name), :id, :name do |b| %>
-						<%= b.check_box %> <%= b.label %> <br>
-						<% end %>
-						<%= f.submit "Envoyer", id:"envoyer", class:"btn btn-primary send" %>
-						<% end %>
-					</div>
-					<br/>
-					<div class="card-body">
-						<%= link_to 'Editer', edit_user_registration_path, 'data-toggle' => "modal", 'data-target' => "#modalEdit" %>
-						<a href="/users/edit" class="card-link">Choisir mon menu</a>
-					</div>
+					<% else %>
+					<p>=== Il n'y a pas encore d'avatar lié à cet utilisateur ===</p>
+					<%= form_tag user_avatars_path, multipart: true do %>
+					<%= file_field_tag :avatar %> <br>
+					<%= submit_tag "ajouter une photo de profil" %>
+					<% end %>
+					<% end %>
+				</div>
+				<div >
+					<%= image_tag @profile.qr_code %>
 				</div>
 			</div>
-			<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+					<br/>
+				<div>
+					<h5 class="choice-title1">Choisis tes préférences alimentaires ci-dessous: elles seront transmises à ta cantine.</h5>
+				</div>
+				<br/>
+				<div class="choice">
+					<%= form_for [@user, @profile] do |f| %>
+					<%= f.collection_check_boxes :preference_ids, @preferences.order(:name), :id, :name do |b| %>
+					<%= b.check_box %> <%= b.label %> <br>
+					<% end %>
+					<%= f.submit "Envoyer", id:"envoyer", class:"btn btn-primary send" %>
+					<% end %>
+				</div>
+				<br/>
+				<div class="card-body">
+          		<%= link_to 'Editer', edit_user_registration_path, 'data-toggle' => "modal", 'data-target' => "#modalEdit" %>
+
+				<a href="/users/edit" class="card-link">Choisir mon menu</a>
+				</div>
+			</div>
 		</div>
-		<%= render 'profiles/registrations/edit' %>
-		<%= render 'home/footer' %>
-	</body>
+		<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+	</div>
+	<%= render 'profiles/registrations/edit' %>
+	<%= render 'home/footer' %>
+</body>
