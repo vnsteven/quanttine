@@ -18,7 +18,7 @@
 									<br />
 									<%= select_tag :meal_category, options_for_select(serving_list), prompt: "Catégorie", class: "form-control" %>
 									<br />
-									<%= select_tag :food_name, options_for_select(food_supply_list), prompt: "Aliment", class: "form-control" %>
+									<%= select_tag :food_supply, options_for_select(food_supply_list), prompt: "Aliment", class: "form-control" %>
 									<br />
 									<%= submit_tag "Ajouter", class: "btn btn-primary form-control" %>
 									<% end %>
