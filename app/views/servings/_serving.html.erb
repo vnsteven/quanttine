@@ -1,0 +1,5 @@
+<tr id="menu<%= @food_serving.id %>">					
+	<td><%= @food_serving.food_supply.name %></td>
+	<td><%= @food_serving.meal_category %></td>
+	<td><%= link_to "", admin_serving_path(current_admin, @food_serving), method: :delete, remote: true, class: "fas fa-trash-alt text-secondary"%></td>
+</tr>

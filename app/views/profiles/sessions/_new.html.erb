@@ -11,13 +11,19 @@
 
         <div class="form-inputs">
           <div class="field">
-            <%= f.email_field :email, class: "form-control", autofocus: true, autocomplete: "email", placeholder: "Email" %>
+            <div class="input-container">
+              <i class="fas fa-user icon1"></i>
+            <%= f.email_field :email, class: "form-control input-field writing", autofocus: true, autocomplete: "email", placeholder: "Email" %>
+          </div>
           </div>
 
           <br />
 
           <div class="field">
-            <%= f.password_field :password, class: "form-control", autocomplete: "current-password", placeholder: "Password" %>
+             <div class="input-container">
+              <i class="fas fa-lock icon1"></i>
+            <%= f.password_field :password, class: "form-control input-field writing", autocomplete: "current-password", placeholder: "Password" %>
+          </div>
           </div>
           
           <br />

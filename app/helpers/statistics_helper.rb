@@ -18,4 +18,31 @@ module StatisticsHelper
     prefences_count =  categories_of_preferences.map { |category| list_of_preferences.count(category) }
     hash_of_preferences = categories_of_preferences.zip(prefences_count).to_h
   end
+
+  def number_of_students
+    students = Array.new 
+    Profile.all.each do |profile| 
+      students << profile if current_admin.school == profile.school
+    end
+    return students.count
+  end
+
+  def stock_quantity
+    food_supply = Quantity.all.map { |quantity| quantity if current_admin.school == quantity.school }
+    return food_supply.count
+  end
+
+  def number_of_servings
+    meals = SchoolMeal.all.map { |meal| meal }
+    return meals.count
+  end
+
+  def is_tomorrow_menu_done?
+    tomorrow_meal = SchoolMeal.find_by(date: Date.tomorrow)
+    if tomorrow_meal == nil
+      return "A faire"
+    else
+      return "Fait"
+    end
+  end
 end

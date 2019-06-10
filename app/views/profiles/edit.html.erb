@@ -30,7 +30,7 @@
 					<% end %>
 					<% end %>
 				</div>
-				<div class="">
+				<div >
 					<%= image_tag @profile.qr_code %>
 				</div>
 			</div>
@@ -49,12 +49,14 @@
 				</div>
 				<br/>
 				<div class="card-body">
-          <%= link_to 'Edit', edit_user_registration_path, class: "btn btn-primary btn-lg mr-2 mb-2 banner-button", 'data-toggle' => "modal", 'data-target' => "#modalEdit" %>
-					<a href="/users/edit" class="card-link">Choisir mon menu</a>
+          		<%= link_to 'Editer', edit_user_registration_path, 'data-toggle' => "modal", 'data-target' => "#modalEdit" %>
+
+				<a href="/users/edit" class="card-link">Choisir mon menu</a>
 				</div>
 			</div>
 		</div>
 		<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 	</div>
+	<%= render 'profiles/registrations/edit' %>
 	<%= render 'home/footer' %>
 </body>

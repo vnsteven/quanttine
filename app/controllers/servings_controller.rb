@@ -19,8 +19,10 @@ class ServingsController < ApplicationController
     @food_serving = Serving.create!(meal_category: params[:meal_category], school_meal_id: @school_meal.id, food_supply_id: @food_supply.id)
 
     if @food_serving.save
-      redirect_to new_admin_serving_path(current_admin.id)
-      flash[:success] = "Aliment ajouté"
+      respond_to do |format|
+        format.html { redirect_to new_admin_serving_path(current_admin) }
+        format.js { }
+      end
     else
       render "new"
       flash[:error]

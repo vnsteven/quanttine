@@ -27,7 +27,7 @@ end
     email: Faker::Internet.email,
     password: "password",
     school_id: School.all.sample.id
-  )
+    )
 end
 
 10.times do
@@ -36,32 +36,27 @@ end
     last_name: Faker::Name.last_name,
     email: "#{Faker::Internet.email}",
     password: "password",
-  )
-  Profile.create!(
-    user_id: user.id,
-    school_id: School.all.sample.id
-  )
+    )
 end
 
 4.times do
-
   Preference.create!(
-  name: ["Je ne mange pas de viande", "Je ne mange pas de produits laitiers", "Je ne mange pas de porc", "Je ne mange pas de produits marins"].sample,
-  category: ["diet", "allergy"].sample
-)
+    name: ["Je ne mange pas de viande", "Je ne mange pas de produits laitiers", "Je ne mange pas de porc", "Je ne mange pas de produits marins"].sample,
+    category: ["diet", "allergy"].sample
+    )
 end
 
 20.times do
   JoinTableProfilePreference.create!(
     profile_id: Profile.all.sample.id,
     preference_id: Preference.all.sample.id
-  )
+    )
 end
 
 100.times do
   FoodSupply.create!(
     name: Faker::Food.fruits
-  )
+    )
 end
 
 200.times do
@@ -69,28 +64,52 @@ end
     quantity: rand(1..1000),
     school_id: School.all.sample.id,
     food_supply_id: FoodSupply.all.sample.id
-  )
+    )
 end
 
+i = 1
 50.times do
-  SchoolMeal.create!(
-    date: Faker::Date.forward(30),
-    school_id: School.all.sample.id
-  )
+  School.all.each do |school|
+    SchoolMeal.create!(
+      date: Date.current + i,
+      school_id: school.id
+      )
+  end
+  i += 1
 end
 
-100.times do
-  Serving.create!(
-    meal_category: rand(1..4),
-    food_supply_id: FoodSupply.all.sample.id,
-    school_meal_id: SchoolMeal.all.sample.id
-  )
+# We create servings (starter/main_course/dessert) for each schoolmeal (aka a daily menu for one school)
+SchoolMeal.all.each do |schoolmeal|
+  3.times do
+    Serving.create!(
+      meal_category: 1,
+      food_supply_id: FoodSupply.all.sample.id,
+      school_meal_id: schoolmeal.id
+      )
+    Serving.create!(
+      meal_category: 2,
+      food_supply_id: FoodSupply.all.sample.id,
+      school_meal_id: schoolmeal.id
+      )
+    Serving.create!(
+      meal_category: 3,
+      food_supply_id: FoodSupply.all.sample.id,
+      school_meal_id: schoolmeal.id
+      )
+    Serving.create!(
+      meal_category: 4,
+      food_supply_id: FoodSupply.all.sample.id,
+      school_meal_id: schoolmeal.id
+      )
+  end
 end
+
+
 
 50.times do
   UserMeal.create!(
     profile_id: Profile.all.sample.id
-  )
+    )
 end
 
 100.times do
@@ -98,12 +117,12 @@ end
     serving_size: rand(1..200),
     serving_id: Serving.all.sample.id,
     user_meal_id: UserMeal.all.sample.id
-  )
+    )
 end
 
 10.times do
   JoinTablePreferenceFood.create!(
     preference_id: Preference.all.sample.id,
     food_supply_id: FoodSupply.all.sample.id
-  )
+    )
 end

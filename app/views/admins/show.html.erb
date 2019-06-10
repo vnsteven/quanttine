@@ -2,11 +2,18 @@
 <div id="wrapper">
 	<%= render 'side_bar' %>
 	<div id="content-wrapper" class="d-flex flex-column">
-		<%= render 'top_bar' %>
+		<%= render 'admins/top_bar' %>
 		<%= render 'partials/flash' %>
-		<%= render 'content' %>
+		<div class="container-fluid">
+			<div class="d-sm-flex align-items-center justify-content-between mb-4">
+				<h1 class="h3 mb-0 text-gray-800">Tableau de bord</h1>
+			</div>
+			<hr>
+			<%= render 'statistics/cards' %>
+			<%= render 'statistics/graphics' %>
+		</div>
 	</div>
 </div>
-	<% else %>
-	<%= render 'unactive' %>
-	<% end %>
+<% else %>
+<%= render 'unactive' %>
+<% end %>

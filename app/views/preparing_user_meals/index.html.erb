@@ -9,7 +9,7 @@
 				</div>
 				<div class="card-body">
 					<div class="table-responsive">
-						<table class="table table-striped table-bordered" id="quantityTable" width="100%" cellspacing="0">
+						<table class="table table-striped table-bordered table-paging" id="quantityTable" width="100%" cellspacing="0">
 							<thead>
 								<tr>
 									<th>Prénom</th>
@@ -24,14 +24,14 @@
 							<tbody>
 								<% @preparing_user_meals.each do |preparation| %>
 								<% 	if preparation.user_meal.profile.school == current_admin.school %>
-								<tr>
+								<tr id="preparation<%= preparation.id %>">
 									<td><%= preparation.user_meal.profile.user.first_name %></td>
 									<td><%= preparation.user_meal.profile.user.last_name %></td>
 									<td><%= preparation.serving.food_supply.name %></td>
 									<td><%= preparation.serving.meal_category %></td>		
 									<td><%= preparation.user_meal.created_at.strftime("%H:%M:%S") %></td>	
 									<td><%= preparation.user_meal.created_at.strftime("%d-%m-%Y") %></td>
-									<td><%= link_to "", admin_preparing_user_meal_path(current_admin, preparation), method: :delete, class: "fas fa-trash-alt text-secondary"%></td>
+									<td><%= link_to "", admin_preparing_user_meal_path(current_admin, preparation), method: :delete, remote: true, class: "fas fa-trash-alt text-secondary"%></td>
 								</tr>
 								<% end %>
 								<% end %>
