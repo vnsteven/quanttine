@@ -125,9 +125,6 @@ GEM
     hashie (3.6.0)
     i18n (1.6.0)
       concurrent-ruby (~> 1.0)
-    inline_svg (1.4.0)
-      activesupport (>= 3.0)
-      nokogiri (>= 1.6)
     io-like (0.3.0)
     jbuilder (2.9.1)
       activesupport (>= 4.2.0)
@@ -301,7 +298,6 @@ DEPENDENCIES
   faker (~> 1.9, >= 1.9.3)
   font-awesome-rails
   groupdate
-  inline_svg (~> 1.4)
   jbuilder (~> 2.5)
   jquery-datatables-rails (~> 3.4.0)
   jquery-rails
