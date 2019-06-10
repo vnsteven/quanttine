@@ -11,8 +11,8 @@
 		  <%= image_tag "tray.jpg", class:"photo-card" %>
 		  <div class="card-body">
 		    <h5 class="card-title">Mes menus</h5>
-		    <p class="card-text text1">Some quick example text to build on the card title and make up the bulk of the card's content.</p> <br/>
-		    <a href="#" class="btn btn-primary" id="bouton-show">Go somewhere</a>
+		    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> <br/>
+		    <%= link_to "Choisir menu",  new_user_profile_user_meal_path(@user.id, @profile.id), class:"btn btn-primary", id:"bouton-show" %>
 		  </div>
 		</div>
 
