@@ -36,11 +36,12 @@ attr_accessor :customer, :subscription, :amount, :stripe_customer_id
         )
   end
 
-  def update_payment_information
+  def unsubscribe
       @school.update(
         active: true,
         stripe_customer_id: @customer.id,
-        stripe_subscription_id: @subscription.id
+        stripe_subscription_id: @subscription.id,
+        stripe_plan_id: 'plan_FE0oYwqfIjoLUc'
         )
   end
 

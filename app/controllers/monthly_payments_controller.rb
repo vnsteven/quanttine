@@ -7,13 +7,13 @@ class MonthlyPaymentsController < ApplicationController
 
   def create
     @amount = 100
-    service = StripeMonthlySubscriptionService.new(params, current_admin, @amount)
+    service = StripeMonthlySubscriptionService.new(params, @amount, current_admin)
     service.perform
   end
 
-  def delete
-    service = StripeMonthlySubscriptionService.new(params, current_admin, @amount)
-    service.delete_subscription
+  def update
+    service = StripeMonthlySubscriptionService.new(params, @amount, current_admin)
+    service.unsubscribe
   end
 
 end

@@ -14,7 +14,7 @@ attr_accessor :customer, :subscription, :amount, :stripe_customer_id
   def perform
     retrieve_customer
     create_subscription
-    update_payment_information
+    unsubscribe
   end
 
   def retrieve_customer
@@ -40,16 +40,17 @@ attr_accessor :customer, :subscription, :amount, :stripe_customer_id
       @school.update(
         active: true,
         stripe_customer_id: @customer.id,
-        stripe_subscription_id: @subscription.id
+        stripe_subscription_id: @subscription.id,
+        stripe_plan_id: 'plan_FE0p7PlgEgQI9W'
         )
   end
 
-  def delete_subscription
+  def unsubscribe
     retrieve_customer
     @customer.subscriptions.first.delete
     @school.update(
       active: false,
-      stripe_subscription_id: "cancelled susbscription : #{DateTime.now}"
+      stripe_subscription_id: "cancelled susbscription : #{DateTime.now}",
     )
   end
 

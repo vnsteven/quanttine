@@ -1,6 +1,15 @@
-<h1>Souhaitez vous payer annuellement ou mensuellement ?</h1>
-<%= link_to "annuellement", new_yearly_payment_path %>
-<%= link_to "mensuellement", new_monthly_payment_path %>
+<h1><% if current_admin.school.active == false %></h1>
+<h1>Vous n'êtes pas encore abonné à Quanttine, pour vous inscrire, choisissez votre abonnement :</h1>
+<%= link_to "abonnement annuel", new_yearly_payment_path %>
+<%= link_to "abonnement mensuel", new_monthly_payment_path %>
+<% end %>
 
-<h1>Sinon, cliquez ici pour vous désabonnez de Quanttine :</h1>
-<%= link_to "je me désabonne", 
+<% if current_admin.school.active == true && current_admin.school.stripe_plan_id == 'plan_FE0oYwqfIjoLUc' %>
+<h1>Vous avez souscrit à un abonnement annuel. Pour vous désabonnez, cliquez ici :</h1>
+<%= button_to "Se désabonner", yearly_payment_path(current_admin.school.stripe_plan_id),
+ controller: :yearly_payments, action: :update, method: :patch %>
+<% elsif current_admin.school.active == true && current_admin.school.stripe_plan_id == 'plan_FE0p7PlgEgQI9W' %>
+<h1>Vous avez souscrit à un abonnement mensuel. Pour vous désabonnez, cliquez ici :</h1>
+<%= button_to "Se désabonner", monthly_payment_path(current_admin.school.stripe_plan_id),
+ controller: :monthly_payments, action: :update, method: :patch %>
+<% end %>
