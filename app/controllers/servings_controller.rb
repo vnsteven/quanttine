@@ -10,11 +10,7 @@ class ServingsController < ApplicationController
   def create
     @food_supply = FoodSupply.find_by(name: params[:food_supply])
 
-    if SchoolMeal.find_by(date: params[:date], school_id: current_admin.school_id) == nil
-      @school_meal = SchoolMeal.create!(date: params[:date], school_id: current_admin.school_id)
-    else
-      @school_meal = SchoolMeal.find_by(date: params[:date], school_id: current_admin.school_id)
-    end
+    @school_meal = SchoolMealConditionService.new(params[:date], current_admin.school.id).perform
 
     @food_serving = Serving.create!(meal_category: params[:meal_category], school_meal_id: @school_meal.id, food_supply_id: @food_supply.id)
 
@@ -25,7 +21,7 @@ class ServingsController < ApplicationController
       end
     else
       render "new"
-      flash[:error]
+      flash[:error] = "Ça n'a pas marché"
     end
   end
   
@@ -37,26 +33,4 @@ class ServingsController < ApplicationController
       format.js { }
     end
   end
-
-  # def edit
-  #   @serving = Serving.find(params[:id])
-  # end
-
-  # def update
-  #   @serving = Serving.find(params[:id])
-  #   @food_supply = FoodSupply.find_by(name: params[:food_name])
-  #   @serving.update(food_supply_id: FoodSupply.find_by(name: params[:food_supply_id]).servings.first.id)
-  #   redirect_to admin_servings_path(current_admin)
-  # end
-
-  # private
-
-  # def serving_params
-  #   params.require(:food_supply).permit(:food_supply_id)
-  # end
-
-  # def food_supply_params
-  #   params.require(:serving).permit(:name)
-  # end
-
 end
