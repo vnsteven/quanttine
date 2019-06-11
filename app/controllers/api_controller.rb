@@ -11,6 +11,10 @@ class ApiController < ApplicationController
 
   def create
     puts params
+    puts
+    puts params['id']
+    puts params['email']
+    puts params['message']
   end
 
 end
