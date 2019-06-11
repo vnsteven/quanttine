@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   root 'home#index'
 
   devise_for :users, path: 'users'
@@ -10,7 +11,6 @@ Rails.application.routes.draw do
     end
   end
 
-
   devise_for :admins, path: 'admins'
   resources :admins, only: [:show] do
     resources :preparing_user_meals
@@ -21,7 +21,9 @@ Rails.application.routes.draw do
     resources :profiles, only: [:index]
   end
 
+  resources :api
   resources :payments, only: [:new]
   resources :monthly_payments, only: [:new, :create, :update]
   resources :yearly_payments, only: [:new, :create, :update]
+
 end
