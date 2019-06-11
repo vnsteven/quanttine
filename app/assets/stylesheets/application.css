@@ -113,6 +113,10 @@ html {
   text-decoration: none;
 }
 
+.btn-profil:hover {
+  color: white !important;
+}
+
 /* COLORED NAVBAR */
 
 .colored-header {
