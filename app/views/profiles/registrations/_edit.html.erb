@@ -17,7 +17,7 @@
             <%= f.label :first_name %><br />
             <div class="input-container">
               <i class="fas fa-user icon1"></i>
-            <%= f.text_field :first_name, class: "form-control input-field writing", autofocus: true, autocomplete: "first_name" %>
+            <%= f.text_field :first_name, class: "form-control input-field writing", autofocus: true, autocomplete: "Prénom" %>
           </div>
           </div>  
 
@@ -25,7 +25,7 @@
             <%= f.label :last_name %><br />
               <div class="input-container">
               <i class="fas fa-user icon1"></i>
-            <%= f.text_field :last_name, class: "form-control input-field writing", autofocus: true, autocomplete: "last_name" %>
+            <%= f.text_field :last_name, class: "form-control input-field writing", autofocus: true, autocomplete: "Nom" %>
           </div>
           </div>
 
@@ -33,7 +33,7 @@
             <%= f.label :email %><br />
             <div class="input-container">
               <i class="fas fa-envelope icon1"></i>
-            <%= f.email_field :email, class: "form-control input-field writing", autofocus: true, autocomplete: "email" %>
+            <%= f.email_field :email, class: "form-control input-field writing", autofocus: true, autocomplete: "Email" %>
           </div>
           </div>
 
@@ -42,7 +42,7 @@
           <% end %>
 
           <div class="field form-group">
-            <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
+            <%= f.label "Mot de passe" %> <i>(ne rien écrire si tu ne comptes pas le changer)</i><br />
             <div class="input-container">
               <i class="fas fa-lock icon1"></i>
             <%= f.password_field :password, class: "form-control input-field writing", autocomplete: "new-password" %>
@@ -54,7 +54,7 @@
           </div>
 
           <div class="field form-group">
-            <%= f.label :password_confirmation %><br />
+            <%= f.label "Confirmation du mot de passe" %><br />
             <div class="input-container">
               <i class="fas fa-lock icon1"></i>
             <%= f.password_field :password_confirmation, class: "form-control input-field writing", autocomplete: "new-password" %>
@@ -62,7 +62,7 @@
           </div>
 
           <div class="field form-group">
-            <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
+            <%= f.label "Mot de passe actuel" %> <i>(rentrez votre mot de passe actuel)</i><br />
             <div class="input-container">
               <i class="fas fa-key icon1"></i>
             <%= f.password_field :current_password, class: "form-control input-field writing", autocomplete: "current-password" %>
@@ -73,14 +73,14 @@
 
         <div class="">
           <div class="form-actions">
-            <%= f.submit "Update", class: "btn btn-outline-primary send1" %>
+            <%= f.submit "Mettre à jour", class: "btn btn-outline-primary send1" %>
           </div>
           <% end %>
 
           <hr>
           <div class="end-button">
           <p class="unhappy"> Unhappy? </p> 
-          <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "btn btn-outline-danger" %></p>
+          <%= button_to "Supprimer mon compte", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "btn btn-outline-danger" %></p>
           </div>
         </div>
 

@@ -2,7 +2,7 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h2 id="login-title">Sign up</h2>
+        <h2 id="login-title">S'inscrire</h2>
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
       </div>
 
@@ -13,13 +13,13 @@
         <div class="form-inputs">
 
           <div class="field form-group">
-            <%= f.label :first_name %><br />
+            <%= f.label :prénom %><br />
             
             <%= f.text_field :first_name, class: "form-control", autofocus: true, autocomplete: "first_name", placeholder: "" %>
           </div>  
 
           <div class="field form-group">
-            <%= f.label :last_name %><br />
+            <%= f.label :nom %><br />
             <%= f.text_field :last_name, class: "form-control", autocomplete: "last_name", placeholder: ""%>
           </div>
 
@@ -29,7 +29,7 @@
           </div>
 
           <div class="field form-group">
-            <%= f.label :password %>
+            <%= f.label "Mot de passe" %>
             <% if @minimum_password_length %>
             <em>(<%= @minimum_password_length %> characters minimum)</em>
             <% end %><br />
@@ -37,14 +37,14 @@
           </div>
 
           <div class="field form-group">
-            <%= f.label :password_confirmation %><br />
+            <%= f.label "Confirmation du mot de passe" %><br />
             <%= f.password_field :password_confirmation, class: "form-control", autocomplete: "new-password" %>
           </div>
         </div>
       </div>
       <div class="modal-footer">
         <div class="form-actions">
-          <%= f.submit "Sign up", class: "btn btn-primary" %>
+          <%= f.submit "S'inscire", class: "btn btn-primary" %>
         </div>
         <% end %>
       </div>
