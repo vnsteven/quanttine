@@ -134,7 +134,7 @@ ActiveRecord::Schema.define(version: 2019_06_11_101056) do
     t.string "stripe_customer_id"
     t.string "stripe_subscription_id"
     t.string "stripe_plan_id"
-    t.integer "school_code"
+    t.string "school_code"
   end
 
   create_table "servings", force: :cascade do |t|
@@ -164,7 +164,7 @@ ActiveRecord::Schema.define(version: 2019_06_11_101056) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "school_code"
+    t.string "school_code"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

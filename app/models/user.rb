@@ -14,8 +14,15 @@ class User < ApplicationRecord
 
   validates :school_code,
   presence: true
+  validate :school_exists?
 
   private
+
+  def school_exists?
+    if self.school_code != School.first.school_code.to_s || self.school_code != School.last.school_code.to_s
+      errors.add(:school_code, "code incorrect")
+    end
+  end
 
   def create_profile
     Profile.create!(user_id: self.id, school_id: School.find_by(school_code: self.school_code).id)
@@ -23,9 +30,6 @@ class User < ApplicationRecord
 
   def welcome_send
   	UserMailer.welcome_email(self).deliver_now
-  end
-
-  
-  
+  end 
 
 end
