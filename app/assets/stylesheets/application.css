@@ -22,6 +22,32 @@ html {
   scroll-behavior: smooth;
 }
 
+/* BLINK ANIMATION CARD ADMIN DASHBOARD */
+
+#todo {
+  animation-name: blink;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  -webkit-animation:blink 1200ms infinite; 
+}
+
+@keyframes blink {
+  from {
+    color:#D90929;
+  }
+  to {
+    color:#FD7D72;
+  }
+}
+@-webkit-keyframes blink {
+  from {
+    color:#D90929;
+  }
+  to {
+    color:#FD7D72;
+  }
+}
+
 /* Alert */
 
 .alert {
@@ -45,6 +71,27 @@ html {
   background: linear-gradient(180deg, #2BBB67 10%, #33DE79 100%);
 }
 
+.qr-header {
+  background-color: rgba(255, 255, 255, 0.8);
+  text-align: center;
+  margin: auto;
+  margin-top: 8em;
+}
+
+.qr-title{
+  color: #4A4A4A
+}
+
+.qrcode {
+  text-align: center;
+}
+
+.code {
+  min-width: 28em;
+  min-height: 28em;
+  margin-bottom: 10px;
+}
+
 /* NAVBAR */
 
 .fixed-top.scrolled {
@@ -66,13 +113,23 @@ html {
   text-decoration: none;
 }
 
+.btn-profil:hover {
+  color: white !important;
+}
+
 /* COLORED NAVBAR */
 
 .colored-header {
-  background-color: #4DE377;
+  background-color: transparent;
   height: 92px;
   display: flex;
-  align-items: center;
+  justify-content: space-around;
+  box-shadow: 4px 4px 10px #C0C0C0;
+}
+
+.colored-header a{
+  color: #6ed26e !important;
+  margin-right: 5px; 
 }
 
 .nav-title {
@@ -81,6 +138,10 @@ html {
 
 .navbar-toggler {
   color: white;
+}
+
+#quant1{
+  color: #5D5D5D !important;
 }
 
 /* BUTTON */
@@ -157,6 +218,12 @@ html {
   justify-content: space-around;
   border-bottom: 1px solid #afafaf;
   padding-bottom: 20px;
+  height: 16em;
+}
+
+.qr-link {
+display: flex;
+align-self: center;
 }
 
 .choice-title {
@@ -201,10 +268,12 @@ html {
 
 .icon1{
   padding: 10px;
-  background: #6ed26e;
-  color: white;
+  background: #F8F9FC;
+  color: #4B4B4B;
   min-width: 50px;
   text-align: center;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
 }
 
 .choice {
@@ -633,6 +702,10 @@ html {
   margin-right: 20px;
 }
 
+.btn-outline-primary {
+  font-weight: bold;
+}
+
 /* EDIT FORM ADMIN */
 .mini-navbar{
   color: white;
@@ -662,10 +735,13 @@ html {
 /* Style the form icons */
 .icon {
   padding: 10px;
-  background: #586689;
-  color: white;
+  background: #F8F9FC;
+  color: #4B4B4B;
   min-width: 50px;
   text-align: center;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+
 }
 
 /* Style the input fields */

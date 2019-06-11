@@ -28,21 +28,22 @@ module StatisticsHelper
   end
 
   def stock_quantity
-    food_supply = Quantity.all.map { |quantity| quantity if current_admin.school == quantity.school }
-    return food_supply.count
+    stock = Array.new
+    Quantity.all.each { |quantity| stock << quantity if current_admin.school == quantity.school }
+    return stock.count
   end
 
   def number_of_servings
-    meals = SchoolMeal.all.map { |meal| meal }
-    return meals.count
+    servings = Serving.all.map { |meal| meal }
+    return servings.count
   end
 
   def is_tomorrow_menu_done?
     tomorrow_meal = SchoolMeal.find_by(date: Date.tomorrow)
     if tomorrow_meal == nil
-      return "A faire"
+      false
     else
-      return "Fait"
+      true
     end
   end
 end
