@@ -32,7 +32,8 @@ class UserMealsController < ApplicationController
   def destroy
     @profile = current_user.profile
     @user = current_user
-    todays_order.destroy unless @user_meal_choice == nil
+    @todays_order = current_user.profile.user_meals.where("created_at >= ?", Time.zone.now.beginning_of_day).last
+    todays_order.destroy_all
     redirect_to user_profile_path(@user, @profile)
     flash[:success] = "Votre choix pour le menu du jour a bien été supprimé"
   end

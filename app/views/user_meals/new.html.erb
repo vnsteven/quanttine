@@ -75,7 +75,6 @@
     <%= f.submit "Valider !", class: "btn btn-primary" %>
     <% elsif todays_order.exists? %>
     <%= link_to "Voir ma commande", user_profile_user_meal_path(@user, @profile, @todays_order),  class: "btn btn-primary" %>
-
     <% end %>
 
   </div>

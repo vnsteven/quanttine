@@ -19,6 +19,8 @@
     </div>
     <% end %>
   </div>
+
+  <%= link_to "Supprimer ma commande", user_profile_user_meal_path(@user, @profile, params[:id]),  class: "btn btn-danger", method: :DELETE %>
 </div>
 <%= render 'home/footer' %>
 
