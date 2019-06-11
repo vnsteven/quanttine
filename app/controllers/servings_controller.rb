@@ -33,26 +33,4 @@ class ServingsController < ApplicationController
       format.js { }
     end
   end
-
-  # def edit
-  #   @serving = Serving.find(params[:id])
-  # end
-
-  # def update
-  #   @serving = Serving.find(params[:id])
-  #   @food_supply = FoodSupply.find_by(name: params[:food_name])
-  #   @serving.update(food_supply_id: FoodSupply.find_by(name: params[:food_supply_id]).servings.first.id)
-  #   redirect_to admin_servings_path(current_admin)
-  # end
-
-  # private
-
-  # def serving_params
-  #   params.require(:food_supply).permit(:food_supply_id)
-  # end
-
-  # def food_supply_params
-  #   params.require(:serving).permit(:name)
-  # end
-
 end

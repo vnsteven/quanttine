@@ -67,7 +67,7 @@
           <% else %>
           <div class="col mr-2">
             <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Menu de demain</div>
-            <div class="h5 mb-0 font-weight-bold text-gray-800" id="todo">A faire</div>
+            <div class="h5 mb-0 font-weight-bold text-gray-800"><%= link_to "A faire", new_admin_serving_path(current_admin), id: :todo %></div>
           </div>
           <div class="col-auto">
             <i class="fas fa-times fa-2x text-gray-300"></i>
