@@ -4,8 +4,14 @@ class ApplicationController < ActionController::Base
   protected
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :last_name, :email, :password])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :last_name, :email, :password, :school_code])
     devise_parameter_sanitizer.permit(:account_update, keys: [:first_name, :last_name,:email,:password])
+    if User.new.school_code == School.first.school_code || User.new.school_code == School.last.school_code
+      redirect_to root_path, notice: "Success"
+    elsif User.new.school_code != School.first.school_code || User.new.school_code != School.last.school_code
+       redirect_to root_path, notice: "Code incorrect"
+    end
+  end
   end
 
   def after_sign_in_path_for(resource)
@@ -16,5 +22,5 @@ class ApplicationController < ActionController::Base
     elsif resource.class == Admin && current_admin.school.active == false
       new_payment_path
     end
-  end
 end
+
