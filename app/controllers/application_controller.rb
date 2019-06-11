@@ -1,11 +1,7 @@
 class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
-<<<<<<< HEAD
-  
-=======
   before_action :login, except: [:index]
 
->>>>>>> development
   protected
 
   def configure_permitted_parameters
