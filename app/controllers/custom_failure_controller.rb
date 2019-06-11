@@ -5,6 +5,7 @@ class CustomFailureController < Devise::FailureApp
 
   def respond
     if http_auth?
+      flash[:success] = "no"
       http_auth
     else
       redirect_to root_path

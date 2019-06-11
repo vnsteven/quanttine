@@ -98,6 +98,7 @@ ActiveRecord::Schema.define(version: 2019_06_11_101056) do
     t.datetime "updated_at", null: false
     t.bigint "school_id"
     t.boolean "active"
+    t.string "qr_code"
     t.index ["school_id"], name: "index_profiles_on_school_id"
     t.index ["user_id"], name: "index_profiles_on_user_id"
   end
@@ -129,7 +130,7 @@ ActiveRecord::Schema.define(version: 2019_06_11_101056) do
     t.string "zipcode"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.boolean "active", default: false
+    t.boolean "active"
     t.string "stripe_customer_id"
     t.string "stripe_subscription_id"
     t.string "stripe_plan_id"
