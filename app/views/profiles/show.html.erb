@@ -11,7 +11,7 @@
 		  <%= image_tag "tray.jpg", class:"photo-card" %>
 		  <div class="card-body">
 		    <h5 class="card-title">Mes menus</h5>
-		    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> <br/>
+		    <p class="card-text">Choisis tes menus au quotidien pour que le déjeûner à la cantine corresponde à tes goûts, et ne soit qu'un moment de plair.</p> <br/>
 		    <%= link_to "Choisir menu",  new_user_profile_user_meal_path(@user.id, @profile.id), class:"btn btn-primary", id:"bouton-show" %>
 		  </div>
 		</div>
@@ -20,7 +20,7 @@
 		  <%= image_tag "choice.jpg", class:"photo-card" %>
 		  <div class="card-body">
 		    <h5 class="card-title">Mes commandes</h5>
-		    <p class="card-text text1">Some quick example text to build on the card title and make up the bulk of the card's content.</p> <br/>
+		    <p class="card-text text1">Retrouve toutes les commandes que tu as passées afin de garder un oeil sur ton alimentation.</p> <br/>
 		    <a href="#" class="btn btn-primary" id="bouton-show" >Go somewhere</a>
 		  </div>
 		</div>
@@ -29,7 +29,7 @@
 		  <%= image_tag "profi.jpg", class:"photo-card" %>
 		  <div class="card-body">
 		    <h5 class="card-title">Mon profil</h5>
-		    <p class="card-text text1">Some quick example text to build on the card title and make up the bulk of the card's content.</p><br/>
+		    <p class="card-text text1">Fait part à ton école de tes préférences alimentaires pour avoir une proposition de menu adaptée.</p><br/>
 		    <%= link_to "Mon profil", edit_user_profile_path(@user.id, @profile.id), class: "btn btn-primary", id:"bouton-show" %>
 		  </div>
 		</div>
