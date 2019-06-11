@@ -1,8 +1,8 @@
 <div class="modal fade" id="modalEdit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
-      <div class="edit-header">
-        <h2>Editer mes infos</h2>
+      <div class="modal-header">
+        <h2 id="login-title">Editer</h2>
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
       </div>
 
@@ -14,27 +14,27 @@
         <div class="form-inputs">
 
           <div class="field form-group">
-            <%= f.label :first_name %><br />
+            <%= f.label :prénom %><br />
             <div class="input-container">
               <i class="fas fa-user icon1"></i>
-            <%= f.text_field :first_name, class: "form-control input-field writing", autofocus: true, autocomplete: "Prénom" %>
-          </div>
+              <%= f.text_field :first_name, class: "form-control input-field writing", autofocus: true, autocomplete: "Prénom" %>
+            </div>
           </div>  
 
           <div class="field form-group">
-            <%= f.label :last_name %><br />
-              <div class="input-container">
+            <%= f.label :nom %><br />
+            <div class="input-container">
               <i class="fas fa-user icon1"></i>
-            <%= f.text_field :last_name, class: "form-control input-field writing", autofocus: true, autocomplete: "Nom" %>
-          </div>
+              <%= f.text_field :last_name, class: "form-control input-field writing", autofocus: true, autocomplete: "Nom" %>
+            </div>
           </div>
 
           <div class="field form-group">
             <%= f.label :email %><br />
             <div class="input-container">
               <i class="fas fa-envelope icon1"></i>
-            <%= f.email_field :email, class: "form-control input-field writing", autofocus: true, autocomplete: "Email" %>
-          </div>
+              <%= f.email_field :email, class: "form-control input-field writing", autofocus: true, autocomplete: "Email" %>
+            </div>
           </div>
 
           <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
@@ -42,45 +42,46 @@
           <% end %>
 
           <div class="field form-group">
-            <%= f.label "Mot de passe" %> <i>(ne rien écrire si tu ne comptes pas le changer)</i><br />
+            <%= f.label "Mot de passe" %> <i>(ne rien écrire si tu vous ne comptez pas le changer)</i><br />
             <div class="input-container">
               <i class="fas fa-lock icon1"></i>
-            <%= f.password_field :password, class: "form-control input-field writing", autocomplete: "new-password" %>
-            <% if @minimum_password_length %>
-            <br />
-            <em><%= @minimum_password_length %> characters minimum</em>
-            <% end %>
-          </div>
+              <%= f.password_field :password, class: "form-control input-field writing", autocomplete: "new-password" %>
+              <% if @minimum_password_length %>
+              <br />
+              <em><%= @minimum_password_length %> characters minimum</em>
+              <% end %>
+            </div>
           </div>
 
           <div class="field form-group">
             <%= f.label "Confirmation du mot de passe" %><br />
             <div class="input-container">
               <i class="fas fa-lock icon1"></i>
-            <%= f.password_field :password_confirmation, class: "form-control input-field writing", autocomplete: "new-password" %>
-          </div>
+              <%= f.password_field :password_confirmation, class: "form-control input-field writing", autocomplete: "new-password" %>
+            </div>
           </div>
 
           <div class="field form-group">
             <%= f.label "Mot de passe actuel" %> <i>(rentrez votre mot de passe actuel)</i><br />
             <div class="input-container">
               <i class="fas fa-key icon1"></i>
-            <%= f.password_field :current_password, class: "form-control input-field writing", autocomplete: "current-password" %>
-          </div>
+              <%= f.password_field :current_password, class: "form-control input-field writing", autocomplete: "current-password" %>
+            </div>
           </div>
 
         </div>
 
-        <div class="">
+        <div class="modal-footer">
           <div class="form-actions">
-            <%= f.submit "Mettre à jour", class: "btn btn-outline-primary send1" %>
+            <%= f.submit "Mettre à jour", class: "btn btn-primary send1" %>
           </div>
-          <% end %>
+          <% end %> 
+        </div>
 
-          <hr>
-          <div class="end-button">
-          <p class="unhappy"> Unhappy? </p> 
-          <%= button_to "Supprimer mon compte", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "btn btn-outline-danger" %></p>
+        <div class="modal-footer">
+          <div class="form-actions">
+            <p class="unhappy text-center">Pas satisfait ?</p>
+            <%= button_to "Supprimer mon compte", registration_path(resource_name), data: { confirm: "Êtes-vous sûr(e) ?" }, method: :delete, class: "btn btn-outline-danger" %></p>
           </div>
         </div>
 
