@@ -21,7 +21,7 @@ Rails.application.routes.draw do
     resources :profiles, only: [:index]
   end
 
-  resources :api
+  resources :api, only: [:create]
   resources :payments, only: [:new]
   resources :monthly_payments, only: [:new, :create, :update]
   resources :yearly_payments, only: [:new, :create, :update]

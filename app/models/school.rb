@@ -4,6 +4,7 @@ class School < ApplicationRecord
   has_many :quantities, dependent: :destroy
   has_many :food_supplies, through: :quantities
   has_many :school_meals, dependent: :destroy
+  has_many :daily_services, dependent: :destroy
 
   validates :name,
   presence: true,
