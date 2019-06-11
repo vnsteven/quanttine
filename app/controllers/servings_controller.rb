@@ -25,7 +25,7 @@ class ServingsController < ApplicationController
       end
     else
       render "new"
-      flash[:error]
+      flash[:error] = "ça n'a pas marché"
     end
   end
   
