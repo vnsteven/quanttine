@@ -38,14 +38,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #   super
   # end
 
-   protected
-
-  def school_exists
-    if self.school_code != School.first.school_code || self.school_code =! School.last.school_code
-        redirect_to root_path
-    end
-  end
-
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_sign_up_params
   #   devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :last_name, :email, :password])

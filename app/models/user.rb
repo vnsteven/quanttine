@@ -12,15 +12,13 @@ class User < ApplicationRecord
   presence: true,
 	length: { in: 2..50 }
 
-  validates :school_code,
-  presence: true
-  validate :school_exists?
+  validate :school_exists
 
   private
 
-  def school_exists?
-    if self.school_code != School.first.school_code.to_s || self.school_code != School.last.school_code.to_s
-      errors.add(:school_code, "code incorrect")
+  def school_exists
+    if self.school_code != School.last.school_code && self.school_code != School.first.school_code
+      errors.add(:school_code, message: " incorrect")
     end
   end
 
