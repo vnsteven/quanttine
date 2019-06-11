@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   root 'home#index'
 
-  devise_for :users, path: 'users'
+  devise_for :users, path: 'users', :controllers => { :registrations => :registrations }
   resources :users do
     resources :avatars, only: [:create]
     resources :profiles do
