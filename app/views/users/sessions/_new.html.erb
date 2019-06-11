@@ -31,13 +31,13 @@
         <% if devise_mapping.rememberable? %>
         <div class="field custom-control custom-checkbox">
           <%= f.check_box :remember_me, class: "custom-control-input" %>
-          <%= f.label "Se souvenir de moi", class: "custom-control-label" %>
+          <%= f.label :remember_me, class: "custom-control-label" %>
         </div>
         <% end %>
 
         <br />
 
-        <%= link_to "Mot de passe oublié ?", new_admin_password_path, class: "text-black" %>
+        <%= link_to "Mot de passe oublié ?", new_user_password_path, class: "text-black" %>
       </div>
 
     </div>
