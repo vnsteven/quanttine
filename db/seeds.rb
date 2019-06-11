@@ -13,9 +13,9 @@ Admin.destroy_all
 Preference.destroy_all
 FoodSupply.destroy_all
 
-rand = rand(1000..2000)
 
 2.times do
+rand = rand(1000..2000)
   School.create!(
     name: "École #{Faker::Name.first_name} #{Faker::Name.last_name}",
     city: Faker::Address.city,
