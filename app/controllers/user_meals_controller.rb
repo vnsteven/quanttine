@@ -1,6 +1,4 @@
 class UserMealsController < ApplicationController
-  def index
-  end
 
   def new
     @user = current_user
@@ -20,23 +18,32 @@ class UserMealsController < ApplicationController
     PreparingUserMeal.create!(user_meal_id: @user_meal.id, serving_size: 100, serving_id: params[:user_meal][:starter_choice].to_i)
     PreparingUserMeal.create!(user_meal_id: @user_meal.id, serving_size: 100, serving_id: params[:user_meal][:main_course_choice].to_i)
     PreparingUserMeal.create!(user_meal_id: @user_meal.id, serving_size: 100, serving_id: params[:user_meal][:dessert_choice].to_i)
-    puts "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ #{@user.id} #{@profile.id} #{@user_meal.id}"
     redirect_to user_profile_user_meal_path(@user, @profile, @user_meal.id)
   end
 
   def show
     @profile = current_user.profile
     @user_meal = @profile.user_meals.last.servings
-
   end
 
-  def edit
-  end
-
-  def update
-  end
 
   def destroy
+
   end
 
-end
+
+
+  def self.today
+    where("created_at >= ?", Time.zone.now.beginning_of_day)
+  end
+
+  def has_booked_today
+    return true if self.today.!nil
+    end
+
+
+
+
+
+
+  end
