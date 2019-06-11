@@ -1,4 +1,6 @@
 class UserMealsController < ApplicationController
+  before_action :has_ordered, only: [:destroy, :show]
+  before_action :has_not_ordered, only: [:create]
 
   def new
     @user = current_user
@@ -9,6 +11,7 @@ class UserMealsController < ApplicationController
     @desserts = @school_meals.servings.where(meal_category: "dessert")
     @sides = @school_meals.servings.where(meal_category: "accompagnement")
     @user_meal = UserMeal.new
+    @todays_order = @profile.user_meals.where("created_at >= ?", Time.zone.now.beginning_of_day).last
   end
 
   def create
@@ -23,27 +26,41 @@ class UserMealsController < ApplicationController
 
   def show
     @profile = current_user.profile
-    @user_meal = @profile.user_meals.last.servings
+    @servings = @profile.user_meals.last.servings
   end
-
 
   def destroy
-
+    @profile = current_user.profile
+    @user = current_user
+    todays_order.destroy unless @user_meal_choice == nil
+    redirect_to user_profile_path(@user, @profile)
+    flash[:success] = "Votre choix pour le menu du jour a bien été supprimé"
   end
 
-
-
-  def self.today
-    where("created_at >= ?", Time.zone.now.beginning_of_day)
+  private
+  def todays_order
+    current_user.profile.user_meals.where("created_at >= ?", Time.zone.now.beginning_of_day)
   end
 
-  def has_booked_today
-    return true if self.today.!nil
+  def has_ordered
+    @profile = current_user.profile
+    @user = current_user
+    unless todays_order.exists?
+      flash[:error] = "Vous n'avez pas passé de commande !"
+      redirect_to new_user_profile_user_meal_path(@profile, @user)
     end
-
-
-
-
-
-
   end
+
+  def has_not_ordered
+    @profile = current_user.profile
+    @user = current_user
+    unless todays_order.empty?
+     flash[:error] = "Vous avez déjà passé commande !"
+     redirect_to user_profile_user_meal_path(@profile, @user, @user_meal.last.id)
+   end
+
+ end
+
+
+
+end
