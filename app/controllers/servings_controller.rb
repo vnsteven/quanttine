@@ -10,7 +10,7 @@ class ServingsController < ApplicationController
   def create
     @food_supply = FoodSupply.find_by(name: params[:food_supply])
 
-    @school_meal = SchoolMealService.new(params[:date], current_admin.school.id).perform
+    @school_meal = SchoolMealConditionService.new(params[:date], current_admin.school.id).perform
 
     @food_serving = Serving.create!(meal_category: params[:meal_category], school_meal_id: @school_meal.id, food_supply_id: @food_supply.id)
 

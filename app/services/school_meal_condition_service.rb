@@ -1,4 +1,4 @@
-class SchoolMealService
+class SchoolMealConditionService
   def initialize(date, admin_school_id)
     @date = date
     @admin_school_id = admin_school_id
