@@ -1,8 +1,6 @@
 class ApiController < ApplicationController
 
   def index
-
-    queueing
   end
 
   def show
@@ -12,6 +10,7 @@ class ApiController < ApplicationController
   end
 
   def create
+    queueing
   end
 
   private
