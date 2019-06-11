@@ -18,7 +18,12 @@ class Users::SessionsController < Devise::SessionsController
   #   super
   # end
 
-  # protected
+  protected
+
+  def self.authenticate(username, password)
+    user = User.find_for_authentication(:username => username)
+    user&.valid_password?(password) ? user : nil
+  end
 
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_sign_in_params
