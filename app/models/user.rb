@@ -5,7 +5,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
   :recoverable, :rememberable, :validatable
 
-  after_create :create_profile, :welcome_send
+  after_create :create_profile
 
 	validates :first_name, :last_name,
   presence: true,
@@ -25,7 +25,7 @@ class User < ApplicationRecord
   # end
 
   def create_profile
-    Profile.create!(user_id: self.id, school_id: School.all.sample.id )
+    self.profile = Profile.create!(user_id: self.id, school_id: School.all.sample.id )
   end
 
 end
