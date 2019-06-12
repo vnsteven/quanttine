@@ -1,0 +1,11 @@
+<h1>Service du Jour</h1>
+<h2><%= current_admin.school.name %></h2><br>
+
+<% @daily_service.queue.each do |profile_id| %>
+<% profile = Profile.find(profile_id) %>
+<strong><%= profile.user.first_name %></strong><br>
+<% profile.user_meals.last.servings.each do |serving| %>
+<%= serving.food_supply.name %><br>
+<% end %>
+<br>
+<% end %>

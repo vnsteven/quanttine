@@ -2,7 +2,7 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h2 id="login-title">Log in</h2>
+        <h2 id="login-title">Admin</h2>
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
       </div>
 
@@ -12,9 +12,9 @@
         <div class="form-inputs">
           <div class="field">
             <div class="input-container">
-              <i class="fas fa-user icon1"></i>
-            <%= f.email_field :email, class: "form-control input-field writing", autofocus: true, autocomplete: "email", placeholder: "Email" %>
-          </div>
+              <i class="fas fa-at icon1"></i>
+              <%= f.email_field :email, class: "form-control input-field writing", autofocus: true, autocomplete: "email", placeholder: "Email" %>
+            </div>
           </div>
 
           <br />
@@ -22,8 +22,8 @@
           <div class="field">
             <div class="input-container">  
               <i class="fas fa-lock icon1 "></i> 
-            <%= f.password_field :password, class: "form-control input-field writing", autocomplete: "current-password", placeholder: "Password" %>
-          </div>
+              <%= f.password_field :password, class: "form-control input-field writing", autocomplete: "current-password", placeholder: "Mot de passe" %>
+            </div>
           </div>
           
           <br />
@@ -44,7 +44,7 @@
 
       <div class="modal-footer">
         <div class="form-actions">
-          <%= f.submit "Log in", class: "btn btn-primary" %>
+          <%= f.submit "Se connecter", class: "btn btn-primary" %>
         </div>
         <% end %>
       </div>
