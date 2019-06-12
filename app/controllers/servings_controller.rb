@@ -24,7 +24,7 @@ class ServingsController < ApplicationController
       flash[:error] = "Ça n'a pas marché"
     end
   end
-  
+
   def destroy
     @serving = Serving.find_by(id: params[:id])
     @serving.destroy

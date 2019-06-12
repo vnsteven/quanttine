@@ -25,6 +25,7 @@
 			<div class="bg-white py-2 collapse-inner rounded">
 				<%= link_to "Liste des plats", admin_servings_path(current_admin.id), class: "collapse-item" %>
 				<%= link_to "Créer un menu", new_admin_serving_path(current_admin.id), class: "collapse-item" %>
+				<%= link_to "Service du jour", admin_daily_service_path(current_admin, current_daily_service), class: "collapse-item" %>
 			</div>
 		</div>
 	</li>
