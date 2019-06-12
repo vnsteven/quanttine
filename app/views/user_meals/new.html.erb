@@ -30,10 +30,11 @@
   <h3>Plats principaux</h3>
   <div class="category-wrapper">
     <% @main_courses.each do |main_course|%>
+    <% @sides.each do |side|%>
     <div class="serving-choices">
       <%= f.label :main_course_choice, "", :value => main_course.id do %>
       <div class="meal-detail">
-        <%= f.radio_button :main_course_choice, main_course.id %>
+        <%= f.radio_button :main_course_choice, [main_course.id, side.id] %>
         <div class="card">
           <img src="https://keldelice-assets.s3.amazonaws.com/attachments/photos/565822/original/oeuf-mayonnaise_2.jpg?1285186398" class="meal-image" >
           <div class="card-body">
@@ -45,6 +46,7 @@
       </div>
       <% end %>
     </div>
+    <% end %>
     <% end %>
   </div>
 
