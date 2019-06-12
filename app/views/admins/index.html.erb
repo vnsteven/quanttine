@@ -1,0 +1,18 @@
+<% if current_admin.school.active %>
+<div id="wrapper">
+	<%= render 'side_bar' %>
+	<div id="content-wrapper" class="d-flex flex-column">
+		<%= render 'admins/top_bar' %>
+		<%= render 'partials/flash' %>
+		<div class="container-fluid">
+			<div class="d-sm-flex align-items-center justify-content-between mb-4">
+				<h1 class="h3 mb-0 text-gray-800">Tableau de bord</h1>
+			</div>
+			<hr>
+			<%= render 'content' %>
+		</div>
+	</div>
+</div>
+<% else %>
+<%= render 'unactive' %>
+<% end %>
