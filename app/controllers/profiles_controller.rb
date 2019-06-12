@@ -23,7 +23,6 @@ class ProfilesController < ApplicationController
     @profile.update(profile_parameters)
   end
 
-
   private
 
   def set_user # keeping it dry !
