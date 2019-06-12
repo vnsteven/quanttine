@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   end
 
   devise_for :admins, path: 'admins'
-  resources :admins, only: [:show] do
+  resources :admins do
     resources :daily_services
     resources :preparing_user_meals
     resources :food_supply
@@ -21,6 +21,8 @@ Rails.application.routes.draw do
     resources :school_meals, only: [:destroy]
     resources :profiles, only: [:index]
   end
+
+
 
   resources :api, only: [:create]
   resources :payments, only: [:new]
