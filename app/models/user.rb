@@ -1,12 +1,11 @@
 class User < ApplicationRecord
 	has_one :profile, dependent: :destroy
-	# after_create :welcome_send
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
   :recoverable, :rememberable, :validatable
 
-  after_create :create_profile
+  after_create :create_profile, :welcome_send
 
 	validates :first_name, :last_name,
   presence: true,
@@ -14,7 +13,12 @@ class User < ApplicationRecord
 
   validate :school_exists
 
+
   private
+
+  def welcome_send
+    UserMailer.welcome_email(self).deliver_now
+  end
 
   def school_exists
     if self.school_code != School.last.school_code && self.school_code != School.first.school_code
@@ -23,11 +27,7 @@ class User < ApplicationRecord
   end
 
   def create_profile
-    Profile.create!(user_id: self.id, school_id: School.find_by(school_code: self.school_code).id)
+    Profile.create!(user_id: self.id, school_id: School.find_by(school_code: self.school_code).id )
   end
-
-  def welcome_send
-  	UserMailer.welcome_email(self).deliver_now
-  end 
 
 end
