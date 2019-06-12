@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_11_101056) do
+ActiveRecord::Schema.define(version: 2019_06_11_204951) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,6 +49,15 @@ ActiveRecord::Schema.define(version: 2019_06_11_101056) do
     t.index ["email"], name: "index_admins_on_email", unique: true
     t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
     t.index ["school_id"], name: "index_admins_on_school_id"
+  end
+
+  create_table "daily_services", force: :cascade do |t|
+    t.string "date"
+    t.bigint "school_id"
+    t.string "queue"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["school_id"], name: "index_daily_services_on_school_id"
   end
 
   create_table "food_supplies", force: :cascade do |t|
@@ -182,5 +191,6 @@ ActiveRecord::Schema.define(version: 2019_06_11_101056) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "admins", "schools"
+  add_foreign_key "daily_services", "schools"
   add_foreign_key "profiles", "schools"
 end
