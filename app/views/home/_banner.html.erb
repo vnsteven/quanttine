@@ -1,31 +1,44 @@
 <div class="site-blocks-cover overlay" data-aos="fade" id="home-section">
 	<div class="container">
 		<div class="row align-items-center justify-content-center">
-			<div class="col-md-6 mt-lg-5 text-center">
+			<div class="col-md-6 mt-lg-5 text-center banner-items">
 				<h1 class="banner-title">
-					<a href="" class="typewrite text-white" data-period="2000" data-type='[ "Le gaspillage...", "...alimentaire", "Ça vous parle ?", "On a la solution !"]'>
+					<a href="" class="typewrite text-white" data-period="500" data-type='[ "Gaspille moins !", "Mange mieux !"]'>
 						<span class="wrap"></span>
 					</a>
 				</h1>
-				<p class="mb-5 banner-text">Chaque année, les cantines scolaires françaises jettent 150 000 tonnes d'aliments à la poubelle. Ça vous fait grincer des dents ? Nous aussi.</p>
-				<div>
+				
+				<div class="banner-button">
 					<% unless user_signed_in? || admin_signed_in? %>
 
-					<%= link_to 'Côté Élève', new_user_session_path, class: "btn btn-primary btn-lg mr-2 mb-2 banner-button", 'data-toggle' => "modal", 'data-target' => "#modalLogin" %>
-					<%= link_to 'Côté École', new_admin_session_path, class: "btn btn-primary btn-lg mr-2 mb-2 banner-button", 'data-toggle' => "modal", 'data-target' => "#modalAdmin" %>
-					<% end %>
+					<%= link_to 'Côté Élève', new_user_session_path, class: "btn btn-primary btn-lg mr-2 mb-2", 'data-toggle' => "modal", 'data-target' => "#modalLogin" %>
+					<%= link_to 'Côté École', new_admin_session_path, class: "btn btn-primary btn-lg mr-2 mb-2 ", 'data-toggle' => "modal", 'data-target' => "#modalAdmin" %>
+					<% end %>				</div>
 				</div>
+			<div class="card-group">
+						<div class="card">
+							<div class="card-body">
+								<h5 class="card-title"><p class="digit">1.</p>Inscris-toi à Quanttine</h5>
+							</div>
+						</div>
+						<div class="card">
+							<div class="card-body">
+								<h5 class="card-title"><p class="digit">2.</p>Choisis ton menu</h5>
+							</div>
+						</div>
+						<div class="card">
+							<div class="card-body">
+								<h5 class="card-title"><p class="digit">3.</p>Scanne ton QR code,<br /> c'est prêt !</h5>
+							</div>
+						</div>
+					</div>
 			</div>
 		</div>
 	</div>
-</div>
 
-<%= render 'profiles/sessions/new' %>
-<%= render 'admins/sessions/new' %>
+	<%= render 'profiles/sessions/new' %>
+	<%= render 'admins/sessions/new' %>
 
-<section id="section05" class="demo">
-	<a href="#about"><span></span></a>
-</section>
 
 
 
