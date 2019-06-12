@@ -6,7 +6,9 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
   :recoverable, :rememberable, :validatable
 
-  after_create :create_profile, :school_exists
+  after_create :create_profile
+
+  validates :school_exists
 
 	validates :first_name, :last_name,
   presence: true,
