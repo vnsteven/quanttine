@@ -6,13 +6,13 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
   :recoverable, :rememberable, :validatable
 
-  after_create :create_profile
+  after_create :create_profile, :school_exists
 
 	validates :first_name, :last_name,
   presence: true,
 	length: { in: 2..50 }
 
-  validate :school_exists
+
 
   private
 
@@ -28,6 +28,6 @@ class User < ApplicationRecord
 
   def welcome_send
   	UserMailer.welcome_email(self).deliver_now
-  end 
+  end
 
 end
