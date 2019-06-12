@@ -33,9 +33,10 @@ class ApplicationController < ActionController::Base
   def after_update_path_for(resource)
     root_path
   end
-end
 
 private
 def login_params
   params.require(:user).permit(:email, :password, :remember_me)
+end
+
 end
