@@ -16,12 +16,6 @@ class User < ApplicationRecord
 
   private
 
-  def school_exists
-    if self.school_code != School.last.school_code && self.school_code != School.first.school_code
-      errors.add(:school_code, "est incorrect")
-    end
-  end
-
   def create_profile
     Profile.create!(user_id: self.id, school_id: School.find_by(school_code: self.school_code).id)
   end
