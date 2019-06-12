@@ -12,6 +12,7 @@ gem "font-awesome-rails"
 gem "chartkick"
 gem 'groupdate'
 gem 'jquery-datatables-rails', '~> 3.4.0'
+gem 'rails-i18n'
 
 # Combine 'pry' with 'byebug'. Adds 'step', 'next', 'finish', 'continue' and 'break' commands to control execution.
 gem 'pry-byebug', '~> 3.7'
@@ -65,13 +66,15 @@ gem 'bootsnap', '>= 1.1.0', require: false
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'rspec-rails', '~> 3.8'
+  gem 'factory_bot_rails'
 end
 
 group :development do
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
   # Automatically generate an entity-relationship diagram (ERD) for your Rails models.
   gem 'rails-erd', '~> 1.6'
-  
+
   gem 'web-console', '>= 3.3.0'
   gem 'listen', '>= 3.0.5', '< 3.2'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
@@ -85,6 +88,9 @@ group :test do
   gem 'selenium-webdriver'
   # Easy installation and use of chromedriver to run system tests with Chrome
   gem 'chromedriver-helper'
+  gem 'shoulda-matchers', '4.0.0.rc1'
+  gem 'rails-controller-testing'
+  gem "nyan-cat-formatter"
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

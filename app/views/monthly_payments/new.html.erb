@@ -1,21 +1,34 @@
-<div class="payment-card">
-  <%= form_tag monthly_payments_path do %>
-    <h3 class="payment-title">Vous avez choisi le payement mensuel :</h3>
-      <article>
-        <% if flash[:error].present? %>
-          <div id="error_explanation">
-            <p><%= flash[:error] %></p>
-          </div>
-        <% end %>
-        <label class="amount">
-          <span>Montant par mois : <%= @amount %> €</span>
-        </label>
-      </article>
+<%= render 'layouts/colored_header' %>
 
-    <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-            data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-            data-description="S'abonner mensuellement à Quanttine"
-            data-amount="<%= @amount * 100 %>"
-            data-locale="auto"></script>
-<% end %>
+<div class="payment-body">
+  <div class="payment-card">
+    <%= form_tag monthly_payments_path do %>
+      <h3 class="payment-title">Vous avez choisi le payement mensuel :</h3>
+        <article>
+          <% if flash[:error].present? %>
+            <div id="error_explanation">
+              <p><%= flash[:error] %></p>
+            </div>
+          <% end %>
+          <label class="amount">
+            <ul>
+              <li>Accès en illimité à votre dashboard</li>
+              <li>Préparation des menus à l'avance</li>
+              <li>Vision globale des commandes des élèves</li>
+              <li>Accès aux statistiques de préférences alimentaires</li>
+            </ul>
+
+            <h5 class="montant"><strong>Montant total : <%= @amount %> €</strong></h5>
+          </label>
+        </article>
+
+      <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+              data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+              data-description="S'abonner mensuellement à Quanttine"
+              data-amount="<%= @amount * 100 %>"
+              data-locale="auto"></script>
+  <% end %>
+  </div>
 </div>
+
+<%= render 'home/footer' %>

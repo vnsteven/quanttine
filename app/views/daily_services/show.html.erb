@@ -1,11 +1,35 @@
-<h1>Service du Jour</h1>
-<h2><%= current_admin.school.name %></h2><br>
+<%= render 'top_bar' %>
 
-<% @daily_service.queue.each do |profile_id| %>
-<% profile = Profile.find(profile_id) %>
-<strong><%= profile.user.first_name %></strong><br>
-<% profile.user_meals.last.servings.each do |serving| %>
-<%= serving.food_supply.name %><br>
-<% end %>
-<br>
-<% end %>
+<div class="daily-title">
+<h1 class="service">Service du Jour</h1>
+<h3><%= current_admin.school.name %></h3><br>
+</div>
+
+
+<table class="table daily-table">
+  <thead class="thead text-white">
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Prénom</th>
+      <th scope="col">Nom</th>
+      <th scope="col">Menu</th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @daily_service.queue.each do |profile_id| %>
+    <% profile = Profile.find(profile_id) %>
+    <tr  class="daily-row">
+      <th scope="row"><%= profile.id %> </th>
+      	<td><%= profile.user.first_name %><br></td>
+     	<td><%= profile.user.last_name.upcase %></td>
+      	<td><% profile.user_meals.last.servings.each do |serving| %>
+				- <%= serving.food_supply.name %><br>
+			<% end %></td>
+		<td class="col-icon"><button class="btn btn-secondary far fa-check-square fa-2x daily-btn"></button></td>
+
+    </tr>
+    <% end %>
+  </tbody>
+</table>
