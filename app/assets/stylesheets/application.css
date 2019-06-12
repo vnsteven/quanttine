@@ -154,7 +154,7 @@ html {
 /* BANNER */
 
 #home-section {
-  background-image: url(background-homepage.png); 
+  background-image: url(home-background.png); 
   width: 100%;
   -webkit-filter: contrast(80%);
   filter: contrast(80%);
@@ -167,7 +167,7 @@ html {
 }
 #section05 a span {
   position: absolute;
-  top: 35em;
+  top: 40em;
   left: 50%;
   width: 24px;
   height: 24px;
@@ -278,7 +278,7 @@ align-self: center;
 
 .choice {
   font-size: 1.1em;
-  width: 18em;
+  width: 20em;
   margin: auto;
   text-align: left;
 }
@@ -771,18 +771,85 @@ align-self: center;
 }
 
 /* PAYMENTS STRIPE PAGES */
+.payment-body {
+  height: 45em;
+  padding-top: 10em; 
+
+}
+
 .payment-card {
-  width: 25%;
+  width: 37%;
+  height: 18em;
   margin: auto;
-  margin-top: 20em;
   border: 1px solid #B2AEAE;
   text-align: center;
-  padding: 10px;
   border-radius: 8px;
+  background-color: white;
 }
 
 .payment-title {
   border-bottom: 1px solid #B2AEAE;
   font-weight: bold;
-  color: #1AD01A;
+  padding: 10px;
+  color: #616161;
+  background-color: #DEDEDE
+}
+
+#gaspillage {
+  width: 14em;
+  margin-left: -1em;
+}
+
+.amount ul{
+  text-align: left;
+}
+
+.montant {
+  color: #75df7e;
+}
+
+/* DAILY SERVICES */
+.text-daily {
+  color: #333a4d
+}
+
+.daily-title {
+  color: #4B4B4B;
+  text-align: center;
+}
+
+.daily-table{
+  border: 1px solid grey;
+  width: 75%;
+  margin: auto;
+  font-size: 1.3em;
+  color: #4B4B4B
+}
+
+.daily-row:hover {
+background-color: #F9F9F9
+}
+
+.daily-btn{
+  background-color:#333a4d !important;
+}
+
+.daily-btn:hover {
+  background-color: #3E465C !important;
+}
+
+.daily-btn:active {
+  border: 2px solid white;
+}
+
+.thead{
+  background-color: rgba(51, 58, 77);
+}
+
+.col-icon {
+  width: 7em;
+}
+
+.service{
+  font-size: 4em;
 }

@@ -21,8 +21,9 @@ class ProfilesController < ApplicationController
 
   def update
     @profile.update(profile_parameters)
+    redirect_to edit_user_profile_path(@user.id, @profile.id), notice: "Préférences enregistrées 
+    - Veuillez rafraichir la page pour les actualiser"
   end
-
 
   private
 

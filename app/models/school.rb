@@ -12,7 +12,8 @@ class School < ApplicationRecord
 
   validates :city,
   presence: true,
-  length: { in: 2..50 }
+  length: { in: 2..50 },
+	format: { without: /[!@#%*+;,?&()=0123456789]/}
 
   validates :street_address,
   presence: true,

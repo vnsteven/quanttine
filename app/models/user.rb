@@ -9,7 +9,8 @@ class User < ApplicationRecord
 
 	validates :first_name, :last_name,
   presence: true,
-	length: { in: 2..50 }
+	length: { in: 2..50 },
+	format: { without: /[!@#%*+;,?&()=0123456789]/}
 
   private
 
