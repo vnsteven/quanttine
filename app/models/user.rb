@@ -1,5 +1,4 @@
 class User < ApplicationRecord
-  
 	has_one :profile, dependent: :destroy
 	# after_create :welcome_send
   # Include default devise modules. Others available are:
@@ -16,11 +15,6 @@ class User < ApplicationRecord
   validate :school_exists
 
   private
-
-  def self.authenticate(email, password)
-    user = User.find_for_authentication(:email => email)
-    user&.valid_password?(password) ? user : nil
-  end
 
   def school_exists
     if self.school_code != School.last.school_code && self.school_code != School.first.school_code
