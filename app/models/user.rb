@@ -24,7 +24,7 @@ class User < ApplicationRecord
   # end
 
   def create_profile
-    Profile.create!(user_id: self.id, school_id: School.all.sample.id )
+    self.profile = Profile.create!(user_id: self.id, school_id: School.all.sample.id )
   end
 
 end
