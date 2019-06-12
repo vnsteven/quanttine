@@ -18,14 +18,14 @@ RSpec.describe User, type: :model do
 
     describe "#first_name" do
       it { expect(@user).to validate_presence_of(:first_name) }
+      it { expect(@user).to validate_length_of(:first_name).is_at_least(2) }
+      it { expect(@user).to validate_length_of(:first_name).is_at_most(50) }
     end    
 
     describe "#last_name" do
       it { expect(@user).to validate_presence_of(:last_name) }
-    end
-
-    describe "#last_name" do
       it { expect(@user).to validate_length_of(:last_name).is_at_least(2) }
+      it { expect(@user).to validate_length_of(:last_name).is_at_most(50) }
     end
 
   end
