@@ -1,6 +1,9 @@
 class UserMealsController < ApplicationController
+  before_action :set_var
   before_action :has_ordered, only: [:destroy, :show]
   before_action :has_not_ordered, only: [:create]
+  before_action :menu_tomorrow, only: [:new]
+
 
   def new
     @user = current_user
@@ -59,8 +62,22 @@ class UserMealsController < ApplicationController
      flash[:error] = "Vous avez déjà passé commande !"
      redirect_to user_profile_user_meal_path(@profile, @user, @user_meal.last.id)
    end
-
  end
+
+ def menu_tomorrow
+  @profile = current_user.profile
+  @user = current_user
+  if current_user.profile.school.school_meals.find_by(date: Date.tomorrow).nil?
+    redirect_to user_profile_path(@user, @profile)
+    flash[:error] = "Votre école n'a pas encore créé le menu de demain ! Revenez plus tard..."
+  end
+end
+
+def set_var
+  @profile = current_user.profile
+  @user = current_user
+
+end
 
 
 

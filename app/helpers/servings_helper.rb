@@ -5,5 +5,9 @@ module ServingsHelper
 
   def serving_list
     Serving.all.map { |serving| serving.meal_category }.uniq
-  end   
+  end
+
+  def no_menu_tomorrow
+    SchoolMeal.find_by(date: Date.tomorrow).nil?
+  end
 end

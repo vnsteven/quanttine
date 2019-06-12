@@ -22,7 +22,7 @@ module ApplicationHelper
   def devise_mapping_admin
     @devise_mapping ||= Devise.mappings[:admin]
   end
-  
+
   def bootstrap_class_for_flash(type)
     case type
     when 'notice' then "alert-info"
@@ -34,5 +34,13 @@ module ApplicationHelper
 
   def school_meal
     SchoolMeal.where(date: Date.tomorrow)
+  end
+
+   def no_menu_tomorrow
+    SchoolMeal.find_by(date: Date.tomorrow).nil?
+  end
+
+  def menu_tomorrow
+    SchoolMeal.find_by(date: Date.tomorrow).exists?
   end
 end
