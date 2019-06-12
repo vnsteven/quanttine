@@ -34,9 +34,9 @@ class ApplicationController < ActionController::Base
     root_path
   end
 
-private
-def login_params
-  params.require(:user).permit(:email, :password, :remember_me)
-end
+  private
+  def login_params
+    params.require(:user).permit(:email, :password, :remember_me)
+  end
 
 end
