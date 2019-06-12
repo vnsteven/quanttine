@@ -154,7 +154,7 @@ html {
 /* BANNER */
 
 #home-section {
-  background-image: url(https://i.pinimg.com/originals/59/05/f4/5905f4b95a51ad49b9036f097e0cdc05.png); 
+  background-image: url(home-background.png); 
   width: 100%;
   -webkit-filter: contrast(80%);
   filter: contrast(80%);
@@ -278,7 +278,7 @@ align-self: center;
 
 .choice {
   font-size: 1.1em;
-  width: 18em;
+  width: 20em;
   margin: auto;
   text-align: left;
 }
