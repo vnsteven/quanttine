@@ -1,6 +1,9 @@
 <% if current_admin.school.active %>
 <div id="wrapper">
 	<%= render 'side_bar' %>
+	<%= puts "///////////////////////////////////////////////////////////////"%>
+	<%= puts params %>
+	<% binding.pry %>
 	<div id="content-wrapper" class="d-flex flex-column">
 		<%= render 'admins/top_bar' %>
 		<%= render 'partials/flash' %>

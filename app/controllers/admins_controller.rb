@@ -4,4 +4,8 @@ class AdminsController < ApplicationController
     helpers.current_daily_service
   end
 
+  def index
+
+  end
+
 end
