@@ -8,7 +8,7 @@ class User < ApplicationRecord
 
   after_create :create_profile
 
-  validates :school_exists
+  validate :school_exists
 
 	validates :first_name, :last_name,
   presence: true,
