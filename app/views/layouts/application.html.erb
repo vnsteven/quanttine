@@ -32,6 +32,16 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
 <script type="text/javascript">
+	// AUTO-DISAPPEAR ALERT
+	window.setTimeout(function() {
+		$(".alert").fadeTo(2000, 0).slideUp(500, function(){
+			$(this).remove(); 
+		});
+	}, 750);
+
+	$(document).ready(function() {
+		$('.table-paging').DataTable();
+	} );
 
 </script>
 
