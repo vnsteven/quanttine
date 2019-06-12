@@ -807,3 +807,45 @@ align-self: center;
 .montant {
   color: #75df7e;
 }
+
+/* DAILY SERVICES */
+.text-daily {
+  color: #333a4d
+}
+
+.daily-title {
+  color: #4B4B4B;
+  text-align: center;
+}
+
+.daily-table{
+  border: 1px solid grey;
+  width: 75%;
+  margin: auto;
+  font-size: 1.3em;
+  color: #4B4B4B
+}
+
+.daily-row:hover {
+background-color: #F9F9F9
+}
+
+.daily-btn{
+  background-color:#333a4d !important;
+}
+
+.daily-btn:hover {
+  background-color: #3E465C !important;
+}
+
+.daily-btn:active {
+  border: 2px solid white;
+}
+
+.thead{
+  background-color: rgba(51, 58, 77);
+}
+
+.col-icon {
+  width: 7em;
+}
