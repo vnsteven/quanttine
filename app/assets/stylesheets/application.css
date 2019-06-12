@@ -113,6 +113,10 @@ html {
   text-decoration: none;
 }
 
+.btn-profil:hover {
+  color: white !important;
+}
+
 /* COLORED NAVBAR */
 
 .colored-header {
@@ -150,7 +154,7 @@ html {
 /* BANNER */
 
 #home-section {
-  background-image: url(https://i.pinimg.com/originals/59/05/f4/5905f4b95a51ad49b9036f097e0cdc05.png); 
+  background-image: url(background-homepage.png); 
   width: 100%;
   -webkit-filter: contrast(80%);
   filter: contrast(80%);

@@ -4,7 +4,7 @@
 		<div class="row align-items-center">
 
 			<div class="col-6 col-xl-2">
-			<h2 class="mb-0 site-logo text-white d-flex text-uppercase" id="quant">Quant<b><span class="text-primary">tine.</span></b></h2>
+				<h2 class="mb-0 site-logo text-white d-flex text-uppercase" id="quant">Quant<b><span class="text-primary">tine.</span></b></h2>
 			</div>
 
 			<div class="col-12 col-md-10 d-none d-xl-block">
@@ -44,12 +44,25 @@
 			</div>
 		</div>
 	</div>
-<%= render 'partials/flash' %>
+	<%= render 'partials/flash' %>
 </header>
 
-<%= render 'profiles/registrations/new' %>
-<%= render 'profiles/sessions/new' %>
+<%= render 'users/registrations/new' %>
+<%= render 'users/sessions/new' %>
 <%= render 'admins/sessions/new' %>
+
+<script type="text/javascript">
+	$(function () {
+		$(document).scroll(function () {
+			var $nav = $(".fixed-top");
+			var $link = $(".nav-link");
+			var $logo = $(".site-logo");
+			$nav.toggleClass('scrolled', $(this).scrollTop() > $("#home-section").height());
+			$link.toggleClass('scrolled', $(this).scrollTop() > $("#home-section").height());
+			$logo.toggleClass('scrolled', $(this).scrollTop() > $("#home-section").height());
+		});
+	});
+</script>
 
 
 
