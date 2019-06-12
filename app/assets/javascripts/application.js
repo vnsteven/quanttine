@@ -37,7 +37,7 @@ $(function () {
 // AUTO-DISAPPEAR ALERT
 
 window.setTimeout(function() {
-    $(".alert").fadeTo(1500, 0).slideUp(500, function(){
+    $(".alert").fadeTo(2000, 0).slideUp(500, function(){
         $(this).remove(); 
     });
 }, 750);
