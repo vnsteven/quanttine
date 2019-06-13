@@ -34,10 +34,12 @@ end
 end
 
 10.times do
-  user = User.create!(
-    first_name: Faker::Name.first_name,
-    last_name: Faker::Name.last_name,
-    email: "#{Faker::Internet.email}",
+  first_name = Faker::Name.first_name
+  last_name = Faker::Name.last_name
+  User.create!(
+    first_name: first_name,
+    last_name: last_name,
+    email: "#{first_name}.#{last_name}@yopmail.com".downcase,
     password: "password",
     school_code: School.all.sample.school_code
     )
