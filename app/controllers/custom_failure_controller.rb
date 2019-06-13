@@ -1,13 +1,14 @@
 class CustomFailureController < Devise::FailureApp
   def redirect_url
-     new_user_session_url(subdomain: 'secure')
+     root_path
   end
 
   def respond
     if http_auth?
       http_auth
     else
-      redirect_to root_path, notice: "connection failed"
+      redirect_to root_path
     end
   end
+
 end
