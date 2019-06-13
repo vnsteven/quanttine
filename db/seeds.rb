@@ -45,7 +45,7 @@ puts 'Admin done'
   User.create!(
     first_name: first_name,
     last_name: last_name,
-    email: "#{first_name}.#{last_name}@yopmail.com".downcase.mb_chars.normalize(:kd).gsub(/[^x00-\x7F]/n, '').to_s
+    email: "#{first_name}.#{last_name}@yopmail.com".downcase.mb_chars.normalize(:kd).gsub(/[^x00-\x7F]/n, '').to_s,
     password: "password",
     school_code: School.all.sample.school_code
     )
