@@ -1,6 +1,6 @@
 class ServingsController < ApplicationController
   def index
-    @school_meals = SchoolMeal.all.order("date DESC")
+    @school_meals = SchoolMeal.where(school_id: current_admin.school.id)
   end
 
   def new
