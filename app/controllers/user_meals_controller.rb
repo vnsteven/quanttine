@@ -12,9 +12,11 @@ class UserMealsController < ApplicationController
     @sides = @school_meals.servings.where(meal_category: "accompagnement")
     @user_meal = UserMeal.new
     @todays_order = @profile.user_meals.where("created_at >= ?", Time.zone.now.beginning_of_day).last
+
   end
 
   def create
+    flash[:notice] ="Commande enregistrée."
     @profile = current_user.profile
     @user = current_user
     @user_meal = UserMeal.create!(profile_id: @profile.id)
@@ -35,7 +37,7 @@ class UserMealsController < ApplicationController
     @todays_order = current_user.profile.user_meals.where("created_at >= ?", Time.zone.now.beginning_of_day).last
     todays_order.destroy_all
     redirect_to user_profile_path(@user, @profile)
-    flash[:success] = "Votre choix pour le menu du jour a bien été supprimé"
+    flash[:notice] = "Votre choix pour le menu du jour a bien été supprimé"
   end
 
   private
