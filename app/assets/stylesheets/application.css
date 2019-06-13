@@ -28,7 +28,7 @@ html {
   animation-name: blink;
   animation-iteration-count: infinite;
   animation-direction: alternate;
-  -webkit-animation:blink 1200ms infinite; 
+  -webkit-animation:blink 1200ms infinite;
 }
 
 @keyframes blink {
@@ -54,8 +54,8 @@ html {
   position: fixed;
   top: 60px;
   right: 20px;
-  width: 20%;
-  z-index:9999; 
+  width: 40%;
+  z-index:9999;
 }
 
 /* MODAL */
@@ -129,7 +129,7 @@ html {
 
 .colored-header a{
   color: #6ed26e !important;
-  margin-right: 5px; 
+  margin-right: 5px;
 }
 
 .nav-title {
@@ -154,7 +154,7 @@ html {
 /* BANNER */
 
 #home-section {
-  background-image: url(background-homepage.png); 
+  background-image: url(background-homepage.png);
   width: 100%;
   -webkit-filter: contrast(80%);
   filter: contrast(80%);
@@ -288,7 +288,7 @@ align-self: center;
 }
 
 .send {
- margin-left: 6em; 
+ margin-left: 6em;
 }
 
 .send1:hover {
@@ -297,7 +297,7 @@ align-self: center;
 
 .end-button{
   display: flex;
-  justify-content: flex-end;  
+  justify-content: flex-end;
 }
 
 .unhappy {
@@ -332,7 +332,7 @@ align-self: center;
 	text-align: center;
 }
 
-.edit-title{ 
+.edit-title{
   color: white;
   background-image: radial-gradient(circle at bottom right, #333a4d, #586689) !important;
 }
@@ -590,7 +590,7 @@ align-self: center;
 }
 
 .input-text{
-  padding: 3em; 
+  padding: 3em;
 }
 
 .input-style{
@@ -741,7 +741,6 @@ align-self: center;
   text-align: center;
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px;
-
 }
 
 /* Style the input fields */
