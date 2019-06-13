@@ -1,11 +1,3 @@
-
-<head>
-	<meta charset="utf-8">
-	<link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">	
-	<%= stylesheet_link_tag    'application' %>
-	<%= javascript_include_tag 'application' %>
-</head>
-
 <body class="bg-gradient-primary forget-password">
 	<div class="container">
 		<div class="row justify-content-center">
@@ -22,7 +14,7 @@
 									<div class="text-center">
 									<h1>Votre abonnement est terminé !</h1>		<br/>																	
 									<p>Abonnez-vous à Quanttine pour accéder à votre tableau de bord et proposer de bons repas à vos élèves</p>
-									<p><%= link_to "S'abonner à Quanttine", new_payment_path, class:"btn btn-outline-primary" %></p>
+									<p><%= link_to "S'abonner à Quanttine", new_payment_path, class:"btn", id:"btn-payement" %></p>
 								</div>
 							</div>
 						</div>
@@ -43,3 +35,6 @@
 	<script src="js/sb-admin-2.min.js"></script>
 
 </body>
+
+	<%= stylesheet_link_tag    'application' %>
+	<%= javascript_include_tag 'application' %>

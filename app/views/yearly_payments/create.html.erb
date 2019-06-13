@@ -1,9 +1,43 @@
 <head>
-  <meta HTTP-EQUIV="REFRESH" content="5; url='<%= admin_path(current_admin) %>'">
+  <meta HTTP-EQUIV="REFRESH" content="5; url='<%= admin_path(current_admin) %>'"> 
 </head>
-<body>
-  <h1>L'équipe Quanttine vous remercie pour votre confiance.</h1>
-  <h2>Voici le montant de votre commande : <%= @amount %> € </h2>
-  <p>Vous allez être redirigé dans quelques secondes.</p>
-  <p>Sinon, vous pouvez aussi cliquer ici : <%= link_to "mon tableau de bord", admin_path(current_admin) %></p>
-</body>
+
+<head>
+	<meta charset="utf-8">
+	<link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">	
+	<%= stylesheet_link_tag    'application' %>
+	<%= javascript_include_tag 'application' %>
+</head>
+		<div class="alert alert-info">
+		  Payement effecué avec succès !
+		</div>
+
+
+<body class="bg-gradient-primary forget-password">
+  <div class="container">
+	  <div class="row justify-content-center">
+
+		  <div class="col-xl-11 col-lg-12 col-md-9">
+
+			  <div class="card o-hidden border-0 shadow-lg my-5">
+				  <div class="card-body p-0">
+						<!-- Nested Row within Card Body -->
+						<div class="row">
+							<div class="col-lg-6 d-none d-lg-block payment-image"></div>
+							<div class="col-lg-6 payment-text">
+								<div class="p-5">
+									<div class="text-center">
+										  <h1>L'équipe de Quanttine vous remercie pour votre confiance !</h1>
+										  <h4>Vous venez de payer <%= @amount %> € </h5> <br/>
+										  <p class="pay-redir"><%= link_to "Cliquez ici", admin_path(current_admin) %> pour accèder à votre tableau de bord, ou patientez quelques secondes.</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+
+</body >
