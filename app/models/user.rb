@@ -6,13 +6,14 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
   :recoverable, :rememberable, :validatable
 
-  before_create :school_exists
   after_create :create_profile
 
 	validates :first_name, :last_name,
   presence: true,
 	length: { in: 2..50 },
 	format: { without: /[!@#%*+;,?&()=0123456789]/}
+
+  validate :school_exists
 
   private
 
@@ -26,7 +27,7 @@ class User < ApplicationRecord
   end
 
   def school_exists
-     if current_user.params[:school_code] != School.last.school_code && current_user.params[:school_code] != School.first.school_code
+     if self.school_code != School.last.school_code && self.school_code != School.first.school_code
        errors.add(:school_code, "est incorrect")
      end
   end

@@ -7,7 +7,7 @@ class CustomFailureController < Devise::FailureApp
     if http_auth?
       http_auth
     else
-      redirect_to root_path
+      redirect_to root_path, notice: "connection failed"
     end
   end
 end
