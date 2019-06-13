@@ -8,7 +8,6 @@ class CustomFailureController < Devise::FailureApp
       http_auth
     else
       redirect root_path
-      alert: "Erreurs"
     end
   end
 
