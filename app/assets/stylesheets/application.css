@@ -144,6 +144,10 @@ html {
   color: #5D5D5D !important;
 }
 
+.link1:hover {
+  color: #58C176 !important;
+}
+
 /* BUTTON */
 
 .btn-primary:focus {

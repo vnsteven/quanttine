@@ -26,7 +26,10 @@
                     <%= link_to "Profil",  edit_user_profile_path(current_user.id, @profile.id), :class => "btn btn-outline-primary btn-profil" %>
                   </li>
                   <li class="nav-item co-nav-item">
-                    <%= link_to "Se déconnecter", destroy_user_session_path, class: "nav-link", :method => :delete %>
+                    <%= link_to "Accueil", user_profile_path(current_user.id, @profile.id), class: "nav-link link1" %>
+                  </li>
+                  <li class="nav-item co-nav-item">
+                    <%= link_to "Se déconnecter", destroy_user_session_path, class: "nav-link link1", :method => :delete %>
                   </li>
                   <% end %>
                 <% end %>
