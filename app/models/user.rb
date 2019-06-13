@@ -12,9 +12,6 @@ class User < ApplicationRecord
 	length: { in: 2..50 },
 	format: { without: /[!@#%*+;,?&()=0123456789]/}
 
-  validate :school_exists
-
-
   private
 
   def send_welcome_email
