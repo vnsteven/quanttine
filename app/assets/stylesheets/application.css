@@ -831,7 +831,32 @@ align-self: center;
 }
 
 .montant {
-  color: #75df7e;
+  color: #445276;
+}
+
+
+.payment-image{
+  background-image: url(payement.jpg);
+  height: 27em;
+  width: 24em;
+}
+
+.pay-redir{
+  font-size: 1.1em;
+}
+
+#btn-payement:hover{
+  background-color: #3b4766 !important;
+  color: white;
+  border: 2px solid #3b4766;
+
+}
+
+#btn-payement {
+  border: 2px solid #3b4766;
+  color: #3b4766;
+  background-color: white !important;
+  font-weight: bold;
 }
 
 /* DAILY SERVICES */
@@ -857,11 +882,13 @@ background-color: #F9F9F9
 }
 
 .daily-btn{
-  background-color:#333a4d !important;
+  background-color: white !important;
+  color: #333A4D !important;
 }
 
 .daily-btn:hover {
   background-color: #3E465C !important;
+  color: white;
 }
 
 .daily-btn:active {
@@ -919,13 +946,3 @@ background-color: #F9F9F9
   font-size: 1.3em;
 
 }
-
-
-/* PAYEMENT PAGE */
-
-.payment-image{
-  background-image: url(payement.jpg);
-  height: 27em;
-  width: 24em;
-}
-

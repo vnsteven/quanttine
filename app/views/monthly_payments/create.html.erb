@@ -1,6 +1,6 @@
 <head>
-<!--   <meta HTTP-EQUIV="REFRESH" content="5; url='<%= admin_path(current_admin) %>'">  -->
-</head>
+<!--   <meta HTTP-EQUIV="REFRESH" content="5; url='<%= admin_path(current_admin) %>'"> 
+ --></head>
 
 <head>
 	<meta charset="utf-8">
@@ -24,12 +24,12 @@
 						<!-- Nested Row within Card Body -->
 						<div class="row">
 							<div class="col-lg-6 d-none d-lg-block payment-image"></div>
-							<div class="col-lg-6">
+							<div class="col-lg-6 payment-text">
 								<div class="p-5">
 									<div class="text-center">
 										  <h1>L'équipe de Quanttine vous remercie pour votre confiance !</h1>
-										  <h5>Vous venez de payer <%= @amount %> € </h5> <br/>
-										  <p><%= link_to "Cliquez ici", admin_path(current_admin) %> pour accèder à votre tableau de bord, ou patientez quelques secondes.</p>
+										  <h4>Vous venez de payer <%= @amount %> € </h5> <br/>
+										  <p class="pay-redir"><%= link_to "Cliquez ici", admin_path(current_admin) %> pour accèder à votre tableau de bord, ou patientez quelques secondes.</p>
 								</div>
 							</div>
 						</div>
