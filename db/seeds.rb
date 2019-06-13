@@ -13,12 +13,15 @@ Admin.destroy_all
 Preference.destroy_all
 FoodSupply.destroy_all
 
+
 2.times do
+rand = rand(1000..2000)
   School.create!(
     name: "École #{Faker::Name.first_name} #{Faker::Name.last_name}",
     city: Faker::Address.city,
     street_address: Faker::Address.street_address,
-    zipcode: Faker::Address.zip_code
+    zipcode: Faker::Address.zip_code,
+    school_code: "#{rand}"
   )
 end
 
@@ -31,11 +34,14 @@ end
 end
 
 10.times do
-  user = User.create!(
-    first_name: Faker::Name.first_name,
-    last_name: Faker::Name.last_name,
-    email: "#{Faker::Internet.email}",
+  first_name = Faker::Name.first_name
+  last_name = Faker::Name.last_name
+  User.create!(
+    first_name: first_name,
+    last_name: last_name,
+    email: "#{first_name}.#{last_name}@yopmail.com".downcase,
     password: "password",
+    school_code: School.all.sample.school_code
     )
 end
 
@@ -70,8 +76,9 @@ end
 i = 1
 50.times do
   School.all.each do |school|
+    date = Date.today + i
     SchoolMeal.create!(
-      date: Date.current + i,
+      date: date.strftime("%d/%m/%Y"),
       school_id: school.id
       )
   end

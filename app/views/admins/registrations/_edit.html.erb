@@ -2,7 +2,7 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header mini-navbar">
-        <h2 id="login-title">Edit <%= resource_name.to_s.humanize %></h2>
+        <h2 id="login-title">Editer</h2>
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
       </div>
 
@@ -17,7 +17,7 @@
             <%= f.label :email %><br />
             <div class="input-container">
               <i class="fas fa-envelope icon"></i>
-              <%= f.email_field :email, class: "form-control input-field writing", autofocus: true, autocomplete: "email" %>
+              <%= f.email_field :email, class: "form-control input-field writing", autofocus: true, autocomplete: "Email" %>
             </div>
           </div>
 
@@ -26,7 +26,7 @@
           <% end %>
 
           <div class="field form-group">
-            <%= f.label :new_password %> <i>(leave blank if you don't want to change it)</i><br />
+            <%= f.label "Nouveau mot de passe" %> <i>(ne rien écrire si vous ne comptez pas le changer)</i><br />
             <div class="input-container">  
               <i class="fas fa-lock icon "></i>         
               <%= f.password_field :password, class: "form-control input-field writing", autocomplete: "new-password" %>
@@ -38,7 +38,7 @@
           </div>
 
           <div class="field form-group">
-            <%= f.label :new_password_confirmation %><br />
+            <%= f.label "Confirmation du mot de passe" %><br />
             <div class="input-container">  
               <i class="fas fa-lock icon "></i>         
               <%= f.password_field :password_confirmation, class: "form-control input-field writing", autocomplete: "new-password" %>
@@ -46,7 +46,7 @@
           </div>
 
           <div class="field form-group">
-            <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
+            <%= f.label "Mot de passe actuel" %> <i>(rentrez votre mot de passe actuel)</i><br />
             <div class="input-container">  
               <i class="fas fa-key icon"></i>
               <%= f.password_field :current_password, class: "form-control input-field writing", autocomplete: "current-password" %>
@@ -57,7 +57,7 @@
 
         <div class="modal-footer">
           <div class="form-actions">
-            <%= f.submit "Update", class: "btn", id:"btn-edit1" %>
+            <%= f.submit "Mettre à jour", class: "btn", id:"btn-edit1" %>
           </div>
           <% end %>
         </div>

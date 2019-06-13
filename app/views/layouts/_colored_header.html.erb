@@ -13,7 +13,7 @@
             <% if user_signed_in? || admin_signed_in? %>
                   <% if current_admin %>
                   <li class="nav-item co-nav-item">
-                    <%= link_to "Dashboard", admin_dashboard_index_path(current_admin.id), :class => "nav-link" %>
+                    <%= link_to "Dashboard", admin_path(current_admin.id), :class => "nav-link" %>
                   </li>
                   <li class="nav-item co-nav-item">
                     <%= link_to 'Profil', admin_path(current_admin.id), class: "nav-link" %>
@@ -33,8 +33,8 @@
           </ul>
         </div>
     </div>
-      <%= render 'profiles/registrations/new' %>
-      <%= render 'profiles/sessions/new' %>
+      <%= render 'users/registrations/new' %>
+      <%= render 'users/sessions/new' %>
       <%= render 'admins/sessions/new' %>
 
 </nav>

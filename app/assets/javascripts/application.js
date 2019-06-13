@@ -16,7 +16,6 @@
 //= require jquery_ujs
 //= require assets/static_page/js/main
 //= require assets/dashboard/js/sb-admin-2
-//= require rails-ujs
 //= require activestorage
 //= require_tree .
 
@@ -37,7 +36,7 @@ $(function () {
 // AUTO-DISAPPEAR ALERT
 
 window.setTimeout(function() {
-    $(".alert").fadeTo(1000, 0).slideUp(500, function(){
+    $(".alert").fadeTo(2000, 0).slideUp(500, function(){
         $(this).remove(); 
     });
 }, 750);

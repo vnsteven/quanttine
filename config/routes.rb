@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
+
   root 'home#index'
 
-  devise_for :users, path: 'users'
+  devise_for :users, path: 'users', :controllers => { :registrations => :registrations }
   resources :users do
     resources :avatars, only: [:create]
     resources :profiles do
@@ -10,19 +11,22 @@ Rails.application.routes.draw do
     end
   end
 
-
   devise_for :admins, path: 'admins'
-  resources :admins, only: [:show] do
+  resources :admins do
+    resources :daily_services
     resources :preparing_user_meals
     resources :food_supply
     resources :servings
     resources :quantities
-    resources :statistics
     resources :school_meals, only: [:destroy]
     resources :profiles, only: [:index]
   end
 
+
+
+  resources :api, only: [:create]
   resources :payments, only: [:new]
   resources :monthly_payments, only: [:new, :create, :update]
   resources :yearly_payments, only: [:new, :create, :update]
+
 end

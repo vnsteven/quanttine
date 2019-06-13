@@ -14,8 +14,8 @@ class SchoolMealsController < ApplicationController
   end
   
   def destroy
-    @school_meal = SchoolMeal.find_by(date: Date.tomorrow)
-    @school_meal.destroy unless @school_meal == nil
+    @school_meal = SchoolMeal.find_by(date: Date.tomorrow, school_id: current_admin.school.id)
+    @school_meal.servings.each { |i| i.destroy } unless @school_meal == nil
     redirect_to new_admin_serving_path(current_admin)
     flash[:success] = "Menu supprimé"
   end
