@@ -159,7 +159,6 @@ GEM
       mimemagic (~> 0.3.2)
     method_source (0.9.2)
     mimemagic (0.3.3)
-    mini_magick (4.9.3)
     mini_mime (1.0.1)
     mini_portile2 (2.4.0)
     mini_racer (0.2.6)
@@ -341,7 +340,6 @@ DEPENDENCIES
   jquery-datatables-rails (~> 3.4.0)
   jquery-rails
   listen (>= 3.0.5, < 3.2)
-  mini_magick (~> 4.8)
   mini_racer
   nyan-cat-formatter
   omniauth-facebook
