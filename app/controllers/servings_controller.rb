@@ -10,7 +10,7 @@ class ServingsController < ApplicationController
 
   def create
     @food_supply = FoodSupply.find_by(name: params[:food_supply])
-    @school_meal = SchoolMealConditionService.new(params[:date], current_admin.school.id).perform
+    @school_meal = SchoolMealConditionService.new(Date.tomorrow, current_admin.school.id).perform
     @food_serving = ServingConditionService.new(params[:meal_category], @school_meal, @food_supply).perform
     respond_to do |format|
       format.html { redirect_to new_admin_serving_path(current_admin) }
@@ -23,7 +23,7 @@ class ServingsController < ApplicationController
     @serving.destroy
     respond_to do |format|
       format.html { redirect_to new_admin_serving_path(current_admin) }
-      format.js { }
+      format.js { flash[:success] = "Aliment supprimé" }
     end
   end
 end

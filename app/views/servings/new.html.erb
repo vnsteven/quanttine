@@ -14,8 +14,6 @@
 							<div class="card-body">
 								<div class="field form-group">
 									<%= form_tag url_for(controller: 'servings', action: 'create'), method: 'post', remote: true do %>
-									<%= date_field_tag :date, "#{Date.tomorrow}", class: "form-control" %>
-									<br />
 									<%= select_tag :meal_category, options_for_select(serving_list), prompt: "Catégorie", class: "form-control" %>
 									<br />
 									<%= select_tag :food_supply, options_for_select(food_supply_list), prompt: "Aliment", class: "form-control" %>
