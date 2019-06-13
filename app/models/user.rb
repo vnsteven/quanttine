@@ -15,6 +15,7 @@ class User < ApplicationRecord
 
   validate :school_exists
 
+
   private
 
   def welcome_send
