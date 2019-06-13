@@ -1,49 +1,109 @@
-	<div class="site-blocks-cover overlay" data-aos="fade" id="home-section">
-		<div class="container">
-			<div class="row align-items-center justify-content-center">
-				<div class="col-md-6 mt-lg-5 text-center banner-items">
-					<h1 class="banner-title">
-						<a class="typewrite text-white" data-period="500" data-type='[ "Gaspille moins !", "Mange mieux !"]'>
-							<span class="wrap"></span>
-						</a>
 
-					</h1>
+<div class="site-blocks-cover overlay" data-aos="fade" id="home-section">
+	<div class="container">
+		<div class="row align-items-center justify-content-center">
+			<div class="col-md-6 mt-lg-5 text-center banner-items">
+				<h1 class="banner-title">
+					<a class="typewrite text-white" data-period="500" data-type='[ "Gaspille moins !", "Mange mieux !"]'>
+						<span class="wrap"></span>
+					</a>
 
-					<div class="banner-button">
-						<% unless user_signed_in? || admin_signed_in? %>
+				</h1>
+				<div class="banner-button">
+					<% unless user_signed_in? || admin_signed_in? %>
 
-						<%= link_to 'Côté Élève', new_user_session_path, class: "btn btn-primary btn-lg mr-2 mb-2", 'data-toggle' => "modal", 'data-target' => "#modalLogin" %>
-						<%= link_to 'Côté École', new_admin_session_path, class: "btn btn-primary btn-lg mr-2 mb-2 ", 'data-toggle' => "modal", 'data-target' => "#modalAdmin" %>
-						<% end %>				</div>
-					</div>
-					
+					<%= link_to 'Côté Élève', new_user_session_path, class: "btn btn-primary btn-lg mr-2 mb-2", 'data-toggle' => "modal", 'data-target' => "#modalLogin" %>
+					<%= link_to 'Côté École', new_admin_session_path, class: "btn btn-primary btn-lg mr-2 mb-2 ", 'data-toggle' => "modal", 'data-target' => "#modalAdmin" %>
+					<% end %>				</div>
+				</div>
 
 
-					<div class="card-group">
-						<div class="card">
-							<div class="card-body">
-								<h5 class="card-title"><p class="digit">1.</p>Inscris-toi à Quanttine</h5>
-							</div>
-						</div>
-						<div class="card">
-							<div class="card-body">
-								<h5 class="card-title"><p class="digit">2.</p>Choisis ton menu</h5>
-							</div>
-						</div>
-						<div class="card">
-							<div class="card-body">
-								<h5 class="card-title"><p class="digit">3.</p>Scanne ton QR code,<br /> c'est prêt !</h5>
-							</div>
+
+				<div class="card-group">
+					<div class="card">
+						<div class="card-body">
+							<h5 class="card-title"><p class="digit">1.</p>Inscris-toi à Quanttine</h5>
 						</div>
 					</div>
-					<!-- <p class="statement">Chaque année, une cantine scolaire jette environ une tonne de nourriture par an.</p> -->
+					<div class="card">
+						<div class="card-body">
+							<h5 class="card-title"><p class="digit">2.</p>Choisis ton menu</h5>
+						</div>
+					</div>
+					<div class="card">
+						<div class="card-body">
+							<h5 class="card-title"><p class="digit">3.</p>Scanne ton QR code,<br /> c'est prêt !</h5>
+						</div>
+					</div>
+				<section id="section05" class="demo">
+			<a href="#about"><span></span></a>
+		</section>
 				</div>
 			</div>
 		</div>
+	</div>
 
-		<%= render 'profiles/sessions/new' %>
-		<%= render 'admins/sessions/new' %>
+	<%= render 'users/sessions/new' %>
+	<%= render 'admins/sessions/new' %>
 
+	<script type="text/javascript">
+		var TxtType = function(el, toRotate, period) {
+			this.toRotate = toRotate;
+			this.el = el;
+			this.loopNum = 0;
+			this.period = parseInt(period, 15) || 2000;
+			this.txt = '';
+			this.tick();
+			this.isDeleting = false;
+		};
+
+		TxtType.prototype.tick = function() {
+			var i = this.loopNum % this.toRotate.length;
+			var fullTxt = this.toRotate[i];
+
+			if (this.isDeleting) {
+				this.txt = fullTxt.substring(0, this.txt.length - 1);
+			} else {
+				this.txt = fullTxt.substring(0, this.txt.length + 1);
+			}
+
+			this.el.innerHTML = '<span class="wrap">'+this.txt+'</span>';
+
+			var that = this;
+			var delta = 200 - Math.random() * 100;
+
+			if (this.isDeleting) { delta /= 2; }
+
+			if (!this.isDeleting && this.txt === fullTxt) {
+				delta = this.period;
+				this.isDeleting = true;
+			} else if (this.isDeleting && this.txt === '') {
+				this.isDeleting = false;
+				this.loopNum++;
+				delta = 500;
+			}
+
+			setTimeout(function() {
+				that.tick();
+			}, delta);
+		};
+
+		window.onload = function() {
+			var elements = document.getElementsByClassName('typewrite');
+			for (var i=0; i<elements.length; i++) {
+				var toRotate = elements[i].getAttribute('data-type');
+				var period = elements[i].getAttribute('data-period');
+				if (toRotate) {
+					new TxtType(elements[i], JSON.parse(toRotate), period);
+				}
+			}
+        // INJECT CSS
+        var css = document.createElement("style");
+        css.type = "text/css";
+        css.innerHTML = ".typewrite > .wrap { border-right: 0.08em solid #fff}";
+        document.body.appendChild(css);
+    };
+</script>
 
 
 

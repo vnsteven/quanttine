@@ -1,0 +1,29 @@
+<nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+
+	<div class="col-6 col-xl-2">
+		<h2 class="mb-0 site-logo text-black d-flex text-uppercase" id="quant">Quant<b><span class="text-daily">tine.</span></b></h2>
+	</div>
+
+	<ul class="navbar-nav ml-auto">
+
+		<li class="nav-item dropdown no-arrow d-sm-none color-w">
+			<a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+			</a>
+		</li>
+
+		<li class="nav-item dropdown no-arrow">
+			<a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				<span class="mr-2 d-none d-lg-inline text-gray-600 small">Administrateur | <%= current_admin.email %></span>
+				<img class="img-profile rounded-circle" src="https://www.shareicon.net/download/2016/09/01/822751_user_512x512.png">
+			</a>
+			<div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+				<%= link_to "Changer d'adresse mail", edit_admin_registration_path, :class => "dropdown-item", 'data-toggle' => "modal", 'data-target' => "#modalEdit" %>
+				<div class="dropdown-divider"></div>
+				<%= link_to "Se déconnecter", destroy_admin_session_path, :class => "dropdown-item", :method => :delete, data: {toggle: "modal", target: "#logoutModal"} %>
+			</div>
+		</li>
+
+	</ul>
+
+	<%= render 'admins/registrations/edit' %>
+</nav>

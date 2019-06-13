@@ -6,7 +6,7 @@ Quanttine is a web application that aims to reduce the food wasting in school ca
 
 To do so, we oganised the app around two ends : the Student and Kitchen.
 
-		Student end : 
+		Student end :
 
 	- The user can pick his meal the day before, according to the avalaible stock.
 	- He can also obtain informations about the food properties.
@@ -23,13 +23,7 @@ To do so, we oganised the app around two ends : the Student and Kitchen.
 
 The students that paid the service will be filtered by a gate, then they will have to scan a QR code. On the kitchen end, a screen will show them exactly what they will have to serve on each plate.
 
+The python script to scan qr code data can be found here: https://github.com/ryanzidago/qr_code_scanner
 
 
 Developed by Ryan Zidago, Camille Rungette, Steven Nguyen, Sylvain Comelli and Romain Genestre.
-
-
-
-
-
-
-
