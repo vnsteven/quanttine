@@ -13,6 +13,8 @@ Admin.destroy_all
 Preference.destroy_all
 FoodSupply.destroy_all
 
+supplies = ["Steak haché","Saumon en papillote","Lapin à la moutarde","Boeuf bougignon","Omelette au fromage", "Boeuf aux oignons","Rôti de boeuf", "Boeuf wellington", "Tartare de boeuf", "Chili con carne","Boulettes de boeuf", "Sauté de porc","Rôti de porc","Côte de porc","Porc au caramel","Filet mignon","Colombo de porc","Poitrine de porc","Blanquette de veau","Jarret de veau","Sauté de veau","Côte de veau","Veau marengo","Paupiettes de veau","Rôti de veau","Boulettes de veau","Tajine de veau","Escalope de veau","Couscous","Poulet basquaise","Poulet à l'estragon","Poulet coco","Poulet tandoori","Poulet frit","Tajine de poulet","Poulet rôti","Émincé de poulet","Poulet aux olives","Poulet aux amandes","Poulet au curry","Poulet teriyaki","Kebab de poulet","Poulet piri-piri","Saumon à l'oseille","Dos de cabillaud","Pavé de thon","Thon provençal","Poulet sauce satay","Riz","Riz cantonnais","Riz pilaf","Riz sauvage","Riz vapeur","Spaghettis","Coquillettes","Linguine","Gnocchis","Fusilli","Penne","Macaronis","Tagliatelles","Pommes de terre vapeur","Frites","Purée","Pommes paillasson","Pomme au four","Pommes de terre sautées","Röstis","Haricots verts","Carottes sautées","Carottes vapeur","Chou-fleur","Aubergines","Patate douce","Courgettes","Butternut","Haricot beurre","Petits pois","Lentilles","Blé","Boulghour","Pommes de terre façon Romain","Tarte aux fraises","Tarte à la rhubarbe","Tarte citron meringuée","Tarte aux pommes","Gâteau au chocolat","Quatre-quart","Clafoutis cerise","Cake au citron","Mille-feuille","Paris-Brest","Fôret noire","Éclair au chocolat","Éclair au café","Tarte tatin","Clafoutis aux pommes","Yaourt à la grecque","Yaourt","Camembert","Roquefort","Brie","Comté","Chèvre","Cantal","Emmental","Gouda","Maroilles","Tomme de savoie","Pomme","Poire","Raisins","Clémentine","Orange","Pêche","Abricot","Nectarines","Banane","Ananas","Cerises","Mandarine","Fraises"]
+
 
 2.times do
 rand = rand(1000..2000)
@@ -25,6 +27,8 @@ rand = rand(1000..2000)
   )
 end
 
+puts 'School done'
+
 5.times do
   Admin.create!(
     email: Faker::Internet.email,
@@ -32,6 +36,8 @@ end
     school_id: School.all.sample.id
     )
 end
+
+puts 'Admin done'
 
 10.times do
   first_name = Faker::Name.first_name
@@ -45,6 +51,8 @@ end
     )
 end
 
+puts 'User done'
+
 preferences=["Je ne mange pas de viande", "Je ne mange pas de produits laitiers", "Je ne mange pas de porc", "Je ne mange pas de produits marins"]
 
 a = 0
@@ -56,32 +64,23 @@ a = 0
   a += 1
 end
 
+puts 'Preferences done'
+
 20.times do
   JoinTableProfilePreference.create!(
     profile_id: Profile.all.sample.id
     )
 end
 
- supplies=["Steak haché","Saumon en papillote","Lapin à la moutarde","Boeuf bougignon","Omelette au fromage",
-      "Boeuf aux oignons","Rôti de boeuf", "Boeuf wellington", "Tartare de boeuf", "Chili con carne","Boulettes de boeuf", "Sauté de porc",
-      "Rôti de porc","Côte de porc","Porc au caramel","Filet mignon","Colombo de porc","Poitrine de porc","Blanquette de veau","Jarret de veau",
-      "Sauté de veau","Côte de veau","Veau marengo","Paupiettes de veau","","Rôti de veau","Boulettes de veau","Tajine de veau","Escalope de veau",
-      "Couscous","Poulet basquaise","Poulet à l'estragon","Poulet coco","Poulet tandoori","Poulet frit","Tajine de poulet","Poulet rôti","Émincé de poulet",
-      "Poulet aux olives","Poulet aux amandes","Poulet au curry","Poulet teriyaki","Kebab de poulet","Poulet piri-piri","Saumon à l'oseille",
-      "Dos de cabillaud","Pavé de thon","Thon provençal","Poulet sauce satay","Riz","Riz cantonnais","Riz pilaf","Riz sauvage","Riz vapeur","Spaghettis","Coquillettes","Linguine","Gnocchis",
-      "Fusilli","Penne","Macaronis","Tagliatelles","Pommes de terre vapeur","Frites","Purée","Pommes paillasson","Pomme au four","Pommes de terre sautées",
-      "Röstis","Haricots verts","Carottes sautées","Carottes vapeur","Chou-fleur","Aubergines","Patate douce","Courgettes","Butternut","Haricot beurre",
-      "Petits pois","Lentilles","Blé","Boulghour","Pommes de terre façon Romain","Tarte aux fraises","Tarte à la rhubarbe","Tarte citron meringuée",
-      "Tarte aux pommes","Gâteau au chocolat","Quatre-quart","Clafoutis cerise","Cake au citron","Mille-feuille","Paris-Brest","Fôret noire","Éclair au chocolat",
-      "Éclair au café","Tarte tatin","Clafoutis aux pommes","Yaourt à la grecque","Yaourt","Camembert","Roquefort","Brie","Comté","Chèvre","Cantal",
-      "Emmental","Gouda","Maroilles","Tomme de savoie","Pomme","Poire","Raisins","Clémentine","Orange","Pêche","Abricot","Nectarines","Banane",
-      "Ananas","Cerises","Mandarine","Fraises"]
+puts "JoinTableProfilePreference done"
 
 supplies.each do |supply|
   FoodSupply.create!(
     name: supply
     )
 end
+
+puts 'Food Supply done'
 
 200.times do
   Quantity.create!(
@@ -90,6 +89,8 @@ end
     food_supply_id: FoodSupply.all.sample.id
     )
 end
+
+puts 'Quantity done'
 
 i = 1
 50.times do
@@ -102,6 +103,8 @@ i = 1
   end
   i += 1
 end
+
+puts 'SchoolMeal done'
 
 # We create servings (starter/main_course/dessert) for each schoolmeal (aka a daily menu for one school)
 SchoolMeal.all.each do |schoolmeal|
@@ -129,13 +132,15 @@ SchoolMeal.all.each do |schoolmeal|
   end
 end
 
-
+puts 'Serving done'
 
 50.times do
   UserMeal.create!(
     profile_id: Profile.all.sample.id
     )
 end
+
+puts 'User Meal done'
 
 100.times do
   PreparingUserMeal.create!(
@@ -145,9 +150,13 @@ end
     )
 end
 
+puts 'Preparing User Meal done'
+
 10.times do
   JoinTablePreferenceFood.create!(
     preference_id: Preference.all.sample.id,
     food_supply_id: FoodSupply.all.sample.id
     )
 end
+
+puts 'JoinTablePreferenceFood done'
