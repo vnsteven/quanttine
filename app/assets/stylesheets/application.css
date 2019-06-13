@@ -919,3 +919,13 @@ background-color: #F9F9F9
   font-size: 1.3em;
 
 }
+
+
+/* PAYEMENT PAGE */
+
+.payment-image{
+  background-image: url(payement.jpg);
+  height: 27em;
+  width: 24em;
+}
+

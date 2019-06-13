@@ -12,6 +12,7 @@ class MonthlyPaymentsController < ApplicationController
   end
 
   def update
+    flash[:notice] = "Payement effectué avec succès !"
     service = StripeMonthlySubscriptionService.new(params, current_admin)
     service.unsubscribe
   end
