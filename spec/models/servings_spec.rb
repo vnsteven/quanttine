@@ -20,7 +20,7 @@ RSpec.describe Serving, type: :model do
     end
 
     describe "#preparing_user_meals" do
-      it { expect(@serving).to have_many(:preparing_user_meals) }
+      it { expect(@serving).to have_many(:preparing_user_meals).dependent(:destroy) }
     end
 
     describe "#user_meals" do

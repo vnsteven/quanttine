@@ -64,7 +64,24 @@ end
 
 100.times do
   FoodSupply.create!(
-    name: Faker::Food.fruits
+    name: ["Oeufs mayonnaise","Friand au fromage","Salade de lentilles","Salade de pâtes","Tomate mozzarella","Salade d'endives",
+      "Saucisson","Salade piémontaise","Salade niçoise","Jambon blanc","Jambon cru","Terrine de campagne","Salade de maïs",
+      "Salade de thon","Concombres","Salade de pomme de terrre","Harengs pommes à l'huile","Quiche lorraine","Salade verte","Poireaux vinaigrette",
+      "Salade de chou","Taboulé","Céleri rémoulade","Bettraves","Carottes rappées","Melon","Coleslaw","Crêpe au fromage","Salade riz","Radis", "Avocat vinaigrette",
+      "Salade de haricots verts","Saumon fumé","Salade Camille"]["Steak haché","Saumon en papillote","Lapin à la moutarde","Boeuf bougignon","Omelette au fromage",
+      "Boeuf aux oignons","Rôti de boeuf", "Boeuf wellington", "Tartare de boeuf", "Chili con carne","Boulettes de boeuf", "Sauté de porc",
+      "Rôti de porc","Côte de porc","Porc au caramel","Filet mignon","Colombo de porc","Poitrine de porc","Blanquette de veau","Jarret de veau",
+      "Sauté de veau","Côte de veau","Veau marengo","Paupiettes de veau","","Rôti de veau","Boulettes de veau","Tajine de veau","Escalope de veau",
+      "Couscous","Poulet basquaise","Poulet à l'estragon","Poulet coco","Poulet tandoori","Poulet frit","Tajine de poulet","Poulet rôti","Émincé de poulet",
+      "Poulet aux olives","Poulet aux amandes","Poulet au curry","Poulet teriyaki","Kebab de poulet","Poulet piri-piri","Saumon à l'oseille",
+      "Dos de cabillaud","Pavé de thon","Thon provençal","Poulet sauce Ryan"]["Riz","Riz cantonnais","Riz pilaf","Riz sauvage","Riz vapeur Sylvain","Spaghettis","Coquillettes","Linguine","Gnocchis",
+      "Fusilli","Penne","Macaronis","Tagliatelles","Pommes de terre vapeur","Frites","Purée","Pommes paillasson","Pomme au four","Pommes de terre sautées",
+      "Röstis","Haricots verts","Carottes sautées","Carottes vapeur","Chou-fleur","Aubergines","Patate douce","Courgettes","Butternut","Haricot beurre",
+      "Petits pois","Lentilles","Blé","Boulghour","Pommes de terre façon Romain"]["Tarte aux fraises","Tarte à la rhubarbe","Tarte citron meringuée",
+      "Tarte aux pommes","Gâteau de Steven","Quatre-quart","Clafoutis cerise","Cake au citron","Mille-feuille","Paris-Brest","Fôret noire","Éclair au chocolat",
+      "Éclair au café","Tarte tatin","Clafoutis aux pommes","Yaourt à la grecque","Yaourt","Camembert","Roquefort","Brie","Comté","Chèvre","Cantal",
+      "Emmental","Gouda","Maroilles","Tomme de savoie","Pomme","Poire","Raisins","Clémentine","Orange","Pêche","Abricot","Nectarines","Banane",
+      "Ananas","Cerises","Mandarine","Fraises"]
     )
 end
 

@@ -23,9 +23,13 @@ RSpec.describe Profile, type: :model do
     describe "#user" do
       it { expect(@profile).to belong_to(:user) }
     end
+
+    describe "#school" do
+      it { expect(@profile).to belong_to(:school).optional }
+    end
     
     describe "join_table_profile_preferences" do
-      it { expect(@profile).to have_many(:join_table_profile_preferences) }
+      it { expect(@profile).to have_many(:join_table_profile_preferences).dependent(:destroy) }
     end
 
     describe "#preferences" do
@@ -33,7 +37,7 @@ RSpec.describe Profile, type: :model do
     end
 
     describe "user_meals" do
-      it { expect(@profile).to have_many(:user_meals) }
+      it { expect(@profile).to have_many(:user_meals).dependent(:destroy) }
     end
 
   end

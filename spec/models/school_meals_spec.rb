@@ -33,5 +33,5 @@ RSpec.describe SchoolMeal, type: :model do
     end
 
   end
-
+  
 end

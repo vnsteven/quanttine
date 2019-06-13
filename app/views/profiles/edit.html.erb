@@ -3,7 +3,7 @@
 	<div class="container mt-5 mb-5">
 		<div class="row">
 			<div class="col-12">
-				<div class="card">
+				<div class="card" id="card-profile">
 					<div class="card-body">
 						<div class="card-title mb-4">
 							<div class="d-flex justify-content-start pt-4 pl-4">
@@ -20,9 +20,15 @@
 											</span>
 											<% end %>
 											<% else %>
-											<p>=== Il n'y a pas encore d'avatar lié à cet utilisateur ===</p>
-											<%= form_tag user_avatars_path(@profile), multipart: true do %>
-											<%= file_field_tag :avatar, :class =>"form-control", onchange: 'this.form.submit();' %><br>
+											<div class="m-5">
+												<p class="ml-2">Pas d'avatar choisi</p>
+												<%= form_tag user_avatars_path(@profile), multipart: true do %>
+												<br />
+												<span class="btn btn-outline-primary btn-file">
+													Choisir une image
+													<%= file_field_tag :avatar, :class =>"form-control", onchange: 'this.form.submit();' %><br>
+												</span>
+											</div>
 											<% end %>
 											<% end %>
 										</div>
@@ -30,9 +36,9 @@
 								</div>
 								<div class="userData ml-3">
 									<h2 class="d-block" style="font-size: 1.5rem; font-weight: bold"><%=  @user.first_name %> <%= @user.last_name %></h2>
-									<%= link_to 'Choisir mon menu', "", class: "btn btn-primary" %>
-									<%= link_to 'Editer', edit_user_registration_path, class:"btn btn-outline-primary",'data-toggle' => "modal", 'data-target' => "#modalEdit" %>
-									<%= link_to 'Voir mon QR code', edit_user_registration_path, class:"btn btn-outline-secondary text-secondary", 'data-toggle' => "modal", 'data-target' => "#qr_code" %>
+									<%= link_to 'Choisir mon menu', "", class: "btn btn-primary mr-2" %>
+									<%= link_to 'Editer', edit_user_registration_path, class:"btn btn-outline-primary mr-2",'data-toggle' => "modal", 'data-target' => "#modalEdit" %>
+									<%= link_to 'Voir mon QR code', edit_user_registration_path, class:"btn btn-outline-secondary text-secondary mr-2", 'data-toggle' => "modal", 'data-target' => "#qr_code" %>
 								</div>
 								<div class="ml-auto">
 									<input type="button" class="btn btn-primary d-none" id="btnDiscard" value="Discard Changes" />
@@ -101,7 +107,7 @@
 											<%= form_for [@user, @profile] do |f| %>
 											<%= f.collection_check_boxes :preference_ids, @preferences.order(:name), :id, :name do |b| %>
 											<%= b.check_box %> <%= b.label %> <br>
-											<% end %>
+											<% end %><br />
 											<%= f.submit "Envoyer", id:"envoyer", class:"btn btn-primary send" %>
 											<% end %>
 										</div>
