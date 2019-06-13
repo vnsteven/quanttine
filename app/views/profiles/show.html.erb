@@ -18,13 +18,13 @@
 		</div>
 		<% end %>
 
-		<%= link_to new_user_profile_user_meal_path(@user.id, @profile.id) do %>
+		<%= link_to user_profile_user_meals_path(@user.id, @profile.id) do %>
 		<div id="options">
 		  <%= image_tag "choice.jpg", class:"photo-card" %>
 		  <div class="card-body">
 		    <h5 class="card-title">Mes commandes</h5>
 		    <p class="card-text text1">Retrouve toutes les commandes que tu as passées afin de garder un oeil sur ton alimentation.</p> <br/><br/>
-		    <a href="#" class="btn btn-primary" id="bouton-show" >Go somewhere</a>
+		    <%= link_to "Mes commandes", user_profile_user_meals_path(@user.id, @profile.id), class: "btn btn-primary", id:"bouton-show" %>
 		  </div>
 		</div>
 		<% end %>

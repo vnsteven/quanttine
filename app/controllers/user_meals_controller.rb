@@ -26,6 +26,10 @@ class UserMealsController < ApplicationController
     redirect_to user_profile_user_meal_path(@user, @profile, @user_meal.id)
   end
 
+  def index
+    @meals = current_user.profile.user_meals
+  end
+
   def show
     @profile = current_user.profile
     @servings = @profile.user_meals.last.servings

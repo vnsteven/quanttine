@@ -879,3 +879,43 @@ background-color: #F9F9F9
 .service{
   font-size: 4em;
 }
+
+/* USER_MEAL INDEX */
+.meal-title{
+  text-align: center;
+  font-size: 3em;
+  margin-top: 2em;
+  color: #33DE79;
+}
+
+.meals-index {
+  width: 70%;
+  margin: auto;
+  margin-top: 4%;
+  padding: 60Px;
+}
+
+.blockquote-footer{
+  color: #33DE79;
+}
+
+.meal-card{
+  width: 90%;
+  margin: auto;
+  border-right: none;
+  border-left: none;
+  padding-left: 7em;
+}
+
+.meal-card:hover{
+  transition-duration: 1000ms;
+  background: #F9F9F9;
+  width: 100%;
+  padding-left: 11em;
+
+}
+
+.meal-header{
+  font-size: 1.3em;
+
+}
