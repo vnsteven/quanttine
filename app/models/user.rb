@@ -5,8 +5,7 @@ class User < ApplicationRecord
 
   devise :database_authenticatable, :registerable,
   :recoverable, :rememberable, :validatable
-
-  after_create :create_profile
+  after_create :create_profile, :send_welcome_email
 
 	validates :first_name, :last_name,
   presence: true,
@@ -18,7 +17,7 @@ class User < ApplicationRecord
 
   private
 
-  def welcome_send
+  def send_welcome_email
     UserMailer.welcome_email(self).deliver_now
   end
 

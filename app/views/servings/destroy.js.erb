@@ -1,1 +1,19 @@
 document.querySelector("#menu<%= params[:id] %>").remove()
+
+<% if @serving.meal_category == "entrée" %>
+document.querySelector("#counter-entree").innerHTML = "<%= servings_count_per_category('entrée') %>"
+<% elsif @serving.meal_category == "plat"%>
+document.querySelector("#counter-plat").innerHTML = "<%= servings_count_per_category('plat') %>"
+<% elsif @serving.meal_category == "accompagnement"%>
+document.querySelector("#counter-accompagnement").innerHTML = "<%= servings_count_per_category('accompagnement') %>"
+<% elsif @serving.meal_category == "dessert"%>
+document.querySelector("#counter-dessert").innerHTML = "<%= servings_count_per_category('dessert') %>"
+<% end %>
+
+document.querySelector("body").insertAdjacentHTML('afterbegin', '<%= j render "partials/flash", food_serving: @food_serving %>')
+
+window.setTimeout(function() {
+	$(".alert").fadeTo(2000, 0).slideUp(500, function(){
+		$(this).remove(); 
+	});
+}, 750);
