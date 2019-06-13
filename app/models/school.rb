@@ -28,9 +28,9 @@ class School < ApplicationRecord
 
   def send_payment_information_email
     if self.active?
-      AdminMailer.send_subscription_email(self).deliver_now
+      AdminMailer.send_subscription_email(self.admin).deliver_now
     elsif self.active? == false
-      AdminMailer.send_unsubscription_email(self).deliver_now
+      AdminMailer.send_unsubscription_email(self.admin).deliver_now
     end
   end
 
