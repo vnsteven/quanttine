@@ -1,26 +1,28 @@
-<body class="profile-edit">
-	<%= render 'layouts/colored_header' %>
-	<div class="container mt-5">
+<%= render 'layouts/colored_header' %>
+<div class="container-flex">
+	<div class="container mt-5 mb-5">
 		<div class="row">
 			<div class="col-12">
 				<div class="card">
-
 					<div class="card-body">
 						<div class="card-title mb-4">
-							<div class="d-flex justify-content-start">
+							<div class="d-flex justify-content-start pt-4 pl-4">
 								<div class="image-container">				
 									<div class="edit-pictures">
 										<div class="user-photo" >
 											<% if @profile.avatar.attached? %>
 											<%= image_tag @profile.resized_avatar, alt: 'avatar', class: "avatar" %>
 											<%= form_tag user_avatars_path, multipart: true do %>
-											<%= file_field_tag :avatar %> <br>
+											<br />
+											<span class="btn btn-outline-primary btn-file">
+												Choisir une image
+												<%= file_field_tag :avatar, :class =>"form-control-file choose", onchange: 'this.form.submit();' %>
+											</span>
 											<% end %>
 											<% else %>
 											<p>=== Il n'y a pas encore d'avatar lié à cet utilisateur ===</p>
-											<%= form_tag user_avatars_path, multipart: true do %>
-											<%= file_field_tag :avatar %> <br>
-											<%= submit_tag "ajouter une photo de profil" %>
+											<%= form_tag user_avatars_path(@profile), multipart: true do %>
+											<%= file_field_tag :avatar, :class =>"form-control", onchange: 'this.form.submit();' %><br>
 											<% end %>
 											<% end %>
 										</div>
@@ -28,7 +30,9 @@
 								</div>
 								<div class="userData ml-3">
 									<h2 class="d-block" style="font-size: 1.5rem; font-weight: bold"><%=  @user.first_name %> <%= @user.last_name %></h2>
-									<%= link_to 'Voir mon QR code', edit_user_registration_path, class:"btn btn-outline-secondary", 'data-toggle' => "modal", 'data-target' => "#qr_code" %>
+									<%= link_to 'Choisir mon menu', "", class: "btn btn-primary" %>
+									<%= link_to 'Editer', edit_user_registration_path, class:"btn btn-outline-primary",'data-toggle' => "modal", 'data-target' => "#modalEdit" %>
+									<%= link_to 'Voir mon QR code', edit_user_registration_path, class:"btn btn-outline-secondary text-secondary", 'data-toggle' => "modal", 'data-target' => "#qr_code" %>
 								</div>
 								<div class="ml-auto">
 									<input type="button" class="btn btn-primary d-none" id="btnDiscard" value="Discard Changes" />
@@ -43,7 +47,7 @@
 										<a class="nav-link active" id="basicInfo-tab" data-toggle="tab" href="#basicInfo" role="tab" aria-controls="basicInfo" aria-selected="true">Informations</a>
 									</li>
 									<li class="nav-item">
-										<a class="nav-link" id="connectedServices-tab" data-toggle="tab" href="#connectedServices" role="tab" aria-controls="connectedServices" aria-selected="false">Préférences alimentaires</a>
+										<a class="nav-link" id="connectedServices-tab" data-toggle="tab" href="#preferences" role="tab" aria-controls="connectedServices" aria-selected="false">Préférences alimentaires</a>
 									</li>
 								</ul>
 								<div class="tab-content ml-1" id="myTabContent">
@@ -91,93 +95,27 @@
 										<hr />
 
 									</div>
+
+									<div class="tab-pane fade" id="preferences" role="tabpanel" aria-labelledby="ConnectedServices-tab">
+										<div class="choice">
+											<%= form_for [@user, @profile] do |f| %>
+											<%= f.collection_check_boxes :preference_ids, @preferences.order(:name), :id, :name do |b| %>
+											<%= b.check_box %> <%= b.label %> <br>
+											<% end %>
+											<%= f.submit "Envoyer", id:"envoyer", class:"btn btn-primary send" %>
+											<% end %>
+										</div>
+
+									</div>
 								</div>
 							</div>
 						</div>
 
-
 					</div>
-
 				</div>
 			</div>
 		</div>
 	</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	<div class="show-user">
-		<br/> <br/>
-		<div class="user-info">
-			<div class="card mb-3 big-card">
-				<h3 class="card-header choice-title"><div class="content"><%=  @user.first_name %> <%= @user.last_name %></div>
-				</h3>
-				<div class="card-body row card-body1">
-					<div class="col content">
-						<h5 class="card-title">Elève de : 4B</h5>
-						<% if @school.name == nil %>
-						<h6 class="card-subtitle text-muted"> <%= School.all.sample.name %>  </h6>
-						<% else %>
-						<h6 class="card-subtitle text-muted"> <%= @school.name %>, <%= @school.school_code %> </h6>
-						<% end %> 
-					</div>
-					<div class="col content">
-						<%= @user.email %>
-					</div>
-				</div> <br/>
-				<div class="edit-pictures">
-					<div class="user-photo" >
-						<% if @profile.avatar.attached? %>
-						<%= image_tag @profile.resized_avatar, alt: 'avatar', class: "avatar" %>
-						<%= form_tag user_avatars_path, multipart: true do %>
-						<%= file_field_tag :avatar %> <br>
-						<% end %>
-						<% else %>
-						<p>=== Il n'y a pas encore d'avatar lié à cet utilisateur ===</p>
-						<%= form_tag user_avatars_path, multipart: true do %>
-						<%= file_field_tag :avatar %> <br>
-						<%= submit_tag "ajouter une photo de profil" %>
-						<% end %>
-						<% end %>
-					</div>
-					<%= link_to 'Voir mon QR code', edit_user_registration_path, class:"qr-link btn btn-outline-secondary", 'data-toggle' => "modal", 'data-target' => "#qr_code" %>
-
-				</div>
-				<br/>
-				<div>
-					<h5 class="choice-title1">Choisis tes préférences alimentaires ci-dessous: elles seront transmises à ta cantine.</h5>
-				</div>
-				<br/>
-				<div class="choice">
-					<%= form_for [@user, @profile] do |f| %>
-					<%= f.collection_check_boxes :preference_ids, @preferences.order(:name), :id, :name do |b| %>
-					<%= b.check_box %> <%= b.label %> <br>
-					<% end %>
-					<%= f.submit "Envoyer", id:"envoyer", class:"btn btn-primary send" %>
-					<% end %>
-				</div>
-				<br/>
-				<div class="card-body">
-					<%= link_to 'Editer', edit_user_registration_path, 'data-toggle' => "modal", 'data-target' => "#modalEdit" %>
-
-					<a href="/users/edit" class="card-link">Choisir mon menu</a>
-				</div>
-			</div>
-		</div>
-		<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
-	</div>
-
-	<%= render 'qrcode' %>
-	<%= render 'users/registrations/edit' %>
-	<%= render 'home/footer' %>
-</body>
+</div>
+<%= render 'qrcode' %>
+<%= render 'users/registrations/edit' %>
