@@ -46,14 +46,14 @@ class ProfilesController < ApplicationController
 
   def authenticate_user
     unless current_user || current_admin
-      redirect_to root_path, notice: "Veuillez vous connecter pour accéder à vos informations."
+      redirect_to root_path, notice: "Il faut te connecter pour accéder à tes informations."
     end
   end
 
   def restrict_access
     @profile = Profile.find_by(user_id: current_user.id)
     if @profile.id != current_user.profile.id
-      redirect_to root_path, notice: "Vous n'avez pas accès à ces informations."
+      redirect_to root_path, notice: "Tu n'as pas accès à ces informations."
     end
   end
 

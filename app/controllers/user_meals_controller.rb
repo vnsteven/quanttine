@@ -53,7 +53,7 @@ class UserMealsController < ApplicationController
     @profile = current_user.profile
     @user = current_user
     unless todays_order.exists?
-      flash[:error] = "Vous n'avez pas passé de commande !"
+      flash[:error] = "Tu n'as pas passé de commande !"
       redirect_to new_user_profile_user_meal_path(@profile, @user)
     end
   end
@@ -62,7 +62,7 @@ class UserMealsController < ApplicationController
     @profile = current_user.profile
     @user = current_user
     unless todays_order.empty?
-     flash[:error] = "Vous avez déjà passé commande !"
+     flash[:error] = "Tu as déjà passé commande !"
      redirect_to user_profile_user_meal_path(@profile, @user, @user_meal.last.id)
    end
 

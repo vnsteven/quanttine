@@ -45,18 +45,20 @@ end
     )
 end
 
+preferences=["Je ne mange pas de viande", "Je ne mange pas de produits laitiers", "Je ne mange pas de porc", "Je ne mange pas de produits marins"]
 
+a = 0
 4.times do
   Preference.create!(
-    name: ["Je ne mange pas de viande", "Je ne mange pas de produits laitiers", "Je ne mange pas de porc", "Je ne mange pas de produits marins"].sample,
+    name: preferences[a],
     category: ["diet", "allergy"].sample
     )
+  a += 1
 end
 
 20.times do
   JoinTableProfilePreference.create!(
-    profile_id: Profile.all.sample.id,
-    preference_id: Preference.all.sample.id
+    profile_id: Profile.all.sample.id
     )
 end
 
