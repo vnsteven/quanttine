@@ -1,11 +1,9 @@
 <body>
-
-
   <%= render 'layouts/colored_header' %>
   <div id="menu-of-the-day-wrapper">
-
     <br><br>
     <h3>Récapitulatif du menu choisi </h3>
+    <hr>
     <div class="category-wrapper">
       <% @servings.each do |serving|%>
       <div class="serving-choices">
@@ -22,12 +20,13 @@
       </div>
       <% end %>
     </div>
-
-    <%= link_to "Supprimer ma commande", user_profile_user_meal_path(@user, @profile, params[:id]),  class: "btn btn-danger", method: :DELETE %>
-  </div>
-  <%= render 'home/footer' %>
-  <script>
-    $(".category-wrapper").hover(
+    <div class="text-center bottom-button">
+     <%= link_to "Supprimer ma commande", user_profile_user_meal_path(@user, @profile, params[:id]),  class: "btn btn-danger", method: :DELETE %>
+   </div>
+ </div>
+ <%= render 'home/footer' %>
+ <script>
+  $(".category-wrapper").hover(
     function () {
       $('body').css('overflow','hidden');
     },
@@ -36,5 +35,4 @@
     }
     );
   </script>
-
 </body>

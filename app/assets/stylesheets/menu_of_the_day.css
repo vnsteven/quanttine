@@ -4,31 +4,36 @@ body {
   overflow: hidden;
 }
 
-  #menu-of-the-day-wrapper{
+#menu-of-the-day-wrapper{
   width: 95%;
-  margin: 10px auto;
+  margin: 30px auto;
   display: flex;
   flex-flow: column wrap;
+
 }
 
 .category-wrapper{
   display: flex;
   flex: 1;
   flex-flow: row nowrap;
+  align-items: center;
   overflow-x: scroll;
   justify-content: space-around;
   height: 85vh;
-  min-height: min-content;
   width: 95vw;
-  margin-bottom: 50px;
-  background-color: #F5F7FA;
+  margin: 0 auto;
+  padding: auto;
+  background-color: #F5F9FC;
 }
 
 .serving-choices{
   max-width: 22%;
-  margin: 10px;
+  margin: 10px auto;
 }
 
+h3 + hr {
+  margin-bottom: 0;
+}
 .meal-detail{
   border-radius: 2px;
   box-sizing: border-box;
@@ -38,7 +43,7 @@ body {
 }
 
 .meal-description{
-height: 5vh;
+  height: 5vh;
 }
 
 .card-text{
@@ -47,15 +52,19 @@ height: 5vh;
 
 .card > .card-body > .card-text{
 /*  display: flex;
-  flex-flow: column; nowrap;*/
-  min-height: 10vh;
-  max-height: 15vh;
+flex-flow: column; nowrap;*/
+min-height: 10vh;
+max-height: 15vh;
 }
 
 .meal-image{
   height: 30vh;
   object-fit: cover;
   border-radius: 3px;
+}
+
+.bottom-button{
+  margin: 20px auto;
 }
 
 /*****  FX   *****/
@@ -83,8 +92,6 @@ height: 5vh;
   border: solid 1px #F7F7F7;
   transition-duration: 0.5s;
 }
-
-
 
 
 
