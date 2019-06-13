@@ -8,22 +8,27 @@
 					<div class="card-body">
 						<div class="card-title mb-4">
 							<div class="d-flex justify-content-start">
-								<div class="image-container">
-									<% if @profile.avatar.attached? %>
-									<%= image_tag @profile.resized_avatar, alt: 'avatar', class: "avatar" %>
-									<%= form_tag user_avatars_path, multipart: true do %>
-									<%= file_field_tag :avatar %> <br>
-									<% end %>
-									<% else %>
-									<p>=== Il n'y a pas encore d'avatar lié à cet utilisateur ===</p>
-									<%= form_tag user_avatars_path, multipart: true do %>
-									<%= file_field_tag :avatar %> <br>
-									<%= submit_tag "ajouter une photo de profil" %>
-									<% end %>
-									<% end %>
+								<div class="image-container">				
+									<div class="edit-pictures">
+										<div class="user-photo" >
+											<% if @profile.avatar.attached? %>
+											<%= image_tag @profile.resized_avatar, alt: 'avatar', class: "avatar" %>
+											<%= form_tag user_avatars_path, multipart: true do %>
+											<%= file_field_tag :avatar %> <br>
+											<% end %>
+											<% else %>
+											<p>=== Il n'y a pas encore d'avatar lié à cet utilisateur ===</p>
+											<%= form_tag user_avatars_path, multipart: true do %>
+											<%= file_field_tag :avatar %> <br>
+											<%= submit_tag "ajouter une photo de profil" %>
+											<% end %>
+											<% end %>
+										</div>
+									</div>
 								</div>
 								<div class="userData ml-3">
 									<h2 class="d-block" style="font-size: 1.5rem; font-weight: bold"><%=  @user.first_name %> <%= @user.last_name %></h2>
+									<%= link_to 'Voir mon QR code', edit_user_registration_path, class:"btn btn-outline-secondary", 'data-toggle' => "modal", 'data-target' => "#qr_code" %>
 								</div>
 								<div class="ml-auto">
 									<input type="button" class="btn btn-primary d-none" id="btnDiscard" value="Discard Changes" />
@@ -38,7 +43,7 @@
 										<a class="nav-link active" id="basicInfo-tab" data-toggle="tab" href="#basicInfo" role="tab" aria-controls="basicInfo" aria-selected="true">Informations</a>
 									</li>
 									<li class="nav-item">
-										<a class="nav-link" id="connectedServices-tab" data-toggle="tab" href="#connectedServices" role="tab" aria-controls="connectedServices" aria-selected="false">Connected Services</a>
+										<a class="nav-link" id="connectedServices-tab" data-toggle="tab" href="#connectedServices" role="tab" aria-controls="connectedServices" aria-selected="false">Préférences alimentaires</a>
 									</li>
 								</ul>
 								<div class="tab-content ml-1" id="myTabContent">
