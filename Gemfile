@@ -12,7 +12,6 @@ gem "font-awesome-rails"
 gem "chartkick"
 gem 'groupdate'
 gem 'jquery-datatables-rails', '~> 3.4.0'
-gem 'rails-i18n'
 
 # Combine 'pry' with 'byebug'. Adds 'step', 'next', 'finish', 'continue' and 'break' commands to control execution.
 gem 'pry-byebug', '~> 3.7'

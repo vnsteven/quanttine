@@ -16,13 +16,12 @@ class ProfilesController < ApplicationController
   def edit
     @preferences = Preference.all
     @schools = School.all
-    # @user_school = School.all.find_by(school_code: current_user.school_code)
+    @school = current_user.profile.school
   end
 
   def update
     @profile.update(profile_parameters)
-    redirect_to edit_user_profile_path(@user.id, @profile.id), notice: "Préférences enregistrées 
-    - Veuillez rafraichir la page pour les actualiser"
+    redirect_to edit_user_profile_path(@user.id, @profile.id), notice: "Préférences enregistrées"
   end
 
   private
