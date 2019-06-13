@@ -3,7 +3,7 @@
 
   <br><br>
   <h3>Récapitulatif du menu choisi </h3>
-  <div class="category-wrapper">
+  <div class="category-wrapper-show">
     <% @servings.each do |serving|%>
     <div class="serving-choices">
       <div class="meal-detail">
@@ -19,8 +19,8 @@
     </div>
     <% end %>
   </div>
-
-  <%= link_to "Supprimer ma commande", user_profile_user_meal_path(@user, @profile, params[:id]),  class: "btn btn-danger", method: :DELETE %>
+  <%= link_to "Supprimer ma commande", user_profile_user_meal_path(@user, @profile, params[:id]),  class: "btn btn-danger delete-meal", method: :DELETE %>
 </div>
+<br/><br/><br/><br/><br/>
 <%= render 'home/footer' %>
 

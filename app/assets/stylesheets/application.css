@@ -144,6 +144,10 @@ html {
   color: #5D5D5D !important;
 }
 
+.link1:hover {
+  color: #58C176 !important;
+}
+
 /* BUTTON */
 
 .btn-primary:focus {
@@ -684,7 +688,7 @@ align-self: center;
 
 /* MENU OF THE DAY - FORM */
 
-/* PROFILES : INDEX.HTML */
+/* PROFILES : SHOW.HTML */
 .user-title {
   font-family: 'Raleway', sans-serif;
   text-align: center;
@@ -697,7 +701,6 @@ align-self: center;
   font-size: 1.5em;
 }
 
-
 .user-main{
   width: 75%;
   margin: auto;
@@ -705,18 +708,36 @@ align-self: center;
 
 .user-cards {
   height: 40em;
-  display: flex;
-  justify-content: space-around;
+  display: flex ;
+  justify-content: space-around ;
   align-items: center;
 }
 
 #options {
   border: none;
-  width: 21rem;
-  min-width: 19rem;
-  height: 29em;
-  text-align: center;
-  transition-duration: 0.5s;
+  border-radius: 8px;
+  width: 21rem ;
+  min-width: 19rem ;
+  height: 29em ;
+  text-align: center ;
+  transition-duration: 0.5s ;
+}
+
+#bouton-show{
+  color: white !important;
+}
+
+#bouton-show:hover{
+  color: #33DE79 !important;
+  border: 1px solid #33DE79;
+}
+
+#options a{
+  color: #858796; 
+}
+
+#options a:hover {
+  text-decoration: none;
 }
 
 .card1 {
@@ -731,19 +752,24 @@ align-self: center;
   transition-duration: 0.5s;
 }
 
-.text1{
+.text{
   min-width: 15em;
   max-width: 15em;
   margin: auto;
 }
 
 .photo-card {
-  height: 47%;
+  height: 47% !important;
+  width: 100%;
 }
 
 .card-title {
   font-family: 'Raleway', sans-serif;
   font-weight: bold;
+}
+
+.card-text {
+  font-size: 1em;
 }
 
 /*FORGOT PASSWORD ITEMS*/
@@ -908,4 +934,44 @@ background-color: #F9F9F9
 
 .service{
   font-size: 4em;
+}
+
+/* USER_MEAL INDEX */
+.meal-title{
+  text-align: center;
+  font-size: 3em;
+  margin-top: 2em;
+  color: #33DE79;
+}
+
+.meals-index {
+  width: 70%;
+  margin: auto;
+  margin-top: 4%;
+  padding: 60Px;
+}
+
+.blockquote-footer{
+  color: #33DE79;
+}
+
+.meal-card{
+  width: 90%;
+  margin: auto;
+  border-right: none;
+  border-left: none;
+  padding-left: 7em;
+}
+
+.meal-card:hover{
+  transition-duration: 1000ms;
+  background: #F9F9F9;
+  width: 100%;
+  padding-left: 11em;
+
+}
+
+.meal-header{
+  font-size: 1.3em;
+
 }

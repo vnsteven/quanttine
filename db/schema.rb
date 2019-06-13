@@ -121,6 +121,15 @@ ActiveRecord::Schema.define(version: 2019_06_11_204951) do
     t.index ["school_id"], name: "index_quantities_on_school_id"
   end
 
+  create_table "questions", force: :cascade do |t|
+    t.string "school_name"
+    t.string "school_city"
+    t.string "email"
+    t.string "question_content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "school_meals", force: :cascade do |t|
     t.datetime "date"
     t.bigint "school_id"
