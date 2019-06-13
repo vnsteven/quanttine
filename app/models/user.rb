@@ -22,7 +22,7 @@ class User < ApplicationRecord
 
   def create_profile
     @school = School.find_by(school_code: self.school_code)
-    self.profile = Profile.create!(user_id: self.id, school_id: @school.id  )
+    self.profile = Profile.create!(user_id: self.id, school_id: School.all.sample.id  )
   end
 
   def school_exists
