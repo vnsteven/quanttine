@@ -30,9 +30,9 @@
 								</div>
 								<div class="userData ml-3">
 									<h2 class="d-block" style="font-size: 1.5rem; font-weight: bold"><%=  @user.first_name %> <%= @user.last_name %></h2>
-									<%= link_to 'Choisir mon menu', "", class: "btn btn-primary" %>
-									<%= link_to 'Editer', edit_user_registration_path, class:"btn btn-outline-primary",'data-toggle' => "modal", 'data-target' => "#modalEdit" %>
-									<%= link_to 'Voir mon QR code', edit_user_registration_path, class:"btn btn-outline-secondary text-secondary", 'data-toggle' => "modal", 'data-target' => "#qr_code" %>
+									<%= link_to 'Choisir mon menu', "", class: "btn btn-primary mr-2" %>
+									<%= link_to 'Editer', edit_user_registration_path, class:"btn btn-outline-primary mr-2",'data-toggle' => "modal", 'data-target' => "#modalEdit" %>
+									<%= link_to 'Voir mon QR code', edit_user_registration_path, class:"btn btn-outline-secondary text-secondary mr-2", 'data-toggle' => "modal", 'data-target' => "#qr_code" %>
 								</div>
 								<div class="ml-auto">
 									<input type="button" class="btn btn-primary d-none" id="btnDiscard" value="Discard Changes" />
@@ -101,7 +101,7 @@
 											<%= form_for [@user, @profile] do |f| %>
 											<%= f.collection_check_boxes :preference_ids, @preferences.order(:name), :id, :name do |b| %>
 											<%= b.check_box %> <%= b.label %> <br>
-											<% end %>
+											<% end %><br />
 											<%= f.submit "Envoyer", id:"envoyer", class:"btn btn-primary send" %>
 											<% end %>
 										</div>
