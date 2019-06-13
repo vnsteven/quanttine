@@ -3,7 +3,6 @@ class UserMealsController < ApplicationController
   before_action :has_ordered, only: [:destroy, :show]
   before_action :has_not_ordered, only: [:create]
   before_action :menu_tomorrow, only: [:new]
-  # before_action :has_a_full_meal, only: [:create]
 
 
   def new
@@ -17,16 +16,15 @@ class UserMealsController < ApplicationController
   end
 
   def create
-    if params[:user_meal].has_key?("starter_choice") && params[:user_meal].has_key?("main_course_choice") && params[:user_meal].has_key?("side_choice") && params[:user_meal].has_key?("dessert_choice")
+    if choose_a_full_meal
       @user_meal = UserMeal.create!(profile_id: @profile.id)
       params[:user_meal].each do |param, value|
         PreparingUserMeal.create!(user_meal_id: @user_meal.id, serving_size: 100, serving_id: value.to_i)
       end
       redirect_to user_profile_user_meal_path(@user, @profile, @user_meal.id)
-
     else
       redirect_to new_user_profile_user_meal_path(@user, @profile)
-      flash[:error] = "Vous devez selectionner un truc de chaque"
+      flash[:error] = "Tu dois choisir une entrée, un plat avec accompagnement et un dessert"
     end
 
   end
@@ -76,17 +74,15 @@ class UserMealsController < ApplicationController
 end
 
 
-  # def has_a_full_meal
-  #   unless params[:user_meal].has_key?("starter_choice") && params[:user_meal].has_key?("main_course_choice") && params[:user_meal].has_key?("side_choice") && params[:user_meal].has_key?("dessert_choice")
-  #     flash[:error] = "Tu dois choisir un aliment de chaque type !"
-  #   end
-  # end
+def choose_a_full_meal
+  params[:user_meal].has_key?("starter_choice") && params[:user_meal].has_key?("main_course_choice") && params[:user_meal].has_key?("side_choice") && params[:user_meal].has_key?("dessert_choice")
+end
 
 
-  def set_variables
-    @profile = current_user.profile
-    @user = current_user
-  end
+def set_variables
+  @profile = current_user.profile
+  @user = current_user
+end
 
 end
 
