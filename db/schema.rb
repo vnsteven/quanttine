@@ -52,7 +52,7 @@ ActiveRecord::Schema.define(version: 2019_06_11_204951) do
   end
 
   create_table "daily_services", force: :cascade do |t|
-    t.string "date"
+    t.datetime "date"
     t.bigint "school_id"
     t.string "queue"
     t.datetime "created_at", null: false

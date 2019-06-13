@@ -6,6 +6,8 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+require 'i18n'
+
 User.destroy_all
 Profile.destroy_all
 School.destroy_all
@@ -42,10 +44,12 @@ puts 'Admin done'
 10.times do
   first_name = Faker::Name.first_name
   last_name = Faker::Name.last_name
+  email = "#{first_name.downcase}.#{last_name.downcase}@yopmail.com"
+  transliterated_email = I18n.transliterate(email)
   User.create!(
     first_name: first_name,
     last_name: last_name,
-    email: "#{first_name}.#{last_name}@yopmail.com".downcase.mb_chars.normalize(:kd).gsub(/[^x00-\x7F]/n, '').to_s,
+    email: transliterated_email,
     password: "password",
     school_code: School.all.sample.school_code
     )
