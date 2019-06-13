@@ -120,7 +120,11 @@
 				<div class="card-body row card-body1">
 					<div class="col content">
 						<h5 class="card-title">Elève de : 4B</h5>
-						<h6 class="card-subtitle text-muted"> <%= @schools.sample.name %> </h6>
+						<% if @school.name == nil %>
+						<h6 class="card-subtitle text-muted"> <%= School.all.sample.name %>  </h6>
+						<% else %>
+						<h6 class="card-subtitle text-muted"> <%= @school.name %>, <%= @school.school_code %> </h6>
+						<% end %> 
 					</div>
 					<div class="col content">
 						<%= @user.email %>

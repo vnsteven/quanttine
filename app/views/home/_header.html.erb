@@ -22,7 +22,11 @@
 						<% elsif current_user %>
 						<li class="nav-item">
 							<%= link_to "Profil",  user_profile_path(current_user.id,current_user.profile.id), :class => "nav-link btn btn-outline-primary nav-link-home" %>
-						</li>
+						</li> 
+						<li class="nav-item">
+                   		<%= link_to "Accueil", user_profile_path(current_user.id, @profile.id), class: "nav-link nav-link-home" %>
+                  		</li>
+
 						<li class="nav-item">
 							<%= link_to "Se déconnecter", destroy_user_session_path, class: "nav-link nav-link-home", :method => :delete %>
 						</li>
