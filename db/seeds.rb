@@ -74,8 +74,9 @@ end
 i = 1
 50.times do
   School.all.each do |school|
+    date = Date.today + i
     SchoolMeal.create!(
-      date: Date.current + i,
+      date: date.strftime("%d/%m/%Y"),
       school_id: school.id
       )
   end
