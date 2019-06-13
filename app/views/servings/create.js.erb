@@ -1,7 +1,21 @@
 <% if @food_serving.meal_category == "entrée"%>
 document.querySelector("#menu-entree").insertAdjacentHTML('beforebegin', '<%= j render "serving", food_serving: @food_serving %>')
-<% elsif @food_serving.meal_category == "plat" || @food_serving.meal_category == "accompagnement" %>
+document.querySelector("#counter-entree").innerHTML = "<%= servings_count_per_category('entrée') %>"
+<% elsif @food_serving.meal_category == "plat" %>
 document.querySelector("#menu-plat").insertAdjacentHTML('beforebegin', '<%= j render "serving", food_serving: @food_serving %>')
+document.querySelector("#counter-plat").innerHTML = "<%= servings_count_per_category('plat') %>"
+<% elsif @food_serving.meal_category == "accompagnement" %>
+document.querySelector("#menu-accompagnement").insertAdjacentHTML('beforebegin', '<%= j render "serving", food_serving: @food_serving %>')
+document.querySelector("#counter-accompagnement").innerHTML = "<%= servings_count_per_category('accompagnement') %>"
 <% elsif @food_serving.meal_category == "dessert" %>
 document.querySelector("#menu-dessert").insertAdjacentHTML('beforebegin', '<%= j render "serving", food_serving: @food_serving %>')
+document.querySelector("#counter-dessert").innerHTML = "<%= servings_count_per_category('dessert') %>"
 <% end %>
+
+document.querySelector("body").insertAdjacentHTML('afterbegin', '<%= j render "partials/flash", food_serving: @food_serving %>')
+
+window.setTimeout(function() {
+	$(".alert").fadeTo(2000, 0).slideUp(500, function(){
+		$(this).remove(); 
+	});
+}, 750);
