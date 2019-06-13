@@ -154,11 +154,63 @@ html {
 /* BANNER */
 
 #home-section {
-  background-image: url(https://static.onecms.io/wp-content/uploads/sites/37/2015/06/16012245/fruits-vegetables-legumes-blue-background-8a6d17df.jpg); 
+  background-image: url(vegetables_banner.jpg); 
   width: 100%;
-  -webkit-filter: contrast(80%);
-  filter: contrast(80%);
 }
+
+/*BANNER ITEMS*/
+
+.banner-text{
+  font-size: 1.2em !important;
+}
+
+.card-group {
+  width: 80%;
+}
+
+.card-body {
+  padding: 0.5em;
+}
+
+.card-group .card {
+  margin: 1em;
+  border-radius: 10px !important;
+  background-color: rgba(0,0,0,0.5);
+  color: white;
+  text-align: center;
+  border: solid !important;
+}
+
+.digit {
+  font-size: 1.5em !important;
+  text-align: center;
+  color: #33DE79 !important;
+}
+
+.text-banner {
+  color: white;
+  font-style: italic;
+  font-size: 30px !important;
+  margin-top: 2.5em;
+}
+
+.banner-button {
+  margin-top: 10em;
+}
+
+.statement {
+  font-weight: bold !important;
+  text-align: center;
+  margin-top: 11em;
+  color: white;
+  font-size: 2em !important;
+  font-style: italic;
+  text-shadow: 2px 2px black;
+  width: 100% !important;
+  position: absolute;
+}
+
+
 
 /* ANIMATION SCROLL DOWN */
 
@@ -535,21 +587,6 @@ align-self: center;
 
 .footer-content a {
   color: white;
-}
-
-/*BANNER ITEMS*/
-
-.banner-text{
-  font-size: 1.2em !important;
-}
-
-.student-button{
-  position: absolute;
-  float: left;
-}
-
-.kitchen-button{
-  float: right;
 }
 
 /*LANDING PAGE CONTENT*/
