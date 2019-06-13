@@ -15,7 +15,7 @@ class SchoolMeal < ApplicationRecord
 
   def attach_daily_service
       DailyService.create(
-        date: Date.today.strftime("%d/%m/%Y"),
+        date: self.date,
         school_id: self.school_id
       )
   end
