@@ -88,8 +88,8 @@ html {
   position: fixed;
   top: 60px;
   right: 20px;
-  width: 40%;
-  z-index:9999;
+  display: inline-block;
+  z-index: 9999;
 }
 
 /* MODAL */
@@ -851,7 +851,7 @@ html {
   background-image: url(carrot.jpg);
   height: 28em;
   width: 24em;
-  border-right: 2px solid rgba(233, 233, 233, 0.5) 
+  border-right: 2px solid rgba(233, 233, 233, 0.5)
 }
 
 .choice1 {
@@ -1067,7 +1067,7 @@ html {
   padding: 60Px;
 }
 
-.meals-index1:hover { 
+.meals-index1:hover {
   transition-duration: 1000ms;
   background: #F9F9F9;
   box-shadow: 2px 2px 2px ;
