@@ -89,13 +89,14 @@ html {
 }
 
 /* MODAL */
+
 .modal-footer {
 	display : flex;
-	justify-content : right;
+	justify-content : center;
 }
 
 .modal-header {
-  padding-left: 23%;
+	padding-left: 23%;
   color: white;
   background: linear-gradient(180deg, #2BBB67 10%, #33DE79 100%);
 }
