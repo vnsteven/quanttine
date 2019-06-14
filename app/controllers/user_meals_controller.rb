@@ -18,6 +18,8 @@ class UserMealsController < ApplicationController
         PreparingUserMeal.create!(user_meal_id: @user_meal.id, serving_size: 100, serving_id: value.to_i)
       end
       redirect_to user_profile_user_meal_path(@user, @profile, @user_meal.id)
+      flash[:notice] = "Commande enregistrée"
+
     else
       redirect_to new_user_profile_user_meal_path(@user, @profile)
       flash[:error] = "Tu dois choisir une entrée, un plat avec accompagnement et un dessert"
