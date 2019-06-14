@@ -1,23 +1,7 @@
 class DailyServicesController < ApplicationController
-  before_action :set_daily_service, only: [:show, :edit, :update, :destroy]
-
-  def index
-
-  end
+  before_action :set_daily_service, only: [:show]
 
   def show
-
-  end
-
-  def edit
-
-  end
-
-  def update
-
-  end
-
-  def destroy
 
   end
 
