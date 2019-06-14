@@ -1,6 +1,7 @@
 # Quanttine
 
-http://quanttine.herokuapp.com/
+Production app : http://quanttine.herokuapp.com/
+Staging app : https://quanttine-staging.herokuapp.com/
 
 Quanttine is a web application that aims to reduce the food wasting in school canteens, by knowing what the students will eat so the kitchen's stock can adjust over this information.
 
@@ -41,11 +42,11 @@ To do so, we oganised the app around two ends : the Student and Kitchen.
 
 ## Login as a student :
 
-- Sign up with code school : 
+- Sign up with code school : 1762
 
 ## Login as a school : 
 
-- email : school@yopmail.fr
+- email : marlokuhlman@konopelski.name
 - password : password
 
 *The python script to scan qr code data can be found here: https://github.com/ryanzidago/qr_code_scanner*
