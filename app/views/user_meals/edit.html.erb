@@ -1,0 +1,108 @@
+<body>
+  <%= render 'layouts/colored_header' %>
+  <div id="menu-of-the-day-wrapper">
+    <h1>Modifie ton choix</h1>
+    <p>
+      Pour modifier ton choix, sélectionne de nouveau une entrée, un plat, un accompagnement et un dessert.
+    </p>
+
+    <%= form_with(model: @user_meal, url: [@user, @profile, @user_meal], method: :PUT,  local: true)  do |f| %>
+
+    <br><br>
+    <h3 class="title-user-meal">Entrée</h3>
+    <hr>
+    <div class="category-wrapper">
+      <% @user_meal_service.starters.each do |starter|%>
+      <div class="serving-choices">
+        <%= f.label :starter_choice, "", :value => starter.id do %>
+        <div class="meal-detail">
+          <%= f.radio_button :starter_choice, starter.id %>
+          <div class="card">
+            <img src="https://keldelice-assets.s3.amazonaws.com/attachments/photos/565822/original/oeuf-mayonnaise_2.jpg?1285186398" class="meal-image" >
+            <div class="card-body">
+              <h5 class="meal-description card-title"><%= starter.food_supply.name %></h5>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <%=link_to "Plus d'info", " ", class: 'btn btn-sm btn-primary'%>
+            </div>
+          </div>
+        </div>
+        <% end %>
+      </div>
+      <% end %>
+    </div>
+
+    <h3 class="title-user-meal">Plat principal</h3>
+    <hr>
+    <div class="category-wrapper">
+      <% @user_meal_service.main_courses.each do |main_course|%>
+      <div class="serving-choices">
+        <%= f.label :main_course_choice, "", :value => [main_course.id] do %>
+        <div class="meal-detail">
+          <%= f.radio_button :main_course_choice, [main_course.id] %>
+          <div class="card">
+            <img src="https://keldelice-assets.s3.amazonaws.com/attachments/photos/565822/original/oeuf-mayonnaise_2.jpg?1285186398" class="meal-image" >
+            <div class="card-body">
+              <h5 class="meal-description card-title"><%= main_course.food_supply.name %></h5>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <%=link_to "Plus d'info", " ", class: 'btn btn-sm btn-primary'%>
+            </div>
+          </div>
+        </div>
+        <% end %>
+      </div>
+      <% end %>
+    </div>
+
+    <h3 class="title-user-meal">Accompagnement</h3>
+    <hr>
+    <div class="category-wrapper">
+      <% @user_meal_service.sides.each do |side|%>
+      <div class="serving-choices">
+        <%= f.label :side_choice, "", :value => [side.id] do %>
+        <div class="meal-detail">
+          <%= f.radio_button :side_choice, [side.id] %>
+          <div class="card">
+            <img src="https://keldelice-assets.s3.amazonaws.com/attachments/photos/565822/original/oeuf-mayonnaise_2.jpg?1285186398" class="meal-image" >
+            <div class="card-body">
+              <h5 class="meal-description card-title"><%= side.food_supply.name %></h5>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <%=link_to "Plus d'info", " ", class: 'btn btn-sm btn-primary'%>
+            </div>
+          </div>
+        </div>
+        <% end %>
+      </div>
+      <% end %>
+    </div>
+
+    <h3 class="title-user-meal">Dessert</h3>
+    <hr>
+    <div class="category-wrapper">
+      <% @user_meal_service.desserts.each do |dessert|%>
+      <div class="serving-choices">
+        <%= f.label :dessert_choice, "", :value => dessert.id do %>
+        <div class="meal-detail">
+          <%= f.radio_button :dessert_choice, dessert.id %>
+          <div class="card">
+            <img src="https://keldelice-assets.s3.amazonaws.com/attachments/photos/565822/original/oeuf-mayonnaise_2.jpg?1285186398" class="meal-image" >
+            <div class="card-body">
+              <h5 class="meal-description card-title"><%= dessert.food_supply.name %></h5>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <%=link_to "Plus d'info", " ", class: 'btn btn-sm btn-primary'%>
+            </div>
+          </div>
+        </div>
+        <% end %>
+      </div>
+      <% end %>
+    </div>
+
+    <div class="text-center bottom-button">
+      <%= f.submit "Valider !", class: "btn btn-primary" %>
+    </div>
+    <% end %>
+  </div>
+
+  <%= render 'home/footer' %>
+
+</body>
