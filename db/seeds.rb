@@ -15,11 +15,10 @@ Admin.destroy_all
 Preference.destroy_all
 FoodSupply.destroy_all
 
-starters = ["Oeufs mayonnaise","Salade de maïs","Tomate mozzarella","Salade d'endives","Concombres","Friand au fromage","Céleri rémoulade","Carottes rapées","Taboulé","Salade piémontaise","Salade de pommes de terre","Quiche lorraine","Poireaux vinaigrette","Salade composée","Saucisson","Betteraves","Pâté de campagne"] 
-mains = ["Steak haché","Saumon en papillote","Lapin à la moutarde","Boeuf bourgignon","Omelette au fromage", "Boeuf aux oignons","Rôti de boeuf", "Boeuf wellington", "Tartare de boeuf", "Chili con carne","Boulettes de boeuf", "Sauté de porc","Rôti de porc","Côte de porc","Porc au caramel","Filet mignon","Colombo de porc","Poitrine de porc","Blanquette de veau","Jarret de veau","Sauté de veau","Côte de veau","Veau marengo","Paupiettes de veau","Rôti de veau","Boulettes de veau","Tajine de veau","Escalope de veau","Couscous","Poulet basquaise","Poulet à l'estragon","Poulet coco","Poulet tandoori","Poulet frit","Tajine de poulet","Poulet rôti","Émincé de poulet","Poulet aux olives","Poulet aux amandes","Poulet au curry","Poulet teriyaki","Kebab de poulet","Poulet piri-piri","Saumon à l'oseille","Dos de cabillaud","Pavé de thon","Thon provençal","Poulet sauce satay"] 
+starters = ["Oeufs mayonnaise","Salade de maïs","Tomate mozzarella","Salade d'endives","Concombres","Friand au fromage","Céleri rémoulade","Carottes rapées","Taboulé","Salade piémontaise","Salade de pommes de terre","Quiche lorraine","Poireaux vinaigrette","Salade composée","Saucisson","Betteraves","Pâté de campagne"]
+mains = ["Steak haché","Saumon en papillote","Lapin à la moutarde","Boeuf bourgignon","Omelette au fromage", "Boeuf aux oignons","Rôti de boeuf", "Boeuf wellington", "Tartare de boeuf", "Chili con carne","Boulettes de boeuf", "Sauté de porc","Rôti de porc","Côte de porc","Porc au caramel","Filet mignon","Colombo de porc","Poitrine de porc","Blanquette de veau","Jarret de veau","Sauté de veau","Côte de veau","Veau marengo","Paupiettes de veau","Rôti de veau","Boulettes de veau","Tajine de veau","Escalope de veau","Couscous","Poulet basquaise","Poulet à l'estragon","Poulet coco","Poulet tandoori","Poulet frit","Tajine de poulet","Poulet rôti","Émincé de poulet","Poulet aux olives","Poulet aux amandes","Poulet au curry","Poulet teriyaki","Kebab de poulet","Poulet piri-piri","Saumon à l'oseille","Dos de cabillaud","Pavé de thon","Thon provençal","Poulet sauce satay"]
 sides = ["Riz","Riz cantonnais","Riz pilaf","Riz sauvage","Riz vapeur","Spaghettis","Coquillettes","Linguine","Gnocchis","Fusilli","Penne","Macaronis","Tagliatelles","Pommes de terre vapeur","Frites","Purée","Pommes paillasson","Pomme au four","Pommes de terre sautées","Röstis","Haricots verts","Carottes sautées","Carottes vapeur","Chou-fleur","Aubergines","Patate douce","Courgettes","Butternut","Haricot beurre","Petits pois","Lentilles","Blé","Boulghour","Pommes de terre façon Romain"]
 deserts = ["Tarte aux fraises","Tarte à la rhubarbe","Tarte citron meringuée","Tarte aux pommes","Gâteau au chocolat","Quatre-quart","Clafoutis cerise","Cake au citron","Mille-feuille","Paris-Brest","Fôret noire","Éclair au chocolat","Éclair au café","Tarte tatin","Clafoutis aux pommes","Yaourt à la grecque","Yaourt","Camembert","Roquefort","Brie","Comté","Chèvre","Cantal","Emmental","Gouda","Maroilles","Tomme de savoie","Pomme","Poire","Raisins","Clémentine","Orange","Pêche","Abricot","Nectarines","Banane","Ananas","Cerises","Mandarine","Fraises"]
-
 
 2.times do
   rand = rand(1000..2000)
@@ -45,7 +44,6 @@ end
 puts 'Admin done'
 
 10.times do
-  begin
     first_name = Faker::Name.first_name
     last_name = Faker::Name.last_name
     email = "#{first_name.downcase}.#{last_name.downcase}@yopmail.com"
@@ -57,9 +55,6 @@ puts 'Admin done'
       password: "password",
       school_code: School.all.sample.school_code
     )
-  rescue
-    binding.pry
-  end
 end
 
 puts 'User done'
@@ -86,11 +81,30 @@ end
 
 puts "JoinTableProfilePreference done"
 
-supplies.each do |supply|
+starters.each do |supply|
   FoodSupply.create!(
     name: supply
   )
 end
+
+mains.each do |supply|
+  FoodSupply.create!(
+    name: supply
+  )
+end
+
+sides.each do |supply|
+  FoodSupply.create!(
+    name: supply
+  )
+end
+
+deserts.each do |supply|
+  FoodSupply.create!(
+    name: supply
+  )
+end
+
 
 puts 'Food Supply done'
 
@@ -123,22 +137,22 @@ SchoolMeal.all.each do |schoolmeal|
   3.times do
     Serving.create!(
       meal_category: 1,
-      food_supply_id: FoodSupply.all.sample.id,
+      food_supply_id: FoodSupply.where(name: starters).sample.id,
       school_meal_id: schoolmeal.id
     )
     Serving.create!(
       meal_category: 2,
-      food_supply_id: FoodSupply.all.sample.id,
+      food_supply_id: FoodSupply.where(name: mains).sample.id,
       school_meal_id: schoolmeal.id
     )
     Serving.create!(
       meal_category: 3,
-      food_supply_id: FoodSupply.all.sample.id,
+      food_supply_id: FoodSupply.where(name: sides).sample.id,
       school_meal_id: schoolmeal.id
     )
     Serving.create!(
       meal_category: 4,
-      food_supply_id: FoodSupply.all.sample.id,
+      food_supply_id: FoodSupply.where(name: deserts).sample.id,
       school_meal_id: schoolmeal.id
     )
   end
