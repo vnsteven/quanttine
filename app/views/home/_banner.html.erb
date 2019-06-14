@@ -4,9 +4,9 @@
 	<div class="row align-items-center justify-content-center">
 		<div class="col-md-6 mt-lg-5 text-center banner-items">
 			<h1 class="banner-title">
-				<a class="typewrite text-white" data-period="500" data-type='[ "Première application", "de gestion des repas", "à la Quanttine", "Gaspille moins !", "Mange mieux !" ]'>
+				<div class="typewrite text-white" data-period="500" data-type='[ "Première application", "de gestion des repas", "à la Quanttine", "Gaspille moins !", "Mange mieux !" ]'>
 					<span class="wrap"></span>
-				</a>
+				</div>
 
 			</h1>
 			<div class="banner-button">
@@ -20,23 +20,25 @@
 
 
 			<div class="card-group">
-				<div class="card">
+				<div class="card" style="bottom: -200px;">
 					<div class="card-body">
 						<h5 class="card-title"><p class="digit">1.</p>Inscris-toi à Quanttine</h5>
 					</div>
 				</div>
-				<div class="card">
+				<div class="card" style="bottom: -250px;">
 					<div class="card-body">
 						<h5 class="card-title"><p class="digit">2.</p>Choisis ton menu</h5>
 					</div>
 				</div>
-				<div class="card">
+				<div class="card" style="bottom: -300px;">
 					<div class="card-body">
 						<h5 class="card-title"><p class="digit">3.</p>Scanne ton QR code,<br /> c'est prêt !</h5>
 					</div>
 				</div>
 				<section id="section05" class="demo">
-					<a href="#about-section"><span></span></a>
+					<%= link_to "#about-section" do %>
+						<span></span>
+					<% end %>
 				</section>
 			</div>
 		</div>
@@ -48,6 +50,11 @@
 <%= render 'users/registrations/new' %>
 
 <script type="text/javascript">
+	function slide(){
+		$(".card").delay(200).show().animate({opacity: 1, bottom:"20px"}, 1200);
+	}
+	slide();
+
 	var TxtType = function(el, toRotate, period) {
 		this.toRotate = toRotate;
 		this.el = el;
@@ -98,11 +105,11 @@
 				new TxtType(elements[i], JSON.parse(toRotate), period);
 			}
 		}
-    // INJECT CSS
-    var css = document.createElement("style");
-    css.type = "text/css";
-    css.innerHTML = ".typewrite > .wrap { border-right: 0.08em solid #fff}";
-    document.body.appendChild(css);
+// INJECT CSS
+var css = document.createElement("style");
+css.type = "text/css";
+css.innerHTML = ".typewrite > .wrap { border-right: 0.08em solid #fff}";
+document.body.appendChild(css);
 };
 </script>
 
