@@ -1,10 +1,7 @@
-<%= render 'layouts/colored_header' %>
-
-<div class="payment-body">
-  <div class="payment-card">
-    <%= form_tag yearly_payments_path do %>
-    <h3 class="payment-title">Vous avez choisi le payement annuel :</h3>
-      <article>
+<div class="card-payement" >
+  <%= form_tag yearly_payments_path do %>
+    <%= image_tag('bag', class:"payement-bag") %> <br/> <br/>
+      <h3 >Vous avez choisi le payement annuel :</h3>
         <% if flash[:error].present? %>
           <div id="error_explanation">
             <p><%= flash[:error] %></p>
@@ -20,8 +17,7 @@
         	</ul>
 
           <h5 class="montant"><strong>Montant total : <%= @amount %> €</strong></h5>
-        </label>
-      </article>
+        </label><br/>
 
       <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
               data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
@@ -29,8 +25,5 @@
               data-amount="<%= @amount * 100 %>"
               data-locale="auto"></script>
     <% end %>
-
-  </div>
 </div>
-
 <%= render 'home/footer' %>

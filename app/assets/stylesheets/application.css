@@ -885,7 +885,28 @@ html {
 .payment-body {
   height: 45em;
   padding-top: 10em; 
+}
 
+.card-payement{
+  border: solid 1px #EBEBEB;
+  border-radius: 20px;
+  width: 70%;
+  margin: auto;
+  margin-top: 4%;
+  text-align: center;
+  padding: 20px;
+  background-color: #F8F9FC;
+  margin-bottom: 7em;
+}
+
+.card-payement ul{
+  text-align: left;
+  margin-left: 5em;
+}
+
+.payement-bag{
+  width: 30%;
+  border-radius: 50%;
 }
 
 .payment-card {
@@ -911,14 +932,9 @@ html {
   margin-left: -1em;
 }
 
-.amount ul{
-  text-align: left;
-}
-
 .montant {
   color: #445276;
 }
-
 
 .payment-image{
   background-image: url(payement.jpg);
