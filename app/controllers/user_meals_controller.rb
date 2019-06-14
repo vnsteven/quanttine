@@ -16,6 +16,8 @@ class UserMealsController < ApplicationController
       @user_meal = UserMeal.create!(profile_id: @profile.id)
       CreatePreparingUserMeal.new(params[:user_meal], @user_meal).perform
       redirect_to user_profile_user_meal_path(@user, @profile, @user_meal.id)
+      flash[:notice] = "Commande enregistrée"
+
     else
       redirect_to new_user_profile_user_meal_path(@user, @profile)
       flash[:error] = "Tu dois choisir une entrée, un plat avec accompagnement et un dessert"
