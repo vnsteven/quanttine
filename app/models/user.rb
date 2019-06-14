@@ -10,7 +10,9 @@ class User < ApplicationRecord
 	validates :first_name, :last_name,
   presence: true,
 	length: { in: 2..50 },
-	format: { without: /[!@#%*+;,?&()=0123456789]/}
+	format: { without: /[!@#%*+;,?&()=0123456789]/ }
+  
+  validate :school_exists
 
   private
 
@@ -20,7 +22,7 @@ class User < ApplicationRecord
 
   def create_profile
     @school = School.find_by(school_code: self.school_code)
-    self.profile = Profile.create!(user_id: self.id, school_id: School.all.sample.id  )
+    self.profile = Profile.create!(user_id: self.id, school_id: @school.id)
   end
 
   def school_exists

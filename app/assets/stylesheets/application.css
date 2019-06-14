@@ -48,6 +48,36 @@ html {
   }
 }
 
+/* CARD PROFILE */
+
+#card-profile {
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+}
+
+/* BUTTON ACTIVE STORAGE */
+
+.btn-file {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-file input[type=file] {
+  position: absolute;
+  top: 0;
+  right: 0;
+  min-width: 100%;
+  min-height: 100%;
+  font-size: 100px;
+  text-align: right;
+  filter: alpha(opacity=0);
+  opacity: 0;
+  outline: none;
+  background: white;
+  cursor: inherit;
+  display: block;
+}
+
 /* Alert */
 
 .alert {
@@ -232,7 +262,7 @@ html {
 }
 #section05 a span {
   position: absolute;
-  bottom: 2em;
+  bottom: 3em;
   left: 50%;
   width: 24px;
   height: 24px;
@@ -272,7 +302,7 @@ html {
   }
 }
 
-  /*LANDING PAGE CONTENT*/
+/*LANDING PAGE CONTENT*/
 
 .app_image{
   display: block;
@@ -291,14 +321,13 @@ html {
 .edit-pictures {
   display: flex;
   justify-content: space-around;
-  border-bottom: 1px solid #afafaf;
   padding-bottom: 20px;
   height: 16em;
 }
 
 .qr-link {
-display: flex;
-align-self: center;
+  display: flex;
+  align-self: center;
 }
 
 .choice-title {
@@ -412,7 +441,25 @@ align-self: center;
   background-image: radial-gradient(circle at bottom right, #333a4d, #586689) !important;
 }
 
+.choix-menu{
+  background-color: #75df7a;
+  color: white !important;
+}
 
+.choix-menu:hover{
+  background-color: #65D46A !important;
+  text-decoration: none !important;
+  color: white !important;
+}
+
+.btn-outline-secondary{
+  color: #858796 !important;
+}
+
+.btn-outline-secondary:hover{
+  color: white !important;
+  text-decoration: none !important;
+}
 
 /* FOOTER */
 
@@ -856,7 +903,28 @@ align-self: center;
 .payment-body {
   height: 45em;
   padding-top: 10em; 
+}
 
+.card-payement{
+  border: solid 1px #EBEBEB;
+  border-radius: 20px;
+  width: 70%;
+  margin: auto;
+  margin-top: 4%;
+  text-align: center;
+  padding: 20px;
+  background-color: #F8F9FC;
+  margin-bottom: 7em;
+}
+
+.card-payement ul{
+  text-align: left;
+  margin-left: 5em;
+}
+
+.payement-bag{
+  width: 30%;
+  border-radius: 50%;
 }
 
 .payment-card {
@@ -882,12 +950,32 @@ align-self: center;
   margin-left: -1em;
 }
 
-.amount ul{
-  text-align: left;
+.montant {
+  color: #445276;
 }
 
-.montant {
-  color: #75df7e;
+.payment-image{
+  background-image: url(payement.jpg);
+  height: 27em;
+  width: 24em;
+}
+
+.pay-redir{
+  font-size: 1.1em;
+}
+
+#btn-payement:hover{
+  background-color: #3b4766 !important;
+  color: white;
+  border: 2px solid #3b4766;
+  text-decoration: none;
+}
+
+#btn-payement {
+  border: 2px solid #3b4766;
+  color: #3b4766;
+  background-color: white !important;
+  font-weight: bold;
 }
 
 /* DAILY SERVICES */
@@ -909,15 +997,17 @@ align-self: center;
 }
 
 .daily-row:hover {
-background-color: #F9F9F9
+  background-color: #F9F9F9
 }
 
 .daily-btn{
-  background-color:#333a4d !important;
+  background-color: white !important;
+  color: #333A4D !important;
 }
 
 .daily-btn:hover {
   background-color: #3E465C !important;
+  color: white;
 }
 
 .daily-btn:active {
@@ -973,5 +1063,34 @@ background-color: #F9F9F9
 
 .meal-header{
   font-size: 1.3em;
+}
 
+/* error page */
+.card-error{
+  border: solid 1px #EBEBEB;
+  border-radius: 20px;
+  width: 70%;
+  margin: auto;
+  margin-top: 4%;
+  text-align: center;
+  padding: 20px;
+  background-color: #F8F9FC;
+}
+
+.card-error h2{
+  color: #353535
+}
+
+.card-error ul {
+  margin-left: 11em;
+  text-align: left;
+}
+
+.card-error li:hover{
+  font-weight: bold;
+}
+
+.sad-fruit {
+  width: 30%;
+  border-radius: 50%;
 }

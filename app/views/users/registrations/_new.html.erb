@@ -9,7 +9,6 @@
 
       <div class="modal-body">
         <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-        <%= render "devise/shared/error_messages", resource: resource %>
 
         <div class="form-inputs">
 
@@ -53,14 +52,20 @@
           </div>
 
           <div class="field form-group">
-
             <%= f.label "Confirmer le mot de passe" %><br />
-
             <div class="input-container">
               <i class="fas fa-lock icon1"></i>
             <%= f.password_field :password_confirmation, class: "form-control input-field writing", autocomplete: "new-password" %>
             </div>
           </div>           
+
+            <div class="field form-group">
+            <%= f.label "Code école" %><br />
+            <div class="input-container">
+              <i class="fas fa-school icon1"></i>
+            <%= f.text_field :school_code, class: "form-control input-field writing", autocomplete: "code", placeholder: "" %>
+          </div>
+          </div>  
 
         </div>
       </div>

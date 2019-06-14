@@ -26,4 +26,24 @@ RSpec.describe Preference, type: :model do
 
   end
 
+  context "associations" do
+
+    describe "#join_table_profile_preferences" do
+      it { should have_many(:join_table_profile_preferences).dependent(:destroy) }
+    end
+
+    describe "#profiles" do
+      it { should have_many(:profiles) }
+    end
+
+    describe "#join_table_preference_foods" do
+      it { should have_many(:join_table_preference_foods).dependent(:destroy) }
+    end
+
+    describe "#food_supplies" do
+      it { should have_many(:food_supplies) }
+    end
+
+  end
+
 end

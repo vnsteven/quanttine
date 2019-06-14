@@ -41,15 +41,15 @@ RSpec.describe School, type: :model do
   context "associations" do
 
     describe "#admins" do
-      it { expect(@school).to have_many(:admins) }
+      it { expect(@school).to have_many(:admins).dependent(:destroy) }
     end
 
     describe "#profiles" do
-      it { expect(@school).to have_many(:profiles) }
+      it { expect(@school).to have_many(:profiles).dependent(:destroy) }
     end
 
     describe "#quantities" do
-      it { expect(@school).to have_many(:quantities) }
+      it { expect(@school).to have_many(:quantities).dependent(:destroy) }
     end
 
     describe "#food_supplies" do
@@ -57,11 +57,11 @@ RSpec.describe School, type: :model do
     end
 
     describe "#school_meals" do
-      it { expect(@school).to have_many(:school_meals) }
+      it { expect(@school).to have_many(:school_meals).dependent(:destroy) }
     end
 
     describe "#daily_services" do
-      it { expect(@school).to have_many(:daily_services) }
+      it { expect(@school).to have_many(:daily_services).dependent(:destroy) }
     end
 
   end
