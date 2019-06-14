@@ -28,6 +28,8 @@ class UserMealsController < ApplicationController
   end
 
   def index
+    @user = current_user
+    @profile = User.find(current_user.id).profile
     @meals = current_user.profile.user_meals
   end
 
@@ -38,7 +40,7 @@ class UserMealsController < ApplicationController
   def destroy
     @todays_order = current_user.profile.user_meals.where("created_at >= ?", Time.zone.now.beginning_of_day).last
     todays_order.destroy_all
-    redirect_to user_profile_path(@user, @profile)
+    redirect_to new_user_profile_user_meal_path(@user.id, @profile.id)
     flash[:notice] = "Votre choix pour le menu du jour a bien été supprimé"
   end
 

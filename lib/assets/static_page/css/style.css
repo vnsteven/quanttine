@@ -77,11 +77,14 @@ h1, h2, h3, h4, h5,
     color: #fff; }
     .btn.btn-primary:hover {
       background: #fff;
-      border-color: #fff;
-      color: #33DE79; }
+      border-color: #33DE79;
+      color: #33DE79;
+      text-decoration: none;
+       }
     .btn.btn-primary.btn-black--hover:hover {
       background: #666666;
       color: #fff; }
+    }
 
 .line-height-1 {
   line-height: 1 !important; }
