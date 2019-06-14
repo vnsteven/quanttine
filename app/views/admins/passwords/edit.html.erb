@@ -32,11 +32,12 @@
                         <%= f.label :password_confirmation, "Confirmer le nouveau mot de passe" %><br />
                         <%= f.password_field :password_confirmation, autocomplete: "off" %>
                       </div>
-
+                        <br/>
                       <div class="actions">
                         <%= f.submit "Actualiser", class:"btn choice1", id:"btn-payement" %>
                       </div>
                     <% end %>
+                    <br/>
                   <%= link_to "Se connecter", root_path %>
                   <hr>
                 </div>
