@@ -27,7 +27,7 @@ class User < ApplicationRecord
 
   def school_exists
      if self.school_code != School.last.school_code && self.school_code != School.first.school_code
-       errors.add(:school_code, "est incorrect")
+       errors.add(:school_code, "Le code école est incorrect")
      end
   end
 
