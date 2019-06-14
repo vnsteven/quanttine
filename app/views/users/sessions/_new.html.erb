@@ -37,7 +37,8 @@
 
         <br />
 
-        <%= link_to "Mot de passe oublié ?", new_user_password_path, class: "text-black" %>
+        <%= link_to "Mot de passe oublié ?", new_user_password_path, class: "text-black" %><br />
+        <%= link_to "Pas encore de compte ?", new_user_registration_path, class: "text-black", 'data-toggle' => "modal", 'data-target' => "#modalSignup" %>
       </div>
 
     </div>
@@ -51,3 +52,5 @@
   </div>
 </div>
 </div>
+
+
