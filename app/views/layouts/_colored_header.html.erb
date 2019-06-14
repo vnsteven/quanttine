@@ -14,9 +14,6 @@
           <%= link_to "Dashboard", admin_path(current_admin.id), :class => "nav-link" %>
         </li>
         <li class="nav-item co-nav-item">
-          <%= link_to 'Profil', admin_path(current_admin.id), class: "nav-link" %>
-        </li>
-        <li class="nav-item co-nav-item">
           <%= link_to "Se déconnecter", destroy_admin_session_path, class: "nav-link", :method => :delete %>
         </li>
         <% elsif current_user %>
