@@ -12,7 +12,7 @@
     <h3 class="title-user-meal">Entrée</h3>
     <hr>
     <div class="category-wrapper">
-      <% @starters.each do |starter|%>
+      <% @user_meal_service.starters.each do |starter|%>
       <div class="serving-choices">
         <%= f.label :starter_choice, "", :value => starter.id do %>
         <div class="meal-detail">
@@ -35,7 +35,7 @@
     <h3 class="title-user-meal">Plat principal</h3>
     <hr>
     <div class="category-wrapper">
-      <% @main_courses.each do |main_course|%>
+      <% @user_meal_service.main_courses.each do |main_course|%>
       <div class="serving-choices">
         <%= f.label :main_course_choice, "", :value => [main_course.id] do %>
         <div class="meal-detail">
@@ -57,7 +57,7 @@
     <h3 class="title-user-meal">Accompagnement</h3>
     <hr>
     <div class="category-wrapper">
-      <% @sides.each do |side|%>
+      <% @user_meal_service.sides.each do |side|%>
       <div class="serving-choices">
         <%= f.label :side_choice, "", :value => [side.id] do %>
         <div class="meal-detail">
@@ -79,7 +79,7 @@
     <h3 class="title-user-meal">Dessert</h3>
     <hr>
     <div class="category-wrapper">
-      <% @desserts.each do |dessert|%>
+      <% @user_meal_service.desserts.each do |dessert|%>
       <div class="serving-choices">
         <%= f.label :dessert_choice, "", :value => dessert.id do %>
         <div class="meal-detail">

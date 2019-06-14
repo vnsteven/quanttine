@@ -6,10 +6,7 @@ class UserMealsController < ApplicationController
 
   def new
     @school_meals = @profile.school.school_meals.find_by(date: Date.tomorrow)
-    @starters = @school_meals.servings.where(meal_category: "entrée")
-    @main_courses = @school_meals.servings.where(meal_category: "plat")
-    @desserts = @school_meals.servings.where(meal_category: "dessert")
-    @sides = @school_meals.servings.where(meal_category: "accompagnement")
+    @user_meal_service = UserMealService.new(@school_meals)
     @user_meal = UserMeal.new
     @todays_order = @profile.user_meals.where("created_at >= ?", Time.zone.now.beginning_of_day).last
   end
@@ -70,7 +67,7 @@ class UserMealsController < ApplicationController
  def menu_tomorrow
   @user = current_user
   @profile = current_user.profile
-  if current_user.profile.school.school_meals.find_by(date: Date.tomorrow).nil?
+  if current_user.profile.school.school_meals.find_by(date: Date.tomorrow).servings.empty?
     redirect_to user_profile_path(@user, @profile)
     flash[:error] = "Votre école n'a pas encore créé le menu de demain ! Revenez plus tard..."
   end
