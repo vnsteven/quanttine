@@ -90,6 +90,10 @@ html {
 
 /* MODAL */
 
+.edit-header {
+  padding-left: 30em;
+}
+
 .modal-footer {
 	display : flex;
 	justify-content : center;
@@ -161,6 +165,7 @@ html {
   display: flex;
   justify-content: space-around;
   box-shadow: 4px 4px 10px #C0C0C0;
+  z-index: 0;
 }
 
 .colored-header a{
