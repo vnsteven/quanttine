@@ -13,7 +13,7 @@
 
 			  <div class="card o-hidden border-0 shadow-lg my-5">
 				  <div class="card-body p-0">
-						<!-- Nested Row within Card Body -->
+
 						<div class="row">
 							<div class="col-lg-6 d-none d-lg-block forget-password-image"></div>
 							<div class="col-lg-6">
@@ -34,8 +34,7 @@
 									 controller: :yearly_payments, action: :update, method: :patch %>
 									<% elsif current_admin.school.active == true && current_admin.school.stripe_plan_id == 'plan_FE0p7PlgEgQI9W' %>
 									<h1>Vous avez souscrit à un abonnement mensuel. Pour vous désabonnez, cliquez ici :</h1>
-									<%= button_to "Se désabonner", monthly_payment_path(current_admin.school.stripe_plan_id),
-									 controller: :monthly_payments, action: :update, method: :patch %>
+									<%= button_to "Se désabonner", monthly_payment_path(current_admin.school.stripe_plan_id), controller: :monthly_payments, action: :update, method: :patch, class: "btn btn-outline-danger" %>
 									<% end %>
 						
 								</div>

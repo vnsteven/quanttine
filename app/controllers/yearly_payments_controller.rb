@@ -14,6 +14,7 @@ class YearlyPaymentsController < ApplicationController
   def update
     service = StripeYearlySubscriptionService.new(params, current_admin)
     service.unsubscribe
+    flash[:success] = "Vous avez bien été désabonné du payement annuel !"
   end
 
 end
