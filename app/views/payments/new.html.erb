@@ -29,11 +29,11 @@
 									<% end %>
 
 									<% if current_admin.school.active == true && current_admin.school.stripe_plan_id == 'plan_FE0oYwqfIjoLUc' %>
-									<h1>Vous avez souscrit à un abonnement annuel. Pour vous désabonner, cliquez ici :</h1>
+									<h3>Vous avez souscrit à un abonnement annuel. Pour vous désabonner, cliquez ici :</h3>
 									<%= button_to "Se désabonner", yearly_payment_path(current_admin.school.stripe_plan_id),
 									 controller: :yearly_payments, action: :update, method: :patch %>
 									<% elsif current_admin.school.active == true && current_admin.school.stripe_plan_id == 'plan_FE0p7PlgEgQI9W' %>
-									<h1>Vous avez souscrit à un abonnement mensuel. Pour vous désabonner, cliquez ici :</h1>
+									<h3>Vous avez souscrit à un abonnement mensuel. Pour vous désabonner, cliquez ici :</h3>
 									<%= button_to "Se désabonner", monthly_payment_path(current_admin.school.stripe_plan_id), controller: :monthly_payments, action: :update, method: :patch, class: "btn btn-outline-danger" %>
 									<% end %>
 						
