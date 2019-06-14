@@ -25,7 +25,7 @@ RSpec.describe SchoolMeal, type: :model do
     end
 
     describe "#serving" do
-      it { expect(@school_meal).to have_many(:servings) }
+      it { expect(@school_meal).to have_many(:servings).dependent(:destroy) }
     end
 
     describe "#food_supply" do
