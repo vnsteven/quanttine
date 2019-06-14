@@ -12,15 +12,19 @@
 				  <div class="card-body meal-text">
 				    <blockquote class="blockquote mb-0">
 				      <% meal.servings.each do |serving| %>
-					<strong><%= serving.meal_category %> : </strong><%= serving.food_supply.name %> |
+					- <strong><%= serving.meal_category %> : </strong><%= serving.food_supply.name %> <br/>
 				<% end %> <br/>
 				    </blockquote>
 			  	  </div>
-		<% end %>
 	</div>
+		<% end %>
+</div>
 <% else %>
 	<div class="card meals-index meals-index1">
 	<p>TU N'AS AUCUNE COMMANDE ENREGISTRÉE, POUR PASSER COMMANDE : <br/>
 		<%= link_to "C'EST PAR ICI", new_user_profile_user_meal_path(@user.id, @profile.id) %></p>
 	</div>
 <%end %>
+
+
+  <%= render 'home/footer' %>
