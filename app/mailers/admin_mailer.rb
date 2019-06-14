@@ -6,7 +6,12 @@ class AdminMailer < ApplicationMailer
     mail(to: @admin.email, subject: "L'équipe de Quanttine vous souhaite la bienvenue.")
   end
 
-  def subscription_email(admin)
+  def subscription_month_email(admin)
+    @admin = admin
+    mail(to: @admin.email, subject: "Récapitulatif de votre abonnement Quanttine")
+  end
+  
+  def subscription_year_email(admin)
     @admin = admin
     mail(to: @admin.email, subject: "Récapitulatif de votre abonnement Quanttine")
   end

@@ -27,8 +27,10 @@ class School < ApplicationRecord
   private
 
   def send_payment_information_email
-    if self.active?
-      AdminMailer.subscription_email(self.admins.last).deliver_now
+    if self.active? && self.stripe_plan_id == "plan_FE0p7PlgEgQI9W"
+      AdminMailer.subscription_month_email(self.admins.last).deliver_now
+    elsif self.active? && self.stripe_plan_id == "plan_FE0oYwqfIjoLUc"
+      AdminMailer.subscription_year_email(self.admins.last).deliver_now
     elsif self.active? == false
       AdminMailer.unsubscription_email(self.admins.last).deliver_now
     end
