@@ -28,7 +28,7 @@ html {
   animation-name: blink;
   animation-iteration-count: infinite;
   animation-direction: alternate;
-  -webkit-animation:blink 1200ms infinite; 
+  -webkit-animation:blink 1200ms infinite;
 }
 
 @keyframes blink {
@@ -84,8 +84,8 @@ html {
   position: fixed;
   top: 60px;
   right: 20px;
-  width: 20%;
-  z-index:9999; 
+  width: 40%;
+  z-index:9999;
 }
 
 /* MODAL */
@@ -170,7 +170,7 @@ html {
 
 .colored-header a{
   color: #6ed26e !important;
-  margin-right: 5px; 
+  margin-right: 5px;
 }
 
 .nav-title {
@@ -199,7 +199,7 @@ html {
 /* BANNER */
 
 #home-section {
-  background-image: url(vegetables_banner.jpg); 
+  background-image: url(vegetables_banner.jpg);
   width: 100%;
   position: relative;
 }
@@ -321,7 +321,7 @@ html {
   margin-right: auto;
   margin-bottom: 5em;
   width: 25%;
-}  
+}
 
 /* EDIT USER */
 
@@ -403,7 +403,7 @@ html {
 }
 
 .send {
- margin-left: 6em; 
+ margin-left: 6em;
 }
 
 .send1:hover {
@@ -412,7 +412,7 @@ html {
 
 .end-button{
   display: flex;
-  justify-content: flex-end;  
+  justify-content: flex-end;
 }
 
 .unhappy {
@@ -447,7 +447,7 @@ html {
 	text-align: center;
 }
 
-.edit-title{ 
+.edit-title{
   color: white;
   background-image: radial-gradient(circle at bottom right, #333a4d, #586689) !important;
 }
@@ -708,7 +708,7 @@ html {
 }
 
 .input-text{
-  padding: 3em; 
+  padding: 3em;
 }
 
 .input-style{
@@ -791,7 +791,7 @@ html {
 }
 
 #options a{
-  color: #858796; 
+  color: #858796;
 }
 
 #options a:hover {
@@ -882,7 +882,6 @@ html {
   text-align: center;
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px;
-
 }
 
 /* Style the input fields */
@@ -914,7 +913,7 @@ html {
 /* PAYMENTS STRIPE PAGES */
 .payment-body {
   height: 45em;
-  padding-top: 10em; 
+  padding-top: 10em;
 }
 
 .card-payement{
