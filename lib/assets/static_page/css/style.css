@@ -74,7 +74,8 @@ h1, h2, h3, h4, h5,
   .btn.btn-primary {
     background: linear-gradient(100deg, #33DE79 10%, #78DE6F 100%);
     border-color: linear-gradient(100deg, #33DE79 10%, #78DE6F 100%);
-    color: #fff; }
+    color: #fff; 
+  }
     .btn.btn-primary:hover {
       background: #fff;
       border-color: #33DE79;
@@ -83,7 +84,7 @@ h1, h2, h3, h4, h5,
        }
     .btn.btn-primary.btn-black--hover:hover {
       background: #666666;
-      color: #fff; }
+      color: #fff; 
     }
 
 .line-height-1 {
