@@ -7,17 +7,17 @@
 		<h1 class="user-title">Bienvenue sur ton espace Quanttine !</h1>
 		<h6 class="user-title-2">Choisis tes menus quotidiennement et aide ton école à lutter contre le gaspillage alimentaire.</h6>
 
-		<div class="user-cards">
-			<%= link_to new_user_profile_user_meal_path(@user.id, @profile.id) do %>
-			<div id="options">
-				<%= image_tag "tray.jpg", class:"photo-card" %>
-				<div class="card-body">
-					<h5 class="card-title">Mes menus</h5>
-					<p class="card-text text1">Choisis tes menus au quotidien pour que le déjeûner à la cantine corresponde à tes goûts, et ne soit qu'un moment de plair.</p> <br/>
-					<%= link_to "Choisir son menu",  new_user_profile_user_meal_path(@user.id, @profile.id), class:"btn btn-primary", id:"bouton-show" %>
-				</div>
-			</div>
-			<% end %>
+	<div class="user-cards">
+		<%= link_to new_user_profile_user_meal_path(@user.id, @profile.id) do %>
+		<div id="options">
+		  <%= image_tag "tray.jpg", class:"photo-card" %>
+		  <div class="card-body">
+		    <h5 class="card-title">Mes menus</h5>
+		    <p class="card-text text1">Choisis tes menus au quotidien pour que le déjeûner à la cantine corresponde à tes goûts, et ne soit qu'un moment de plair.</p> <br/>
+		    <%= link_to "Choisir son menu", new_user_profile_user_meal_path(@user.id, @profile.id), class:"btn btn-primary", id:"bouton-show" %>
+		  </div>
+		</div>
+		<% end %>
 
 			<%= link_to user_profile_user_meals_path(@user.id, @profile.id) do %>
 			<div id="options">
