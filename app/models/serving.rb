@@ -1,6 +1,6 @@
 class Serving < ApplicationRecord
 
-  enum meal_category: { Entrée: 1, Plat: 2, Accompagnement: 3, Dessert: 4}
+  enum meal_category: { entrée: 1, plat: 2, accompagnement: 3, dessert: 4}
 
   belongs_to :school_meal
   belongs_to :food_supply

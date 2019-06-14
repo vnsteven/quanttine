@@ -12,7 +12,7 @@
 				  <div class="card-body meal-text">
 				    <blockquote class="blockquote mb-0">
 				      <% meal.servings.each do |serving| %>
-					- <strong><%= serving.meal_category %> : </strong><%= serving.food_supply.name %> <br/>
+					- <strong><%= serving.meal_category.capitalize %> : </strong><%= serving.food_supply.name %> <br/>
 				<% end %> <br/>
 				    </blockquote>
 			  	  </div>
