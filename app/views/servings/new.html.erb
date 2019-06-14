@@ -9,13 +9,11 @@
 					<div class="col-lg-6">
 						<div class="card shadow mb-4">
 							<div class="card-header py-3">
-								<h6 class="m-0 font-weight-bold">Ajouter au menu <%= Date.tomorrow.strftime("%d-%m-%Y") %></h6>
+								<h6 class="m-0 font-weight-bold">Ajouter au menu du lendemain <span class="badge badge-primary"><%= Date.tomorrow.strftime("%d/%m/%Y") %></span></h6>
 							</div>
 							<div class="card-body">
 								<div class="field form-group">
 									<%= form_tag url_for(controller: 'servings', action: 'create'), method: 'post', remote: true do %>
-									<%= date_field_tag :date, "#{Date.tomorrow}", class: 'form-control', id: "datePicker"  %>
-									<br />
 									<%= select_tag :meal_category, options_for_select(serving_list), prompt: "Catégorie", class: "form-control" %>
 									<br />
 									<%= select_tag :food_supply, options_for_select(food_supply_list), prompt: "Aliment", class: "form-control" %>
@@ -41,7 +39,7 @@
 
 						<div class="card shadow mb-4">
 							<div class="card-header py-3">
-								<h6 class="m-0 font-weight-bold">Entrées</h6>
+								<h6 class="m-0 font-weight-bold">Entrées (4 max.) <span class="badge badge-primary" id="counter-entree"><%= servings_count_per_category("entrée") %></span></h6>
 							</div>
 							<div class="card-body">
 								<div class="table-responsive">
@@ -54,15 +52,13 @@
 											</tr>
 										</thead>
 										<tbody id="menu-entree">
-											<% @school_meals.each do |school_meal| %>
-											<% school_meal.servings.each do |serving| %>
+											<% @servings.each do |serving| %>
 											<% if serving.meal_category == "entrée" %>	
 											<tr id="menu<%= serving.id %>">					
 												<td><%= serving.food_supply.name %></td>
 												<td><%= serving.meal_category %></td>
 												<td><%= link_to "", admin_serving_path(current_admin, serving), method: :delete, remote: true, class: "fas fa-trash-alt text-secondary"%></td>
 											</tr>
-											<% end %>
 											<% end %>
 											<% end %>
 										</tbody>
@@ -73,7 +69,7 @@
 
 						<div class="card shadow mb-4">
 							<div class="card-header py-3">
-								<h6 class="m-0 font-weight-bold">Plats et acompagnements</h6>
+								<h6 class="m-0 font-weight-bold">Plats (4 max.) <span class="badge badge-primary" id="counter-plat"><%= servings_count_per_category("plat") %></span></h6>
 							</div>
 							<div class="card-body">
 								<div class="table-responsive">
@@ -86,15 +82,13 @@
 											</tr>
 										</thead>
 										<tbody id="menu-plat">
-											<% @school_meals.each do |school_meal| %>
-											<% school_meal.servings.each do |serving| %>
-											<% if serving.meal_category == "plat" || serving.meal_category == "accompagnement" %>
+											<% @servings.each do |serving| %>
+											<% if serving.meal_category == "plat" %>
 											<tr id="menu<%= serving.id %>">
 												<td><%= serving.food_supply.name %></td>
 												<td><%= serving.meal_category %></td>
 												<td><%= link_to "", admin_serving_path(current_admin, serving), method: :delete, remote: true, class: "fas fa-trash-alt text-secondary"%></td>
 											</tr>
-											<% end %>
 											<% end %>
 											<% end %>
 										</tbody>
@@ -105,7 +99,37 @@
 
 						<div class="card shadow mb-4">
 							<div class="card-header py-3">
-								<h6 class="m-0 font-weight-bold">Desserts</h6>
+								<h6 class="m-0 font-weight-bold">Accompagnements (4 max.) <span class="badge badge-primary" id="counter-accompagnement"><%= servings_count_per_category("accompagnement") %></span></h6>
+							</div>
+							<div class="card-body">
+								<div class="table-responsive">
+									<table class="table table-bordered" width="100%" cellspacing="0">
+										<thead>
+											<tr>
+												<th>Nom</th>
+												<th>Catégorie</th>
+												<th></th>
+											</tr>
+										</thead>
+										<tbody id="menu-accompagnement">
+											<% @servings.each do |serving| %>
+											<% if serving.meal_category == "accompagnement" %>
+											<tr id="menu<%= serving.id %>">
+												<td><%= serving.food_supply.name %></td>
+												<td><%= serving.meal_category %></td>
+												<td><%= link_to "", admin_serving_path(current_admin, serving), method: :delete, remote: true, class: "fas fa-trash-alt text-secondary"%></td>
+											</tr>
+											<% end %>
+											<% end %>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+
+						<div class="card shadow mb-4">
+							<div class="card-header py-3">
+								<h6 class="m-0 font-weight-bold">Desserts (4 max.) <span class="badge badge-primary" id="counter-dessert"><%= servings_count_per_category("dessert") %></span></h6>
 							</div>
 							<div class="card-body">
 								<div class="table-responsive">
@@ -118,15 +142,13 @@
 											</tr>
 										</thead>
 										<tbody id="menu-dessert">
-											<% @school_meals.each do |school_meal| %>
-											<% school_meal.servings.each do |serving| %>
+											<% @servings.each do |serving| %>
 											<% if serving.meal_category == "dessert" %>
 											<tr id="menu<%= serving.id %>">
 												<td><%= serving.food_supply.name %></td>
 												<td><%= serving.meal_category %></td>
 												<td><%= link_to "", admin_serving_path(current_admin, serving), method: :delete, remote: true, class: "fas fa-trash-alt text-secondary"%></td>
 											</tr>
-											<% end %>
 											<% end %>
 											<% end %>
 										</tbody>

@@ -13,9 +13,11 @@ class UserMealsController < ApplicationController
     @sides = @school_meals.servings.where(meal_category: "accompagnement")
     @user_meal = UserMeal.new
     @todays_order = @profile.user_meals.where("created_at >= ?", Time.zone.now.beginning_of_day).last
+
   end
 
   def create
+<<<<<<< HEAD
     if choose_a_full_meal
       @user_meal = UserMeal.create!(profile_id: @profile.id)
       params[:user_meal].each do |param, value|
@@ -27,6 +29,20 @@ class UserMealsController < ApplicationController
       flash[:error] = "Tu dois choisir une entrée, un plat avec accompagnement et un dessert"
     end
 
+=======
+    flash[:notice] ="Commande enregistrée."
+    @profile = current_user.profile
+    @user = current_user
+    @user_meal = UserMeal.create!(profile_id: @profile.id)
+    PreparingUserMeal.create!(user_meal_id: @user_meal.id, serving_size: 100, serving_id: params[:user_meal][:starter_choice].to_i)
+    PreparingUserMeal.create!(user_meal_id: @user_meal.id, serving_size: 100, serving_id: params[:user_meal][:main_course_choice].to_i)
+    PreparingUserMeal.create!(user_meal_id: @user_meal.id, serving_size: 100, serving_id: params[:user_meal][:dessert_choice].to_i)
+    redirect_to user_profile_user_meal_path(@user, @profile, @user_meal.id)
+>>>>>>> development
+  end
+
+  def index
+    @meals = current_user.profile.user_meals
   end
 
   def show
@@ -37,7 +53,7 @@ class UserMealsController < ApplicationController
     @todays_order = current_user.profile.user_meals.where("created_at >= ?", Time.zone.now.beginning_of_day).last
     todays_order.destroy_all
     redirect_to user_profile_path(@user, @profile)
-    flash[:success] = "Votre choix pour le menu du jour a bien été supprimé"
+    flash[:notice] = "Votre choix pour le menu du jour a bien été supprimé"
   end
 
   private
@@ -50,7 +66,7 @@ class UserMealsController < ApplicationController
     @user = current_user
     @profile = current_user.profile
     unless todays_order.exists?
-      flash[:error] = "Vous n'avez pas passé de commande !"
+      flash[:error] = "Tu n'as pas passé de commande !"
       redirect_to new_user_profile_user_meal_path(@profile, @user)
     end
   end
@@ -59,7 +75,7 @@ class UserMealsController < ApplicationController
     @user = current_user
     @profile = current_user.profile
     unless todays_order.empty?
-     flash[:error] = "Vous avez déjà passé commande !"
+     flash[:error] = "Tu as déjà passé commande !"
      redirect_to user_profile_user_meal_path(@profile, @user, @user_meal.last.id)
    end
  end

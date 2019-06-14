@@ -1,0 +1,20 @@
+<%= render 'layouts/colored_header' %>
+
+<h1 class="meal-title">Mes commandes :</h1>
+
+<div class="card meals-index">
+
+<% @meals.each do |meal| %>
+	<div class="card meal-card">
+	  <div class="meal-header">
+	 	Commande N° <%= meal.id %> <span class="blockquote-footer"><%= meal.created_at.strftime("%d/%m/%Y") %></span>
+	  </div>
+		  <div class="card-body meal-text">
+		    <blockquote class="blockquote mb-0">
+		      <% meal.servings.each do |serving| %>
+			<strong><%= serving.meal_category %> : </strong><%= serving.food_supply.name %> |
+		<% end %> <br/>
+		    </blockquote>
+	  	  </div>
+	</div>
+<% end %>

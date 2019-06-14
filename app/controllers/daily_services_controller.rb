@@ -1,19 +1,7 @@
 class DailyServicesController < ApplicationController
-  before_action :set_daily_service, only: [:show, :edit, :update, :destroy]
+  before_action :set_daily_service, only: [:show]
 
   def show
-
-  end
-
-  def edit
-
-  end
-
-  def update
-
-  end
-
-  def destroy
 
   end
 
@@ -21,7 +9,7 @@ class DailyServicesController < ApplicationController
 
   def set_daily_service
     @daily_service = DailyService.find_by(
-      date: Date.today.strftime("%d/%m/%Y"),
+      date: Date.today,
       school_id: current_admin.school.id
     )
   end

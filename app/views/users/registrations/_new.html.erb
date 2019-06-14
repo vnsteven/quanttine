@@ -3,16 +3,17 @@
     <div class="modal-content">
       <div class="modal-header">
         <h2 id="login-title">S'incrire</h2>
+
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
       </div>
 
       <div class="modal-body">
         <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-        <%= render "devise/shared/error_messages", resource: resource %>
 
         <div class="form-inputs">
 
           <div class="field form-group">
+
             <%= f.label :prénom %><br />
             <div class="input-container">
               <i class="fas fa-user icon1"></i>
@@ -21,6 +22,7 @@
           </div>  
 
           <div class="field form-group">
+
             <%= f.label :nom %><br />
             <div class="input-container">
               <i class="fas fa-user icon1"></i>
@@ -29,7 +31,7 @@
           </div>
 
           <div class="field form-group">
-            <%= f.label :email %><br />
+            <%= f.label :email, 'Email' %><br />
             <div class="input-container">
             <i class="fas fa-at icon1"></i>
             <%= f.email_field :email, class: "form-control input-field writing", autocomplete: "email", placeholder: "" %>
@@ -37,7 +39,9 @@
           </div>          
 
           <div class="field form-group">
+
             <%= f.label "Mot de passe" %>
+
             <div class="input-container">
               <i class="fas fa-lock icon1"></i>
             <% if @minimum_password_length %>
@@ -53,13 +57,23 @@
               <i class="fas fa-lock icon1"></i>
             <%= f.password_field :password_confirmation, class: "form-control input-field writing", autocomplete: "new-password" %>
             </div>
-          </div>     
+          </div>           
+
+            <div class="field form-group">
+            <%= f.label "Code école" %><br />
+            <div class="input-container">
+              <i class="fas fa-school icon1"></i>
+            <%= f.text_field :school_code, class: "form-control input-field writing", autocomplete: "code", placeholder: "" %>
+          </div>
+          </div>  
 
         </div>
       </div>
       <div class="modal-footer">
         <div class="form-actions">
+
           <%= f.submit "S'inscrire", class: "btn btn-primary" %>
+
         </div>
         <% end %>
       </div>

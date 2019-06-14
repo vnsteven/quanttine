@@ -6,12 +6,16 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+require 'i18n'
+
 User.destroy_all
 Profile.destroy_all
 School.destroy_all
 Admin.destroy_all
 Preference.destroy_all
 FoodSupply.destroy_all
+
+supplies = ["Steak haché","Saumon en papillote","Lapin à la moutarde","Boeuf bourgignon","Omelette au fromage", "Boeuf aux oignons","Rôti de boeuf", "Boeuf wellington", "Tartare de boeuf", "Chili con carne","Boulettes de boeuf", "Sauté de porc","Rôti de porc","Côte de porc","Porc au caramel","Filet mignon","Colombo de porc","Poitrine de porc","Blanquette de veau","Jarret de veau","Sauté de veau","Côte de veau","Veau marengo","Paupiettes de veau","Rôti de veau","Boulettes de veau","Tajine de veau","Escalope de veau","Couscous","Poulet basquaise","Poulet à l'estragon","Poulet coco","Poulet tandoori","Poulet frit","Tajine de poulet","Poulet rôti","Émincé de poulet","Poulet aux olives","Poulet aux amandes","Poulet au curry","Poulet teriyaki","Kebab de poulet","Poulet piri-piri","Saumon à l'oseille","Dos de cabillaud","Pavé de thon","Thon provençal","Poulet sauce satay","Riz","Riz cantonnais","Riz pilaf","Riz sauvage","Riz vapeur","Spaghettis","Coquillettes","Linguine","Gnocchis","Fusilli","Penne","Macaronis","Tagliatelles","Pommes de terre vapeur","Frites","Purée","Pommes paillasson","Pomme au four","Pommes de terre sautées","Röstis","Haricots verts","Carottes sautées","Carottes vapeur","Chou-fleur","Aubergines","Patate douce","Courgettes","Butternut","Haricot beurre","Petits pois","Lentilles","Blé","Boulghour","Pommes de terre façon Romain","Tarte aux fraises","Tarte à la rhubarbe","Tarte citron meringuée","Tarte aux pommes","Gâteau au chocolat","Quatre-quart","Clafoutis cerise","Cake au citron","Mille-feuille","Paris-Brest","Fôret noire","Éclair au chocolat","Éclair au café","Tarte tatin","Clafoutis aux pommes","Yaourt à la grecque","Yaourt","Camembert","Roquefort","Brie","Comté","Chèvre","Cantal","Emmental","Gouda","Maroilles","Tomme de savoie","Pomme","Poire","Raisins","Clémentine","Orange","Pêche","Abricot","Nectarines","Banane","Ananas","Cerises","Mandarine","Fraises"]
 
 
 2.times do
@@ -25,6 +29,8 @@ rand = rand(1000..2000)
   )
 end
 
+puts 'School done'
+
 5.times do
   Admin.create!(
     email: Faker::Internet.email,
@@ -33,35 +39,52 @@ end
     )
 end
 
+puts 'Admin done'
+
 10.times do
-  user = User.create!(
-    first_name: Faker::Name.first_name,
-    last_name: Faker::Name.last_name,
-    email: "#{Faker::Internet.email}",
+  first_name = Faker::Name.first_name
+  last_name = Faker::Name.last_name
+  email = "#{first_name.downcase}.#{last_name.downcase}@yopmail.com"
+  transliterated_email = I18n.transliterate(email)
+  User.create!(
+    first_name: first_name,
+    last_name: last_name,
+    email: transliterated_email,
     password: "password",
     school_code: School.all.sample.school_code
     )
 end
 
+puts 'User done'
+
+preferences=["Je ne mange pas de viande", "Je ne mange pas de produits laitiers", "Je ne mange pas de porc", "Je ne mange pas de produits marins"]
+
+a = 0
 4.times do
   Preference.create!(
-    name: ["Je ne mange pas de viande", "Je ne mange pas de produits laitiers", "Je ne mange pas de porc", "Je ne mange pas de produits marins"].sample,
+    name: preferences[a],
     category: ["diet", "allergy"].sample
     )
+  a += 1
 end
+
+puts 'Preferences done'
 
 20.times do
   JoinTableProfilePreference.create!(
-    profile_id: Profile.all.sample.id,
-    preference_id: Preference.all.sample.id
+    profile_id: Profile.all.sample.id
     )
 end
 
-100.times do
+puts "JoinTableProfilePreference done"
+
+supplies.each do |supply|
   FoodSupply.create!(
-    name: Faker::Food.fruits
+    name: supply
     )
 end
+
+puts 'Food Supply done'
 
 200.times do
   Quantity.create!(
@@ -71,16 +94,21 @@ end
     )
 end
 
+puts 'Quantity done'
+
 i = 1
 50.times do
   School.all.each do |school|
+    date = Date.today + i
     SchoolMeal.create!(
-      date: Date.current + i,
+      date: date.strftime("%d/%m/%Y"),
       school_id: school.id
       )
   end
   i += 1
 end
+
+puts 'SchoolMeal done'
 
 # We create servings (starter/main_course/dessert) for each schoolmeal (aka a daily menu for one school)
 SchoolMeal.all.each do |schoolmeal|
@@ -108,13 +136,15 @@ SchoolMeal.all.each do |schoolmeal|
   end
 end
 
-
+puts 'Serving done'
 
 50.times do
   UserMeal.create!(
     profile_id: Profile.all.sample.id
     )
 end
+
+puts 'User Meal done'
 
 100.times do
   PreparingUserMeal.create!(
@@ -124,9 +154,13 @@ end
     )
 end
 
+puts 'Preparing User Meal done'
+
 10.times do
   JoinTablePreferenceFood.create!(
     preference_id: Preference.all.sample.id,
     food_supply_id: FoodSupply.all.sample.id
     )
 end
+
+puts 'JoinTablePreferenceFood done'

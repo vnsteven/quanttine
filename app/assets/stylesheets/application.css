@@ -48,6 +48,36 @@ html {
   }
 }
 
+/* CARD PROFILE */
+
+#card-profile {
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+}
+
+/* BUTTON ACTIVE STORAGE */
+
+.btn-file {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-file input[type=file] {
+  position: absolute;
+  top: 0;
+  right: 0;
+  min-width: 100%;
+  min-height: 100%;
+  font-size: 100px;
+  text-align: right;
+  filter: alpha(opacity=0);
+  opacity: 0;
+  outline: none;
+  background: white;
+  cursor: inherit;
+  display: block;
+}
+
 /* Alert */
 
 .alert {
@@ -144,6 +174,10 @@ html {
   color: #5D5D5D !important;
 }
 
+.link1:hover {
+  color: #58C176 !important;
+}
+
 /* BUTTON */
 
 .btn-primary:focus {
@@ -154,11 +188,72 @@ html {
 /* BANNER */
 
 #home-section {
-  background-image: url(background-homepage.png);
+  background-image: url(vegetables_banner.jpg);
   width: 100%;
-  -webkit-filter: contrast(80%);
-  filter: contrast(80%);
+  position: relative;
 }
+
+/*BANNER ITEMS*/
+
+
+
+.banner-button{
+  margin-top: 3em;
+}
+
+.banner-items{
+  margin-top: 12em !important;
+}
+
+.banner-text{
+  font-size: 1.2em !important;
+}
+
+.card-group {
+  width: 80%;
+}
+
+.card-body {
+  padding: 0.5em;
+}
+
+.card-group .card {
+  margin: 1em;
+  border-radius: 10px !important;
+  background-color: rgba(0,0,0,0.5);
+  color: white;
+  text-align: center;
+  border: solid !important;
+}
+
+.digit {
+  font-size: 1.5em !important;
+  text-align: center;
+  color: #33DE79 !important;
+}
+
+.text-banner {
+  color: white;
+  font-style: italic;
+  font-size: 30px !important;
+  margin-top: 2.5em;
+}
+
+
+
+.statement {
+  font-weight: bold !important;
+  text-align: center;
+  margin-top: 11em;
+  color: white;
+  font-size: 2em !important;
+  font-style: italic;
+  text-shadow: 2px 2px black;
+  width: 100% !important;
+  position: absolute;
+}
+
+
 
 /* ANIMATION SCROLL DOWN */
 
@@ -167,7 +262,7 @@ html {
 }
 #section05 a span {
   position: absolute;
-  top: 35em;
+  bottom: 3em;
   left: 50%;
   width: 24px;
   height: 24px;
@@ -207,6 +302,16 @@ html {
   }
 }
 
+/*LANDING PAGE CONTENT*/
+
+.app_image{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 5em;
+  width: 25%;
+}
+
 /* EDIT USER */
 
 .profile-edit {
@@ -216,14 +321,13 @@ html {
 .edit-pictures {
   display: flex;
   justify-content: space-around;
-  border-bottom: 1px solid #afafaf;
   padding-bottom: 20px;
   height: 16em;
 }
 
 .qr-link {
-display: flex;
-align-self: center;
+  display: flex;
+  align-self: center;
 }
 
 .choice-title {
@@ -278,7 +382,7 @@ align-self: center;
 
 .choice {
   font-size: 1.1em;
-  width: 18em;
+  width: 20em;
   margin: auto;
   text-align: left;
 }
@@ -337,7 +441,25 @@ align-self: center;
   background-image: radial-gradient(circle at bottom right, #333a4d, #586689) !important;
 }
 
+.choix-menu{
+  background-color: #75df7a;
+  color: white !important;
+}
 
+.choix-menu:hover{
+  background-color: #65D46A !important;
+  text-decoration: none !important;
+  color: white !important;
+}
+
+.btn-outline-secondary{
+  color: #858796 !important;
+}
+
+.btn-outline-secondary:hover{
+  color: white !important;
+  text-decoration: none !important;
+}
 
 /* FOOTER */
 
@@ -537,21 +659,6 @@ align-self: center;
   color: white;
 }
 
-/*BANNER ITEMS*/
-
-.banner-text{
-  font-size: 1.2em !important;
-}
-
-.student-button{
-  position: absolute;
-  float: left;
-}
-
-.kitchen-button{
-  float: right;
-}
-
 /*LANDING PAGE CONTENT*/
 
 .fa-drafting-compass, .fa-sign-language, .fa-hand-holding-heart {
@@ -628,7 +735,7 @@ align-self: center;
 
 /* MENU OF THE DAY - FORM */
 
-/* PROFILES : INDEX.HTML */
+/* PROFILES : SHOW.HTML */
 .user-title {
   font-family: 'Raleway', sans-serif;
   text-align: center;
@@ -641,7 +748,6 @@ align-self: center;
   font-size: 1.5em;
 }
 
-
 .user-main{
   width: 75%;
   margin: auto;
@@ -649,18 +755,36 @@ align-self: center;
 
 .user-cards {
   height: 40em;
-  display: flex;
-  justify-content: space-around;
+  display: flex ;
+  justify-content: space-around ;
   align-items: center;
 }
 
 #options {
   border: none;
-  width: 21rem;
-  min-width: 19rem;
-  height: 29em;
-  text-align: center;
-  transition-duration: 0.5s;
+  border-radius: 8px;
+  width: 21rem ;
+  min-width: 19rem ;
+  height: 29em ;
+  text-align: center ;
+  transition-duration: 0.5s ;
+}
+
+#bouton-show{
+  color: white !important;
+}
+
+#bouton-show:hover{
+  color: #33DE79 !important;
+  border: 1px solid #33DE79;
+}
+
+#options a{
+  color: #858796;
+}
+
+#options a:hover {
+  text-decoration: none;
 }
 
 .card1 {
@@ -675,19 +799,24 @@ align-self: center;
   transition-duration: 0.5s;
 }
 
-.text1{
+.text{
   min-width: 15em;
   max-width: 15em;
   margin: auto;
 }
 
 .photo-card {
-  height: 47%;
+  height: 47% !important;
+  width: 100%;
 }
 
 .card-title {
   font-family: 'Raleway', sans-serif;
   font-weight: bold;
+}
+
+.card-text {
+  font-size: 1em;
 }
 
 /*FORGOT PASSWORD ITEMS*/
@@ -770,18 +899,197 @@ align-self: center;
 }
 
 /* PAYMENTS STRIPE PAGES */
-.payment-card {
-  width: 25%;
+.payment-body {
+  height: 45em;
+  padding-top: 10em;
+}
+
+.card-payement{
+  border: solid 1px #EBEBEB;
+  border-radius: 20px;
+  width: 70%;
   margin: auto;
-  margin-top: 20em;
+  margin-top: 4%;
+  text-align: center;
+  padding: 20px;
+  background-color: #F8F9FC;
+  margin-bottom: 7em;
+}
+
+.card-payement ul{
+  text-align: left;
+  margin-left: 5em;
+}
+
+.payement-bag{
+  width: 30%;
+  border-radius: 50%;
+}
+
+.payment-card {
+  width: 37%;
+  height: 18em;
+  margin: auto;
   border: 1px solid #B2AEAE;
   text-align: center;
-  padding: 10px;
   border-radius: 8px;
+  background-color: white;
 }
 
 .payment-title {
   border-bottom: 1px solid #B2AEAE;
   font-weight: bold;
-  color: #1AD01A;
+  padding: 10px;
+  color: #616161;
+  background-color: #DEDEDE
+}
+
+#gaspillage {
+  width: 14em;
+  margin-left: -1em;
+}
+
+.montant {
+  color: #445276;
+}
+
+.payment-image{
+  background-image: url(payement.jpg);
+  height: 27em;
+  width: 24em;
+}
+
+.pay-redir{
+  font-size: 1.1em;
+}
+
+#btn-payement:hover{
+  background-color: #3b4766 !important;
+  color: white;
+  border: 2px solid #3b4766;
+  text-decoration: none;
+}
+
+#btn-payement {
+  border: 2px solid #3b4766;
+  color: #3b4766;
+  background-color: white !important;
+  font-weight: bold;
+}
+
+/* DAILY SERVICES */
+.text-daily {
+  color: #333a4d
+}
+
+.daily-title {
+  color: #4B4B4B;
+  text-align: center;
+}
+
+.daily-table{
+  border: 1px solid grey;
+  width: 75%;
+  margin: auto;
+  font-size: 1.3em;
+  color: #4B4B4B
+}
+
+.daily-row:hover {
+  background-color: #F9F9F9
+}
+
+.daily-btn{
+  background-color: white !important;
+  color: #333A4D !important;
+}
+
+.daily-btn:hover {
+  background-color: #3E465C !important;
+  color: white;
+}
+
+.daily-btn:active {
+  border: 2px solid white;
+}
+
+.thead{
+  background-color: rgb(51, 58, 77);
+}
+
+.col-icon {
+  width: 7em;
+}
+
+.service{
+  font-size: 4em;
+}
+
+/* USER_MEAL INDEX */
+.meal-title{
+  text-align: center;
+  font-size: 3em;
+  margin-top: 2em;
+  color: #33DE79;
+}
+
+.meals-index {
+  width: 70%;
+  margin: auto;
+  margin-top: 4%;
+  padding: 60Px;
+}
+
+.blockquote-footer{
+  color: #33DE79;
+}
+
+.meal-card{
+  width: 90%;
+  margin: auto;
+  border-right: none;
+  border-left: none;
+  padding-left: 7em;
+}
+
+.meal-card:hover{
+  transition-duration: 1000ms;
+  background: #F9F9F9;
+  width: 100%;
+  padding-left: 11em;
+
+}
+
+.meal-header{
+  font-size: 1.3em;
+}
+
+/* error page */
+.card-error{
+  border: solid 1px #EBEBEB;
+  border-radius: 20px;
+  width: 70%;
+  margin: auto;
+  margin-top: 4%;
+  text-align: center;
+  padding: 20px;
+  background-color: #F8F9FC;
+}
+
+.card-error h2{
+  color: #353535
+}
+
+.card-error ul {
+  margin-left: 11em;
+  text-align: left;
+}
+
+.card-error li:hover{
+  font-weight: bold;
+}
+
+.sad-fruit {
+  width: 30%;
+  border-radius: 50%;
 }

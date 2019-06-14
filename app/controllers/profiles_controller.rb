@@ -16,11 +16,12 @@ class ProfilesController < ApplicationController
   def edit
     @preferences = Preference.all
     @schools = School.all
-    # @user_school = School.all.find_by(school_code: current_user.school_code)
+    @school = current_user.profile.school
   end
 
   def update
     @profile.update(profile_parameters)
+    redirect_to edit_user_profile_path(@user.id, @profile.id), notice: "Préférences enregistrées"
   end
 
   private
@@ -45,14 +46,14 @@ class ProfilesController < ApplicationController
 
   def authenticate_user
     unless current_user || current_admin
-      redirect_to root_path, notice: "Veuillez vous connecter pour accéder à vos informations."
+      redirect_to root_path, notice: "Il faut te connecter pour accéder à tes informations."
     end
   end
 
   def restrict_access
     @profile = Profile.find_by(user_id: current_user.id)
     if @profile.id != current_user.profile.id
-      redirect_to root_path, notice: "Vous n'avez pas accès à ces informations."
+      redirect_to root_path, notice: "Tu n'as pas accès à ces informations."
     end
   end
 
