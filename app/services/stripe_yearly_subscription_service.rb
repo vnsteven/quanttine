@@ -29,7 +29,7 @@ class StripeYearlySubscriptionService
 
     def create_subscription
       @subscription = @customer.subscriptions.create(
-        plan: 'plan_FE0p7PlgEgQI9W'
+        plan: 'plan_FE0oYwqfIjoLUc'
       )
     end
 
@@ -38,7 +38,7 @@ class StripeYearlySubscriptionService
         active: true,
         stripe_customer_id: @customer.id,
         stripe_subscription_id: @subscription.id,
-        stripe_plan_id: 'plan_FE0p7PlgEgQI9W'
+        stripe_plan_id: 'plan_FE0oYwqfIjoLUc'
       )
     end
 

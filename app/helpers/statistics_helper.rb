@@ -40,8 +40,11 @@ module StatisticsHelper
 
   def tomorrow_menu_exist?
     tomorrow_meal = SchoolMeal.find_by(date: Date.tomorrow, school_id: current_admin.school.id)
-    tomorrow_servings = tomorrow_meal.servings
-    if tomorrow_meal != nil && tomorrow_servings.empty? == false
+    tomorrow_servings = tomorrow_meal.servings if tomorrow_meal != nil
+
+    if tomorrow_meal != nil 
+      true
+    elsif tomorrow_meal != nil && tomorrow_servings.empty? == false
       true
     else
       false

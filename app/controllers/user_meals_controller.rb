@@ -1,8 +1,14 @@
 class UserMealsController < ApplicationController
   before_action :set_variables
-  before_action :has_ordered, only: [:destroy, :show]
+  before_action :has_ordered, only: [:destroy, :show, :edit, :update]
   before_action :has_not_ordered, only: [:create]
   before_action :menu_tomorrow, only: [:new]
+
+  def index
+    @user = current_user
+    @profile = User.find(current_user.id).profile
+    @meals = current_user.profile.user_meals
+  end
 
   def new
     @school_meals = @profile.school.school_meals.find_by(date: Date.tomorrow)
@@ -14,22 +20,36 @@ class UserMealsController < ApplicationController
   def create
     if choose_a_full_meal
       @user_meal = UserMeal.create!(profile_id: @profile.id)
-      CreatePreparingUserMeal.new(params[:user_meal], @user_meal).perform
+      CreatePreparingUserMealService.new(params[:user_meal], @user_meal).perform
       redirect_to user_profile_user_meal_path(@user, @profile, @user_meal.id)
+      flash[:notice] = "Commande enregistrée"
     else
       redirect_to new_user_profile_user_meal_path(@user, @profile)
       flash[:error] = "Tu dois choisir une entrée, un plat avec accompagnement et un dessert"
     end
   end
 
-  def index
-    @user = current_user
-    @profile = User.find(current_user.id).profile
-    @meals = current_user.profile.user_meals
-  end
-
   def show
     @servings = @profile.user_meals.last.servings
+  end
+
+  def edit
+    @school_meals = @profile.school.school_meals.find_by(date: Date.tomorrow)
+    @user_meal_service = UserMealService.new(@school_meals)
+    @user_meal = @profile.user_meals.last
+  end
+
+  def update
+    if choose_a_full_meal
+      @user_meal = UserMeal.where(profile_id: @profile.id).last
+      @user_meal.preparing_user_meals.destroy_all
+      CreatePreparingUserMealService.new(params[:user_meal], @user_meal).perform
+      redirect_to user_profile_user_meal_path(@user, @profile, @user_meal.id)
+      flash[:notice] = "Commande modifiée !"
+    else
+      redirect_to new_user_profile_user_meal_path(@user, @profile)
+      flash[:error] = "Tu dois choisir une entrée, un plat avec accompagnement et un dessert"
+    end
   end
 
   def destroy

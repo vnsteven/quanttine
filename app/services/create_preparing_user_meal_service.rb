@@ -1,4 +1,4 @@
-class CreatePreparingUserMeal
+class CreatePreparingUserMealService
 
   def initialize(params, user_meal)
     @params = params
