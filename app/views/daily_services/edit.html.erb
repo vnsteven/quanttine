@@ -18,7 +18,7 @@
   </thead>
 
   <tbody>
-    <% @daily_service.queue.each do |profile_id| %>
+    <% @daily_service.queue.each_with_index do |profile_id, index| %>
     <% profile = Profile.find(profile_id) %>
     <tr  class="daily-row">
       <th scope="row"><%= profile.id %> </th>
@@ -27,7 +27,9 @@
       	<td><% profile.user_meals.last.servings.each do |serving| %>
 				- <%= serving.food_supply.name %><br>
 			<% end %></td>
-		<td class="col-icon"><button class="btn btn-secondary far fa-check-square fa-2x daily-btn"></button></td>
+		<td class="col-icon">
+      <%= button_to "Servit",  admin_daily_service_path(current_admin, @daily_service, index: index), method: "put" %>
+    </td>
 
     </tr>
     <% end %>

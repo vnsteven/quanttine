@@ -42,7 +42,7 @@
           <% end %>
 
           <div class="field form-group">
-            <%= f.label "Mot de passe" %> <i>(ne rien écrire si tu vous ne comptez pas le changer)</i><br />
+            <%= f.label "Mot de passe" %><br />
             <div class="input-container">
               <i class="fas fa-lock icon1"></i>
               <%= f.password_field :password, class: "form-control input-field writing", autocomplete: "new-password" %>
@@ -62,7 +62,7 @@
           </div>
 
           <div class="field form-group">
-            <%= f.label "Mot de passe actuel" %> <i>(rentrez votre mot de passe actuel)</i><br />
+            <%= f.label "Mot de passe actuel" %><br />
             <div class="input-container">
               <i class="fas fa-key icon1"></i>
               <%= f.password_field :current_password, class: "form-control input-field writing", autocomplete: "current-password" %>
