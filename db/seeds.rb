@@ -20,7 +20,6 @@ mains = ["Steak haché","Saumon en papillote","Lapin à la moutarde","Boeuf bour
 sides = ["Riz","Riz cantonnais","Riz pilaf","Riz sauvage","Riz vapeur","Spaghettis","Coquillettes","Linguine","Gnocchis","Fusilli","Penne","Macaronis","Tagliatelles","Pommes de terre vapeur","Frites","Purée","Pommes paillasson","Pomme au four","Pommes de terre sautées","Röstis","Haricots verts","Carottes sautées","Carottes vapeur","Chou-fleur","Aubergines","Patate douce","Courgettes","Butternut","Haricot beurre","Petits pois","Lentilles","Blé","Boulghour","Pommes de terre façon Romain"]
 deserts = ["Tarte aux fraises","Tarte à la rhubarbe","Tarte citron meringuée","Tarte aux pommes","Gâteau au chocolat","Quatre-quart","Clafoutis cerise","Cake au citron","Mille-feuille","Paris-Brest","Fôret noire","Éclair au chocolat","Éclair au café","Tarte tatin","Clafoutis aux pommes","Yaourt à la grecque","Yaourt","Camembert","Roquefort","Brie","Comté","Chèvre","Cantal","Emmental","Gouda","Maroilles","Tomme de savoie","Pomme","Poire","Raisins","Clémentine","Orange","Pêche","Abricot","Nectarines","Banane","Ananas","Cerises","Mandarine","Fraises"]
 
-
 2.times do
   rand = rand(1000..2000)
   School.create!(
@@ -82,11 +81,30 @@ end
 
 puts "JoinTableProfilePreference done"
 
-supplies.each do |supply|
+starters.each do |supply|
   FoodSupply.create!(
     name: supply
   )
 end
+
+mains.each do |supply|
+  FoodSupply.create!(
+    name: supply
+  )
+end
+
+sides.each do |supply|
+  FoodSupply.create!(
+    name: supply
+  )
+end
+
+deserts.each do |supply|
+  FoodSupply.create!(
+    name: supply
+  )
+end
+
 
 puts 'Food Supply done'
 
@@ -119,22 +137,22 @@ SchoolMeal.all.each do |schoolmeal|
   3.times do
     Serving.create!(
       meal_category: 1,
-      food_supply_id: FoodSupply.all.sample.id,
+      food_supply_id: FoodSupply.where(name: starters).sample.id,
       school_meal_id: schoolmeal.id
     )
     Serving.create!(
       meal_category: 2,
-      food_supply_id: FoodSupply.all.sample.id,
+      food_supply_id: FoodSupply.where(name: mains).sample.id,
       school_meal_id: schoolmeal.id
     )
     Serving.create!(
       meal_category: 3,
-      food_supply_id: FoodSupply.all.sample.id,
+      food_supply_id: FoodSupply.where(name: sides).sample.id,
       school_meal_id: schoolmeal.id
     )
     Serving.create!(
       meal_category: 4,
-      food_supply_id: FoodSupply.all.sample.id,
+      food_supply_id: FoodSupply.where(name: deserts).sample.id,
       school_meal_id: schoolmeal.id
     )
   end
