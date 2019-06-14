@@ -17,8 +17,8 @@ class SchoolMealsController < ApplicationController
       redirect_to new_admin_serving_path(current_admin)
       flash[:error] = "Le menu de demain n'existe pas ! Impossible de le supprimer..."
     else
-      @school_meal = SchoolMeal.find_by(date: Date.tomorrow)
-      @school_meal.destroy
+      @school_meal = SchoolMeal.find_by(date: Date.tomorrow, school_id: current_admin.school.id)
+      @school_meal.servings.destroy_all
       redirect_to new_admin_serving_path(current_admin)
       flash[:success] = "Menu supprimé"
     end
