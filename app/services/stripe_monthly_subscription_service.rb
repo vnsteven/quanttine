@@ -50,5 +50,5 @@ class StripeMonthlySubscriptionService
       stripe_subscription_id: "cancelled susbscription : #{DateTime.now}",
     )
   end
-  
+
 end

@@ -1,4 +1,4 @@
-#Quanttine
+# Quanttine
 
 http://quanttine.herokuapp.com/
 
@@ -6,7 +6,7 @@ Quanttine is a web application that aims to reduce the food wasting in school ca
 
 To do so, we oganised the app around two ends : the Student and Kitchen.
 
-		##Student end :
+		## Student end :
 
 	* The user can pick his meal the day before, according to the avalaible stock.
 	* He/she can modify or delete the meal selected.
@@ -14,7 +14,7 @@ To do so, we oganised the app around two ends : the Student and Kitchen.
 	* He/she can modify his profile, notify his dietary precautions and set an avatar.
 	* A unique QR code will be applied to a student.
 
-		##School end :
+		## School end :
 
 	* The school bursar can choose if wants to pay monthly or yearly.
 	* Through the school dashboard, the kitchen can access to student's preferences.
@@ -22,16 +22,16 @@ To do so, we oganised the app around two ends : the Student and Kitchen.
 	* The admin can add food items to the database.
 	* He will have to set the menu of the next day, so the students can pick their meal.
 
-#How does it works ?
+# How does it works ?
 
-	##Student end :
+	## Student end :
 
 	* He/she first sign up to the website.
 	* Once connected, he/she can pick a starter, a dish, a side and a desert.
 	* The student will have to bring the QR code on his smartphone or printed on a sheet to scan it at the canteen counter
 	* Enjoy :)
 
-	##School end :
+	## School end :
 
 	* The school bursar have to enter the food quantities present in the stock to into the dashboard.
 	* Then he/she will have to set the menu the day before each lunch.
