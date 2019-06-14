@@ -17,10 +17,10 @@
 	</div>
 
 	<li class="nav-item">
-		<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
-			<i class="fas fa-pen"></i>
-			<span>Menus</span>
-		</a>
+		<%= link_to "#", class: "nav-link collapsed", data: { toggle: "collapse", target: "#collapseTwo" }, aria: { expanded: "true", controls: "collapseTwo" } do %>
+		<i class="fas fa-pen"></i>
+		<span>Menus</span>
+		<% end %>
 		<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
 			<div class="bg-white py-2 collapse-inner rounded">
 				<%= link_to "Liste des plats", admin_servings_path(current_admin.id), class: "collapse-item" %>
@@ -33,10 +33,10 @@
 	</li>
 
 	<li class="nav-item">
-		<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseQuantity" aria-expanded="true" aria-controls="collapseQuantity">
-			<i class="fas fa-box"></i>
-			<span>Stocks</span>
-		</a>
+		<%= link_to "#", class: "nav-link collapsed", data: { toggle: "collapse", target: "#collapseQuantity" }, aria: { expanded: "true", controls: "collapseQuantity" } do %>
+		<i class="fas fa-box"></i>
+		<span>Stocks</span>
+		<% end %>
 		<div id="collapseQuantity" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
 			<div class="bg-white py-2 collapse-inner rounded">
 				<%= link_to "Liste des aliments", admin_quantities_path(current_admin), class: "collapse-item" %>
@@ -47,10 +47,10 @@
 
 
 	<li class="nav-item">
-		<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
-			<i class="fas fa-graduation-cap"></i>
-			<span>Élèves</span>
-		</a>
+		<%= link_to "#", class: "nav-link collapsed", data: { toggle: "collapse", target: "#collapseUtilities" }, aria: { expanded: "true", controls: "collapseUtilities" } do %>
+		<i class="fas fa-graduation-cap"></i>
+		<span>Élèves</span>
+		<% end %>
 		<div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
 			<div class="bg-white py-2 collapse-inner rounded">
 				<%= link_to "Liste des élèves", admin_profiles_path(current_admin.id), class: "collapse-item" %>
@@ -66,10 +66,10 @@
 	</div>
 
 	<li class="nav-item">
-		<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseSettings" aria-expanded="true" aria-controls="collapsePages">
-			<i class="fas fa-cog"></i>
-			<span>Compte</span>
-		</a>
+		<%= link_to "#", class: "nav-link collapsed", data: { toggle: "collapse", target: "#collapseSettings" }, aria: { expanded: "true", controls: "collapsePages" } do %>
+		<i class="fas fa-cog"></i>
+		<span>Compte</span>
+		<% end %>
 		<div id="collapseSettings" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
 			<div class="bg-white py-2 collapse-inner rounded">
 				<%= link_to "Editer infos", edit_admin_registration_path, :class => "dropdown-item", 'data-toggle' => "modal", 'data-target' => "#modalEdit" %>
