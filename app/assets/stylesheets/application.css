@@ -441,7 +441,25 @@ html {
   background-image: radial-gradient(circle at bottom right, #333a4d, #586689) !important;
 }
 
+.choix-menu{
+  background-color: #75df7a;
+  color: white !important;
+}
 
+.choix-menu:hover{
+  background-color: #65D46A !important;
+  text-decoration: none !important;
+  color: white !important;
+}
+
+.btn-outline-secondary{
+  color: #858796 !important;
+}
+
+.btn-outline-secondary:hover{
+  color: white !important;
+  text-decoration: none !important;
+}
 
 /* FOOTER */
 
@@ -950,7 +968,7 @@ html {
   background-color: #3b4766 !important;
   color: white;
   border: 2px solid #3b4766;
-
+  text-decoration: none;
 }
 
 #btn-payement {
