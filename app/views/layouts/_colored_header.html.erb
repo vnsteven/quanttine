@@ -20,12 +20,15 @@
                     <%= link_to "Se déconnecter", destroy_admin_session_path, class: "nav-link", :method => :delete %>
                   </li>
                   <% elsif current_user %>
+                  <% if current_page?(user_profile_path(current_user.id, current_user.profile.id)) %>
                   <li class="nav-item co-nav-item">
                     <%= link_to "Profil",  edit_user_profile_path(current_user.id, current_user.profile.id), :class => "btn btn-outline-primary btn-profil" %>
                   </li>
+                  <% else %>
                   <li class="nav-item co-nav-item">
-                    <%= link_to "Accueil", user_profile_path(current_user.id, current_user.profile.id), class: "nav-link link1" %>
+                    <%= link_to "Accueil", user_profile_path(current_user.id, current_user.profile.id), class: "btn btn-outline-primary btn-profil" %>
                   </li>
+                  <% end %>
                   <li class="nav-item co-nav-item">
                     <%= link_to "Se déconnecter", destroy_user_session_path, class: "nav-link link1", :method => :delete %>
                   </li>
