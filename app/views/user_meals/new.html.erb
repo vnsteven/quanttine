@@ -1,6 +1,11 @@
 <%= render 'layouts/colored_header' %>
 <div id="menu-of-the-day-wrapper">
   <h1>Au menu aujourd'hui  </h1>
+  <% if todays_order.exists? %>
+  <h5><em> Tu as déjà enregistré une commande: supprime la pour en créer une nouvelle.</em></h5>
+  <% else %>
+  <h5><em>Choisis ce que tu veux manger parmis les propositions : (1 choix par ligne)</em></h5>
+  <% end %>
 
   <%= form_with(model: @user_meal, url: [@user, @profile, @user_meal], local: true)  do |f| %>
 
@@ -17,7 +22,7 @@
           <div class="card-body">
             <h5 class="meal-description card-title"><%= starter.food_supply.name %></h5>
             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="#" class="btn btn-sm btn-primary">Plus d'info</a>
+            <div class="btn btn-sm btn-primary">Plus d'info</div>
           </div>
         </div>
       </div>
@@ -39,7 +44,7 @@
           <div class="card-body">
             <h5 class="meal-description card-title"><%= main_course.food_supply.name %></h5>
             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="#" class="btn btn-sm btn-primary">Plus d'info</a>
+            <div class="btn btn-sm btn-primary">Plus d'info</div>
           </div>
         </div>
       </div>
@@ -60,7 +65,7 @@
           <div class="card-body">
             <h5 class="meal-description card-title"><%= dessert.food_supply.name %></h5>
             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="#" class="btn btn-sm btn-primary">Plus d'info</a>
+            <div class="btn btn-sm btn-primary">Plus d'info</div>
           </div>
         </div>
       </div>
