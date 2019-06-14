@@ -34,7 +34,7 @@
 							</div>
 						</div>						
 						<div class="card shadow mb-4">
-							<% link_to "#collapseDelete", class: "d-block card-header py-3", data: { toggle: "collapse" }, role: "button", aria: { expanded: "true", controls: "collapseCardExample"} do %>
+							<%= link_to "#", class: "d-block card-header py-3", data: { toggle: "collapse", target: "#collapseDelete" }, aria: { expanded: "true", controls: "collapseDelete" } do %>
 							<h6 class="m-0 font-weight-bold text-secondary">Afficher le bouton supprimer</h6>
 							<% end %>
 							<div class="collapse" id="collapseDelete">

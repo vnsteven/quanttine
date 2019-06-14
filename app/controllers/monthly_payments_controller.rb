@@ -15,6 +15,7 @@ class MonthlyPaymentsController < ApplicationController
     flash[:notice] = "Payement effectué avec succès !"
     service = StripeMonthlySubscriptionService.new(params, current_admin)
     service.unsubscribe
+    redirect_to root_path
     flash[:success] = "Vous avez bien été désabonné du payement mensuel !"
   end
 
