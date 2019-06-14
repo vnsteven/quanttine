@@ -441,7 +441,25 @@ html {
   background-image: radial-gradient(circle at bottom right, #333a4d, #586689) !important;
 }
 
+.choix-menu{
+  background-color: #75df7a;
+  color: white !important;
+}
 
+.choix-menu:hover{
+  background-color: #65D46A !important;
+  text-decoration: none !important;
+  color: white !important;
+}
+
+.btn-outline-secondary{
+  color: #858796 !important;
+}
+
+.btn-outline-secondary:hover{
+  color: white !important;
+  text-decoration: none !important;
+}
 
 /* FOOTER */
 
@@ -885,7 +903,28 @@ html {
 .payment-body {
   height: 45em;
   padding-top: 10em; 
+}
 
+.card-payement{
+  border: solid 1px #EBEBEB;
+  border-radius: 20px;
+  width: 70%;
+  margin: auto;
+  margin-top: 4%;
+  text-align: center;
+  padding: 20px;
+  background-color: #F8F9FC;
+  margin-bottom: 7em;
+}
+
+.card-payement ul{
+  text-align: left;
+  margin-left: 5em;
+}
+
+.payement-bag{
+  width: 30%;
+  border-radius: 50%;
 }
 
 .payment-card {
@@ -911,14 +950,9 @@ html {
   margin-left: -1em;
 }
 
-.amount ul{
-  text-align: left;
-}
-
 .montant {
   color: #445276;
 }
-
 
 .payment-image{
   background-image: url(payement.jpg);
@@ -934,7 +968,7 @@ html {
   background-color: #3b4766 !important;
   color: white;
   border: 2px solid #3b4766;
-
+  text-decoration: none;
 }
 
 #btn-payement {
@@ -1029,5 +1063,34 @@ html {
 
 .meal-header{
   font-size: 1.3em;
+}
 
+/* error page */
+.card-error{
+  border: solid 1px #EBEBEB;
+  border-radius: 20px;
+  width: 70%;
+  margin: auto;
+  margin-top: 4%;
+  text-align: center;
+  padding: 20px;
+  background-color: #F8F9FC;
+}
+
+.card-error h2{
+  color: #353535
+}
+
+.card-error ul {
+  margin-left: 11em;
+  text-align: left;
+}
+
+.card-error li:hover{
+  font-weight: bold;
+}
+
+.sad-fruit {
+  width: 30%;
+  border-radius: 50%;
 }

@@ -9,6 +9,7 @@ Bundler.require(*Rails.groups)
 module Quanttine
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
+    config.autoload_paths += %W(#{config.root}/lib)   
     config.autoload_paths << Rails.root.join('lib')
     config.paths['app/views'] << "app/views/devise"
     config.load_defaults 5.2
