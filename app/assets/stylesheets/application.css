@@ -1052,6 +1052,32 @@ html {
   padding: 60Px;
 }
 
+.meals-index1:hover { 
+  transition-duration: 1000ms;
+  background: #F9F9F9;
+  box-shadow: 2px 2px 2px ;
+  box-shadow: 2px 2px 5px #D5D1D1;
+}
+
+.meals-index1{
+  transition-duration: 1000ms;
+}
+
+.meals-index1:hover a{
+  color: black;
+  text-decoration: underline;
+  transition-duration: 1000ms;
+}
+
+.meals-index1 p {
+  font-size: 1em;
+  text-align: center;
+}
+
+.meals-index1 a{
+  color: #858796;
+}
+
 .blockquote-footer{
   color: #33DE79;
 }
