@@ -90,13 +90,23 @@ html {
 
 /* MODAL */
 
+.edit-header {
+  padding-left: 30em;
+}
+
 .modal-footer {
 	display : flex;
 	justify-content : center;
 }
 
 .modal-header {
-	padding-left: 38%;
+	padding-left: 23%;
+  color: white;
+  background: linear-gradient(180deg, #2BBB67 10%, #33DE79 100%);
+}
+
+.modal-header1 {
+  padding-left: 15%;
   color: white;
   background: linear-gradient(180deg, #2BBB67 10%, #33DE79 100%);
 }
@@ -155,6 +165,7 @@ html {
   display: flex;
   justify-content: space-around;
   box-shadow: 4px 4px 10px #C0C0C0;
+  z-index: 0;
 }
 
 .colored-header a{
@@ -823,8 +834,9 @@ html {
 
 .forget-password-image{
   background-image: url(carrot.jpg);
-  height: 27em;
+  height: 28em;
   width: 24em;
+  border-right: 2px solid rgba(233, 233, 233, 0.5) 
 }
 
 .choice1 {
@@ -1081,7 +1093,7 @@ html {
 }
 
 .card-error ul {
-  margin-left: 11em;
+  margin-left: 35%;
   text-align: left;
 }
 
@@ -1093,3 +1105,25 @@ html {
   width: 30%;
   border-radius: 50%;
 }
+
+/* ADMIN INFO DROP DOWN */
+
+.help {
+  position: relative;
+  display: inline-block;
+}
+
+.help-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  padding: 12px 16px;
+  z-index: 1;
+}
+
+.help:hover .help-content {
+  display: block;
+}
+
