@@ -19,13 +19,11 @@
 							</thead>
 							<tbody>
 								<% @quantities.each do |quantity| %>
-								<% if quantity.school == current_admin.school %>
-								<tr id="quantity<%= quantity.food_supply.id %>">					
+								<tr id="quantity<%= quantity.food_supply.id %>">
 									<td><%= quantity.food_supply.name %></td>
 									<td><%= quantity.quantity %></td>
 									<td><%= link_to "", admin_food_supply_path(current_admin, quantity.food_supply.id), method: :delete, remote: true, class: "fas fa-trash-alt text-secondary"%></td>
 								</tr>
-								<% end %>
 								<% end %>
 							</tbody>
 						</table>
