@@ -829,8 +829,9 @@ html {
 
 .forget-password-image{
   background-image: url(carrot.jpg);
-  height: 27em;
+  height: 28em;
   width: 24em;
+  border-right: 2px solid rgba(233, 233, 233, 0.5) 
 }
 
 .choice1 {
