@@ -37,6 +37,16 @@ To do so, we oganised the app around two ends : the Student and Kitchen.
 	* Then he/she will have to set the menu the day before each lunch.
 	* At lunch time, once the student's QR is scanned, the meal of each student will be displayed on a screen in the kitchen. 
 
+# Useful information for log in
+
+## Login as a student :
+
+- Sign up with code school : 
+
+## Login as a school : 
+
+- email : admin@yopmail.fr
+- password : password
 
 *The python script to scan qr code data can be found here: https://github.com/ryanzidago/qr_code_scanner*
 
