@@ -276,6 +276,7 @@ html {
 #section05 a {
   padding-top: 70px;
 }
+
 #section05 a span {
   position: absolute;
   bottom: 3em;
@@ -283,8 +284,8 @@ html {
   width: 24px;
   height: 24px;
   margin-left: -12px;
-  border-left: 1px solid #fff;
-  border-bottom: 1px solid #fff;
+  border-left: 3px solid #fff;
+  border-bottom: 3px solid #fff;
   -webkit-transform: rotate(-45deg);
   transform: rotate(-45deg);
   -webkit-animation: sdb05 1.5s infinite;
