@@ -20,17 +20,17 @@
 
 
 			<div class="card-group">
-				<div class="card">
+				<div class="card" style="bottom: -200px;">
 					<div class="card-body">
 						<h5 class="card-title"><p class="digit">1.</p>Inscris-toi à Quanttine</h5>
 					</div>
 				</div>
-				<div class="card">
+				<div class="card" style="bottom: -250px;">
 					<div class="card-body">
 						<h5 class="card-title"><p class="digit">2.</p>Choisis ton menu</h5>
 					</div>
 				</div>
-				<div class="card">
+				<div class="card" style="bottom: -300px;">
 					<div class="card-body">
 						<h5 class="card-title"><p class="digit">3.</p>Scanne ton QR code,<br /> c'est prêt !</h5>
 					</div>
@@ -50,6 +50,11 @@
 <%= render 'users/registrations/new' %>
 
 <script type="text/javascript">
+	function slide(){
+		$(".card").delay(200).show().animate({opacity: 1, bottom:"20px"}, 1200);
+	}
+	slide();
+
 	var TxtType = function(el, toRotate, period) {
 		this.toRotate = toRotate;
 		this.el = el;
