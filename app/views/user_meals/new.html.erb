@@ -2,11 +2,20 @@
   <%= render 'layouts/colored_header' %>
   <div id="menu-of-the-day-wrapper">
     <h1>Au menu aujourd'hui  </h1>
+    <div class="dropdown">
+    <span><i class="fas fa-question-circle"></i></span>
+    <div class="dropdown-content">
+    <p>
+      Choisis une entrée, un plat, un accompagnement et un dessert.
+    </p>
+  </div>
+</div>
+
 
     <%= form_with(model: @user_meal, url: [@user, @profile, @user_meal], local: true)  do |f| %>
 
     <br><br>
-    <h3>Entrée</h3>
+    <h3 class="title-user-meal">Entrée</h3>
     <hr>
     <div class="category-wrapper">
       <% @starters.each do |starter|%>
@@ -29,7 +38,7 @@
     </div>
 
 
-    <h3>Plat principal</h3>
+    <h3 class="title-user-meal">Plat principal</h3>
     <hr>
     <div class="category-wrapper">
       <% @main_courses.each do |main_course|%>
@@ -51,7 +60,7 @@
       <% end %>
     </div>
 
-    <h3>Accompagnement</h3>
+    <h3 class="title-user-meal">Accompagnement</h3>
     <hr>
     <div class="category-wrapper">
       <% @sides.each do |side|%>
@@ -73,7 +82,7 @@
       <% end %>
     </div>
 
-    <h3>Dessert</h3>
+    <h3 class="title-user-meal">Dessert</h3>
     <hr>
     <div class="category-wrapper">
       <% @desserts.each do |dessert|%>

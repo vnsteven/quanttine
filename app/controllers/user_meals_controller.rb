@@ -4,7 +4,6 @@ class UserMealsController < ApplicationController
   before_action :has_not_ordered, only: [:create]
   before_action :menu_tomorrow, only: [:new]
 
-
   def new
     @school_meals = @profile.school.school_meals.find_by(date: Date.tomorrow)
     @starters = @school_meals.servings.where(meal_category: "entrée")
@@ -13,11 +12,9 @@ class UserMealsController < ApplicationController
     @sides = @school_meals.servings.where(meal_category: "accompagnement")
     @user_meal = UserMeal.new
     @todays_order = @profile.user_meals.where("created_at >= ?", Time.zone.now.beginning_of_day).last
-
   end
 
   def create
-<<<<<<< HEAD
     if choose_a_full_meal
       @user_meal = UserMeal.create!(profile_id: @profile.id)
       params[:user_meal].each do |param, value|
@@ -28,17 +25,6 @@ class UserMealsController < ApplicationController
       redirect_to new_user_profile_user_meal_path(@user, @profile)
       flash[:error] = "Tu dois choisir une entrée, un plat avec accompagnement et un dessert"
     end
-
-=======
-    flash[:notice] ="Commande enregistrée."
-    @profile = current_user.profile
-    @user = current_user
-    @user_meal = UserMeal.create!(profile_id: @profile.id)
-    PreparingUserMeal.create!(user_meal_id: @user_meal.id, serving_size: 100, serving_id: params[:user_meal][:starter_choice].to_i)
-    PreparingUserMeal.create!(user_meal_id: @user_meal.id, serving_size: 100, serving_id: params[:user_meal][:main_course_choice].to_i)
-    PreparingUserMeal.create!(user_meal_id: @user_meal.id, serving_size: 100, serving_id: params[:user_meal][:dessert_choice].to_i)
-    redirect_to user_profile_user_meal_path(@user, @profile, @user_meal.id)
->>>>>>> development
   end
 
   def index
@@ -57,7 +43,6 @@ class UserMealsController < ApplicationController
   end
 
   private
-
   def todays_order
     current_user.profile.user_meals.where("created_at >= ?", Time.zone.now.beginning_of_day)
   end
@@ -89,16 +74,12 @@ class UserMealsController < ApplicationController
   end
 end
 
-
 def choose_a_full_meal
   params[:user_meal].has_key?("starter_choice") && params[:user_meal].has_key?("main_course_choice") && params[:user_meal].has_key?("side_choice") && params[:user_meal].has_key?("dessert_choice")
 end
-
 
 def set_variables
   @profile = current_user.profile
   @user = current_user
 end
-
 end
-
