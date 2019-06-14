@@ -1,25 +1,53 @@
-<h2> your password</h2>
 
-<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
-  <%= f.hidden_field :reset_password_token %>
+<body class="bg-gradient-primary forget-password">
 
-  <div class="field">
-    <%= f.label :password, "New password" %><br />
-    <% if @minimum_password_length %>
-      <em>(<%= @minimum_password_length %> characters minimum)</em><br />
-    <% end %>
-    <%= f.password_field :password, autofocus: true, autocomplete: "new-password" %>
+  <div class="container">
+
+    <div class="row justify-content-center">
+
+      <div class="col-xl-10 col-lg-12 col-md-9">
+
+        <div class="card o-hidden border-0 shadow-lg my-5">
+          <div class="card-body p-0">
+            <div class="row">
+              <div class="col-lg-6 d-none d-lg-block forget-password-image"></div>
+              <div class="col-lg-6">
+                <div class="p-5">
+                  <div class="text-center">     
+                    <h2> Changez votre mot de passe:</h2>
+
+                    <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
+                      <%= render "devise/shared/error_messages", resource: resource %>
+                      <%= f.hidden_field :reset_password_token %>
+
+                      <div class="field">
+                        <%= f.label :password, "Nouveau mot de passe" %><br />
+                        <% if @minimum_password_length %>
+                          <em>(<%= @minimum_password_length %> caractère minimum)</em><br />
+                        <% end %>
+                        <%= f.password_field :password, autofocus: true, autocomplete: "new-password" %>
+                      </div>
+
+                      <div class="field">
+                        <%= f.label :password_confirmation, "Confirmer le nouveau mot de passe" %><br />
+                        <%= f.password_field :password_confirmation, autocomplete: "off" %>
+                      </div>
+
+                      <div class="actions">
+                        <%= f.submit "Changer mon mot de passe", class:"btn-outline-secondary" %>
+                      </div>
+                    <% end %>
+                  <%= link_to "Se connecter", root_path %>
+                  <hr>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
   </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation, "Confirm new password" %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Change my password" %>
-  </div>
-<% end %>
-
-<%= render "admins/shared/links" %>
+</body>

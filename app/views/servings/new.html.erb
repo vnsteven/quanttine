@@ -9,7 +9,17 @@
 					<div class="col-lg-6">
 						<div class="card shadow mb-4">
 							<div class="card-header py-3">
-								<h6 class="m-0 font-weight-bold">Ajouter au menu du lendemain <span class="badge badge-primary"><%= Date.tomorrow.strftime("%d/%m/%Y") %></span></h6>
+								<h6 class="m-0 font-weight-bold">Ajouter au menu du lendemain <span class="badge badge-primary"><%= Date.tomorrow.strftime("%d/%m/%Y") %></span>
+									<div class="help" style="padding-left: 73px;">
+										<span><i class="fas fa-question-circle"></i></span>
+										<div class="help-content">
+											<p>
+												Choisissez 4 entrées, 4 plats, 4 accompagnements et 4 desserts.<br /><br />
+												<i class="fas fa-exclamation-triangle"></i> Un aliment ne peut être choisi plusieurs fois !
+											</p>
+										</div>
+									</div>
+								</h6>
 							</div>
 							<div class="card-body">
 								<div class="field form-group">

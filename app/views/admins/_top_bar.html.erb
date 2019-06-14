@@ -17,7 +17,7 @@
 				<img class="img-profile rounded-circle" src="https://www.shareicon.net/download/2016/09/01/822751_user_512x512.png">
 			</a>
 			<div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-				<%= link_to "Changer de mot de passe", edit_admin_registration_path, :class => "dropdown-item", 'data-toggle' => "modal", 'data-target' => "#modalEdit" %>
+				<%= link_to "Editer infos", edit_admin_registration_path, :class => "dropdown-item", 'data-toggle' => "modal", 'data-target' => "#modalEdit" %>
 				<div class="dropdown-divider"></div>
 				<%= link_to "Se déconnecter", destroy_admin_session_path, :class => "dropdown-item", :method => :delete, data: {toggle: "modal", target: "#logoutModal"} %>
 			</div>
