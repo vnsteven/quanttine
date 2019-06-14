@@ -1,1 +1,5 @@
-<%= render 'edit' %>
+<% if current_page?('profiles/edit') %>
+	<%= render 'edit' %>
+<% else %>
+	<%= render 'users/shared/error_messages_edit', resource: resource %>
+<% end %>

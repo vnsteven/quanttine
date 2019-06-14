@@ -1,45 +1,45 @@
-
 <nav class="navbar navbar-expand-lg navbar-light site-navbar py-4 site-navbar-target  colored-header">
-    <h2 class="mb-0 site-logo text-white d-flex text-uppercase" id="quant1">Quant<b><span class="text-primary">tine.</span></b></h2>
-      </div>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-      <div class="liste-nav position-relative text-right">
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav">
-            <% if user_signed_in? || admin_signed_in? %>
-                  <% if current_admin %>
-                  <li class="nav-item co-nav-item">
-                    <%= link_to "Dashboard", admin_path(current_admin.id), :class => "nav-link" %>
-                  </li>
-                  <li class="nav-item co-nav-item">
-                    <%= link_to 'Profil', admin_path(current_admin.id), class: "nav-link" %>
-                  </li>
-                  <li class="nav-item co-nav-item">
-                    <%= link_to "Se déconnecter", destroy_admin_session_path, class: "nav-link", :method => :delete %>
-                  </li>
-                  <% elsif current_user %>
-                  <% if current_page?(user_profile_path(current_user.id, current_user.profile.id)) %>
-                  <li class="nav-item co-nav-item">
-                    <%= link_to "Profil",  edit_user_profile_path(current_user.id, current_user.profile.id), :class => "btn btn-outline-primary btn-profil" %>
-                  </li>
-                  <% else %>
-                  <li class="nav-item co-nav-item">
-                    <%= link_to "Accueil", user_profile_path(current_user.id, current_user.profile.id), class: "btn btn-outline-primary btn-profil" %>
-                  </li>
-                  <% end %>
-                  <li class="nav-item co-nav-item">
-                    <%= link_to "Se déconnecter", destroy_user_session_path, class: "nav-link link1", :method => :delete %>
-                  </li>
-                  <% end %>
-                <% end %>
-          </ul>
-        </div>
+  <%= link_to user_profile_path(current_user, current_user.profile), class: "mb-0 site-logo text-white d-flex text-uppercase", id: "quant1", style:"text-decoration: none;" do %>
+  <h2>Quant<b><span class="text-primary">tine.</span></b></h2>
+  <% end %>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="liste-nav position-relative text-right">
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <% if user_signed_in? || admin_signed_in? %>
+        <% if current_admin %>
+        <li class="nav-item co-nav-item">
+          <%= link_to "Dashboard", admin_path(current_admin.id), :class => "nav-link" %>
+        </li>
+        <li class="nav-item co-nav-item">
+          <%= link_to 'Profil', admin_path(current_admin.id), class: "nav-link" %>
+        </li>
+        <li class="nav-item co-nav-item">
+          <%= link_to "Se déconnecter", destroy_admin_session_path, class: "nav-link", :method => :delete %>
+        </li>
+        <% elsif current_user %>
+        <% if current_page?(user_profile_path(current_user.id, current_user.profile.id)) %>
+        <li class="nav-item co-nav-item">
+          <%= link_to "Profil",  edit_user_profile_path(current_user.id, current_user.profile.id), :class => "btn btn-outline-primary btn-profil" %>
+        </li>
+        <% else %>
+        <li class="nav-item co-nav-item">
+          <%= link_to "Accueil", user_profile_path(current_user.id, current_user.profile.id), class: "btn btn-outline-primary btn-profil" %>
+        </li>
+        <% end %>
+        <li class="nav-item co-nav-item">
+          <%= link_to "Se déconnecter", destroy_user_session_path, class: "nav-link link1", :method => :delete %>
+        </li>
+        <% end %>
+        <% end %>
+      </ul>
     </div>
-      <%= render 'users/registrations/new' %>
-      <%= render 'users/sessions/new' %>
-      <%= render 'admins/sessions/new' %>
+  </div>
+  <%= render 'users/registrations/new' %>
+  <%= render 'users/sessions/new' %>
+  <%= render 'admins/sessions/new' %>
 
 </nav>
 <%= render 'partials/flash' %>
