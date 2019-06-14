@@ -31,6 +31,10 @@ html {
   -webkit-animation:blink 1200ms infinite;
 }
 
+#todo:hover {
+  text-decoration:none; 
+}
+
 @keyframes blink {
   from {
     color:#D90929;
