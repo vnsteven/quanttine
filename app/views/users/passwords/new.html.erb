@@ -14,7 +14,6 @@
 								<div class="p-5">
 									<div class="text-center">
 										<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-										<%= render "devise/shared/error_messages", resource: resource %>
 										<h1 class="h4 text-gray-900 mb-2">Mot de passe oublié? Pas de panique!</h1>
 										<p class="mb-4">Entrez l'adresse email avec laquelle vous vous êtes inscrit. Nous allons vous envoyer un email avec un lien pour réinitialiser votre mot de passe.</p>
 									</div>
@@ -31,9 +30,6 @@
 										<% end %>
 									</form>
 									<hr>
-									<div class="text-center">
-										<%= link_to 'Se connecter', new_user_session_path, class: "nav-link nav-link-home", 'data-toggle' => "modal", 'data-target' => "#modal" %>
-									</div>
 								</div>
 							</div>
 						</div>
