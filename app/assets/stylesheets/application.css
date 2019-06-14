@@ -84,8 +84,8 @@ html {
   position: fixed;
   top: 60px;
   right: 20px;
-  width: 40%;
-  z-index:9999;
+  display: inline-block;
+  z-index: 9999;
 }
 
 /* MODAL */
@@ -242,6 +242,11 @@ html {
   border: solid !important;
 }
 
+.card-group .card:hover {
+  background-color: rgba(0,0,0,0.75);
+}
+
+
 .digit {
   font-size: 1.5em !important;
   text-align: center;
@@ -276,6 +281,7 @@ html {
 #section05 a {
   padding-top: 70px;
 }
+
 #section05 a span {
   position: absolute;
   bottom: 3em;
@@ -283,8 +289,8 @@ html {
   width: 24px;
   height: 24px;
   margin-left: -12px;
-  border-left: 1px solid #fff;
-  border-bottom: 1px solid #fff;
+  border-left: 3px solid #fff;
+  border-bottom: 3px solid #fff;
   -webkit-transform: rotate(-45deg);
   transform: rotate(-45deg);
   -webkit-animation: sdb05 1.5s infinite;
@@ -847,7 +853,7 @@ html {
   background-image: url(carrot.jpg);
   height: 28em;
   width: 24em;
-  border-right: 2px solid rgba(233, 233, 233, 0.5) 
+  border-right: 2px solid rgba(233, 233, 233, 0.5)
 }
 
 .choice1 {
@@ -1064,7 +1070,7 @@ html {
   margin-bottom: 4%;
 }
 
-.meals-index1:hover { 
+.meals-index1:hover {
   transition-duration: 1000ms;
   background: #F9F9F9;
   box-shadow: 2px 2px 2px ;
