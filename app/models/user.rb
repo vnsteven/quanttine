@@ -5,13 +5,13 @@ class User < ApplicationRecord
 
   devise :database_authenticatable, :registerable,
   :recoverable, :rememberable, :validatable
-  after_create :create_profile, :send_welcome_email
+  after_create :create_profile#, :send_welcome_email
 
 	validates :first_name, :last_name,
   presence: true,
 	length: { in: 2..50 },
 	format: { without: /[!@#%*+;,?&()=0123456789]/ }
-  
+
   validate :school_exists
 
   private
