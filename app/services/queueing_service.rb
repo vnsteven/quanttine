@@ -4,8 +4,8 @@ class QueueingService
   def initialize(params)
     @params = params
     @current_date = params[:current_date].to_date
-    @school_id = params[:school_id]
-    @profile_id = params[:profile_id]
+    @school_id = params[:school_id].to_i
+    @profile_id = params[:profile_id].to_i
   end
 
   # the purpose of the QueueingService is to put profile ids scanned from the python script
@@ -28,7 +28,7 @@ class QueueingService
     if Profile.exists?(@profile_id) && School.exists?(@school_id)
       puts "Profile found with id equal to #{@profile_id}."
       puts "School found with id equal to #{@school_id}."
-      puts "Processing the queueing service now."
+      puts "Processing the queueing service ..."
       execute_queueing # if both profile_id and school_id exist in the database, the queueing service will run this the execute_queueing method
     elsif !Profile.exists?(@profile_id) # if profile_id does not exists in the database
       puts "No profile found with id equal to #{@profile_id}."
