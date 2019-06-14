@@ -786,6 +786,12 @@ html {
   transition-duration: 0.5s ;
 }
 
+.text1{
+  width: 18em;
+  margin: auto;
+}
+
+
 #bouton-show{
   color: white !important;
 }
