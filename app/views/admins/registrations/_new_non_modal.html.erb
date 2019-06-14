@@ -1,0 +1,42 @@
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 id="login-title">S'inscrire</h2>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+      </div>
+
+      <div class="modal-body">
+        <%= form_for(resource_admin, as: resource_name_admin, url: registration_path(resource_name_admin)) do |f| %>
+        <%= render "devise/shared/error_messages", resource: resource_admin %>
+
+        <div class="form-inputs">
+
+          <div class="field form-group">
+            <%= f.label :email %><br />
+            <%= f.email_field :email, class: "form-control", autocomplete: "email", placeholder: "" %>
+          </div>
+
+          <div class="field form-group">
+            <%= f.label "Mot de passe" %>
+            <% if @minimum_password_length %>
+            <em>(<%= @minimum_password_length %> characters minimum)</em>
+            <% end %><br />
+            <%= f.password_field :password, class: "form-control", autocomplete: "new-password" %>
+          </div>
+
+          <div class="field form-group">
+            <%= f.label "Confirmation du mot de passe" %><br />
+            <%= f.password_field :password_confirmation, class: "form-control", autocomplete: "new-password" %>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <div class="form-actions">
+          <%= f.submit "S'inscire", class: "btn btn-primary" %>
+        </div>
+        <% end %>
+      </div>
+
+    </div>
+  </div>
+</div>

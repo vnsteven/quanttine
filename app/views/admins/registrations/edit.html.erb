@@ -1,1 +1,5 @@
+<% if current_page?(edit_admin_password_path) %>
 <%= render 'edit' %>
+<% else %>
+<%= render 'edit_non_modal' %>
+<% end %>
