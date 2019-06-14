@@ -1,46 +1,48 @@
 <%= render 'layouts/colored_header' %>
+<div id="content-wrapper" class="d-flex flex-column" style="background-color: #F4F4F4;">
 
-<div class="space"> </div>
+	<div class="space"> </div>
 
-<div class="user-main">
+	<div class="user-main">
 		<h1 class="user-title">Bienvenue sur ton espace Quanttine !</h1>
 		<h6 class="user-title-2">Choisis tes menus quotidiennement et aide ton école à lutter contre le gaspillage alimentaire.</h6>
 
-	<div class="user-cards">
-		<%= link_to new_user_profile_user_meal_path(@user.id, @profile.id) do %>
-		<div id="options">
-		  <%= image_tag "tray.jpg", class:"photo-card" %>
-		  <div class="card-body">
-		    <h5 class="card-title">Mes menus</h5>
-		    <p class="card-text text1">Choisis tes menus au quotidien pour que le déjeûner à la cantine corresponde à tes goûts, et ne soit qu'un moment de plair.</p> <br/>
-		    <%= link_to "Choisir son menu",  new_user_profile_user_meal_path(@user.id, @profile.id), class:"btn btn-primary", id:"bouton-show" %>
-		  </div>
+		<div class="user-cards">
+			<%= link_to new_user_profile_user_meal_path(@user.id, @profile.id) do %>
+			<div id="options">
+				<%= image_tag "tray.jpg", class:"photo-card" %>
+				<div class="card-body">
+					<h5 class="card-title">Mes menus</h5>
+					<p class="card-text text1">Choisis tes menus au quotidien pour que le déjeûner à la cantine corresponde à tes goûts, et ne soit qu'un moment de plair.</p> <br/>
+					<%= link_to "Choisir son menu",  new_user_profile_user_meal_path(@user.id, @profile.id), class:"btn btn-primary", id:"bouton-show" %>
+				</div>
+			</div>
+			<% end %>
+
+			<%= link_to user_profile_user_meals_path(@user.id, @profile.id) do %>
+			<div id="options">
+				<%= image_tag "choice.jpg", class:"photo-card" %>
+				<div class="card-body">
+					<h5 class="card-title">Mes commandes</h5>
+					<p class="card-text text1">Retrouve toutes les commandes que tu as passées afin de garder un oeil sur ton alimentation.</p> <br/><br/>
+					<%= link_to "Mes commandes", user_profile_user_meals_path(@user.id, @profile.id), class: "btn btn-primary", id:"bouton-show" %>
+				</div>
+			</div>
+			<% end %>
+
+
+			<%= link_to edit_user_profile_path(@user.id, @profile.id) do %>
+			<div id="options">
+				<%= image_tag "profi.jpg", class:"photo-card" %>
+				<div class="card-body">
+					<h5 class="card-title">Mon profil</h5>
+					<p class="card-text text1">Fait part à ton école de tes préférences alimentaires pour avoir une proposition de menu adaptée.</p><br/><br/>
+					<%= link_to "Mon profil", edit_user_profile_path(@user.id, @profile.id), class: "btn btn-primary", id:"bouton-show" %>
+				</div>
+			</div>
+			<% end %>
+
 		</div>
-		<% end %>
-
-		<%= link_to user_profile_user_meals_path(@user.id, @profile.id) do %>
-		<div id="options">
-		  <%= image_tag "choice.jpg", class:"photo-card" %>
-		  <div class="card-body">
-		    <h5 class="card-title">Mes commandes</h5>
-		    <p class="card-text text1">Retrouve toutes les commandes que tu as passées afin de garder un oeil sur ton alimentation.</p> <br/><br/>
-		    <%= link_to "Mes commandes", user_profile_user_meals_path(@user.id, @profile.id), class: "btn btn-primary", id:"bouton-show" %>
-		  </div>
-		</div>
-		<% end %>
-
-
-		<%= link_to edit_user_profile_path(@user.id, @profile.id) do %>
-		<div id="options">
-		  <%= image_tag "profi.jpg", class:"photo-card" %>
-		  <div class="card-body">
-		    <h5 class="card-title">Mon profil</h5>
-		    <p class="card-text text1">Fait part à ton école de tes préférences alimentaires pour avoir une proposition de menu adaptée.</p><br/><br/>
-		    <%= link_to "Mon profil", edit_user_profile_path(@user.id, @profile.id), class: "btn btn-primary", id:"bouton-show" %>
-		  </div>
-		</div>
-		<% end %>
-
 	</div>
 </div>
 <%= render 'home/footer' %>
