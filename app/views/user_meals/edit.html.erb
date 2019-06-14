@@ -18,10 +18,10 @@
         <div class="meal-detail">
           <%= f.radio_button :starter_choice, starter.id %>
           <div class="card">
-            <img src="https://keldelice-assets.s3.amazonaws.com/attachments/photos/565822/original/oeuf-mayonnaise_2.jpg?1285186398" class="meal-image" >
+            <%= image_tag('starters.jpg', class:"meal-image") %>
             <div class="card-body">
               <h5 class="meal-description card-title"><%= starter.food_supply.name %></h5>
-              <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi. Proin porttitor, orci nec nonummy molestie, enim est eleifend mi, non fermentum diam nisl sit amet erat. Duis semper. Duis arcu massa, scelerisque vitae, consequat in, pretium a, enim. Pellentesque congue. Ut in risus volutpat libero pharetra tempor. Cras vestibulum bibendum augue.</p>
+              <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor.</p>
               <%=link_to "Plus d'info", " ", class: 'btn btn-sm btn-primary'%>
             </div>
           </div>
@@ -40,7 +40,7 @@
         <div class="meal-detail">
           <%= f.radio_button :main_course_choice, [main_course.id] %>
           <div class="card">
-            <img src="https://keldelice-assets.s3.amazonaws.com/attachments/photos/565822/original/oeuf-mayonnaise_2.jpg?1285186398" class="meal-image" >
+            <%= image_tag('main.jpg', class:"meal-image") %>
             <div class="card-body">
               <h5 class="meal-description card-title"><%= main_course.food_supply.name %></h5>
               <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi. Proin porttitor, orci nec nonummy molestie, enim est eleifend mi, non fermentum diam nisl sit amet erat. Duis semper. Duis arcu massa, scelerisque vitae, consequat in, pretium a, enim. Pellentesque congue. Ut in risus volutpat libero pharetra tempor. Cras vestibulum bibendum augue.</p>
@@ -62,7 +62,7 @@
         <div class="meal-detail">
           <%= f.radio_button :side_choice, [side.id] %>
           <div class="card">
-            <img src="https://keldelice-assets.s3.amazonaws.com/attachments/photos/565822/original/oeuf-mayonnaise_2.jpg?1285186398" class="meal-image" >
+            <%= image_tag('side.jpg', class:"meal-image") %>
             <div class="card-body">
               <h5 class="meal-description card-title"><%= side.food_supply.name %></h5>
               <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi. Proin porttitor, orci nec nonummy molestie, enim est eleifend mi, non fermentum diam nisl sit amet erat. Duis semper. Duis arcu massa, scelerisque vitae, consequat in, pretium a, enim. Pellentesque congue. Ut in risus volutpat libero pharetra tempor. Cras vestibulum bibendum augue.</p>
@@ -84,7 +84,7 @@
         <div class="meal-detail">
           <%= f.radio_button :dessert_choice, dessert.id %>
           <div class="card">
-            <img src="https://keldelice-assets.s3.amazonaws.com/attachments/photos/565822/original/oeuf-mayonnaise_2.jpg?1285186398" class="meal-image" >
+            <%= image_tag('desert.jpg', class:"meal-image") %>
             <div class="card-body">
               <h5 class="meal-description card-title"><%= dessert.food_supply.name %></h5>
               <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi. Proin porttitor, orci nec nonummy molestie, enim est eleifend mi, non fermentum diam nisl sit amet erat. Duis semper. Duis arcu massa, scelerisque vitae, consequat in, pretium a, enim. Pellentesque congue. Ut in risus volutpat libero pharetra tempor. Cras vestibulum bibendum augue.</p>

@@ -5,7 +5,7 @@ class User < ApplicationRecord
 
   devise :database_authenticatable, :registerable,
   :recoverable, :rememberable, :validatable
-  after_create :school_exists, :create_profile, :send_welcome_email
+  after_create :create_profile, :school_exists, :send_welcome_email
 
 	validates :first_name, :last_name,
   presence: true,
@@ -20,7 +20,7 @@ class User < ApplicationRecord
 
   def create_profile
     @school = School.find_by(school_code: self.school_code)
-    self.profile = Profile.create!(user_id: self.id, school_id: @school.id)
+    self.profile = Profile.create!(user_id: self.id, school_id: School.find_by(school_code: self.school_code).id)
   end
 
   def school_exists
