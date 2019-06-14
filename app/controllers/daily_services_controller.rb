@@ -9,6 +9,10 @@ class DailyServicesController < ApplicationController
     queue = @daily_service.queue
     queue.delete_at(params[:index].to_i)
     @daily_service.update(queue: queue)
+    respond_to do |format|
+      format.html { redirect_to edit_admin_daily_service(current_admin, params[:id]) }
+      format.js { }
+    end
   end
 
   private

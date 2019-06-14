@@ -1,5 +1,4 @@
-<%= render 'top_bar' %>
-
+<%= link_to "Retour", admin_path(current_admin), class: "mr-auto pr-1" %>
 <div class="daily-title">
 <h1 class="service">Service du Jour</h1>
 <h3><%= current_admin.school.name %></h3><br>
@@ -20,7 +19,7 @@
   <tbody>
     <% @daily_service.queue.each_with_index do |profile_id, index| %>
     <% profile = Profile.find(profile_id) %>
-    <tr  class="daily-row">
+    <tr  class="daily-row" id="number<%= index %>">
       <th scope="row"><%= profile.id %> </th>
       	<td><%= profile.user.first_name %><br></td>
      	<td><%= profile.user.last_name.upcase %></td>
@@ -28,7 +27,7 @@
 				- <%= serving.food_supply.name %><br>
 			<% end %></td>
 		<td class="col-icon">
-      <%= button_to "Servit",  admin_daily_service_path(current_admin, @daily_service, index: index), method: "put" %>
+      <%= link_to "Servi",  admin_daily_service_path(current_admin, @daily_service, index: index), method: "put", remote: true, class: "btn btn-secondary" %>
     </td>
 
     </tr>

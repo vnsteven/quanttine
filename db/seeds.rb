@@ -108,12 +108,14 @@ end
 
 puts 'Food Supply done'
 
-200.times do
-  Quantity.create!(
-    quantity: rand(1..1000),
-    school_id: School.all.sample.id,
-    food_supply_id: FoodSupply.all.sample.id
-  )
+School.all.each do |school|
+FoodSupply.all.each do |supply|
+    Quantity.create!(
+      quantity: rand(1..1000),
+      school_id: school.id,
+      food_supply_id: supply.id
+    )
+  end
 end
 
 puts 'Quantity done'
