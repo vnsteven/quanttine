@@ -43,7 +43,7 @@ module StatisticsHelper
     tomorrow_servings = tomorrow_meal.servings if tomorrow_meal != nil
 
     if tomorrow_meal != nil 
-      true
+      false
     elsif tomorrow_meal != nil && tomorrow_servings.empty? == false
       true
     else
