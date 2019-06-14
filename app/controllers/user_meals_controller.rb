@@ -75,7 +75,7 @@ class UserMealsController < ApplicationController
 end
 
 def choose_a_full_meal
-  params[:user_meal].has_key?("starter_choice") && params[:user_meal].has_key?("main_course_choice") && params[:user_meal].has_key?("side_choice") && params[:user_meal].has_key?("dessert_choice")
+  !params[:user_meal].nil? && params[:user_meal].has_key?("starter_choice") && params[:user_meal].has_key?("main_course_choice") && params[:user_meal].has_key?("side_choice") && params[:user_meal].has_key?("dessert_choice")
 end
 
 def set_variables
