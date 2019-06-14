@@ -34,9 +34,9 @@
 							</div>
 						</div>						
 						<div class="card shadow mb-4">
-							<a href="#collapseDelete" class="d-block card-header py-3" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="collapseCardExample">
-								<h6 class="m-0 font-weight-bold text-secondary">Afficher le bouton supprimer</h6>
-							</a>
+							<% link_to "#collapseDelete", class: "d-block card-header py-3", data: { toggle: "collapse" }, role: "button", aria: { expanded: "true", controls: "collapseCardExample"} do %>
+							<h6 class="m-0 font-weight-bold text-secondary">Afficher le bouton supprimer</h6>
+							<% end %>
 							<div class="collapse" id="collapseDelete">
 								<div class="card-body">
 									<%= link_to "Supprimer le menu", admin_school_meal_path(current_admin, school_meal), class: "btn btn-danger form-control text-white", style: "text-decoration: none;",method: :delete, data: {confirm: "Le menu est sur le point d'être supprimé, êtes-vous sûr(e) ?"}  %>
@@ -62,6 +62,7 @@
 											</tr>
 										</thead>
 										<tbody id="menu-entree">
+											<% if @school_meal != nil %>
 											<% @servings.each do |serving| %>
 											<% if serving.meal_category == "entrée" %>	
 											<tr id="menu<%= serving.id %>">					
@@ -69,6 +70,7 @@
 												<td><%= serving.meal_category %></td>
 												<td><%= link_to "", admin_serving_path(current_admin, serving), method: :delete, remote: true, class: "fas fa-trash-alt text-secondary"%></td>
 											</tr>
+											<% end %>
 											<% end %>
 											<% end %>
 										</tbody>
@@ -92,6 +94,7 @@
 											</tr>
 										</thead>
 										<tbody id="menu-plat">
+											<% if @school_meal != nil %>
 											<% @servings.each do |serving| %>
 											<% if serving.meal_category == "plat" %>
 											<tr id="menu<%= serving.id %>">
@@ -99,6 +102,7 @@
 												<td><%= serving.meal_category %></td>
 												<td><%= link_to "", admin_serving_path(current_admin, serving), method: :delete, remote: true, class: "fas fa-trash-alt text-secondary"%></td>
 											</tr>
+											<% end %>
 											<% end %>
 											<% end %>
 										</tbody>
@@ -122,6 +126,7 @@
 											</tr>
 										</thead>
 										<tbody id="menu-accompagnement">
+											<% if @school_meal != nil %>
 											<% @servings.each do |serving| %>
 											<% if serving.meal_category == "accompagnement" %>
 											<tr id="menu<%= serving.id %>">
@@ -129,6 +134,7 @@
 												<td><%= serving.meal_category %></td>
 												<td><%= link_to "", admin_serving_path(current_admin, serving), method: :delete, remote: true, class: "fas fa-trash-alt text-secondary"%></td>
 											</tr>
+											<% end %>
 											<% end %>
 											<% end %>
 										</tbody>
@@ -152,6 +158,7 @@
 											</tr>
 										</thead>
 										<tbody id="menu-dessert">
+											<% if @school_meal != nil %>
 											<% @servings.each do |serving| %>
 											<% if serving.meal_category == "dessert" %>
 											<tr id="menu<%= serving.id %>">
@@ -159,6 +166,7 @@
 												<td><%= serving.meal_category %></td>
 												<td><%= link_to "", admin_serving_path(current_admin, serving), method: :delete, remote: true, class: "fas fa-trash-alt text-secondary"%></td>
 											</tr>
+											<% end %>
 											<% end %>
 											<% end %>
 										</tbody>
