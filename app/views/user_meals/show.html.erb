@@ -21,7 +21,8 @@
       <% end %>
     </div>
     <div class="text-center bottom-button">
-     <%= link_to "Supprimer ma commande", user_profile_user_meal_path(@user, @profile, params[:id]),  class: "btn btn-danger", method: :DELETE %>
+     <%= link_to "Supprimer ma commande", user_profile_user_meal_path(@user, @profile, params[:id]), class: "btn btn-danger", method: :DELETE %>
+     <%= link_to "Modifier ma commande", edit_user_profile_user_meal_path(@user, @profile, params[:id]), class: "btn btn-info"%>
    </div>
  </div>
  <%= render 'home/footer' %>
