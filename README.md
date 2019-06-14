@@ -45,7 +45,7 @@ To do so, we oganised the app around two ends : the Student and Kitchen.
 
 ## Login as a school : 
 
-- email : admin@yopmail.fr
+- email : school@yopmail.fr
 - password : password
 
 *The python script to scan qr code data can be found here: https://github.com/ryanzidago/qr_code_scanner*
