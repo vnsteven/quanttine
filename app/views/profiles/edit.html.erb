@@ -35,7 +35,8 @@
 									</div>
 								</div>
 								<div class="userData ml-3">
-									<h2 class="d-block" style="font-size: 1.5rem; font-weight: bold"><%=  @user.first_name %> <%= @user.last_name %></h2>
+									<h2 class="d-block" style="font-size: 1.5rem; font-weight: bold"><%=  @user.first_name %> <%= @user.last_name %></h2> 
+									<h5> <%= @school.name %> </h5>
 									<%= link_to 'Choisir mon menu', new_user_profile_user_meal_path(@user.id, @profile.id), class:"btn mr-2 choix-menu" %>
 									<%= link_to 'Editer', edit_user_registration_path, class:"btn btn-outline-primary mr-2",'data-toggle' => "modal", 'data-target' => "#modalEdit" %>
 									<%= link_to 'Voir mon QR code', edit_user_registration_path, class:"btn btn-outline-secondary mr-2", 'data-toggle' => "modal", 'data-target' => "#qr_code" %>
