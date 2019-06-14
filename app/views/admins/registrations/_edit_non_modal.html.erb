@@ -1,0 +1,74 @@
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header mini-navbar" style="padding-left: 200px;">
+        <h2 id="login-title">Editer</h2>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+      </div>
+
+      <div class="modal-body">
+
+        <%= form_for(resource_admin, as: resource_name_admin, url: registration_path(resource_name_admin), html: { method: :put }) do |f| %>
+        <%= render "devise/shared/error_messages", resource: resource_admin %>
+
+        <div class="form-inputs">
+
+          <div class="field form-groups">
+            <%= f.label :email %><br />
+            <div class="input-container">
+              <i class="fas fa-envelope icon"></i>
+              <%= f.email_field :email, class: "form-control input-field writing", autofocus: true, autocomplete: "Email" %>
+            </div>
+          </div>
+
+          <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+          <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+          <% end %>
+
+          <div class="field form-group">
+            <%= f.label "Nouveau mot de passe" %><br />
+            <div class="input-container">
+              <i class="fas fa-lock icon "></i>
+              <%= f.password_field :password, class: "form-control input-field writing", autocomplete: "new-password" %>
+              <% if @minimum_password_length %>
+              <br />
+              <em><%= @minimum_password_length %> characters minimum</em>
+              <% end %>
+            </div>
+          </div>
+
+          <div class="field form-group">
+            <%= f.label "Confirmation du mot de passe" %><br />
+            <div class="input-container">
+              <i class="fas fa-lock icon "></i>
+              <%= f.password_field :password_confirmation, class: "form-control input-field writing", autocomplete: "new-password" %>
+            </div>
+          </div>
+
+          <div class="field form-group">
+            <%= f.label "Mot de passe actuel" %><br />
+            <div class="input-container">
+              <i class="fas fa-key icon"></i>
+              <%= f.password_field :current_password, class: "form-control input-field writing", autocomplete: "current-password" %>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="modal-footer">
+          <div class="form-actions">
+            <%= f.submit "Mettre à jour", class: "btn", id:"btn-edit1" %>
+          </div>
+          <% end %>
+        </div>
+
+        <div class="modal-footer">
+          <div class="form-actions">
+            <p class="unhappy text-center">Pas satisfait ?</p>
+            <%= link_to "Se désabonner", new_payment_path, class: "btn btn-outline-danger" %>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
