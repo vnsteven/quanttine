@@ -11,7 +11,7 @@ class User < ApplicationRecord
   presence: true,
 	length: { in: 2..50 },
 	format: { without: /[!@#%*+;,?&()=0123456789]/ }
-  
+
   validate :school_exists
 
   private
