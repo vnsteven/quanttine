@@ -51,10 +51,12 @@
 		<i class="fas fa-graduation-cap"></i>
 		<span>Élèves</span>
 		<% end %>
+		<% @daily = DailyService.find_by(date: Date.today) %>
 		<div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
 			<div class="bg-white py-2 collapse-inner rounded">
 				<%= link_to "Liste des élèves", admin_profiles_path(current_admin.id), class: "collapse-item" %>
 				<%= link_to "Commandes des élèves", admin_preparing_user_meals_path(current_admin.id), class: "collapse-item" %>
+				<%= link_to "Service du jour", edit_admin_daily_service_path(current_admin.id, @daily.id), class: "collapse-item" %>
 			</div>
 		</div>
 	</li>
