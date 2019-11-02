@@ -22,7 +22,7 @@ gem 'rqrcode', '~> 0.10.1'
 gem 'stripe', '~> 4.18', '>= 4.18.1'
 
 # Flexible authentication solution for Rails with Warden
-gem 'devise', '~> 4.6', '>= 4.6.2'
+gem 'devise', '~> 4.7'
 # Autoload dotenv in Rails
 gem 'dotenv-rails', '~> 2.7', '>= 2.7.2'
 # Faker, a port of Data::Faker from Perl, is used to easily generate fake data: names, addresses, phone numbers, etc.
